@@ -23,8 +23,8 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,6 +36,8 @@ Partial Class Main
         Me.ButtonPlayoutStop = New System.Windows.Forms.Button()
         Me.ButtonPlayoutPlay = New System.Windows.Forms.Button()
         Me.DataGridViewPlayout = New System.Windows.Forms.DataGridView()
+        Me.MovieClip = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Duracion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBoxStatus = New System.Windows.Forms.PictureBox()
         Me.StatusLabel = New System.Windows.Forms.Label()
@@ -80,13 +82,13 @@ Partial Class Main
         Me.ButtonStopAudio = New System.Windows.Forms.Button()
         Me.CheckBoxLoopAudio = New System.Windows.Forms.CheckBox()
         Me.DataGridViewAudio = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ButtonPlayAudio = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
-        Me.MovieClip = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Duracion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
+        Me.UserControl11 = New NDIMonitorControlLibrary.UserControl1()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -124,7 +126,7 @@ Partial Class Main
         'ReloadMediaToolStripMenuItem
         '
         Me.ReloadMediaToolStripMenuItem.Name = "ReloadMediaToolStripMenuItem"
-        Me.ReloadMediaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReloadMediaToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ReloadMediaToolStripMenuItem.Text = "Reload Media"
         '
         'TableLayoutPanel1
@@ -248,12 +250,29 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(511, 156)
         Me.DataGridViewPlayout.TabIndex = 37
+        '
+        'MovieClip
+        '
+        Me.MovieClip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MovieClip.FillWeight = 97.00508!
+        Me.MovieClip.HeaderText = "MovieClip"
+        Me.MovieClip.Name = "MovieClip"
+        Me.MovieClip.ReadOnly = True
+        '
+        'Duracion
+        '
+        Me.Duracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.Duracion.FillWeight = 32.99492!
+        Me.Duracion.HeaderText = "Duracion"
+        Me.Duracion.Name = "Duracion"
+        Me.Duracion.ReadOnly = True
+        Me.Duracion.Width = 75
         '
         'Panel1
         '
@@ -354,6 +373,7 @@ Partial Class Main
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel11, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ElementHost1, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -767,12 +787,28 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(452, 156)
         Me.DataGridViewAudio.TabIndex = 44
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.HeaderText = "AudioFile"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.DataGridViewTextBoxColumn4.FillWeight = 30.0!
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Duracion"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 75
         '
         'ButtonPlayAudio
         '
@@ -800,38 +836,14 @@ Partial Class Main
         '
         Me.TimerCasparConnect.Interval = 2000
         '
-        'MovieClip
+        'ElementHost1
         '
-        Me.MovieClip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.MovieClip.FillWeight = 97.00508!
-        Me.MovieClip.HeaderText = "MovieClip"
-        Me.MovieClip.Name = "MovieClip"
-        Me.MovieClip.ReadOnly = True
-        '
-        'Duracion
-        '
-        Me.Duracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.Duracion.FillWeight = 32.99492!
-        Me.Duracion.HeaderText = "Duracion"
-        Me.Duracion.Name = "Duracion"
-        Me.Duracion.ReadOnly = True
-        Me.Duracion.Width = 75
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn3.HeaderText = "AudioFile"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.DataGridViewTextBoxColumn4.FillWeight = 30.0!
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Duracion"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 75
+        Me.ElementHost1.Location = New System.Drawing.Point(3, 3)
+        Me.ElementHost1.Name = "ElementHost1"
+        Me.ElementHost1.Size = New System.Drawing.Size(489, 325)
+        Me.ElementHost1.TabIndex = 1
+        Me.ElementHost1.Text = "ElementHost1"
+        Me.ElementHost1.Child = Me.UserControl11
         '
         'Main
         '
@@ -930,4 +942,6 @@ Partial Class Main
     Friend WithEvents Duracion As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents ElementHost1 As Integration.ElementHost
+    Friend UserControl11 As NDIMonitorControlLibrary.UserControl1
 End Class
