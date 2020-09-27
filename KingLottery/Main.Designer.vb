@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,14 @@ Partial Class Main
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -35,8 +36,6 @@ Partial Class Main
         Me.ButtonPlayoutStop = New System.Windows.Forms.Button()
         Me.ButtonPlayoutPlay = New System.Windows.Forms.Button()
         Me.DataGridViewPlayout = New System.Windows.Forms.DataGridView()
-        Me.MovieClip = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Duracion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBoxStatus = New System.Windows.Forms.PictureBox()
         Me.StatusLabel = New System.Windows.Forms.Label()
@@ -54,11 +53,15 @@ Partial Class Main
         Me.ComboBoxVertical2 = New System.Windows.Forms.ComboBox()
         Me.ComboBoxVertical1 = New System.Windows.Forms.ComboBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Button_Bumper_6 = New System.Windows.Forms.Button()
+        Me.Button_Bumper_3 = New System.Windows.Forms.Button()
+        Me.Button_Bumper_5 = New System.Windows.Forms.Button()
+        Me.Button_Bumper_2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button_Stop_Bumpers = New System.Windows.Forms.Button()
-        Me.Button_Outro = New System.Windows.Forms.Button()
-        Me.Button_Intro = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Button_Bumper_4 = New System.Windows.Forms.Button()
+        Me.Button_Bumper_1 = New System.Windows.Forms.Button()
+        Me.ProgressBarBumpers = New System.Windows.Forms.ProgressBar()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Button_Stop_Separadores = New System.Windows.Forms.Button()
         Me.Button_Separador_6 = New System.Windows.Forms.Button()
@@ -68,9 +71,8 @@ Partial Class Main
         Me.Button_Separador_2 = New System.Windows.Forms.Button()
         Me.Button_Separador_1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ProgressBar2 = New System.Windows.Forms.ProgressBar()
+        Me.ProgressBarSeparadores = New System.Windows.Forms.ProgressBar()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TrackBar1 = New System.Windows.Forms.TrackBar()
@@ -78,11 +80,13 @@ Partial Class Main
         Me.ButtonStopAudio = New System.Windows.Forms.Button()
         Me.CheckBoxLoopAudio = New System.Windows.Forms.CheckBox()
         Me.DataGridViewAudio = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ButtonPlayAudio = New System.Windows.Forms.Button()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
+        Me.MovieClip = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Duracion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -112,9 +116,16 @@ Partial Class Main
         '
         'DataToolStripMenuItem
         '
+        Me.DataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadMediaToolStripMenuItem})
         Me.DataToolStripMenuItem.Name = "DataToolStripMenuItem"
         Me.DataToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
         Me.DataToolStripMenuItem.Text = "Data"
+        '
+        'ReloadMediaToolStripMenuItem
+        '
+        Me.ReloadMediaToolStripMenuItem.Name = "ReloadMediaToolStripMenuItem"
+        Me.ReloadMediaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReloadMediaToolStripMenuItem.Text = "Reload Media"
         '
         'TableLayoutPanel1
         '
@@ -130,10 +141,10 @@ Partial Class Main
         Me.TableLayoutPanel1.Controls.Add(Me.Panel5, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel6, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel10, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Panel12, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel7, 2, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel9, 1, 3)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Enabled = False
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 24)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 5
@@ -180,6 +191,7 @@ Partial Class Main
         Me.ProgressBarVideo.Name = "ProgressBarVideo"
         Me.ProgressBarVideo.Size = New System.Drawing.Size(307, 21)
         Me.ProgressBarVideo.TabIndex = 22
+        Me.ProgressBarVideo.Tag = "READY"
         '
         'CheckBoxPlayoutLoop
         '
@@ -236,25 +248,12 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(511, 156)
         Me.DataGridViewPlayout.TabIndex = 37
-        '
-        'MovieClip
-        '
-        Me.MovieClip.HeaderText = "MovieClip"
-        Me.MovieClip.Name = "MovieClip"
-        Me.MovieClip.ReadOnly = True
-        '
-        'Duracion
-        '
-        Me.Duracion.FillWeight = 30.0!
-        Me.Duracion.HeaderText = "Duracion"
-        Me.Duracion.Name = "Duracion"
-        Me.Duracion.ReadOnly = True
         '
         'Panel1
         '
@@ -428,16 +427,64 @@ Partial Class Main
         'Panel5
         '
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.Button_Bumper_6)
+        Me.Panel5.Controls.Add(Me.Button_Bumper_3)
+        Me.Panel5.Controls.Add(Me.Button_Bumper_5)
+        Me.Panel5.Controls.Add(Me.Button_Bumper_2)
         Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Controls.Add(Me.Button_Stop_Bumpers)
-        Me.Panel5.Controls.Add(Me.Button_Outro)
-        Me.Panel5.Controls.Add(Me.Button_Intro)
-        Me.Panel5.Controls.Add(Me.ProgressBar1)
+        Me.Panel5.Controls.Add(Me.Button_Bumper_4)
+        Me.Panel5.Controls.Add(Me.Button_Bumper_1)
+        Me.Panel5.Controls.Add(Me.ProgressBarBumpers)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(529, 53)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(520, 176)
         Me.Panel5.TabIndex = 4
+        '
+        'Button_Bumper_6
+        '
+        Me.Button_Bumper_6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_6.Location = New System.Drawing.Point(372, 83)
+        Me.Button_Bumper_6.Name = "Button_Bumper_6"
+        Me.Button_Bumper_6.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_6.TabIndex = 57
+        Me.Button_Bumper_6.Tag = "54"
+        Me.Button_Bumper_6.Text = "Bumper corto"
+        Me.Button_Bumper_6.UseVisualStyleBackColor = True
+        '
+        'Button_Bumper_3
+        '
+        Me.Button_Bumper_3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_3.Location = New System.Drawing.Point(374, 34)
+        Me.Button_Bumper_3.Name = "Button_Bumper_3"
+        Me.Button_Bumper_3.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_3.TabIndex = 56
+        Me.Button_Bumper_3.Tag = "51"
+        Me.Button_Bumper_3.Text = "Loop"
+        Me.Button_Bumper_3.UseVisualStyleBackColor = True
+        '
+        'Button_Bumper_5
+        '
+        Me.Button_Bumper_5.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_5.Location = New System.Drawing.Point(198, 83)
+        Me.Button_Bumper_5.Name = "Button_Bumper_5"
+        Me.Button_Bumper_5.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_5.TabIndex = 55
+        Me.Button_Bumper_5.Tag = "54"
+        Me.Button_Bumper_5.Text = "Bumper corto"
+        Me.Button_Bumper_5.UseVisualStyleBackColor = True
+        '
+        'Button_Bumper_2
+        '
+        Me.Button_Bumper_2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_2.Location = New System.Drawing.Point(198, 34)
+        Me.Button_Bumper_2.Name = "Button_Bumper_2"
+        Me.Button_Bumper_2.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_2.TabIndex = 54
+        Me.Button_Bumper_2.Tag = "51"
+        Me.Button_Bumper_2.Text = "Intermedio largo"
+        Me.Button_Bumper_2.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -458,7 +505,7 @@ Partial Class Main
         Me.Button_Stop_Bumpers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Stop_Bumpers.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Stop_Bumpers.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button_Stop_Bumpers.Location = New System.Drawing.Point(361, 59)
+        Me.Button_Stop_Bumpers.Location = New System.Drawing.Point(326, 138)
         Me.Button_Stop_Bumpers.Margin = New System.Windows.Forms.Padding(0)
         Me.Button_Stop_Bumpers.Name = "Button_Stop_Bumpers"
         Me.Button_Stop_Bumpers.Size = New System.Drawing.Size(110, 30)
@@ -466,36 +513,36 @@ Partial Class Main
         Me.Button_Stop_Bumpers.Text = "Stop All"
         Me.Button_Stop_Bumpers.UseVisualStyleBackColor = False
         '
-        'Button_Outro
+        'Button_Bumper_4
         '
-        Me.Button_Outro.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Outro.Location = New System.Drawing.Point(20, 89)
-        Me.Button_Outro.Name = "Button_Outro"
-        Me.Button_Outro.Size = New System.Drawing.Size(101, 27)
-        Me.Button_Outro.TabIndex = 21
-        Me.Button_Outro.Tag = "54"
-        Me.Button_Outro.Text = "Outro"
-        Me.Button_Outro.UseVisualStyleBackColor = True
+        Me.Button_Bumper_4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_4.Location = New System.Drawing.Point(22, 87)
+        Me.Button_Bumper_4.Name = "Button_Bumper_4"
+        Me.Button_Bumper_4.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_4.TabIndex = 21
+        Me.Button_Bumper_4.Tag = "54"
+        Me.Button_Bumper_4.Text = "Bumper corto"
+        Me.Button_Bumper_4.UseVisualStyleBackColor = True
         '
-        'Button_Intro
+        'Button_Bumper_1
         '
-        Me.Button_Intro.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Intro.Location = New System.Drawing.Point(20, 36)
-        Me.Button_Intro.Name = "Button_Intro"
-        Me.Button_Intro.Size = New System.Drawing.Size(101, 29)
-        Me.Button_Intro.TabIndex = 20
-        Me.Button_Intro.Tag = "51"
-        Me.Button_Intro.Text = "Intro"
-        Me.Button_Intro.UseVisualStyleBackColor = True
+        Me.Button_Bumper_1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button_Bumper_1.Location = New System.Drawing.Point(22, 34)
+        Me.Button_Bumper_1.Name = "Button_Bumper_1"
+        Me.Button_Bumper_1.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Bumper_1.TabIndex = 20
+        Me.Button_Bumper_1.Tag = "51"
+        Me.Button_Bumper_1.Text = "Opening"
+        Me.Button_Bumper_1.UseVisualStyleBackColor = True
         '
-        'ProgressBar1
+        'ProgressBarBumpers
         '
-        Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(344, 136)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(159, 23)
-        Me.ProgressBar1.TabIndex = 19
-        Me.ProgressBar1.Tag = "51"
+        Me.ProgressBarBumpers.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBarBumpers.Location = New System.Drawing.Point(86, 142)
+        Me.ProgressBarBumpers.Name = "ProgressBarBumpers"
+        Me.ProgressBarBumpers.Size = New System.Drawing.Size(159, 23)
+        Me.ProgressBarBumpers.TabIndex = 19
+        Me.ProgressBarBumpers.Tag = "READY"
         '
         'Panel6
         '
@@ -508,7 +555,7 @@ Partial Class Main
         Me.Panel6.Controls.Add(Me.Button_Separador_2)
         Me.Panel6.Controls.Add(Me.Button_Separador_1)
         Me.Panel6.Controls.Add(Me.Label3)
-        Me.Panel6.Controls.Add(Me.ProgressBar2)
+        Me.Panel6.Controls.Add(Me.ProgressBarSeparadores)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(529, 235)
         Me.Panel6.Name = "Panel6"
@@ -522,7 +569,7 @@ Partial Class Main
         Me.Button_Stop_Separadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Stop_Separadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Stop_Separadores.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button_Stop_Separadores.Location = New System.Drawing.Point(361, 60)
+        Me.Button_Stop_Separadores.Location = New System.Drawing.Point(326, 138)
         Me.Button_Stop_Separadores.Margin = New System.Windows.Forms.Padding(0)
         Me.Button_Stop_Separadores.Name = "Button_Stop_Separadores"
         Me.Button_Stop_Separadores.Size = New System.Drawing.Size(110, 30)
@@ -533,9 +580,9 @@ Partial Class Main
         'Button_Separador_6
         '
         Me.Button_Separador_6.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_6.Location = New System.Drawing.Point(199, 105)
+        Me.Button_Separador_6.Location = New System.Drawing.Point(374, 89)
         Me.Button_Separador_6.Name = "Button_Separador_6"
-        Me.Button_Separador_6.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_6.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_6.TabIndex = 60
         Me.Button_Separador_6.Tag = "53"
         Me.Button_Separador_6.Text = "Separador_6"
@@ -544,9 +591,9 @@ Partial Class Main
         'Button_Separador_5
         '
         Me.Button_Separador_5.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_5.Location = New System.Drawing.Point(110, 105)
+        Me.Button_Separador_5.Location = New System.Drawing.Point(200, 89)
         Me.Button_Separador_5.Name = "Button_Separador_5"
-        Me.Button_Separador_5.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_5.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_5.TabIndex = 59
         Me.Button_Separador_5.Tag = "52"
         Me.Button_Separador_5.Text = "Separador_5"
@@ -555,9 +602,9 @@ Partial Class Main
         'Button_Separador_4
         '
         Me.Button_Separador_4.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_4.Location = New System.Drawing.Point(23, 105)
+        Me.Button_Separador_4.Location = New System.Drawing.Point(22, 89)
         Me.Button_Separador_4.Name = "Button_Separador_4"
-        Me.Button_Separador_4.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_4.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_4.TabIndex = 58
         Me.Button_Separador_4.Tag = "53"
         Me.Button_Separador_4.Text = "Separador_4"
@@ -566,9 +613,9 @@ Partial Class Main
         'Button_Separador_3
         '
         Me.Button_Separador_3.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_3.Location = New System.Drawing.Point(199, 50)
+        Me.Button_Separador_3.Location = New System.Drawing.Point(374, 34)
         Me.Button_Separador_3.Name = "Button_Separador_3"
-        Me.Button_Separador_3.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_3.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_3.TabIndex = 57
         Me.Button_Separador_3.Tag = "53"
         Me.Button_Separador_3.Text = "Separador_3"
@@ -577,9 +624,9 @@ Partial Class Main
         'Button_Separador_2
         '
         Me.Button_Separador_2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_2.Location = New System.Drawing.Point(110, 50)
+        Me.Button_Separador_2.Location = New System.Drawing.Point(200, 34)
         Me.Button_Separador_2.Name = "Button_Separador_2"
-        Me.Button_Separador_2.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_2.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_2.TabIndex = 56
         Me.Button_Separador_2.Tag = "52"
         Me.Button_Separador_2.Text = "Separador_2"
@@ -588,9 +635,9 @@ Partial Class Main
         'Button_Separador_1
         '
         Me.Button_Separador_1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button_Separador_1.Location = New System.Drawing.Point(23, 50)
+        Me.Button_Separador_1.Location = New System.Drawing.Point(22, 34)
         Me.Button_Separador_1.Name = "Button_Separador_1"
-        Me.Button_Separador_1.Size = New System.Drawing.Size(81, 40)
+        Me.Button_Separador_1.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_1.TabIndex = 55
         Me.Button_Separador_1.Tag = "52"
         Me.Button_Separador_1.Text = "Separador_1"
@@ -608,14 +655,14 @@ Partial Class Main
         Me.Label3.Text = "Separadores"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'ProgressBar2
+        'ProgressBarSeparadores
         '
-        Me.ProgressBar2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar2.Location = New System.Drawing.Point(344, 122)
-        Me.ProgressBar2.Name = "ProgressBar2"
-        Me.ProgressBar2.Size = New System.Drawing.Size(159, 23)
-        Me.ProgressBar2.TabIndex = 20
-        Me.ProgressBar2.Tag = "52"
+        Me.ProgressBarSeparadores.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBarSeparadores.Location = New System.Drawing.Point(86, 142)
+        Me.ProgressBarSeparadores.Name = "ProgressBarSeparadores"
+        Me.ProgressBarSeparadores.Size = New System.Drawing.Size(159, 23)
+        Me.ProgressBarSeparadores.TabIndex = 20
+        Me.ProgressBarSeparadores.Tag = "READY"
         '
         'Panel10
         '
@@ -623,19 +670,8 @@ Partial Class Main
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel10.Location = New System.Drawing.Point(3, 53)
         Me.Panel10.Name = "Panel10"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Panel10, 2)
-        Me.Panel10.Size = New System.Drawing.Size(520, 358)
+        Me.Panel10.Size = New System.Drawing.Size(520, 176)
         Me.Panel10.TabIndex = 9
-        '
-        'Panel12
-        '
-        Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel12.Location = New System.Drawing.Point(3, 417)
-        Me.Panel12.Name = "Panel12"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Panel12, 2)
-        Me.Panel12.Size = New System.Drawing.Size(520, 359)
-        Me.Panel12.TabIndex = 11
         '
         'Panel7
         '
@@ -683,10 +719,11 @@ Partial Class Main
         '
         Me.ProgressBarAudio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBarAudio.Location = New System.Drawing.Point(129, 196)
+        Me.ProgressBarAudio.Location = New System.Drawing.Point(129, 193)
         Me.ProgressBarAudio.Name = "ProgressBarAudio"
         Me.ProgressBarAudio.Size = New System.Drawing.Size(308, 21)
         Me.ProgressBarAudio.TabIndex = 45
+        Me.ProgressBarAudio.Tag = "READY"
         '
         'ButtonStopAudio
         '
@@ -694,7 +731,7 @@ Partial Class Main
         Me.ButtonStopAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonStopAudio.BackColor = System.Drawing.Color.LightCoral
         Me.ButtonStopAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonStopAudio.Location = New System.Drawing.Point(456, 192)
+        Me.ButtonStopAudio.Location = New System.Drawing.Point(455, 191)
         Me.ButtonStopAudio.Name = "ButtonStopAudio"
         Me.ButtonStopAudio.Size = New System.Drawing.Size(60, 25)
         Me.ButtonStopAudio.TabIndex = 48
@@ -706,7 +743,7 @@ Partial Class Main
         Me.CheckBoxLoopAudio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBoxLoopAudio.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxLoopAudio.AutoSize = True
-        Me.CheckBoxLoopAudio.Location = New System.Drawing.Point(66, 197)
+        Me.CheckBoxLoopAudio.Location = New System.Drawing.Point(67, 194)
         Me.CheckBoxLoopAudio.Name = "CheckBoxLoopAudio"
         Me.CheckBoxLoopAudio.Size = New System.Drawing.Size(41, 23)
         Me.CheckBoxLoopAudio.TabIndex = 49
@@ -730,25 +767,12 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(452, 156)
         Me.DataGridViewAudio.TabIndex = 44
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "AudioFile"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.FillWeight = 30.0!
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Duracion"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'ButtonPlayAudio
         '
@@ -756,7 +780,7 @@ Partial Class Main
         Me.ButtonPlayAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonPlayAudio.BackColor = System.Drawing.Color.GreenYellow
         Me.ButtonPlayAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonPlayAudio.Location = New System.Drawing.Point(3, 194)
+        Me.ButtonPlayAudio.Location = New System.Drawing.Point(4, 191)
         Me.ButtonPlayAudio.Name = "ButtonPlayAudio"
         Me.ButtonPlayAudio.Size = New System.Drawing.Size(60, 25)
         Me.ButtonPlayAudio.TabIndex = 47
@@ -775,6 +799,39 @@ Partial Class Main
         'TimerCasparConnect
         '
         Me.TimerCasparConnect.Interval = 2000
+        '
+        'MovieClip
+        '
+        Me.MovieClip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MovieClip.FillWeight = 97.00508!
+        Me.MovieClip.HeaderText = "MovieClip"
+        Me.MovieClip.Name = "MovieClip"
+        Me.MovieClip.ReadOnly = True
+        '
+        'Duracion
+        '
+        Me.Duracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.Duracion.FillWeight = 32.99492!
+        Me.Duracion.HeaderText = "Duracion"
+        Me.Duracion.Name = "Duracion"
+        Me.Duracion.ReadOnly = True
+        Me.Duracion.Width = 75
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.HeaderText = "AudioFile"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.DataGridViewTextBoxColumn4.FillWeight = 30.0!
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Duracion"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 75
         '
         'Main
         '
@@ -821,7 +878,6 @@ Partial Class Main
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel10 As Panel
-    Friend WithEvents Panel12 As Panel
     Friend WithEvents PictureBoxStatus As PictureBox
     Friend WithEvents StatusLabel As Label
     Friend WithEvents LabelUser As Label
@@ -832,8 +888,6 @@ Partial Class Main
     Friend WithEvents ButtonPlayoutStop As Button
     Friend WithEvents ButtonPlayoutPlay As Button
     Friend WithEvents DataGridViewPlayout As DataGridView
-    Friend WithEvents MovieClip As DataGridViewTextBoxColumn
-    Friend WithEvents Duracion As DataGridViewTextBoxColumn
     Friend WithEvents LabelVersion As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Panel7 As Panel
@@ -842,14 +896,12 @@ Partial Class Main
     Friend WithEvents ButtonStopAudio As Button
     Friend WithEvents CheckBoxLoopAudio As CheckBox
     Friend WithEvents DataGridViewAudio As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents ButtonPlayAudio As Button
     Friend WithEvents Panel9 As Panel
     Friend WithEvents TimerCasparConnect As Timer
-    Friend WithEvents Button_Outro As Button
-    Friend WithEvents Button_Intro As Button
-    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents Button_Bumper_4 As Button
+    Friend WithEvents Button_Bumper_1 As Button
+    Friend WithEvents ProgressBarBumpers As ProgressBar
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Label11 As Label
     Friend WithEvents Label8 As Label
@@ -857,7 +909,7 @@ Partial Class Main
     Friend WithEvents ComboBoxVertical1 As ComboBox
     Friend WithEvents ButtonPlaySyncVertical As Button
     Friend WithEvents Button_Stop_Bumpers As Button
-    Friend WithEvents ProgressBar2 As ProgressBar
+    Friend WithEvents ProgressBarSeparadores As ProgressBar
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -869,4 +921,13 @@ Partial Class Main
     Friend WithEvents Button_Separador_2 As Button
     Friend WithEvents Button_Separador_1 As Button
     Friend WithEvents Button_Stop_Separadores As Button
+    Friend WithEvents Button_Bumper_6 As Button
+    Friend WithEvents Button_Bumper_3 As Button
+    Friend WithEvents Button_Bumper_5 As Button
+    Friend WithEvents Button_Bumper_2 As Button
+    Friend WithEvents ReloadMediaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MovieClip As DataGridViewTextBoxColumn
+    Friend WithEvents Duracion As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class

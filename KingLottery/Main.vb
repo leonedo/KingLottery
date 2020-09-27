@@ -17,7 +17,7 @@ Imports System.Timers
 Imports System.Threading
 
 Public Class Main
-    Const Version = "1.0.2" '
+    Const Version = "0.0.2" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
@@ -50,7 +50,23 @@ Public Class Main
 #End Region
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        '  CheckAndKillExistingCasparProcess()
+        ' Dim login As New FormaLogin
+        'If login.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        ' LabelModo.Text = $"Modo Ensayo: {SorteoDeHoy.ToString("0000")}"
+        LabelVersion.Text = $"Version: {Version}"
+            ConfigureIOC()
+            CasparDevice = _container.Resolve(Of ICasparDevice)()
+        '   If Not login.ComboBox1.SelectedIndex = 2 Then 
+        StartCasparcgServer()
+        '  If login.ComboBox1.SelectedIndex = 0 Then AdminToolStripMenuItem.Visible = False
+        ' Auth(login.ComboBox1.SelectedIndex)
+        'LoadDataSource()
+        'SetupComboxes()
+        'Else
+        'Me.Close()
+        'End If
+        'login.Dispose()
     End Sub
 
     Private Sub FormPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -71,29 +87,13 @@ Public Class Main
 
     Sub StartCasparcgServer()
         Try
-            If IsCasparCGAlreadyRunning() Then
-                StopServer()
-            End If
+            CheckAndKillExistingCasparProcess()
 
             If File.Exists(My.Settings.ScannerPath) Then
                 My.Settings.UseScanner = True
             Else
                 My.Settings.UseScanner = False
 
-            End If
-            If My.Settings.UseScanner Then
-                ScannerProcess = New Process With {
-                    .EnableRaisingEvents = True
-                }
-                ScannerProcess.StartInfo.FileName = My.Settings.ScannerPath
-                ScannerProcess.StartInfo.WorkingDirectory = Path.GetDirectoryName(My.Settings.ScannerPath)   'Importante para el funcionamiento del server
-                ScannerProcess.StartInfo.CreateNoWindow = True
-                ScannerProcess.StartInfo.UseShellExecute = False
-                ScannerProcess.StartInfo.RedirectStandardOutput = True
-                ScannerProcess.StartInfo.RedirectStandardInput = True
-                ScannerProcess.Start()
-                AddHandler ScannerProcess.OutputDataReceived, AddressOf OnProcessOutputDataScanner
-                ScannerProcess.BeginOutputReadLine()
             End If
 
             Process = New Process With {
@@ -110,8 +110,22 @@ Public Class Main
             AddHandler Process.OutputDataReceived, AddressOf OnProcessOutputData
             Process.BeginOutputReadLine()
 
+            If My.Settings.UseScanner Then
+                ScannerProcess = New Process With {
+                    .EnableRaisingEvents = True
+                }
+                ScannerProcess.StartInfo.FileName = My.Settings.ScannerPath
+                ScannerProcess.StartInfo.WorkingDirectory = Path.GetDirectoryName(My.Settings.ScannerPath)   'Importante para el funcionamiento del server
+                ScannerProcess.StartInfo.CreateNoWindow = True
+                ScannerProcess.StartInfo.UseShellExecute = False
+                ScannerProcess.StartInfo.RedirectStandardOutput = True
+                ScannerProcess.StartInfo.RedirectStandardInput = True
+                ScannerProcess.Start()
+                AddHandler ScannerProcess.OutputDataReceived, AddressOf OnProcessOutputDataScanner
+                ScannerProcess.BeginOutputReadLine()
+            End If
 
-            Threading.Thread.Sleep(2000)
+            Threading.Thread.Sleep(500)
             TimerCasparConnect.Start()
         Catch ex As Exception
             MessageBox.Show("Error Iniciando Servidor Grafico")
@@ -126,16 +140,18 @@ Public Class Main
             Threading.Thread.Sleep(500)
             CasparDevice.Disconnect()
             Threading.Thread.Sleep(500)
-            If Process IsNot Nothing Then
-                RemoveHandler Process.OutputDataReceived, AddressOf OnProcessOutputData
-                Process.Kill()
-            End If
 
-            If ScannerProcess IsNot Nothing Then
+
+            If ScannerProcess IsNot Nothing AndAlso Not ScannerProcess.HasExited Then
                 RemoveHandler ScannerProcess.OutputDataReceived, AddressOf OnProcessOutputDataScanner
                 ScannerProcess.Kill()
                 ScannerProcess.WaitForExit()
                 ScannerProcess.Dispose()
+            End If
+
+            If Process IsNot Nothing AndAlso Not Process.HasExited Then
+                RemoveHandler Process.OutputDataReceived, AddressOf OnProcessOutputData
+                Process.Kill()
             End If
             Process.WaitForExit()
             Process.Dispose()
@@ -147,20 +163,29 @@ Public Class Main
     Sub CheckAndKillExistingCasparProcess()
         For Each proc As Process In Process.GetProcessesByName("casparcg")
             proc.CloseMainWindow() 'ask the process to exit.
-            proc.WaitForExit(5000) 'wait up to 10 seconds.
+            proc.WaitForExit(100) 'wait up to 0.1 seconds.
             If Not proc.HasExited Then
                 proc.Kill() 'force the process to exit.
             End If
         Next proc
+
+        For Each proc As Process In Process.GetProcessesByName("scanner")
+            proc.CloseMainWindow() 'ask the process to exit.
+            proc.WaitForExit(100) 'wait up to 0.1 seconds.
+            If Not proc.HasExited Then
+                proc.Kill() 'force the process to exit.
+            End If
+        Next proc
+
     End Sub
 
     Private Sub ConfiguraCanales()
         Try
             Canal_PGM = CasparDevice.Channels.First(Function(x) x.ID = PGM)
-            Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
-            Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
-            Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
-            Canal_Ver_3 = CasparDevice.Channels.First(Function(x) x.ID = VER3)
+            ' Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
+            ' Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
+            ' Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
+            ' Canal_Ver_3 = CasparDevice.Channels.First(Function(x) x.ID = VER3)
             LabelVersion.Text = $"{Version} / {CasparDevice.GetVersion.Substring(0, 5)}"
             TableLayoutPanel1.Enabled = True
         Catch ex As Exception
@@ -187,18 +212,15 @@ Public Class Main
             'ScannerBox.ScrollToCaret()
         End If
     End Sub
-    Public Function IsCasparCGAlreadyRunning() As Boolean
-        Dim procExists As Boolean = Process.GetProcesses().Any(Function(p) p.ProcessName.Contains("casparcg"))
-        Return procExists
-    End Function
+
 
     Private Sub TimerCasparConnect_Tick(sender As Object, e As EventArgs) Handles TimerCasparConnect.Tick
         '  Timer siempre activo que verifica la conexion con el servidor de casparCG
         Try
-            If CasparDevice.IsConnected = True AndAlso CasparDevice.Channels.Count > 1 Then
-
+            If CasparDevice.IsConnected = True AndAlso CasparDevice.Channels.Count > 0 Then
                 StatusLabel.Text = "Conectado al Servidor"
                 PictureBoxStatus.Image = My.Resources.green
+
             Else
                 If CasparDevice.IsConnected Then CasparDevice.GetInfo()
                 StatusLabel.Text = "No Conectado al Servidor"
@@ -216,9 +238,8 @@ Public Class Main
                                        DataGridViewPlayout.Rows.Clear()
                                        DataGridViewAudio.Rows.Clear()
                                        For Each file In CasparDevice.Mediafiles
-
-                                           If file.FullName.Contains("CLIPS") Then DataGridViewPlayout.Rows.Add({file.FullName.Replace("\", "/"), file.Frames})
-                                           If file.FullName.Contains("AUDIOS") Then DataGridViewAudio.Rows.Add({file.FullName.Replace("\", "/"), file.Frames})
+                                           If file.FullName.Contains("VIDEOSERVER") Then DataGridViewPlayout.Rows.Add({file.FullName.Replace("\", "/"), (file.Frames / file.Fps).ToString("F")})
+                                           If file.FullName.Contains("AUDIOSERVER") Then DataGridViewAudio.Rows.Add({file.FullName.Replace("\", "/"), (file.Frames / file.Fps).ToString("F")})
                                        Next
                                    End Sub)
         LoadMediaDataSource()
@@ -230,7 +251,7 @@ Public Class Main
             New MediaInfo With {.Name = "-", .FullName = "STOP"} ' Fake Item to Stop the player
             }
         For Each item As MediaInfo In CasparDevice.Mediafiles
-            If item.FullName.Contains("LOOPS_VERTICALES") Then
+            If item.FullName.Contains("VERTICALES") Then
                 media.Add(item)
             End If
         Next
@@ -249,6 +270,8 @@ Public Class Main
             ConfigOscServer()
             ConfiguraCanales()
             CasparDevice.GetMediafilesAsync()
+            StatusLabel.Text = "Conectado al Servidor"
+            PictureBoxStatus.Image = My.Resources.green
 
             'RadioButton_Verticales.Checked = True 'SetMultiview()
             '  CasparDevice.RefreshTemplates()
@@ -311,28 +334,21 @@ Public Class Main
     End Sub
 
     Private Sub TimeMessageFromOSC(layer As Integer, message As OscMessage)
+        Dim pb = ProgressBarVideo
         Select Case layer
             Case LayerBumpers
-
-                'ProgressBar1.Invoke(Sub()
-                '                        UpdateProgressBar(ProgressBar1, layer, message)
-                '                    End Sub)
+                pb = ProgressBarBumpers
             Case LayerSeparadores
-                'ProgressBar2.Invoke(Sub()
-                '                        UpdateProgressBar(ProgressBar2, layer, message)
-                '                    End Sub)
-
+                pb = ProgressBarSeparadores
             Case LayerVideoPlayer
-                ProgressBarVideo.Invoke(Sub()
-                                            UpdateProgressBar(ProgressBarVideo, layer, message)
-                                        End Sub)
+                pb = ProgressBarVideo
             Case LayerAudioPlayer
-                ProgressBarAudio.Invoke(Sub()
-                                            UpdateProgressBar(ProgressBarAudio, layer, message)
-                                        End Sub)
+                pb = ProgressBarAudio
         End Select
 
-
+        pb.Invoke(Sub()
+                      UpdateProgressBar(pb, layer, message)
+                  End Sub)
 
     End Sub
 
@@ -341,57 +357,84 @@ Public Class Main
 
         progressBar.Maximum = CInt(mensaje.Data(1) * 100)
 
-        If CInt(mensaje.Data(1)) > 0 AndAlso CDec(mensaje.Data(1) - mensaje.Data(0)) < 0.1 Then
+        If CDec(mensaje.Data(1)) > 0 AndAlso CDec(mensaje.Data(1) - mensaje.Data(0)) < 0.1 Then
             progressBar.Value = CInt(mensaje.Data(1) * 100)
+            '  progressBar.Tag = "NO"
             StopPlayGeneral(layer)
-            progressBar.Value = 0
-        Else
+            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(progressBar))
+            thread.Start()
+
+        Else 'If progressBar.Tag Is "READY" Then
             progressBar.Value = CInt(mensaje.Data(0) * 100)
         End If
     End Sub
 
 #End Region
 
-#Region "Bumpers generales y players"
-    Private Sub Button_Play_Bumpers_Click(sender As Object, e As EventArgs) Handles Button_Intro.Click, Button_Outro.Click
+#Region "MenuBar"
+    Private Sub ReloadMediaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadMediaToolStripMenuItem.Click
+        If CasparDevice.IsConnected Then
+            CasparDevice.GetMediafilesAsync()
+        Else
+            MessageBox.Show("No Conectado al server")
+        End If
+    End Sub
+#End Region
 
-        Dim bumper = New CasparPlayingInfoItem(LayerBumpers, $"Bumpers/{sender.text}")
+#Region "Bumpers generales y players"
+    Private Sub Button_Play_Bumpers_Click(sender As Object, e As EventArgs) Handles Button_Bumper_1.Click, Button_Bumper_2.Click, Button_Bumper_3.Click, Button_Bumper_4.Click,
+                                                                                    Button_Bumper_5.Click, Button_Bumper_6.Click
+        Dim bumper = New CasparPlayingInfoItem(LayerBumpers, $"""Bumpers/{sender.text}""")
         Canal_PGM.LoadBG(bumper, False)
-        Canal_PGM.Play(sender.tag)
+        Canal_PGM.Play(LayerBumpers)
+        ProgressBarBumpers.Tag = sender.text
     End Sub
 
-    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_1.Click, Button_Separador_2.Click,
+    Private Sub Button_Bumpers_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_Bumper_1.MouseDown, Button_Bumper_2.MouseDown, Button_Bumper_3.MouseDown, Button_Bumper_4.MouseDown,
+                                                                                         Button_Bumper_5.MouseDown, Button_Bumper_6.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim configura As New videobutton(CasparDevice.Mediafiles, sender, "BUMPERS")
+            configura.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub Button_Play_Separadores_Click(sender As Object, e As MouseEventArgs) Handles Button_Separador_1.Click, Button_Separador_2.Click,
                                                                                    Button_Separador_3.Click, Button_Separador_4.Click, Button_Separador_5.Click, Button_Separador_6.Click
-        Dim bumper = New CasparPlayingInfoItem(LayerSeparadores, $"Bumpers/{sender.text}")
-        Canal_PGM.LoadBG(bumper, False)
-        Canal_PGM.Play(sender.tag)
+        Dim video = New CasparPlayingInfoItem(LayerSeparadores, $"""Separadores/{sender.text}""")
+        Canal_PGM.LoadBG(video, False)
+        Canal_PGM.Play(LayerSeparadores)
+    End Sub
+
+    Private Sub Button_Separador_1_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_Separador_1.MouseDown, Button_Separador_2.MouseDown,
+                                                                                   Button_Separador_3.MouseDown, Button_Separador_4.MouseDown, Button_Separador_5.MouseDown, Button_Separador_6.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim configura As New videobutton(CasparDevice.Mediafiles, sender, "SEPARADORES")
+            configura.ShowDialog()
+        End If
     End Sub
     Private Sub StopPlayGeneral(layer As Integer)
-        CasparDevice.Connection.SendString($"LOADBG {Canal_PGM.ID}-{layer} EMPTY MIX 20 AUTO")
-        Threading.Thread.Sleep(1000)
+        CasparDevice.Connection.SendString($"LOADBG {Canal_PGM.ID}-{layer} EMPTY MIX 5 AUTO")
+
     End Sub
 
     Private Sub Button_Stop_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Stop_Separadores.Click
         Canal_PGM.Stop(LayerSeparadores)
-        Dim thread As New Thread(AddressOf MyStopclearProgressThread)
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarSeparadores))
         thread.Start()
     End Sub
 
     Private Sub Button_Stop_Bumpers_Click(sender As Object, e As EventArgs) Handles Button_Stop_Bumpers.Click
         Canal_PGM.Stop(LayerBumpers)
-        Dim thread As New Thread(AddressOf MyStopclearProgressThread)
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarBumpers))
         thread.Start()
     End Sub
 
-    Sub MyStopclearProgressThread()
-        Threading.Thread.Sleep(1000)
+    Sub MyStopclearProgressThread(pb As ProgressBar)
+        Threading.Thread.Sleep(500)
         Try
-            Dim progressBars = {ProgressBar1, ProgressBar2}
-            For Each pb In progressBars
-                pb.Invoke(Sub()
-                              pb.Value = 0
-                          End Sub)
-            Next
+            pb.Invoke(Sub()
+                          pb.Value = 0
+                      End Sub)
         Catch ex As Exception
 
         End Try
@@ -409,7 +452,8 @@ Public Class Main
     Private Sub ButtonPlayoutStop_Click(sender As Object, e As EventArgs) Handles ButtonPlayoutStop.Click
         If CasparDevice.IsConnected Then
             CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerVideoPlayer} EMPTY MIX 5")
-            ProgressBarVideo.Value = 0
+            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarVideo))
+            thread.Start()
         End If
     End Sub
 
@@ -423,13 +467,15 @@ Public Class Main
 
     Private Sub ButtonStopAudio_Click(sender As Object, e As EventArgs) Handles ButtonStopAudio.Click
         CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerAudioPlayer} EMPTY MIX 5")
-        ProgressBarAudio.Value = 0
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarAudio))
+        thread.Start()
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
         Dim vol As Single = TrackBar1.Value / 10
         Canal_PGM.MixerManager.Volume(LayerAudioPlayer, vol, 10, StarDust.CasparCG.net.Models.Easing.Linear)
     End Sub
+
 
 
 

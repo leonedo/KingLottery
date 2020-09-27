@@ -134,6 +134,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="videobutton.Designer.vb">
+      <DependentUpon>videobutton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="videobutton.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">
@@ -144,6 +150,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="videobutton.resx">
+      <DependentUpon>videobutton.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
