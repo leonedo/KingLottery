@@ -24,7 +24,7 @@ namespace NDIMonitorControlLibrary
         {
             InitializeComponent();
             String computerName = Environment.MachineName;
-            String sourceName = System.Net.WebUtility.UrlEncode("PGM");
+            String sourceName = System.Net.WebUtility.UrlEncode("PVW");
             String sourceUriString = String.Format("ndi://{0}/{1}", computerName, sourceName);
 
             // If you want options passed to the uri, add them on now.
@@ -39,15 +39,16 @@ namespace NDIMonitorControlLibrary
                 VideoMediaElement.Source = sourceUri;
             }
         }
-        public void UpdateSourceWithString(String sourceUriString)
+        public void UpdateSourceWithString(String sourceUriString )
         {
             Uri sourceUri;
             if (Uri.TryCreate(sourceUriString, UriKind.Absolute, out sourceUri))
             {
                 VideoMediaElement.Source = sourceUri;
+               
             }
         }
-        public void UpdateSourceWithComponents(String computerName, String sourceName, Boolean lowQuality)
+        public void UpdateSourceWithComponents(String computerName, String sourceName, Boolean lowQuality,  double angulo)
         {
             String sourceUriString = String.Format("ndi://{0}/{1}", computerName, System.Net.WebUtility.UrlEncode(sourceName));
             if (lowQuality) { sourceUriString += "?low_quality=true"; }
@@ -55,6 +56,7 @@ namespace NDIMonitorControlLibrary
             if (Uri.TryCreate(sourceUriString, UriKind.Absolute, out sourceUri))
             {
                 VideoMediaElement.Source = sourceUri;
+                RotateVideoMediaElement.Angle = angulo;
             }
         }
         public void UpdateSourceWithUri(Uri sourceUri)

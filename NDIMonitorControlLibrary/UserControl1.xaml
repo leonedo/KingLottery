@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:NDIMonitorControlLibrary"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.LayoutTransform>
+        <RotateTransform x:Name="RotateVideoMediaElement" Angle="90" />
+    </UserControl.LayoutTransform>
     <Grid>
         <MediaElement x:Name="VideoMediaElement"/>
     </Grid>
 </UserControl>
+

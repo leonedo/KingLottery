@@ -24,7 +24,7 @@ Public Class Main
     Public Canal_PVW As ChannelManager
     Public Canal_Ver_1 As ChannelManager
     Public Canal_Ver_2 As ChannelManager
-    Public Canal_Ver_3 As ChannelManager
+    'Public Canal_Ver_3 As ChannelManager
     Private WithEvents Oscserver As OscServer
     Public Process As Process
     Public ScannerProcess As Process
@@ -40,7 +40,7 @@ Public Class Main
     Const PVW = 2
     Const VER1 = 3
     Const VER2 = 4
-    Const VER3 = 5
+    'Const VER3 = 5
     Const LayerVideoVertical = 10
     Const LayerTemplates = 20
     Const LayerBumpers = 50
@@ -50,6 +50,7 @@ Public Class Main
 #End Region
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetupLabels()
         '  CheckAndKillExistingCasparProcess()
         ' Dim login As New FormaLogin
         'If login.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
@@ -71,6 +72,33 @@ Public Class Main
 
     Private Sub FormPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         StopServer()
+    End Sub
+
+    Private Sub SetupLabels()
+        Label_SXM3_1.Parent = PictureBox1
+        Label_SXM3_1.BackColor = Color.Transparent
+        Label_SXM3_2.Parent = PictureBox1
+        Label_SXM3_2.BackColor = Color.Transparent
+        Label_SXM3_3.Parent = PictureBox1
+        Label_SXM3_3.BackColor = Color.Transparent
+
+        Label_SXM4_1.Parent = PictureBox2
+        Label_SXM4_1.BackColor = Color.Transparent
+        Label_SXM4_2.Parent = PictureBox2
+        Label_SXM4_2.BackColor = Color.Transparent
+        Label_SXM4_3.Parent = PictureBox2
+        Label_SXM4_3.BackColor = Color.Transparent
+        Label_SXM4_4.Parent = PictureBox2
+        Label_SXM4_4.BackColor = Color.Transparent
+
+        Label_PHI4_1.Parent = PictureBox3
+        Label_PHI4_1.BackColor = Color.Transparent
+        Label_PHI4_2.Parent = PictureBox3
+        Label_PHI4_2.BackColor = Color.Transparent
+        Label_PHI4_3.Parent = PictureBox3
+        Label_PHI4_3.BackColor = Color.Transparent
+        Label_PHI4_4.Parent = PictureBox3
+        Label_PHI4_4.BackColor = Color.Transparent
     End Sub
 
 #Region "CasparCg"
@@ -182,9 +210,9 @@ Public Class Main
     Private Sub ConfiguraCanales()
         Try
             Canal_PGM = CasparDevice.Channels.First(Function(x) x.ID = PGM)
-            ' Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
-            ' Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
-            ' Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
+            Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
+            Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
+            Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
             ' Canal_Ver_3 = CasparDevice.Channels.First(Function(x) x.ID = VER3)
             LabelVersion.Text = $"{Version} / {CasparDevice.GetVersion.Substring(0, 5)}"
             TableLayoutPanel1.Enabled = True
@@ -246,23 +274,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub LoadMediaDataSource()
-        Dim media As New List(Of MediaInfo) From {
-            New MediaInfo With {.Name = "-", .FullName = "STOP"} ' Fake Item to Stop the player
-            }
-        For Each item As MediaInfo In CasparDevice.Mediafiles
-            If item.FullName.Contains("VERTICALES") Then
-                media.Add(item)
-            End If
-        Next
-        'ComboBoxVertical1.DataSource = New BindingSource(media, "")
-        'ComboBoxVertical1.DisplayMember = "Name"
-        'ComboBoxVertical2.DataSource = New BindingSource(media, "")
-        'ComboBoxVertical2.DisplayMember = "Name"
-        'ComboBoxVertical3.DataSource = New BindingSource(media, "")
-        'ComboBoxVertical3.DisplayMember = "Name"
-
-    End Sub
 
     Private Sub ServerConnected() Handles CasparDevice.ConnectionStatusChanged
         If CasparDevice.IsConnected Then
@@ -273,7 +284,7 @@ Public Class Main
             StatusLabel.Text = "Conectado al Servidor"
             PictureBoxStatus.Image = My.Resources.green
 
-            'RadioButton_Verticales.Checked = True 'SetMultiview()
+            SetMultiview()
             '  CasparDevice.RefreshTemplates()
         End If
     End Sub
@@ -334,7 +345,8 @@ Public Class Main
     End Sub
 
     Private Sub TimeMessageFromOSC(layer As Integer, message As OscMessage)
-        Dim pb = ProgressBarVideo
+        Dim pb = Nothing
+
         Select Case layer
             Case LayerBumpers
                 pb = ProgressBarBumpers
@@ -346,9 +358,9 @@ Public Class Main
                 pb = ProgressBarAudio
         End Select
 
-        pb.Invoke(Sub()
-                      UpdateProgressBar(pb, layer, message)
-                  End Sub)
+        If pb IsNot Nothing Then pb.Invoke(Sub()
+                                               UpdateProgressBar(pb, layer, message)
+                                           End Sub)
 
     End Sub
 
@@ -476,10 +488,153 @@ Public Class Main
         Canal_PGM.MixerManager.Volume(LayerAudioPlayer, vol, 10, StarDust.CasparCG.net.Models.Easing.Linear)
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        UserControl11.UpdateSourceWithComponents(Environment.MachineName, "PGM", True, 90)
+    End Sub
+
+#End Region
+
+
+#Region "Clips Verticales"
+    Private Sub ComboBoxVertical1_SelectedIndexChanged(sender As ComboBox, e As EventArgs) Handles ComboBoxVertical1.SelectedIndexChanged, ComboBoxVertical2.SelectedIndexChanged
+        Dim canal As ChannelManager
+        Select Case sender.Tag
+            Case "2"
+                canal = Canal_Ver_2
+                '  Case "3"
+                '  canal = Canal_Ver_3
+            Case Else
+                canal = Canal_Ver_1
+        End Select
+        If sender.SelectedIndex > 0 Then
+            canal.Stop(LayerTemplates)
+            canal.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = sender.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .VideoLayer = LayerVideoVertical,
+                         .[Loop] = True
+                         })
+            canal.Play(LayerVideoVertical)
+        End If
+
+    End Sub
+
+    Private Sub ButtonPlaySyncVertical_Click(sender As Object, e As EventArgs) Handles ButtonPlaySyncVertical.Click
+
+        If ComboBoxVertical1.SelectedIndex > 0 Then
+            Canal_Ver_1.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = ComboBoxVertical1.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .VideoLayer = LayerVideoVertical,
+                         .[Loop] = True
+                         })
+        End If
+        If ComboBoxVertical2.SelectedIndex > 0 Then
+            Canal_Ver_2.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = ComboBoxVertical2.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .VideoLayer = LayerVideoVertical,
+                         .[Loop] = True
+                         })
+        End If
+        'If ComboBoxVertical3.SelectedIndex > 0 Then
+        '    Canal_Ver_3.LoadBG(New CasparPlayingInfoItem With {
+        '                 .Clipname = ComboBoxVertical3.SelectedValue.FullName.ToString.Replace("\", "/"),
+        '                 .VideoLayer = LayerVideoVertical,
+        '                 .[Loop] = True
+        '                 })
+        'End If
+        Canal_Ver_1.Play(LayerVideoVertical)
+        Canal_Ver_2.Play(LayerVideoVertical)
+        ' Canal_Ver_3.Play(LayerVideoVertical)
+    End Sub
+
+    Private Sub LoadMediaDataSource()
+        Dim media As New List(Of MediaInfo) From {
+            New MediaInfo With {.Name = "-", .FullName = "STOP"} ' Fake Item to Stop the player
+            }
+        For Each item As MediaInfo In CasparDevice.Mediafiles
+            If item.FullName.Contains("VERTICALES") Then
+                media.Add(item)
+            End If
+        Next
+        ComboBoxVertical1.DataSource = New BindingSource(media, "")
+        ComboBoxVertical1.DisplayMember = "Name"
+        ComboBoxVertical2.DataSource = New BindingSource(media, "")
+        ComboBoxVertical2.DisplayMember = "Name"
+
+
+    End Sub
+
+    Private Sub SetMultiview()
+        Canal_PVW.Clear()
+        CasparDevice.Connection.SendString($"PLAY {PVW}-10 route://{VER1}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-11 route://{VER2}")
+        ''CasparDevice.Connection.SendString($"PLAY {PVW}-12 route://{VER3}")
+
+        'CasparDevice.Connection.SendString($"Mixer {PVW}-10 ROTATION 90 1 Linear")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-10 MIPMAP 0")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-10 FILL 0.325 0.0138889 0.546875 0.546296 1 Linear")
+
+        'CasparDevice.Connection.SendString($"Mixer {PVW}-11 ROTATION 90 1 Linear")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-11 MIPMAP 0")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-11 FILL 0.654167 0.0138889 0.546875 0.546296 1 Linear")
+
+        'CasparDevice.Connection.SendString($"Mixer {PVW}-12 ROTATION 90 1 Linear")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-12 MIPMAP 0")
+        'CasparDevice.Connection.SendString($"MIXER {PVW}-12 FILL 0.98125 0.0138889 0.546875 0.546296 1 Linear")
+    End Sub
+
+
+#Region "Teclado Numerico"
+    Private Sub TextBoxNumero_TextChanged(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxNumero.KeyPress
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8)
+    End Sub
+    Private Sub TextBoxNumero_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNumero.TextChanged, TextBoxNumero.KeyPress
+        VerifyText()
+    End Sub
+
+    Sub VerifyText()
+        If String.Equals(ButtonNumero.Text, TextBoxNumero.Text) Then
+            ButtonOk.Enabled = True
+            ButtonOk.BackColor = SystemColors.GradientActiveCaption
+        Else
+            ButtonOk.Enabled = False
+            ButtonOk.BackColor = SystemColors.Control
+        End If
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button9.Click, Button8.Click, Button7.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button10.Click, Button1.Click
+        ButtonNumero.Text = sender.tag
+        VerifyText()
+        TextBoxNumero.Focus()
+    End Sub
+
+    Private Sub FormaNumber_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Enter And ButtonOk.Enabled Then
+            ' RaiseEvent Bolo_OK(New Bola With {.Bolo = Bolo, .Resultado = ButtonNumero.Text, .OK = True, .Sorteo = TipoSorteo})
+            'Clear()
+
+
+        Else
+            If Not TextBoxNumero.Focused Then
+                TextBoxNumero.Focus()
+                SendKeys.Send(e.KeyCode.ToString)
+            End If
+        End If
+    End Sub
+#End Region
 
 
 
-
+    'Private Sub RadioButton_PGM_CheckedChanged(sender As RadioButton, e As EventArgs) Handles RadioButton_Verticales.CheckedChanged, RadioButton_PGM.CheckedChanged
+    '    If sender.Checked Then
+    '        Select Case True
+    '            Case sender Is RadioButton_PGM
+    '                Canal_PVW.Clear()
+    '                CasparDevice.Connection.SendString($"PLAY {PVW}-13 route://{PGM}")
+    '            Case sender Is RadioButton_Verticales
+    '                SetMultiview()
+    '        End Select
+    '    End If
+    'End Sub
 #End Region
 
 End Class
