@@ -23,8 +23,8 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -106,7 +106,9 @@ Partial Class Main
         Me.Label_SXM4_1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.ButtonNumero = New System.Windows.Forms.Button()
+        Me.LabelNumero = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
@@ -126,7 +128,6 @@ Partial Class Main
         Me.Label7 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel8.SuspendLayout()
@@ -152,6 +153,7 @@ Partial Class Main
         Me.Panel10.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel16.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel15.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -300,8 +302,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 153)
@@ -843,8 +845,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 153)
@@ -927,8 +929,9 @@ Partial Class Main
         'Label_SXM3_3
         '
         Me.Label_SXM3_3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_3.BackColor = System.Drawing.Color.White
+        Me.Label_SXM3_3.BackColor = System.Drawing.Color.Transparent
         Me.Label_SXM3_3.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_3.ForeColor = System.Drawing.Color.Black
         Me.Label_SXM3_3.Location = New System.Drawing.Point(351, 63)
         Me.Label_SXM3_3.Name = "Label_SXM3_3"
         Me.Label_SXM3_3.Size = New System.Drawing.Size(89, 42)
@@ -939,8 +942,9 @@ Partial Class Main
         'Label_SXM3_2
         '
         Me.Label_SXM3_2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_2.BackColor = System.Drawing.Color.White
+        Me.Label_SXM3_2.BackColor = System.Drawing.Color.Transparent
         Me.Label_SXM3_2.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_2.ForeColor = System.Drawing.Color.Black
         Me.Label_SXM3_2.Location = New System.Drawing.Point(222, 63)
         Me.Label_SXM3_2.Name = "Label_SXM3_2"
         Me.Label_SXM3_2.Size = New System.Drawing.Size(89, 42)
@@ -951,8 +955,9 @@ Partial Class Main
         'Label_SXM3_1
         '
         Me.Label_SXM3_1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_1.BackColor = System.Drawing.Color.White
+        Me.Label_SXM3_1.BackColor = System.Drawing.Color.Transparent
         Me.Label_SXM3_1.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_1.ForeColor = System.Drawing.Color.Black
         Me.Label_SXM3_1.Location = New System.Drawing.Point(93, 63)
         Me.Label_SXM3_1.Name = "Label_SXM3_1"
         Me.Label_SXM3_1.Size = New System.Drawing.Size(89, 42)
@@ -989,11 +994,12 @@ Partial Class Main
         'Label_PHI4_4
         '
         Me.Label_PHI4_4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_4.BackColor = System.Drawing.Color.White
-        Me.Label_PHI4_4.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_4.Location = New System.Drawing.Point(432, 53)
+        Me.Label_PHI4_4.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_4.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_4.ForeColor = System.Drawing.Color.Black
+        Me.Label_PHI4_4.Location = New System.Drawing.Point(433, 49)
         Me.Label_PHI4_4.Name = "Label_PHI4_4"
-        Me.Label_PHI4_4.Size = New System.Drawing.Size(41, 55)
+        Me.Label_PHI4_4.Size = New System.Drawing.Size(41, 62)
         Me.Label_PHI4_4.TabIndex = 57
         Me.Label_PHI4_4.Text = "0"
         Me.Label_PHI4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1001,11 +1007,12 @@ Partial Class Main
         'Label_PHI4_3
         '
         Me.Label_PHI4_3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_3.BackColor = System.Drawing.Color.White
-        Me.Label_PHI4_3.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_3.Location = New System.Drawing.Point(319, 53)
+        Me.Label_PHI4_3.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_3.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_3.ForeColor = System.Drawing.Color.Black
+        Me.Label_PHI4_3.Location = New System.Drawing.Point(320, 49)
         Me.Label_PHI4_3.Name = "Label_PHI4_3"
-        Me.Label_PHI4_3.Size = New System.Drawing.Size(41, 55)
+        Me.Label_PHI4_3.Size = New System.Drawing.Size(41, 62)
         Me.Label_PHI4_3.TabIndex = 56
         Me.Label_PHI4_3.Text = "1"
         Me.Label_PHI4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1013,11 +1020,12 @@ Partial Class Main
         'Label_PHI4_2
         '
         Me.Label_PHI4_2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_2.BackColor = System.Drawing.Color.White
-        Me.Label_PHI4_2.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_2.Location = New System.Drawing.Point(204, 53)
+        Me.Label_PHI4_2.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_2.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_2.ForeColor = System.Drawing.Color.Black
+        Me.Label_PHI4_2.Location = New System.Drawing.Point(205, 49)
         Me.Label_PHI4_2.Name = "Label_PHI4_2"
-        Me.Label_PHI4_2.Size = New System.Drawing.Size(41, 55)
+        Me.Label_PHI4_2.Size = New System.Drawing.Size(41, 62)
         Me.Label_PHI4_2.TabIndex = 55
         Me.Label_PHI4_2.Text = "6"
         Me.Label_PHI4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1025,11 +1033,12 @@ Partial Class Main
         'Label_PHI4_1
         '
         Me.Label_PHI4_1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_1.BackColor = System.Drawing.Color.White
-        Me.Label_PHI4_1.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_1.Location = New System.Drawing.Point(78, 53)
+        Me.Label_PHI4_1.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_1.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_1.ForeColor = System.Drawing.Color.Black
+        Me.Label_PHI4_1.Location = New System.Drawing.Point(79, 49)
         Me.Label_PHI4_1.Name = "Label_PHI4_1"
-        Me.Label_PHI4_1.Size = New System.Drawing.Size(41, 55)
+        Me.Label_PHI4_1.Size = New System.Drawing.Size(41, 62)
         Me.Label_PHI4_1.TabIndex = 54
         Me.Label_PHI4_1.Text = "7"
         Me.Label_PHI4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1062,11 +1071,12 @@ Partial Class Main
         'Label_SXM4_4
         '
         Me.Label_SXM4_4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_4.BackColor = System.Drawing.Color.White
-        Me.Label_SXM4_4.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_4.Location = New System.Drawing.Point(432, 53)
+        Me.Label_SXM4_4.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_4.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_4.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_4.Location = New System.Drawing.Point(433, 49)
         Me.Label_SXM4_4.Name = "Label_SXM4_4"
-        Me.Label_SXM4_4.Size = New System.Drawing.Size(41, 55)
+        Me.Label_SXM4_4.Size = New System.Drawing.Size(41, 62)
         Me.Label_SXM4_4.TabIndex = 53
         Me.Label_SXM4_4.Text = "4"
         Me.Label_SXM4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1074,12 +1084,13 @@ Partial Class Main
         'Label_SXM4_3
         '
         Me.Label_SXM4_3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_3.BackColor = System.Drawing.Color.White
-        Me.Label_SXM4_3.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_3.Location = New System.Drawing.Point(319, 53)
+        Me.Label_SXM4_3.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_3.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_3.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_3.Location = New System.Drawing.Point(320, 49)
         Me.Label_SXM4_3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label_SXM4_3.Name = "Label_SXM4_3"
-        Me.Label_SXM4_3.Size = New System.Drawing.Size(41, 55)
+        Me.Label_SXM4_3.Size = New System.Drawing.Size(41, 62)
         Me.Label_SXM4_3.TabIndex = 52
         Me.Label_SXM4_3.Text = "3"
         Me.Label_SXM4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1087,11 +1098,12 @@ Partial Class Main
         'Label_SXM4_2
         '
         Me.Label_SXM4_2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_2.BackColor = System.Drawing.Color.White
-        Me.Label_SXM4_2.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_2.Location = New System.Drawing.Point(204, 53)
+        Me.Label_SXM4_2.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_2.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_2.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_2.Location = New System.Drawing.Point(205, 49)
         Me.Label_SXM4_2.Name = "Label_SXM4_2"
-        Me.Label_SXM4_2.Size = New System.Drawing.Size(41, 55)
+        Me.Label_SXM4_2.Size = New System.Drawing.Size(41, 62)
         Me.Label_SXM4_2.TabIndex = 51
         Me.Label_SXM4_2.Text = "2"
         Me.Label_SXM4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1099,11 +1111,12 @@ Partial Class Main
         'Label_SXM4_1
         '
         Me.Label_SXM4_1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_1.BackColor = System.Drawing.Color.White
-        Me.Label_SXM4_1.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_1.Location = New System.Drawing.Point(78, 53)
+        Me.Label_SXM4_1.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_1.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_1.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_1.Location = New System.Drawing.Point(79, 49)
         Me.Label_SXM4_1.Name = "Label_SXM4_1"
-        Me.Label_SXM4_1.Size = New System.Drawing.Size(41, 55)
+        Me.Label_SXM4_1.Size = New System.Drawing.Size(41, 62)
         Me.Label_SXM4_1.TabIndex = 50
         Me.Label_SXM4_1.Text = "1"
         Me.Label_SXM4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1121,8 +1134,9 @@ Partial Class Main
         '
         'Panel16
         '
+        Me.Panel16.Controls.Add(Me.LabelNumero)
+        Me.Panel16.Controls.Add(Me.PictureBox5)
         Me.Panel16.Controls.Add(Me.Label8)
-        Me.Panel16.Controls.Add(Me.ButtonNumero)
         Me.Panel16.Controls.Add(Me.RadioButton3)
         Me.Panel16.Controls.Add(Me.RadioButton2)
         Me.Panel16.Controls.Add(Me.RadioButton1)
@@ -1144,20 +1158,41 @@ Partial Class Main
         Me.Panel16.Size = New System.Drawing.Size(547, 333)
         Me.Panel16.TabIndex = 53
         '
-        'ButtonNumero
+        'LabelNumero
         '
-        Me.ButtonNumero.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ButtonNumero.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ButtonNumero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ButtonNumero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonNumero.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonNumero.Location = New System.Drawing.Point(224, 149)
-        Me.ButtonNumero.Name = "ButtonNumero"
-        Me.ButtonNumero.Size = New System.Drawing.Size(98, 114)
-        Me.ButtonNumero.TabIndex = 110
-        Me.ButtonNumero.Text = "   "
-        Me.ButtonNumero.UseVisualStyleBackColor = False
+        Me.LabelNumero.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelNumero.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNumero.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNumero.ForeColor = System.Drawing.Color.Black
+        Me.LabelNumero.Location = New System.Drawing.Point(236, 185)
+        Me.LabelNumero.Name = "LabelNumero"
+        Me.LabelNumero.Size = New System.Drawing.Size(81, 65)
+        Me.LabelNumero.TabIndex = 113
+        Me.LabelNumero.Text = "5"
+        Me.LabelNumero.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox5.Image = Global.KingLottery.My.Resources.Resources.bolo81
+        Me.PictureBox5.Location = New System.Drawing.Point(223, 150)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(100, 113)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 112
+        Me.PictureBox5.TabStop = False
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Kanit", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.Label8.Location = New System.Drawing.Point(216, 91)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(138, 41)
+        Me.Label8.TabIndex = 111
+        Me.Label8.Text = "Bolo 1 - 2"
         '
         'RadioButton3
         '
@@ -1378,18 +1413,6 @@ Partial Class Main
         '
         Me.TimerCasparConnect.Interval = 2000
         '
-        'Label8
-        '
-        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Kanit", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label8.Location = New System.Drawing.Point(224, 91)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(138, 41)
-        Me.Label8.TabIndex = 111
-        Me.Label8.Text = "Bolo 1 - 2"
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1431,6 +1454,7 @@ Partial Class Main
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel16.ResumeLayout(False)
         Me.Panel16.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel15.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1538,6 +1562,7 @@ Partial Class Main
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents ButtonNumero As Button
     Friend WithEvents Label8 As Label
+    Friend WithEvents LabelNumero As Label
+    Friend WithEvents PictureBox5 As PictureBox
 End Class

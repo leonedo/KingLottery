@@ -99,6 +99,9 @@ Public Class Main
         Label_PHI4_3.BackColor = Color.Transparent
         Label_PHI4_4.Parent = PictureBox3
         Label_PHI4_4.BackColor = Color.Transparent
+
+        LabelNumero.Parent = PictureBox5
+        LabelNumero.Location = New Point(14, 34)
     End Sub
 
 #Region "CasparCg"
@@ -592,7 +595,7 @@ Public Class Main
     End Sub
 
     Sub VerifyText()
-        If String.Equals(ButtonNumero.Text, TextBoxNumero.Text) Then
+        If String.Equals(LabelNumero.Text, TextBoxNumero.Text) Then
             ButtonOk.Enabled = True
             ButtonOk.BackColor = SystemColors.GradientActiveCaption
         Else
@@ -602,7 +605,7 @@ Public Class Main
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button9.Click, Button8.Click, Button7.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button10.Click, Button1.Click
-        ButtonNumero.Text = sender.tag
+        LabelNumero.Text = sender.tag
         VerifyText()
         TextBoxNumero.Focus()
     End Sub
@@ -620,6 +623,8 @@ Public Class Main
             End If
         End If
     End Sub
+
+
 #End Region
 
 
