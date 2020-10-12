@@ -51,23 +51,33 @@ Public Class Main
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetupLabels()
-        '  CheckAndKillExistingCasparProcess()
-        ' Dim login As New FormaLogin
-        'If login.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-        ' LabelModo.Text = $"Modo Ensayo: {SorteoDeHoy.ToString("0000")}"
-        LabelVersion.Text = $"Version: {Version}"
+        Dim login As New login
+        If login.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+            ' LabelModo.Text = $"Modo Ensayo: {SorteoDeHoy.ToString("0000")}"
+            LabelVersion.Text = $"Version: {Version}"
             ConfigureIOC()
             CasparDevice = _container.Resolve(Of ICasparDevice)()
-        '   If Not login.ComboBox1.SelectedIndex = 2 Then 
-        StartCasparcgServer()
-        '  If login.ComboBox1.SelectedIndex = 0 Then AdminToolStripMenuItem.Visible = False
-        ' Auth(login.ComboBox1.SelectedIndex)
-        'LoadDataSource()
-        'SetupComboxes()
-        'Else
-        'Me.Close()
-        'End If
-        'login.Dispose()
+            Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
+            'LoadDataSource()
+            'SetupComboxes()
+        Else
+            Me.Close()
+        End If
+        login.Dispose()
+    End Sub
+
+    Private Sub Auth(user As Integer)
+
+        If user = 1 Then
+            LabelUser.Text = "Administrador"
+            StartCasparcgServer()
+        ElseIf user = 2 Then
+            LabelUser.Text = "Debug"
+            TableLayoutPanel1.Enabled = True
+        Else
+            LabelUser.Text = "Operador"
+            StartCasparcgServer()
+        End If
     End Sub
 
     Private Sub FormPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -623,6 +633,16 @@ Public Class Main
             End If
         End If
     End Sub
+
+    Private Sub RadioButtonAM_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAM.CheckedChanged
+        If RadioButtonAM.Checked Then
+            TabControl_AM_PM.SelectedTab = TabPageAM
+        Else
+            TabControl_AM_PM.SelectedTab = TabPagePM
+        End If
+    End Sub
+
+
 
 
 #End Region
