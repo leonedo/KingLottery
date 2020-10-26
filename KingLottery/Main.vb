@@ -107,8 +107,8 @@ Public Class Main
         Label_PHI4_2.BackColor = Color.Transparent
         Label_PHI4_3.Parent = PictureBox3
         Label_PHI4_3.BackColor = Color.Transparent
-        Label_PHI4_4.Parent = PictureBox3
-        Label_PHI4_4.BackColor = Color.Transparent
+        ' Label_PHI4_4.Parent = PictureBox3
+        ' Label_PHI4_4.BackColor = Color.Transparent
 
         LabelNumero.Parent = PictureBox5
         LabelNumero.Location = New Point(14, 34)

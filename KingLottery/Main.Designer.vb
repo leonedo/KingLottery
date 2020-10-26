@@ -23,8 +23,8 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,24 +55,6 @@ Partial Class Main
         Me.ComboBoxVertical2 = New System.Windows.Forms.ComboBox()
         Me.ComboBoxVertical1 = New System.Windows.Forms.ComboBox()
         Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Label_SXM3_3 = New System.Windows.Forms.Label()
-        Me.Label_SXM3_2 = New System.Windows.Forms.Label()
-        Me.Label_SXM3_1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Label_PHI4_4 = New System.Windows.Forms.Label()
-        Me.Label_PHI4_3 = New System.Windows.Forms.Label()
-        Me.Label_PHI4_2 = New System.Windows.Forms.Label()
-        Me.Label_PHI4_1 = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.Label_SXM4_4 = New System.Windows.Forms.Label()
-        Me.Label_SXM4_3 = New System.Windows.Forms.Label()
-        Me.Label_SXM4_2 = New System.Windows.Forms.Label()
-        Me.Label_SXM4_1 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Button_Bumper_6 = New System.Windows.Forms.Button()
@@ -108,20 +90,15 @@ Partial Class Main
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
         Me.UserControl11 = New NDIMonitorControlLibrary.UserControl1()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.LabelNumero = New System.Windows.Forms.Label()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.TabControl_Numpad = New System.Windows.Forms.TabControl()
         Me.TabPageNumPad = New System.Windows.Forms.TabPage()
         Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.LabelNumero = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.ButtonOk = New System.Windows.Forms.Button()
-        Me.TextBoxNumero = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
@@ -133,9 +110,30 @@ Partial Class Main
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabPageNumButtons = New System.Windows.Forms.TabPage()
+        Me.ButtonOk = New System.Windows.Forms.Button()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.TextBoxNumero = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel17 = New System.Windows.Forms.Panel()
         Me.TabControl_AM_PM = New System.Windows.Forms.TabControl()
         Me.TabPageAM = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Label_SXM3_3 = New System.Windows.Forms.Label()
+        Me.Label_SXM3_2 = New System.Windows.Forms.Label()
+        Me.Label_SXM3_1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Label_PHI4_3 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_2 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_1 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.Label_SXM4_4 = New System.Windows.Forms.Label()
+        Me.Label_SXM4_3 = New System.Windows.Forms.Label()
+        Me.Label_SXM4_2 = New System.Windows.Forms.Label()
+        Me.Label_SXM4_1 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TabPagePM = New System.Windows.Forms.TabPage()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
@@ -149,20 +147,12 @@ Partial Class Main
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.Panel12.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.Panel9.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel13.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel10.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewAudio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel15.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel14.SuspendLayout()
         Me.TabControl_Numpad.SuspendLayout()
@@ -172,6 +162,13 @@ Partial Class Main
         Me.Panel17.SuspendLayout()
         Me.TabControl_AM_PM.SuspendLayout()
         Me.TabPageAM.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel13.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel10.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -318,8 +315,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 153)
@@ -386,7 +383,6 @@ Partial Class Main
         '
         'PictureBoxStatus
         '
-        Me.PictureBoxStatus.Image = Global.KingLottery.My.Resources.Resources.red
         Me.PictureBoxStatus.Location = New System.Drawing.Point(5, 4)
         Me.PictureBoxStatus.Name = "PictureBoxStatus"
         Me.PictureBoxStatus.Padding = New System.Windows.Forms.Padding(1)
@@ -532,243 +528,6 @@ Partial Class Main
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(548, 571)
         Me.Panel12.TabIndex = 1
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Panel9, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Panel13, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Panel10, 0, 1)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 3
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(545, 546)
-        Me.TableLayoutPanel3.TabIndex = 0
-        '
-        'Panel9
-        '
-        Me.Panel9.BackColor = System.Drawing.Color.Red
-        Me.Panel9.Controls.Add(Me.Label_SXM3_3)
-        Me.Panel9.Controls.Add(Me.Label_SXM3_2)
-        Me.Panel9.Controls.Add(Me.Label_SXM3_1)
-        Me.Panel9.Controls.Add(Me.PictureBox1)
-        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel9.Location = New System.Drawing.Point(3, 3)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Padding = New System.Windows.Forms.Padding(4)
-        Me.Panel9.Size = New System.Drawing.Size(539, 175)
-        Me.Panel9.TabIndex = 48
-        '
-        'Label_SXM3_3
-        '
-        Me.Label_SXM3_3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_3.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM3_3.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM3_3.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM3_3.Location = New System.Drawing.Point(347, 63)
-        Me.Label_SXM3_3.Name = "Label_SXM3_3"
-        Me.Label_SXM3_3.Size = New System.Drawing.Size(89, 43)
-        Me.Label_SXM3_3.TabIndex = 3
-        Me.Label_SXM3_3.Text = "1 2 3"
-        Me.Label_SXM3_3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label_SXM3_2
-        '
-        Me.Label_SXM3_2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_2.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM3_2.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM3_2.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM3_2.Location = New System.Drawing.Point(218, 63)
-        Me.Label_SXM3_2.Name = "Label_SXM3_2"
-        Me.Label_SXM3_2.Size = New System.Drawing.Size(89, 43)
-        Me.Label_SXM3_2.TabIndex = 2
-        Me.Label_SXM3_2.Text = "1 2 3"
-        Me.Label_SXM3_2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label_SXM3_1
-        '
-        Me.Label_SXM3_1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.Label_SXM3_1.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM3_1.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM3_1.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM3_1.Location = New System.Drawing.Point(89, 63)
-        Me.Label_SXM3_1.Name = "Label_SXM3_1"
-        Me.Label_SXM3_1.Size = New System.Drawing.Size(89, 43)
-        Me.Label_SXM3_1.TabIndex = 1
-        Me.Label_SXM3_1.Text = "1 2 3"
-        Me.Label_SXM3_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.KingLottery.My.Resources.Resources.Template_Pick_3_SXM_0003
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(531, 167)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
-        'Panel13
-        '
-        Me.Panel13.Controls.Add(Me.Label_PHI4_4)
-        Me.Panel13.Controls.Add(Me.Label_PHI4_3)
-        Me.Panel13.Controls.Add(Me.Label_PHI4_2)
-        Me.Panel13.Controls.Add(Me.Label_PHI4_1)
-        Me.Panel13.Controls.Add(Me.PictureBox3)
-        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel13.Location = New System.Drawing.Point(3, 365)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Padding = New System.Windows.Forms.Padding(4)
-        Me.Panel13.Size = New System.Drawing.Size(539, 178)
-        Me.Panel13.TabIndex = 52
-        '
-        'Label_PHI4_4
-        '
-        Me.Label_PHI4_4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_4.BackColor = System.Drawing.Color.Transparent
-        Me.Label_PHI4_4.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_4.ForeColor = System.Drawing.Color.Black
-        Me.Label_PHI4_4.Location = New System.Drawing.Point(429, 51)
-        Me.Label_PHI4_4.Name = "Label_PHI4_4"
-        Me.Label_PHI4_4.Size = New System.Drawing.Size(41, 62)
-        Me.Label_PHI4_4.TabIndex = 57
-        Me.Label_PHI4_4.Text = "0"
-        Me.Label_PHI4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_PHI4_3
-        '
-        Me.Label_PHI4_3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_3.BackColor = System.Drawing.Color.Transparent
-        Me.Label_PHI4_3.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_3.ForeColor = System.Drawing.Color.Black
-        Me.Label_PHI4_3.Location = New System.Drawing.Point(316, 51)
-        Me.Label_PHI4_3.Name = "Label_PHI4_3"
-        Me.Label_PHI4_3.Size = New System.Drawing.Size(41, 62)
-        Me.Label_PHI4_3.TabIndex = 56
-        Me.Label_PHI4_3.Text = "1"
-        Me.Label_PHI4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_PHI4_2
-        '
-        Me.Label_PHI4_2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_2.BackColor = System.Drawing.Color.Transparent
-        Me.Label_PHI4_2.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_2.ForeColor = System.Drawing.Color.Black
-        Me.Label_PHI4_2.Location = New System.Drawing.Point(201, 51)
-        Me.Label_PHI4_2.Name = "Label_PHI4_2"
-        Me.Label_PHI4_2.Size = New System.Drawing.Size(41, 62)
-        Me.Label_PHI4_2.TabIndex = 55
-        Me.Label_PHI4_2.Text = "6"
-        Me.Label_PHI4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_PHI4_1
-        '
-        Me.Label_PHI4_1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_PHI4_1.BackColor = System.Drawing.Color.Transparent
-        Me.Label_PHI4_1.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_PHI4_1.ForeColor = System.Drawing.Color.Black
-        Me.Label_PHI4_1.Location = New System.Drawing.Point(75, 51)
-        Me.Label_PHI4_1.Name = "Label_PHI4_1"
-        Me.Label_PHI4_1.Size = New System.Drawing.Size(41, 62)
-        Me.Label_PHI4_1.TabIndex = 54
-        Me.Label_PHI4_1.Text = "7"
-        Me.Label_PHI4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox3.Image = Global.KingLottery.My.Resources.Resources.Template_Pick_4_Phillipsbrugs_0002
-        Me.PictureBox3.Location = New System.Drawing.Point(4, 4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(531, 170)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 50
-        Me.PictureBox3.TabStop = False
-        '
-        'Panel10
-        '
-        Me.Panel10.Controls.Add(Me.Label_SXM4_4)
-        Me.Panel10.Controls.Add(Me.Label_SXM4_3)
-        Me.Panel10.Controls.Add(Me.Label_SXM4_2)
-        Me.Panel10.Controls.Add(Me.Label_SXM4_1)
-        Me.Panel10.Controls.Add(Me.PictureBox2)
-        Me.Panel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel10.Location = New System.Drawing.Point(3, 184)
-        Me.Panel10.Name = "Panel10"
-        Me.Panel10.Padding = New System.Windows.Forms.Padding(4)
-        Me.Panel10.Size = New System.Drawing.Size(539, 175)
-        Me.Panel10.TabIndex = 51
-        '
-        'Label_SXM4_4
-        '
-        Me.Label_SXM4_4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_4.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM4_4.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_4.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM4_4.Location = New System.Drawing.Point(429, 49)
-        Me.Label_SXM4_4.Name = "Label_SXM4_4"
-        Me.Label_SXM4_4.Size = New System.Drawing.Size(41, 62)
-        Me.Label_SXM4_4.TabIndex = 53
-        Me.Label_SXM4_4.Text = "4"
-        Me.Label_SXM4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_SXM4_3
-        '
-        Me.Label_SXM4_3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_3.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM4_3.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_3.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM4_3.Location = New System.Drawing.Point(316, 49)
-        Me.Label_SXM4_3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label_SXM4_3.Name = "Label_SXM4_3"
-        Me.Label_SXM4_3.Size = New System.Drawing.Size(41, 62)
-        Me.Label_SXM4_3.TabIndex = 52
-        Me.Label_SXM4_3.Text = "3"
-        Me.Label_SXM4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_SXM4_2
-        '
-        Me.Label_SXM4_2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_2.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM4_2.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_2.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM4_2.Location = New System.Drawing.Point(201, 49)
-        Me.Label_SXM4_2.Name = "Label_SXM4_2"
-        Me.Label_SXM4_2.Size = New System.Drawing.Size(41, 62)
-        Me.Label_SXM4_2.TabIndex = 51
-        Me.Label_SXM4_2.Text = "2"
-        Me.Label_SXM4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label_SXM4_1
-        '
-        Me.Label_SXM4_1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label_SXM4_1.BackColor = System.Drawing.Color.Transparent
-        Me.Label_SXM4_1.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SXM4_1.ForeColor = System.Drawing.Color.Black
-        Me.Label_SXM4_1.Location = New System.Drawing.Point(75, 49)
-        Me.Label_SXM4_1.Name = "Label_SXM4_1"
-        Me.Label_SXM4_1.Size = New System.Drawing.Size(41, 62)
-        Me.Label_SXM4_1.TabIndex = 50
-        Me.Label_SXM4_1.Text = "1"
-        Me.Label_SXM4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Image = Global.KingLottery.My.Resources.Resources.Template__Pick_4_SXM_0001
-        Me.PictureBox2.Location = New System.Drawing.Point(4, 4)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(531, 167)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 49
-        Me.PictureBox2.TabStop = False
         '
         'Label6
         '
@@ -1116,8 +875,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 153)
@@ -1156,7 +915,6 @@ Partial Class Main
         '
         Me.Panel15.Controls.Add(Me.Label7)
         Me.Panel15.Controls.Add(Me.ElementHost1)
-        Me.Panel15.Controls.Add(Me.PictureBox4)
         Me.Panel15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel15.Location = New System.Drawing.Point(564, 495)
         Me.Panel15.Name = "Panel15"
@@ -1184,16 +942,6 @@ Partial Class Main
         Me.ElementHost1.TabIndex = 3
         Me.ElementHost1.Text = "ElementHost1"
         Me.ElementHost1.Child = Me.UserControl11
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.KingLottery.My.Resources.Resources.Template_General_0004
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 23)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(546, 106)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 0
-        Me.PictureBox4.TabStop = False
         '
         'TableLayoutPanel4
         '
@@ -1228,6 +976,57 @@ Partial Class Main
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Size = New System.Drawing.Size(549, 315)
         Me.Panel14.TabIndex = 55
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RadioButton3.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton3.Location = New System.Drawing.Point(250, 54)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(136, 38)
+        Me.RadioButton3.TabIndex = 109
+        Me.RadioButton3.Text = "Pick 4 PHILL"
+        Me.RadioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'LabelNumero
+        '
+        Me.LabelNumero.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelNumero.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNumero.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNumero.ForeColor = System.Drawing.Color.Black
+        Me.LabelNumero.Location = New System.Drawing.Point(263, 230)
+        Me.LabelNumero.Name = "LabelNumero"
+        Me.LabelNumero.Size = New System.Drawing.Size(81, 65)
+        Me.LabelNumero.TabIndex = 113
+        Me.LabelNumero.Text = "5"
+        Me.LabelNumero.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RadioButton2.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton2.Location = New System.Drawing.Point(404, 5)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(136, 38)
+        Me.RadioButton2.TabIndex = 108
+        Me.RadioButton2.Text = "Pick 4 SXM"
+        Me.RadioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RadioButton1.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(250, 5)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(136, 38)
+        Me.RadioButton1.TabIndex = 107
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Pick 3 SXM"
+        Me.RadioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'TabControl_Numpad
         '
@@ -1271,105 +1070,6 @@ Partial Class Main
         Me.Panel16.Name = "Panel16"
         Me.Panel16.Size = New System.Drawing.Size(218, 293)
         Me.Panel16.TabIndex = 53
-        '
-        'LabelNumero
-        '
-        Me.LabelNumero.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LabelNumero.BackColor = System.Drawing.Color.Transparent
-        Me.LabelNumero.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelNumero.ForeColor = System.Drawing.Color.Black
-        Me.LabelNumero.Location = New System.Drawing.Point(263, 230)
-        Me.LabelNumero.Name = "LabelNumero"
-        Me.LabelNumero.Size = New System.Drawing.Size(81, 65)
-        Me.LabelNumero.TabIndex = 113
-        Me.LabelNumero.Text = "5"
-        Me.LabelNumero.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox5.Image = Global.KingLottery.My.Resources.Resources.bolo81
-        Me.PictureBox5.Location = New System.Drawing.Point(250, 195)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(100, 113)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 112
-        Me.PictureBox5.TabStop = False
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Kanit", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.Label8.Location = New System.Drawing.Point(243, 136)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(138, 41)
-        Me.Label8.TabIndex = 111
-        Me.Label8.Text = "Bolo 1 - 2"
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RadioButton3.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RadioButton3.Location = New System.Drawing.Point(250, 54)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(136, 38)
-        Me.RadioButton3.TabIndex = 109
-        Me.RadioButton3.Text = "Pick 4 PHILL"
-        Me.RadioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RadioButton2.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RadioButton2.Location = New System.Drawing.Point(404, 5)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(136, 38)
-        Me.RadioButton2.TabIndex = 108
-        Me.RadioButton2.Text = "Pick 4 SXM"
-        Me.RadioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RadioButton1.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(250, 5)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(136, 38)
-        Me.RadioButton1.TabIndex = 107
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Pick 3 SXM"
-        Me.RadioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'ButtonOk
-        '
-        Me.ButtonOk.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ButtonOk.BackColor = System.Drawing.SystemColors.Control
-        Me.ButtonOk.Enabled = False
-        Me.ButtonOk.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonOk.Location = New System.Drawing.Point(432, 265)
-        Me.ButtonOk.Name = "ButtonOk"
-        Me.ButtonOk.Size = New System.Drawing.Size(108, 43)
-        Me.ButtonOk.TabIndex = 106
-        Me.ButtonOk.Text = "OK"
-        Me.ButtonOk.UseVisualStyleBackColor = False
-        '
-        'TextBoxNumero
-        '
-        Me.TextBoxNumero.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBoxNumero.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxNumero.Location = New System.Drawing.Point(370, 248)
-        Me.TextBoxNumero.MaxLength = 1
-        Me.TextBoxNumero.Name = "TextBoxNumero"
-        Me.TextBoxNumero.Size = New System.Drawing.Size(56, 60)
-        Me.TextBoxNumero.TabIndex = 105
-        Me.TextBoxNumero.Text = "1"
-        Me.TextBoxNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button10
         '
@@ -1497,9 +1197,56 @@ Partial Class Main
         Me.TabPageNumButtons.Location = New System.Drawing.Point(4, 22)
         Me.TabPageNumButtons.Name = "TabPageNumButtons"
         Me.TabPageNumButtons.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageNumButtons.Size = New System.Drawing.Size(224, 319)
+        Me.TabPageNumButtons.Size = New System.Drawing.Size(224, 299)
         Me.TabPageNumButtons.TabIndex = 1
         Me.TabPageNumButtons.Text = "PoolButtons"
+        '
+        'ButtonOk
+        '
+        Me.ButtonOk.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ButtonOk.BackColor = System.Drawing.SystemColors.Control
+        Me.ButtonOk.Enabled = False
+        Me.ButtonOk.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonOk.Location = New System.Drawing.Point(432, 265)
+        Me.ButtonOk.Name = "ButtonOk"
+        Me.ButtonOk.Size = New System.Drawing.Size(108, 43)
+        Me.ButtonOk.TabIndex = 106
+        Me.ButtonOk.Text = "OK"
+        Me.ButtonOk.UseVisualStyleBackColor = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox5.Location = New System.Drawing.Point(250, 195)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(100, 113)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 112
+        Me.PictureBox5.TabStop = False
+        '
+        'TextBoxNumero
+        '
+        Me.TextBoxNumero.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TextBoxNumero.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxNumero.Location = New System.Drawing.Point(370, 248)
+        Me.TextBoxNumero.MaxLength = 1
+        Me.TextBoxNumero.Name = "TextBoxNumero"
+        Me.TextBoxNumero.Size = New System.Drawing.Size(56, 60)
+        Me.TextBoxNumero.TabIndex = 105
+        Me.TextBoxNumero.Text = "1"
+        Me.TextBoxNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Kanit", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.Label8.Location = New System.Drawing.Point(243, 136)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(138, 41)
+        Me.Label8.TabIndex = 111
+        Me.Label8.Text = "Bolo 1 - 2"
         '
         'Panel17
         '
@@ -1535,13 +1282,233 @@ Partial Class Main
         Me.TabPageAM.TabIndex = 0
         Me.TabPageAM.Text = "wha"
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel9, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel13, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel10, 0, 1)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 3
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(545, 546)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.Red
+        Me.Panel9.Controls.Add(Me.Label_SXM3_3)
+        Me.Panel9.Controls.Add(Me.Label_SXM3_2)
+        Me.Panel9.Controls.Add(Me.Label_SXM3_1)
+        Me.Panel9.Controls.Add(Me.PictureBox1)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel9.Location = New System.Drawing.Point(3, 3)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Padding = New System.Windows.Forms.Padding(4)
+        Me.Panel9.Size = New System.Drawing.Size(539, 176)
+        Me.Panel9.TabIndex = 48
+        '
+        'Label_SXM3_3
+        '
+        Me.Label_SXM3_3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label_SXM3_3.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM3_3.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_3.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM3_3.Location = New System.Drawing.Point(347, 63)
+        Me.Label_SXM3_3.Name = "Label_SXM3_3"
+        Me.Label_SXM3_3.Size = New System.Drawing.Size(89, 44)
+        Me.Label_SXM3_3.TabIndex = 3
+        Me.Label_SXM3_3.Text = "1 2 3"
+        Me.Label_SXM3_3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label_SXM3_2
+        '
+        Me.Label_SXM3_2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label_SXM3_2.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM3_2.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_2.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM3_2.Location = New System.Drawing.Point(218, 63)
+        Me.Label_SXM3_2.Name = "Label_SXM3_2"
+        Me.Label_SXM3_2.Size = New System.Drawing.Size(89, 44)
+        Me.Label_SXM3_2.TabIndex = 2
+        Me.Label_SXM3_2.Text = "1 2 3"
+        Me.Label_SXM3_2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label_SXM3_1
+        '
+        Me.Label_SXM3_1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label_SXM3_1.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM3_1.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM3_1.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM3_1.Location = New System.Drawing.Point(89, 63)
+        Me.Label_SXM3_1.Name = "Label_SXM3_1"
+        Me.Label_SXM3_1.Size = New System.Drawing.Size(89, 44)
+        Me.Label_SXM3_1.TabIndex = 1
+        Me.Label_SXM3_1.Text = "1 2 3"
+        Me.Label_SXM3_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(531, 168)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Panel13
+        '
+        Me.Panel13.Controls.Add(Me.Label_PHI4_3)
+        Me.Panel13.Controls.Add(Me.Label_PHI4_2)
+        Me.Panel13.Controls.Add(Me.Label_PHI4_1)
+        Me.Panel13.Controls.Add(Me.PictureBox3)
+        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel13.Location = New System.Drawing.Point(3, 367)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Padding = New System.Windows.Forms.Padding(4)
+        Me.Panel13.Size = New System.Drawing.Size(539, 176)
+        Me.Panel13.TabIndex = 52
+        '
+        'Label_PHI4_3
+        '
+        Me.Label_PHI4_3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_3.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_3.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_3.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_3.Location = New System.Drawing.Point(268, 82)
+        Me.Label_PHI4_3.Name = "Label_PHI4_3"
+        Me.Label_PHI4_3.Size = New System.Drawing.Size(89, 62)
+        Me.Label_PHI4_3.TabIndex = 56
+        Me.Label_PHI4_3.Text = "1"
+        Me.Label_PHI4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_2
+        '
+        Me.Label_PHI4_2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_2.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_2.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_2.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_2.Location = New System.Drawing.Point(153, 82)
+        Me.Label_PHI4_2.Name = "Label_PHI4_2"
+        Me.Label_PHI4_2.Size = New System.Drawing.Size(89, 62)
+        Me.Label_PHI4_2.TabIndex = 55
+        Me.Label_PHI4_2.Text = "6"
+        Me.Label_PHI4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_1
+        '
+        Me.Label_PHI4_1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_1.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_1.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_1.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_1.Location = New System.Drawing.Point(27, 82)
+        Me.Label_PHI4_1.Name = "Label_PHI4_1"
+        Me.Label_PHI4_1.Size = New System.Drawing.Size(89, 62)
+        Me.Label_PHI4_1.TabIndex = 54
+        Me.Label_PHI4_1.Text = "7"
+        Me.Label_PHI4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox3.Location = New System.Drawing.Point(4, 4)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(531, 168)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 50
+        Me.PictureBox3.TabStop = False
+        '
+        'Panel10
+        '
+        Me.Panel10.Controls.Add(Me.Label_SXM4_4)
+        Me.Panel10.Controls.Add(Me.Label_SXM4_3)
+        Me.Panel10.Controls.Add(Me.Label_SXM4_2)
+        Me.Panel10.Controls.Add(Me.Label_SXM4_1)
+        Me.Panel10.Controls.Add(Me.PictureBox2)
+        Me.Panel10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel10.Location = New System.Drawing.Point(3, 185)
+        Me.Panel10.Name = "Panel10"
+        Me.Panel10.Padding = New System.Windows.Forms.Padding(4)
+        Me.Panel10.Size = New System.Drawing.Size(539, 176)
+        Me.Panel10.TabIndex = 51
+        '
+        'Label_SXM4_4
+        '
+        Me.Label_SXM4_4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_SXM4_4.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_4.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_4.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_4.Location = New System.Drawing.Point(429, 50)
+        Me.Label_SXM4_4.Name = "Label_SXM4_4"
+        Me.Label_SXM4_4.Size = New System.Drawing.Size(41, 62)
+        Me.Label_SXM4_4.TabIndex = 53
+        Me.Label_SXM4_4.Text = "4"
+        Me.Label_SXM4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_SXM4_3
+        '
+        Me.Label_SXM4_3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_SXM4_3.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_3.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_3.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_3.Location = New System.Drawing.Point(316, 50)
+        Me.Label_SXM4_3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label_SXM4_3.Name = "Label_SXM4_3"
+        Me.Label_SXM4_3.Size = New System.Drawing.Size(41, 62)
+        Me.Label_SXM4_3.TabIndex = 52
+        Me.Label_SXM4_3.Text = "3"
+        Me.Label_SXM4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_SXM4_2
+        '
+        Me.Label_SXM4_2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_SXM4_2.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_2.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_2.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_2.Location = New System.Drawing.Point(201, 50)
+        Me.Label_SXM4_2.Name = "Label_SXM4_2"
+        Me.Label_SXM4_2.Size = New System.Drawing.Size(41, 62)
+        Me.Label_SXM4_2.TabIndex = 51
+        Me.Label_SXM4_2.Text = "2"
+        Me.Label_SXM4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_SXM4_1
+        '
+        Me.Label_SXM4_1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_SXM4_1.BackColor = System.Drawing.Color.Transparent
+        Me.Label_SXM4_1.Font = New System.Drawing.Font("Kanit", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SXM4_1.ForeColor = System.Drawing.Color.Black
+        Me.Label_SXM4_1.Location = New System.Drawing.Point(75, 50)
+        Me.Label_SXM4_1.Name = "Label_SXM4_1"
+        Me.Label_SXM4_1.Size = New System.Drawing.Size(41, 62)
+        Me.Label_SXM4_1.TabIndex = 50
+        Me.Label_SXM4_1.Text = "1"
+        Me.Label_SXM4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox2.Location = New System.Drawing.Point(4, 4)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(531, 168)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 49
+        Me.PictureBox2.TabStop = False
+        '
         'TabPagePM
         '
         Me.TabPagePM.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TabPagePM.Location = New System.Drawing.Point(4, 22)
         Me.TabPagePM.Name = "TabPagePM"
         Me.TabPagePM.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPagePM.Size = New System.Drawing.Size(551, 532)
+        Me.TabPagePM.Size = New System.Drawing.Size(551, 552)
         Me.TabPagePM.TabIndex = 1
         Me.TabPagePM.Text = "TabPage4"
         '
@@ -1574,13 +1541,6 @@ Partial Class Main
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel11.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.Panel9.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel13.ResumeLayout(False)
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel10.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
@@ -1588,7 +1548,6 @@ Partial Class Main
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewAudio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel15.ResumeLayout(False)
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.Panel14.ResumeLayout(False)
         Me.Panel14.PerformLayout()
@@ -1599,6 +1558,13 @@ Partial Class Main
         Me.Panel17.ResumeLayout(False)
         Me.TabControl_AM_PM.ResumeLayout(False)
         Me.TabPageAM.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel13.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel10.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1676,11 +1642,9 @@ Partial Class Main
     Friend WithEvents Panel16 As Panel
     Friend WithEvents Panel15 As Panel
     Friend WithEvents Label7 As Label
-    Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents Label_SXM3_3 As Label
     Friend WithEvents Label_SXM3_2 As Label
     Friend WithEvents Label_SXM3_1 As Label
-    Friend WithEvents Label_PHI4_4 As Label
     Friend WithEvents Label_PHI4_3 As Label
     Friend WithEvents Label_PHI4_2 As Label
     Friend WithEvents Label_PHI4_1 As Label

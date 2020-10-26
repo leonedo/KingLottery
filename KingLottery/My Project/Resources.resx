@@ -118,58 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Template General-0004" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Template General-0004.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Template Pick 4 Phillipsbrugs-0002" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Template Pick 4 Phillipsbrugs-0002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Template  Pick 4 SXM-0001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Template  Pick 4 SXM-0001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (10).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Template Pick 3 SXM-0003" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Template Pick 3 SXM-0003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bolo81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bolo81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="number (9)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\number (9).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bolo100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bolo100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bolo100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bolo100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pick3_SXM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pick3_SXM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bolo81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bolo81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pick4_SXM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pick4_SXM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phillipsburg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Phillipsburg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Loto_Pool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loto_Pool1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
