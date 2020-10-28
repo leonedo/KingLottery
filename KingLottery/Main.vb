@@ -29,9 +29,10 @@ Public Class Main
     Public Process As Process
     Public ScannerProcess As Process
     Private Delegate Sub ProcessOutputDataCallback(sender As Object, e As DataReceivedEventArgs)
-    Private Pick3_SXM(9) As Bola
+    Private Pick3_SXM(3) As Bola
     Private Pick4_SXM(4) As Bola
-    Private Pick4_PHI(4) As Bola
+    Private Phillipsburg(12) As Bola
+    Private LotoPool(4) As Bola
     Private Talentos As New Talentos
     Private SorteoDeHoy As Integer = My.Settings.NumeroSorteo + 1
 
@@ -84,34 +85,74 @@ Public Class Main
         StopServer()
     End Sub
 
+    Private Sub Main_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Select Case True
+            Case e.KeyCode = Keys.Escape
+                Canal_PGM.CG.Stop(LayerTemplates, 1)
+            Case e.KeyCode = Keys.F1
+               ' RadioButton_PGM.Checked = True
+            Case e.KeyCode = Keys.F2
+               ' RadioButton_Verticales.Checked = True
+            Case e.KeyCode = Keys.F4
+              '  Button_Play_General_Click(Button_Separador_1, Nothing)
+            Case e.KeyCode = Keys.F5
+               ' Button_Play_General_Click(Button_Separador_2, Nothing)
+            Case e.KeyCode = Keys.F6
+               ' Button_Play_General_Click(Button_Separador_3, Nothing)
+            Case e.KeyCode = Keys.F7
+               ' Button_Play_General_Click(Button_Separador_4, Nothing)
+            Case e.KeyCode = Keys.F10
+              '  CheckBoxMosca.Checked = Not CheckBoxMosca.Checked
+            Case e.KeyCode = Keys.Enter
+                Select Case True
+                    Case RB_Pick3.Checked
+                        NumPad_Pick3.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
+                    Case RB_pick4.Checked
+                        NumPad_Pick4.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
+                    Case RB_LotoPool.Checked
+                        ButtonListPadLotoPool.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
+                End Select
+
+
+        End Select
+    End Sub
+
     Private Sub SetupLabels()
-        Label_SXM3_1.Parent = PictureBox1
+        Label_SXM3_1.Parent = PictureBoxPick3
         Label_SXM3_1.BackColor = Color.Transparent
-        Label_SXM3_2.Parent = PictureBox1
+        Label_SXM3_2.Parent = PictureBoxPick3
         Label_SXM3_2.BackColor = Color.Transparent
-        Label_SXM3_3.Parent = PictureBox1
+        Label_SXM3_3.Parent = PictureBoxPick3
         Label_SXM3_3.BackColor = Color.Transparent
 
-        Label_SXM4_1.Parent = PictureBox2
+        Label_SXM4_1.Parent = PictureBoxPick4
         Label_SXM4_1.BackColor = Color.Transparent
-        Label_SXM4_2.Parent = PictureBox2
+        Label_SXM4_2.Parent = PictureBoxPick4
         Label_SXM4_2.BackColor = Color.Transparent
-        Label_SXM4_3.Parent = PictureBox2
+        Label_SXM4_3.Parent = PictureBoxPick4
         Label_SXM4_3.BackColor = Color.Transparent
-        Label_SXM4_4.Parent = PictureBox2
+        Label_SXM4_4.Parent = PictureBoxPick4
         Label_SXM4_4.BackColor = Color.Transparent
 
-        Label_PHI4_1.Parent = PictureBox3
+        Label_PHI4_1.Parent = PictureBoxPhillip
         Label_PHI4_1.BackColor = Color.Transparent
-        Label_PHI4_2.Parent = PictureBox3
+        Label_PHI4_2.Parent = PictureBoxPhillip
         Label_PHI4_2.BackColor = Color.Transparent
-        Label_PHI4_3.Parent = PictureBox3
+        Label_PHI4_3.Parent = PictureBoxPhillip
         Label_PHI4_3.BackColor = Color.Transparent
         ' Label_PHI4_4.Parent = PictureBox3
         ' Label_PHI4_4.BackColor = Color.Transparent
 
-        LabelNumero.Parent = PictureBox5
-        LabelNumero.Location = New Point(14, 34)
+        Label_Pool1.Parent = PictureBoxLotoPool
+        Label_Pool1.BackColor = Color.Transparent
+        Label_Pool2.Parent = PictureBoxLotoPool
+        Label_Pool2.BackColor = Color.Transparent
+        Label_Pool3.Parent = PictureBoxLotoPool
+        Label_Pool3.BackColor = Color.Transparent
+        Label_Pool4.Parent = PictureBoxLotoPool
+        Label_Pool4.BackColor = Color.Transparent
+
+
     End Sub
 
 #Region "CasparCg"
@@ -319,12 +360,12 @@ Public Class Main
     Private Sub SOscServer_BundleReceived(ByVal sender As Object, ByVal e As OscBundleReceivedEventArgs) Handles Oscserver.BundleReceived
         For Each message In e.Bundle.Messages
             If message.Address.Contains("stage") Then
-                procceedMessage(message)
+                ProcceedMessage(message)
             End If
         Next
     End Sub
 
-    Private Sub procceedMessage(ByRef message As OscMessage)
+    Private Sub ProcceedMessage(ByRef message As OscMessage)
 
 
         Dim dataString As String() = message.Address.ToString.Split("/")
@@ -596,56 +637,6 @@ Public Class Main
     End Sub
 
 
-#Region "Teclado Numerico"
-    Private Sub TextBoxNumero_TextChanged(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxNumero.KeyPress
-        e.Handled = Not (Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = 8)
-    End Sub
-    Private Sub TextBoxNumero_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNumero.TextChanged, TextBoxNumero.KeyPress
-        VerifyText()
-    End Sub
-
-    Sub VerifyText()
-        If String.Equals(LabelNumero.Text, TextBoxNumero.Text) Then
-            ButtonOk.Enabled = True
-            ButtonOk.BackColor = SystemColors.GradientActiveCaption
-        Else
-            ButtonOk.Enabled = False
-            ButtonOk.BackColor = SystemColors.Control
-        End If
-    End Sub
-
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button9.Click, Button8.Click, Button7.Click, Button6.Click, Button5.Click, Button4.Click, Button3.Click, Button2.Click, Button10.Click, Button1.Click
-        LabelNumero.Text = sender.tag
-        VerifyText()
-        TextBoxNumero.Focus()
-    End Sub
-
-    Private Sub FormaNumber_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.KeyCode = Keys.Enter And ButtonOk.Enabled Then
-            ' RaiseEvent Bolo_OK(New Bola With {.Bolo = Bolo, .Resultado = ButtonNumero.Text, .OK = True, .Sorteo = TipoSorteo})
-            'Clear()
-
-
-        Else
-            If Not TextBoxNumero.Focused Then
-                TextBoxNumero.Focus()
-                SendKeys.Send(e.KeyCode.ToString)
-            End If
-        End If
-    End Sub
-
-    Private Sub RadioButtonAM_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAM.CheckedChanged
-        If RadioButtonAM.Checked Then
-            TabControl_AM_PM.SelectedTab = TabPageAM
-        Else
-            TabControl_AM_PM.SelectedTab = TabPagePM
-        End If
-    End Sub
-
-
-
-
-#End Region
 
 
 
@@ -661,6 +652,255 @@ Public Class Main
     '    End If
     'End Sub
 #End Region
+
+
+#Region "sorteos"
+    Private Function EntradaBolo(bolo As Bola) As Boolean
+        If bolo.OK Then
+            Dim CGdata As New CasparCGDataCollection From {
+                {$"f{bolo.Bolo}", bolo.Resultado}
+            }
+            Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+            Canal_PGM.CG.Invoke(LayerTemplates, 1, $"bolo{bolo.Bolo}")
+
+            ''Para grafico de Sorteo vertical
+            'Dim CGdata1 As New CasparCGDataCollection From {{$"f0", bolo.Resultado}}
+            'Select Case bolo.Bolo
+            '    Case 1
+            '        Canal_Ver_1.CG.Update(LayerTemplates, 1, CGdata1)
+            '        Canal_Ver_1.CG.Next(LayerTemplates, 1)
+            '    Case 2
+            '        Canal_Ver_2.CG.Update(LayerTemplates, 1, CGdata1)
+            '        Canal_Ver_2.CG.Next(LayerTemplates, 1)
+            '    Case 3
+            '        Canal_Ver_3.CG.Update(LayerTemplates, 1, CGdata1)
+            '        Canal_Ver_3.CG.Next(LayerTemplates, 1)
+            'End Select
+
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Sub SaveResultado(bola As Bola)
+        Dim PanelSorteo As PictureBox
+        Dim Sorteo
+        If bola.OK Then
+            Select Case bola.Sorteo
+                Case Sorteos.Tipo.Pick3_SXM
+                    PanelSorteo = PictureBoxPick3
+                    Sorteo = Pick3_SXM
+                Case Sorteos.Tipo.Pick4_SXM
+                    PanelSorteo = PictureBoxPick4
+                    Sorteo = Pick4_SXM
+                Case Sorteos.Tipo.LotoPool
+                    PanelSorteo = PictureBoxLotoPool
+                    Sorteo = LotoPool
+                Case Else
+                    PanelSorteo = PictureBoxPick3
+                    Sorteo = Pick3_SXM
+            End Select
+
+            For Each control In PanelSorteo.Controls.OfType(Of Label)
+                If control.Tag = bola.Bolo Then control.Text = bola.Resultado
+            Next
+            Sorteo(bola.Bolo - 1) = bola
+        End If
+    End Sub
+
+    Private Sub RB_CheckedChanged(sender As Object, e As EventArgs) Handles RB_Resultados.CheckedChanged, RB_pick4.CheckedChanged, RB_Pick3.CheckedChanged, RB_Phillps.CheckedChanged, RB_LotoPool.CheckedChanged
+
+        PanelPick3.BackColor = Color.FromArgb(0, 0, 64)
+        PanelPick4.BackColor = Color.FromArgb(0, 0, 64)
+        PanelPhill.BackColor = Color.FromArgb(0, 0, 64)
+        PanelLotoPool.BackColor = Color.FromArgb(0, 0, 64)
+
+
+        Select Case True
+            Case RB_Pick3.Checked
+                TabControl_Sorteo.SelectedTab = TabPagePick3
+                PanelPick3.BackColor = Color.Red
+            Case RB_pick4.Checked
+                TabControl_Sorteo.SelectedTab = TabPagePick4
+                PanelPick4.BackColor = Color.Red
+            Case RB_Phillps.Checked
+                TabControl_Sorteo.SelectedTab = TabPagePhill
+                PanelPhill.BackColor = Color.Red
+            Case RB_LotoPool.Checked
+                TabControl_Sorteo.SelectedTab = TabPageLotoPool
+                PanelLotoPool.BackColor = Color.Red
+            Case RB_Resultados.Checked
+                TabControl_Sorteo.SelectedTab = TabPageResultados
+
+        End Select
+
+    End Sub
+#Region "Pick3"
+
+    Private Sub ButtonEntradaPick3_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPick3.Click
+        Dim CGdata As New CasparCGDataCollection From {
+            {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+        }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick3_SXM", True, CGdata)
+
+        Label_SXM3_1.Enabled = True
+        NumPad_Pick3.ConfiguraNumeros(Sorteos.Tipo.Pick3_SXM, "1")
+        NumPad_Pick3.Enabled = True
+        PanelPick3.Enabled = True
+    End Sub
+
+    Private Sub ButtonResultadoPick3_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPick3.Click
+        Dim CGdata As New CasparCGDataCollection From {
+                {"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"},
+                {"f1", Label_SXM3_1.Text},
+                {"f2", Label_SXM3_2.Text},
+                {"f3", Label_SXM3_3.Text}
+            }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick3_SXM_final", True, CGdata)
+
+    End Sub
+
+    Private Sub Label_SXM3_1_Click_1(sender As Object, e As EventArgs) Handles Label_SXM3_3.Click, Label_SXM3_2.Click, Label_SXM3_1.Click
+        NumPad_Pick3.ConfiguraNumeros(Sorteos.Tipo.Pick3_SXM, sender.tag)
+    End Sub
+
+    Private Sub BoloEventPick3(Bolo As Bola) Handles NumPad_Pick3.Bolo_OK
+        If Bolo.Bolo = 1 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_SXM3_2.Enabled = True
+            NumPad_Pick3.ConfiguraNumeros(Bolo.Sorteo, "2")
+        End If
+        If Bolo.Bolo = 2 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_SXM3_3.Enabled = True
+            NumPad_Pick3.ConfiguraNumeros(Bolo.Sorteo, "3")
+        End If
+        If Bolo.Bolo = 3 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            NumPad_Pick3.Clear()
+            NumPad_Pick3.Enabled = False
+        End If
+    End Sub
+
+
+#End Region
+
+#Region "Pick 4"
+    Private Sub ButtonEntradaPick4_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPick4.Click
+        Dim CGdata As New CasparCGDataCollection From {
+           {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+       }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick4_SXM", True, CGdata)
+        Label_SXM4_1.Enabled = True
+        NumPad_Pick4.ConfiguraNumeros(Sorteos.Tipo.Pick4_SXM, "1")
+        NumPad_Pick4.Enabled = True
+        PanelPick4.Enabled = True
+    End Sub
+
+    Private Sub ButtonResultadoPick4_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPick4.Click
+        Dim CGdata As New CasparCGDataCollection From {
+                {"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"},
+                {"f1", Label_SXM4_1.Text},
+                {"f2", Label_SXM4_2.Text},
+                {"f3", Label_SXM4_3.Text},
+                {"f4", Label_SXM4_4.Text}
+            }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick4_SXM_final", True, CGdata)
+    End Sub
+
+    Private Sub Label_SXM4_1_Click(sender As Object, e As EventArgs) Handles Label_SXM4_4.Click, Label_SXM4_3.Click, Label_SXM4_2.Click, Label_SXM4_1.Click
+        NumPad_Pick4.ConfiguraNumeros(Sorteos.Tipo.Pick4_SXM, sender.tag)
+    End Sub
+
+    Private Sub BoloEventPick4(Bolo As Bola) Handles NumPad_Pick4.Bolo_OK
+        If Bolo.Bolo = 1 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_SXM4_2.Enabled = True
+            NumPad_Pick4.ConfiguraNumeros(Bolo.Sorteo, "2")
+        End If
+        If Bolo.Bolo = 2 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_SXM4_3.Enabled = True
+            NumPad_Pick4.ConfiguraNumeros(Bolo.Sorteo, "3")
+        End If
+        If Bolo.Bolo = 3 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_SXM4_4.Enabled = True
+            NumPad_Pick4.ConfiguraNumeros(Bolo.Sorteo, "4")
+        End If
+        If Bolo.Bolo = 4 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            NumPad_Pick4.Clear()
+            NumPad_Pick4.Enabled = False
+        End If
+    End Sub
+#End Region
+
+#Region "LotoPool"
+    Private Sub ButtonEntradaPhillipsburg_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPhillipsburg.Click
+        Dim CGdata As New CasparCGDataCollection From {
+        {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+    }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/LotoPool", True, CGdata)
+        Label_Pool1.Enabled = True
+        ButtonListPadLotoPool.ConfiguraNumeros(Sorteos.Tipo.LotoPool, "1")
+        ButtonListPadLotoPool.Enabled = True
+        PanelLotoPool.Enabled = True
+    End Sub
+
+    Private Sub ButtonResultadoPhillipsburg_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPhillipsburg.Click
+        Dim CGdata As New CasparCGDataCollection From {
+               {"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"},
+               {"f1", Label_Pool1.Text},
+               {"f2", Label_Pool2.Text},
+               {"f3", Label_Pool3.Text},
+               {"f4", Label_Pool4.Text}
+           }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/LotoPool_final", True, CGdata)
+    End Sub
+
+    Private Sub Label_Pool1_Click(sender As Object, e As EventArgs) Handles Label_Pool4.Click, Label_Pool3.Click, Label_Pool2.Click, Label_Pool1.Click
+        ButtonListPadLotoPool.ConfiguraNumeros(Sorteos.Tipo.LotoPool, sender.tag)
+    End Sub
+
+    Private Sub BoloEventLotoPool(Bolo As Bola) Handles ButtonListPadLotoPool.Bolo_OK
+        If Bolo.Bolo = 1 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_Pool2.Enabled = True
+            ButtonListPadLotoPool.ConfiguraNumeros(Bolo.Sorteo, "2", True, LotoPool)
+        End If
+        If Bolo.Bolo = 2 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_Pool3.Enabled = True
+            ButtonListPadLotoPool.ConfiguraNumeros(Bolo.Sorteo, "3", True, LotoPool)
+        End If
+        If Bolo.Bolo = 3 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Label_Pool4.Enabled = True
+            ButtonListPadLotoPool.ConfiguraNumeros(Bolo.Sorteo, "4", True, LotoPool)
+        End If
+        If Bolo.Bolo = 4 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            ButtonListPadLotoPool.Clear()
+            ButtonListPadLotoPool.Enabled = False
+        End If
+    End Sub
+
+#End Region
+#End Region
+
 
 End Class
 
@@ -685,7 +925,8 @@ Public Class Resultados
     Public Property Fecha As Date
     Public Property Pick3_SXM As Bola()
     Public Property Pick4_SXM As Bola()
-    Public Property Pick4_PHI As Bola()
+    Public Property Phillipsburg As Bola()
+    Public Property LotoPool As Bola()
     Public Property Presentador As Personas
     Public Property Jueces As List(Of Personas)
     Public Property Invidentes As List(Of Personas)
@@ -695,7 +936,8 @@ Public Class Sorteos
     Enum Tipo
         Pick3_SXM
         Pick4_SXM
-        Pick4_PHI
+        Phillipsburg
+        LotoPool
     End Enum
 End Class
 

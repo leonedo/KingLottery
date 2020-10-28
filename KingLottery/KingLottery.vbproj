@@ -118,6 +118,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonListPad.Designer.vb">
+      <DependentUpon>ButtonListPad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonListPad.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -146,6 +152,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NumPad.Designer.vb">
+      <DependentUpon>NumPad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NumPad.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="videobutton.Designer.vb">
       <DependentUpon>videobutton.vb</DependentUpon>
     </Compile>
@@ -154,6 +166,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ButtonListPad.resx">
+      <DependentUpon>ButtonListPad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +180,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumPad.resx">
+      <DependentUpon>NumPad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="videobutton.resx">
       <DependentUpon>videobutton.vb</DependentUpon>
