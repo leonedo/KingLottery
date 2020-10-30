@@ -111,8 +111,9 @@ Public Class Main
                         NumPad_Pick4.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
                     Case RB_LotoPool.Checked
                         ButtonListPadLotoPool.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
+                    Case RB_Phillps.Checked
+                        MultiNumberPadPhillipsburg.ButtonOk_Click(MultiNumberPadPhillipsburg.ButtonOk, Nothing)
                 End Select
-
 
         End Select
     End Sub
@@ -140,8 +141,26 @@ Public Class Main
         Label_PHI4_2.BackColor = Color.Transparent
         Label_PHI4_3.Parent = PictureBoxPhillip
         Label_PHI4_3.BackColor = Color.Transparent
-        ' Label_PHI4_4.Parent = PictureBox3
-        ' Label_PHI4_4.BackColor = Color.Transparent
+        Label_PHI4_4.Parent = PictureBoxPhillip
+        Label_PHI4_4.BackColor = Color.Transparent
+
+        Label_PHI4_5.Parent = PictureBoxPhillip
+        Label_PHI4_5.BackColor = Color.Transparent
+        Label_PHI4_6.Parent = PictureBoxPhillip
+        Label_PHI4_6.BackColor = Color.Transparent
+        Label_PHI4_7.Parent = PictureBoxPhillip
+        Label_PHI4_7.BackColor = Color.Transparent
+        Label_PHI4_8.Parent = PictureBoxPhillip
+        Label_PHI4_8.BackColor = Color.Transparent
+
+        Label_PHI4_9.Parent = PictureBoxPhillip
+        Label_PHI4_9.BackColor = Color.Transparent
+        Label_PHI4_10.Parent = PictureBoxPhillip
+        Label_PHI4_10.BackColor = Color.Transparent
+        Label_PHI4_11.Parent = PictureBoxPhillip
+        Label_PHI4_11.BackColor = Color.Transparent
+        Label_PHI4_12.Parent = PictureBoxPhillip
+        Label_PHI4_12.BackColor = Color.Transparent
 
         Label_Pool1.Parent = PictureBoxLotoPool
         Label_Pool1.BackColor = Color.Transparent
@@ -697,6 +716,9 @@ Public Class Main
                 Case Sorteos.Tipo.LotoPool
                     PanelSorteo = PictureBoxLotoPool
                     Sorteo = LotoPool
+                Case Sorteos.Tipo.Phillipsburg
+                    PanelSorteo = PictureBoxPhillip
+                    Sorteo = Phillipsburg
                 Case Else
                     PanelSorteo = PictureBoxPick3
                     Sorteo = Pick3_SXM
@@ -845,7 +867,7 @@ Public Class Main
 #End Region
 
 #Region "LotoPool"
-    Private Sub ButtonEntradaPhillipsburg_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPhillipsburg.Click
+    Private Sub ButtonEntradaLotoPool_Click(sender As Object, e As EventArgs) Handles ButtonEntradaLotoPool.Click
         Dim CGdata As New CasparCGDataCollection From {
         {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
     }
@@ -856,7 +878,7 @@ Public Class Main
         PanelLotoPool.Enabled = True
     End Sub
 
-    Private Sub ButtonResultadoPhillipsburg_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPhillipsburg.Click
+    Private Sub ButtonResultadoLotoPool_Click(sender As Object, e As EventArgs) Handles ButtonResultadoLotoPool.Click
         Dim CGdata As New CasparCGDataCollection From {
                {"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"},
                {"f1", Label_Pool1.Text},
@@ -898,10 +920,51 @@ Public Class Main
         End If
     End Sub
 
-#End Region
-#End Region
 
 
+#End Region
+
+#Region "Phillipsburg"
+    Private Sub ButtonEntradaPhillip_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPhillip.Click
+        Dim CGdata As New CasparCGDataCollection From {
+      {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+  }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/PHIL", True, CGdata)
+        Label_PHI4_1.Enabled = True
+        MultiNumberPadPhillipsburg.ConfiguraNumeros(Sorteos.Tipo.Phillipsburg, "1", Phillipsburg)
+        MultiNumberPadPhillipsburg.Enabled = True
+        PanelPhill.Enabled = True
+    End Sub
+
+    Private Sub ButtonResultadosPhillips_Click(sender As Object, e As EventArgs) Handles ButtonResultadosPhillips.Click
+        Dim CGdata As New CasparCGDataCollection
+        For Each bolo In Phillipsburg
+            CGdata.Add($"f{bolo?.Bolo}", bolo?.Resultado)
+        Next
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/PHIL_final", True, CGdata)
+    End Sub
+
+    Private Sub BoloEventPhillipsburg(Bolo As Bola) Handles MultiNumberPadPhillipsburg.Bolo_OK
+        If Bolo.Bolo < 12 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            Dim nextBolo = CInt(Bolo.Bolo) + 1
+            For Each control In PictureBoxPhillip.Controls.OfType(Of Label)
+                If control.Tag = nextBolo Then control.Enabled = True
+            Next
+            MultiNumberPadPhillipsburg.ConfiguraNumeros(Bolo.Sorteo, nextBolo.ToString, Phillipsburg)
+        ElseIf Bolo.Bolo = 12 And Bolo.OK Then
+            EntradaBolo(Bolo)
+            SaveResultado(Bolo)
+            MultiNumberPadPhillipsburg.Clear()
+            MultiNumberPadPhillipsburg.Enabled = False
+        End If
+
+    End Sub
+
+#End Region
+
+#End Region
 End Class
 
 #Region "Clases de soporte"

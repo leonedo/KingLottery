@@ -4,7 +4,7 @@
     Private TipoSorteo As Sorteos.Tipo
 
     Private Sub NumbersControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LabelDescription.Location = New Point(36, 14)
+        LabelDescription.Location = New Point(36, 16)
         LabelDescription.Parent = ButtonNumero
     End Sub
     Private Sub TextBoxNumero_TextChanged(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxNumero.KeyPress

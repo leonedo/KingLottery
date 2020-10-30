@@ -137,6 +137,12 @@
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MultiNumberPad.Designer.vb">
+      <DependentUpon>MultiNumberPad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MultiNumberPad.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiNumberPad.resx">
+      <DependentUpon>MultiNumberPad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -230,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Loto_Pool1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MultiBolo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

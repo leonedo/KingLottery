@@ -23,8 +23,8 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,12 +46,24 @@ Partial Class Main
         Me.ButtonResultadoPick4 = New System.Windows.Forms.Button()
         Me.ButtonEntradaPick4 = New System.Windows.Forms.Button()
         Me.TabPagePhill = New System.Windows.Forms.TabPage()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.ButtonResultadosPhillips = New System.Windows.Forms.Button()
+        Me.ButtonEntradaPhillip = New System.Windows.Forms.Button()
         Me.TabPageLotoPool = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.ButtonResultadoPhillipsburg = New System.Windows.Forms.Button()
-        Me.ButtonEntradaPhillipsburg = New System.Windows.Forms.Button()
+        Me.ButtonResultadoLotoPool = New System.Windows.Forms.Button()
+        Me.ButtonEntradaLotoPool = New System.Windows.Forms.Button()
         Me.TabPageResultados = New System.Windows.Forms.TabPage()
         Me.PanelPhill = New System.Windows.Forms.Panel()
+        Me.Label_PHI4_12 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_11 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_10 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_9 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_8 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_7 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_6 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_5 = New System.Windows.Forms.Label()
+        Me.Label_PHI4_4 = New System.Windows.Forms.Label()
         Me.Label_PHI4_3 = New System.Windows.Forms.Label()
         Me.Label_PHI4_2 = New System.Windows.Forms.Label()
         Me.Label_PHI4_1 = New System.Windows.Forms.Label()
@@ -138,6 +150,7 @@ Partial Class Main
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
         Me.NumPad_Pick3 = New KingLottery.NumPad()
         Me.NumPad_Pick4 = New KingLottery.NumPad()
+        Me.MultiNumberPadPhillipsburg = New KingLottery.MultiNumberPad()
         Me.ButtonListPadLotoPool = New KingLottery.ButtonListPad()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -150,6 +163,8 @@ Partial Class Main
         Me.Panel16.SuspendLayout()
         Me.TabPagePick4.SuspendLayout()
         Me.Panel9.SuspendLayout()
+        Me.TabPagePhill.SuspendLayout()
+        Me.Panel13.SuspendLayout()
         Me.TabPageLotoPool.SuspendLayout()
         Me.Panel10.SuspendLayout()
         Me.PanelPhill.SuspendLayout()
@@ -447,12 +462,50 @@ Partial Class Main
         'TabPagePhill
         '
         Me.TabPagePhill.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TabPagePhill.Controls.Add(Me.Panel13)
         Me.TabPagePhill.Location = New System.Drawing.Point(4, 22)
         Me.TabPagePhill.Name = "TabPagePhill"
         Me.TabPagePhill.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPagePhill.Size = New System.Drawing.Size(549, 285)
         Me.TabPagePhill.TabIndex = 3
         Me.TabPagePhill.Text = "Phillipsburg"
+        '
+        'Panel13
+        '
+        Me.Panel13.Controls.Add(Me.ButtonResultadosPhillips)
+        Me.Panel13.Controls.Add(Me.ButtonEntradaPhillip)
+        Me.Panel13.Controls.Add(Me.MultiNumberPadPhillipsburg)
+        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel13.Location = New System.Drawing.Point(3, 3)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(543, 279)
+        Me.Panel13.TabIndex = 0
+        '
+        'ButtonResultadosPhillips
+        '
+        Me.ButtonResultadosPhillips.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonResultadosPhillips.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonResultadosPhillips.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonResultadosPhillips.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonResultadosPhillips.Location = New System.Drawing.Point(440, 60)
+        Me.ButtonResultadosPhillips.Name = "ButtonResultadosPhillips"
+        Me.ButtonResultadosPhillips.Size = New System.Drawing.Size(99, 25)
+        Me.ButtonResultadosPhillips.TabIndex = 116
+        Me.ButtonResultadosPhillips.Text = "Resultado"
+        Me.ButtonResultadosPhillips.UseVisualStyleBackColor = False
+        '
+        'ButtonEntradaPhillip
+        '
+        Me.ButtonEntradaPhillip.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonEntradaPhillip.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonEntradaPhillip.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonEntradaPhillip.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonEntradaPhillip.Location = New System.Drawing.Point(440, 11)
+        Me.ButtonEntradaPhillip.Name = "ButtonEntradaPhillip"
+        Me.ButtonEntradaPhillip.Size = New System.Drawing.Size(99, 43)
+        Me.ButtonEntradaPhillip.TabIndex = 115
+        Me.ButtonEntradaPhillip.Text = "Entrada Phillipsburg"
+        Me.ButtonEntradaPhillip.UseVisualStyleBackColor = False
         '
         'TabPageLotoPool
         '
@@ -468,39 +521,39 @@ Partial Class Main
         'Panel10
         '
         Me.Panel10.Controls.Add(Me.ButtonListPadLotoPool)
-        Me.Panel10.Controls.Add(Me.ButtonResultadoPhillipsburg)
-        Me.Panel10.Controls.Add(Me.ButtonEntradaPhillipsburg)
+        Me.Panel10.Controls.Add(Me.ButtonResultadoLotoPool)
+        Me.Panel10.Controls.Add(Me.ButtonEntradaLotoPool)
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel10.Location = New System.Drawing.Point(3, 3)
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(543, 279)
         Me.Panel10.TabIndex = 0
         '
-        'ButtonResultadoPhillipsburg
+        'ButtonResultadoLotoPool
         '
-        Me.ButtonResultadoPhillipsburg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonResultadoPhillipsburg.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonResultadoPhillipsburg.BackColor = System.Drawing.Color.GreenYellow
-        Me.ButtonResultadoPhillipsburg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonResultadoPhillipsburg.Location = New System.Drawing.Point(440, 60)
-        Me.ButtonResultadoPhillipsburg.Name = "ButtonResultadoPhillipsburg"
-        Me.ButtonResultadoPhillipsburg.Size = New System.Drawing.Size(99, 25)
-        Me.ButtonResultadoPhillipsburg.TabIndex = 131
-        Me.ButtonResultadoPhillipsburg.Text = "Resultado"
-        Me.ButtonResultadoPhillipsburg.UseVisualStyleBackColor = False
+        Me.ButtonResultadoLotoPool.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonResultadoLotoPool.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonResultadoLotoPool.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonResultadoLotoPool.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonResultadoLotoPool.Location = New System.Drawing.Point(440, 60)
+        Me.ButtonResultadoLotoPool.Name = "ButtonResultadoLotoPool"
+        Me.ButtonResultadoLotoPool.Size = New System.Drawing.Size(99, 25)
+        Me.ButtonResultadoLotoPool.TabIndex = 131
+        Me.ButtonResultadoLotoPool.Text = "Resultado"
+        Me.ButtonResultadoLotoPool.UseVisualStyleBackColor = False
         '
-        'ButtonEntradaPhillipsburg
+        'ButtonEntradaLotoPool
         '
-        Me.ButtonEntradaPhillipsburg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonEntradaPhillipsburg.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonEntradaPhillipsburg.BackColor = System.Drawing.Color.GreenYellow
-        Me.ButtonEntradaPhillipsburg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonEntradaPhillipsburg.Location = New System.Drawing.Point(440, 11)
-        Me.ButtonEntradaPhillipsburg.Name = "ButtonEntradaPhillipsburg"
-        Me.ButtonEntradaPhillipsburg.Size = New System.Drawing.Size(99, 43)
-        Me.ButtonEntradaPhillipsburg.TabIndex = 130
-        Me.ButtonEntradaPhillipsburg.Text = "Entrada " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Phillipsburg"
-        Me.ButtonEntradaPhillipsburg.UseVisualStyleBackColor = False
+        Me.ButtonEntradaLotoPool.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonEntradaLotoPool.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonEntradaLotoPool.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonEntradaLotoPool.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonEntradaLotoPool.Location = New System.Drawing.Point(440, 11)
+        Me.ButtonEntradaLotoPool.Name = "ButtonEntradaLotoPool"
+        Me.ButtonEntradaLotoPool.Size = New System.Drawing.Size(99, 43)
+        Me.ButtonEntradaLotoPool.TabIndex = 130
+        Me.ButtonEntradaLotoPool.Text = "Entrada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "LotoPool"
+        Me.ButtonEntradaLotoPool.UseVisualStyleBackColor = False
         '
         'TabPageResultados
         '
@@ -515,6 +568,15 @@ Partial Class Main
         'PanelPhill
         '
         Me.PanelPhill.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_12)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_11)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_10)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_9)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_8)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_7)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_6)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_5)
+        Me.PanelPhill.Controls.Add(Me.Label_PHI4_4)
         Me.PanelPhill.Controls.Add(Me.Label_PHI4_3)
         Me.PanelPhill.Controls.Add(Me.Label_PHI4_2)
         Me.PanelPhill.Controls.Add(Me.Label_PHI4_1)
@@ -526,6 +588,132 @@ Partial Class Main
         Me.PanelPhill.Size = New System.Drawing.Size(549, 142)
         Me.PanelPhill.TabIndex = 52
         '
+        'Label_PHI4_12
+        '
+        Me.Label_PHI4_12.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_12.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_12.Enabled = False
+        Me.Label_PHI4_12.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_12.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_12.Location = New System.Drawing.Point(474, 72)
+        Me.Label_PHI4_12.Name = "Label_PHI4_12"
+        Me.Label_PHI4_12.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_12.TabIndex = 65
+        Me.Label_PHI4_12.Tag = "12"
+        Me.Label_PHI4_12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_11
+        '
+        Me.Label_PHI4_11.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_11.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_11.Enabled = False
+        Me.Label_PHI4_11.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_11.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_11.Location = New System.Drawing.Point(439, 72)
+        Me.Label_PHI4_11.Name = "Label_PHI4_11"
+        Me.Label_PHI4_11.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_11.TabIndex = 64
+        Me.Label_PHI4_11.Tag = "11"
+        Me.Label_PHI4_11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_10
+        '
+        Me.Label_PHI4_10.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_10.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_10.Enabled = False
+        Me.Label_PHI4_10.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_10.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_10.Location = New System.Drawing.Point(404, 72)
+        Me.Label_PHI4_10.Name = "Label_PHI4_10"
+        Me.Label_PHI4_10.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_10.TabIndex = 63
+        Me.Label_PHI4_10.Tag = "10"
+        Me.Label_PHI4_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_9
+        '
+        Me.Label_PHI4_9.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_9.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_9.Enabled = False
+        Me.Label_PHI4_9.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_9.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_9.Location = New System.Drawing.Point(369, 72)
+        Me.Label_PHI4_9.Name = "Label_PHI4_9"
+        Me.Label_PHI4_9.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_9.TabIndex = 62
+        Me.Label_PHI4_9.Tag = "9"
+        Me.Label_PHI4_9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_8
+        '
+        Me.Label_PHI4_8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_8.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_8.Enabled = False
+        Me.Label_PHI4_8.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_8.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_8.Location = New System.Drawing.Point(308, 72)
+        Me.Label_PHI4_8.Name = "Label_PHI4_8"
+        Me.Label_PHI4_8.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_8.TabIndex = 61
+        Me.Label_PHI4_8.Tag = "8"
+        Me.Label_PHI4_8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_7
+        '
+        Me.Label_PHI4_7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_7.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_7.Enabled = False
+        Me.Label_PHI4_7.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_7.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_7.Location = New System.Drawing.Point(273, 72)
+        Me.Label_PHI4_7.Name = "Label_PHI4_7"
+        Me.Label_PHI4_7.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_7.TabIndex = 60
+        Me.Label_PHI4_7.Tag = "7"
+        Me.Label_PHI4_7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_6
+        '
+        Me.Label_PHI4_6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_6.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_6.Enabled = False
+        Me.Label_PHI4_6.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_6.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_6.Location = New System.Drawing.Point(238, 72)
+        Me.Label_PHI4_6.Name = "Label_PHI4_6"
+        Me.Label_PHI4_6.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_6.TabIndex = 59
+        Me.Label_PHI4_6.Tag = "6"
+        Me.Label_PHI4_6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_5
+        '
+        Me.Label_PHI4_5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_5.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_5.Enabled = False
+        Me.Label_PHI4_5.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_5.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_5.Location = New System.Drawing.Point(203, 72)
+        Me.Label_PHI4_5.Name = "Label_PHI4_5"
+        Me.Label_PHI4_5.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_5.TabIndex = 58
+        Me.Label_PHI4_5.Tag = "5"
+        Me.Label_PHI4_5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label_PHI4_4
+        '
+        Me.Label_PHI4_4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label_PHI4_4.BackColor = System.Drawing.Color.Transparent
+        Me.Label_PHI4_4.Enabled = False
+        Me.Label_PHI4_4.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PHI4_4.ForeColor = System.Drawing.Color.White
+        Me.Label_PHI4_4.Location = New System.Drawing.Point(144, 72)
+        Me.Label_PHI4_4.Name = "Label_PHI4_4"
+        Me.Label_PHI4_4.Size = New System.Drawing.Size(32, 65)
+        Me.Label_PHI4_4.TabIndex = 57
+        Me.Label_PHI4_4.Tag = "4"
+        Me.Label_PHI4_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label_PHI4_3
         '
         Me.Label_PHI4_3.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -533,12 +721,11 @@ Partial Class Main
         Me.Label_PHI4_3.Enabled = False
         Me.Label_PHI4_3.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_PHI4_3.ForeColor = System.Drawing.Color.White
-        Me.Label_PHI4_3.Location = New System.Drawing.Point(373, 72)
+        Me.Label_PHI4_3.Location = New System.Drawing.Point(109, 72)
         Me.Label_PHI4_3.Name = "Label_PHI4_3"
-        Me.Label_PHI4_3.Size = New System.Drawing.Size(139, 62)
+        Me.Label_PHI4_3.Size = New System.Drawing.Size(32, 65)
         Me.Label_PHI4_3.TabIndex = 56
         Me.Label_PHI4_3.Tag = "3"
-        Me.Label_PHI4_3.Text = "1 2 3 4"
         Me.Label_PHI4_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label_PHI4_2
@@ -548,12 +735,11 @@ Partial Class Main
         Me.Label_PHI4_2.Enabled = False
         Me.Label_PHI4_2.Font = New System.Drawing.Font("Kanit", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_PHI4_2.ForeColor = System.Drawing.Color.White
-        Me.Label_PHI4_2.Location = New System.Drawing.Point(206, 72)
+        Me.Label_PHI4_2.Location = New System.Drawing.Point(74, 72)
         Me.Label_PHI4_2.Name = "Label_PHI4_2"
-        Me.Label_PHI4_2.Size = New System.Drawing.Size(137, 62)
+        Me.Label_PHI4_2.Size = New System.Drawing.Size(32, 65)
         Me.Label_PHI4_2.TabIndex = 55
         Me.Label_PHI4_2.Tag = "2"
-        Me.Label_PHI4_2.Text = "1 2 3 4"
         Me.Label_PHI4_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label_PHI4_1
@@ -565,10 +751,9 @@ Partial Class Main
         Me.Label_PHI4_1.ForeColor = System.Drawing.Color.White
         Me.Label_PHI4_1.Location = New System.Drawing.Point(39, 72)
         Me.Label_PHI4_1.Name = "Label_PHI4_1"
-        Me.Label_PHI4_1.Size = New System.Drawing.Size(138, 62)
+        Me.Label_PHI4_1.Size = New System.Drawing.Size(32, 65)
         Me.Label_PHI4_1.TabIndex = 54
         Me.Label_PHI4_1.Tag = "1"
-        Me.Label_PHI4_1.Text = "1 2 3 4"
         Me.Label_PHI4_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBoxPhillip
@@ -918,8 +1103,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 161)
@@ -1489,8 +1674,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 161)
@@ -1574,6 +1759,14 @@ Partial Class Main
         Me.NumPad_Pick4.Size = New System.Drawing.Size(434, 279)
         Me.NumPad_Pick4.TabIndex = 127
         '
+        'MultiNumberPadPhillipsburg
+        '
+        Me.MultiNumberPadPhillipsburg.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.MultiNumberPadPhillipsburg.Location = New System.Drawing.Point(0, 0)
+        Me.MultiNumberPadPhillipsburg.Name = "MultiNumberPadPhillipsburg"
+        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 280)
+        Me.MultiNumberPadPhillipsburg.TabIndex = 0
+        '
         'ButtonListPadLotoPool
         '
         Me.ButtonListPadLotoPool.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1610,6 +1803,8 @@ Partial Class Main
         Me.Panel16.ResumeLayout(False)
         Me.TabPagePick4.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
+        Me.TabPagePhill.ResumeLayout(False)
+        Me.Panel13.ResumeLayout(False)
         Me.TabPageLotoPool.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.PanelPhill.ResumeLayout(False)
@@ -1753,7 +1948,20 @@ Partial Class Main
     Friend WithEvents ButtonEntradaPick4 As Button
     Friend WithEvents NumPad_Pick4 As NumPad
     Friend WithEvents Panel10 As Panel
-    Friend WithEvents ButtonResultadoPhillipsburg As Button
-    Friend WithEvents ButtonEntradaPhillipsburg As Button
+    Friend WithEvents ButtonResultadoLotoPool As Button
+    Friend WithEvents ButtonEntradaLotoPool As Button
     Friend WithEvents ButtonListPadLotoPool As ButtonListPad
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents MultiNumberPadPhillipsburg As MultiNumberPad
+    Friend WithEvents ButtonResultadosPhillips As Button
+    Friend WithEvents ButtonEntradaPhillip As Button
+    Friend WithEvents Label_PHI4_12 As Label
+    Friend WithEvents Label_PHI4_11 As Label
+    Friend WithEvents Label_PHI4_10 As Label
+    Friend WithEvents Label_PHI4_9 As Label
+    Friend WithEvents Label_PHI4_8 As Label
+    Friend WithEvents Label_PHI4_7 As Label
+    Friend WithEvents Label_PHI4_6 As Label
+    Friend WithEvents Label_PHI4_5 As Label
+    Friend WithEvents Label_PHI4_4 As Label
 End Class
