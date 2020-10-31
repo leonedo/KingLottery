@@ -23,8 +23,8 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -39,18 +39,22 @@ Partial Class Main
         Me.TabControl_Sorteo = New System.Windows.Forms.TabControl()
         Me.TabPagePick3 = New System.Windows.Forms.TabPage()
         Me.Panel16 = New System.Windows.Forms.Panel()
+        Me.NumPad_Pick3 = New KingLottery.NumPad()
         Me.ButtonResultadoPick3 = New System.Windows.Forms.Button()
         Me.ButtonEntradaPick3 = New System.Windows.Forms.Button()
         Me.TabPagePick4 = New System.Windows.Forms.TabPage()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.ButtonResultadoPick4 = New System.Windows.Forms.Button()
         Me.ButtonEntradaPick4 = New System.Windows.Forms.Button()
+        Me.NumPad_Pick4 = New KingLottery.NumPad()
         Me.TabPagePhill = New System.Windows.Forms.TabPage()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.ButtonResultadosPhillips = New System.Windows.Forms.Button()
         Me.ButtonEntradaPhillip = New System.Windows.Forms.Button()
+        Me.MultiNumberPadPhillipsburg = New KingLottery.MultiNumberPad()
         Me.TabPageLotoPool = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.ButtonListPadLotoPool = New KingLottery.ButtonListPad()
         Me.ButtonResultadoLotoPool = New System.Windows.Forms.Button()
         Me.ButtonEntradaLotoPool = New System.Windows.Forms.Button()
         Me.TabPageResultados = New System.Windows.Forms.TabPage()
@@ -112,9 +116,13 @@ Partial Class Main
         Me.ComboBoxVertical2 = New System.Windows.Forms.ComboBox()
         Me.ComboBoxVertical1 = New System.Windows.Forms.ComboBox()
         Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.ElementHost3 = New System.Windows.Forms.Integration.ElementHost()
+        Me.MonitorPGM = New NDIMonitorControlLibrary.UserControl1()
+        Me.ElementHost2 = New System.Windows.Forms.Integration.ElementHost()
+        Me.MonitorVer2 = New NDIMonitorControlLibrary.UserControl1()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
-        Me.UserControl11 = New NDIMonitorControlLibrary.UserControl1()
+        Me.MonitorVer1 = New NDIMonitorControlLibrary.UserControl1()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Button_Bumper_6 = New System.Windows.Forms.Button()
         Me.Button_Bumper_3 = New System.Windows.Forms.Button()
@@ -148,10 +156,6 @@ Partial Class Main
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
-        Me.NumPad_Pick3 = New KingLottery.NumPad()
-        Me.NumPad_Pick4 = New KingLottery.NumPad()
-        Me.MultiNumberPadPhillipsburg = New KingLottery.MultiNumberPad()
-        Me.ButtonListPadLotoPool = New KingLottery.ButtonListPad()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -385,6 +389,18 @@ Partial Class Main
         Me.Panel16.Size = New System.Drawing.Size(543, 279)
         Me.Panel16.TabIndex = 53
         '
+        'NumPad_Pick3
+        '
+        Me.NumPad_Pick3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumPad_Pick3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.NumPad_Pick3.Enabled = False
+        Me.NumPad_Pick3.Location = New System.Drawing.Point(0, 0)
+        Me.NumPad_Pick3.Name = "NumPad_Pick3"
+        Me.NumPad_Pick3.Size = New System.Drawing.Size(434, 279)
+        Me.NumPad_Pick3.TabIndex = 126
+        '
         'ButtonResultadoPick3
         '
         Me.ButtonResultadoPick3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -459,6 +475,18 @@ Partial Class Main
         Me.ButtonEntradaPick4.Text = "Entrada " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Pick 4 SXM"
         Me.ButtonEntradaPick4.UseVisualStyleBackColor = False
         '
+        'NumPad_Pick4
+        '
+        Me.NumPad_Pick4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumPad_Pick4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.NumPad_Pick4.Enabled = False
+        Me.NumPad_Pick4.Location = New System.Drawing.Point(0, 0)
+        Me.NumPad_Pick4.Name = "NumPad_Pick4"
+        Me.NumPad_Pick4.Size = New System.Drawing.Size(434, 279)
+        Me.NumPad_Pick4.TabIndex = 127
+        '
         'TabPagePhill
         '
         Me.TabPagePhill.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -507,6 +535,18 @@ Partial Class Main
         Me.ButtonEntradaPhillip.Text = "Entrada Phillipsburg"
         Me.ButtonEntradaPhillip.UseVisualStyleBackColor = False
         '
+        'MultiNumberPadPhillipsburg
+        '
+        Me.MultiNumberPadPhillipsburg.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MultiNumberPadPhillipsburg.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.MultiNumberPadPhillipsburg.Enabled = False
+        Me.MultiNumberPadPhillipsburg.Location = New System.Drawing.Point(0, 0)
+        Me.MultiNumberPadPhillipsburg.Name = "MultiNumberPadPhillipsburg"
+        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 280)
+        Me.MultiNumberPadPhillipsburg.TabIndex = 0
+        '
         'TabPageLotoPool
         '
         Me.TabPageLotoPool.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -528,6 +568,18 @@ Partial Class Main
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(543, 279)
         Me.Panel10.TabIndex = 0
+        '
+        'ButtonListPadLotoPool
+        '
+        Me.ButtonListPadLotoPool.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonListPadLotoPool.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ButtonListPadLotoPool.Enabled = False
+        Me.ButtonListPadLotoPool.Location = New System.Drawing.Point(0, 0)
+        Me.ButtonListPadLotoPool.Name = "ButtonListPadLotoPool"
+        Me.ButtonListPadLotoPool.Size = New System.Drawing.Size(434, 279)
+        Me.ButtonListPadLotoPool.TabIndex = 132
         '
         'ButtonResultadoLotoPool
         '
@@ -872,9 +924,9 @@ Partial Class Main
         Me.Label_Pool4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label_Pool4.BackColor = System.Drawing.Color.Transparent
         Me.Label_Pool4.Enabled = False
-        Me.Label_Pool4.Font = New System.Drawing.Font("Kanit", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Pool4.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Pool4.ForeColor = System.Drawing.Color.Black
-        Me.Label_Pool4.Location = New System.Drawing.Point(433, 45)
+        Me.Label_Pool4.Location = New System.Drawing.Point(417, 38)
         Me.Label_Pool4.Name = "Label_Pool4"
         Me.Label_Pool4.Size = New System.Drawing.Size(82, 90)
         Me.Label_Pool4.TabIndex = 57
@@ -886,9 +938,9 @@ Partial Class Main
         Me.Label_Pool3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label_Pool3.BackColor = System.Drawing.Color.Transparent
         Me.Label_Pool3.Enabled = False
-        Me.Label_Pool3.Font = New System.Drawing.Font("Kanit", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Pool3.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Pool3.ForeColor = System.Drawing.Color.Black
-        Me.Label_Pool3.Location = New System.Drawing.Point(304, 45)
+        Me.Label_Pool3.Location = New System.Drawing.Point(298, 38)
         Me.Label_Pool3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label_Pool3.Name = "Label_Pool3"
         Me.Label_Pool3.Size = New System.Drawing.Size(91, 90)
@@ -901,9 +953,9 @@ Partial Class Main
         Me.Label_Pool2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label_Pool2.BackColor = System.Drawing.Color.Transparent
         Me.Label_Pool2.Enabled = False
-        Me.Label_Pool2.Font = New System.Drawing.Font("Kanit", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Pool2.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Pool2.ForeColor = System.Drawing.Color.Black
-        Me.Label_Pool2.Location = New System.Drawing.Point(180, 45)
+        Me.Label_Pool2.Location = New System.Drawing.Point(181, 38)
         Me.Label_Pool2.Name = "Label_Pool2"
         Me.Label_Pool2.Size = New System.Drawing.Size(88, 90)
         Me.Label_Pool2.TabIndex = 55
@@ -915,9 +967,9 @@ Partial Class Main
         Me.Label_Pool1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label_Pool1.BackColor = System.Drawing.Color.Transparent
         Me.Label_Pool1.Enabled = False
-        Me.Label_Pool1.Font = New System.Drawing.Font("Kanit", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Pool1.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Pool1.ForeColor = System.Drawing.Color.Black
-        Me.Label_Pool1.Location = New System.Drawing.Point(46, 45)
+        Me.Label_Pool1.Location = New System.Drawing.Point(58, 38)
         Me.Label_Pool1.Name = "Label_Pool1"
         Me.Label_Pool1.Size = New System.Drawing.Size(85, 90)
         Me.Label_Pool1.TabIndex = 54
@@ -1103,8 +1155,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 161)
@@ -1260,8 +1312,8 @@ Partial Class Main
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.10409!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.89591!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.40176!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.59824!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 682)
         Me.TableLayoutPanel2.TabIndex = 0
         '
@@ -1271,15 +1323,15 @@ Partial Class Main
         Me.Panel11.Controls.Add(Me.ComboBoxVertical2)
         Me.Panel11.Controls.Add(Me.ComboBoxVertical1)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel11.Location = New System.Drawing.Point(3, 603)
+        Me.Panel11.Location = New System.Drawing.Point(3, 639)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(548, 76)
+        Me.Panel11.Size = New System.Drawing.Size(548, 40)
         Me.Panel11.TabIndex = 0
         '
         'ButtonPlaySyncVertical
         '
         Me.ButtonPlaySyncVertical.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(224, 24)
+        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(224, 6)
         Me.ButtonPlaySyncVertical.Name = "ButtonPlaySyncVertical"
         Me.ButtonPlaySyncVertical.Size = New System.Drawing.Size(101, 28)
         Me.ButtonPlaySyncVertical.TabIndex = 63
@@ -1291,7 +1343,7 @@ Partial Class Main
         Me.ComboBoxVertical2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBoxVertical2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical2.FormattingEnabled = True
-        Me.ComboBoxVertical2.Location = New System.Drawing.Point(365, 28)
+        Me.ComboBoxVertical2.Location = New System.Drawing.Point(365, 10)
         Me.ComboBoxVertical2.Name = "ComboBoxVertical2"
         Me.ComboBoxVertical2.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxVertical2.TabIndex = 6
@@ -1302,7 +1354,7 @@ Partial Class Main
         Me.ComboBoxVertical1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBoxVertical1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical1.FormattingEnabled = True
-        Me.ComboBoxVertical1.Location = New System.Drawing.Point(34, 28)
+        Me.ComboBoxVertical1.Location = New System.Drawing.Point(34, 10)
         Me.ComboBoxVertical1.Name = "ComboBoxVertical1"
         Me.ComboBoxVertical1.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxVertical1.TabIndex = 5
@@ -1310,13 +1362,38 @@ Partial Class Main
         '
         'Panel12
         '
+        Me.Panel12.Controls.Add(Me.ElementHost3)
+        Me.Panel12.Controls.Add(Me.ElementHost2)
         Me.Panel12.Controls.Add(Me.Label6)
         Me.Panel12.Controls.Add(Me.ElementHost1)
         Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel12.Location = New System.Drawing.Point(3, 3)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(548, 594)
+        Me.Panel12.Size = New System.Drawing.Size(548, 630)
         Me.Panel12.TabIndex = 1
+        '
+        'ElementHost3
+        '
+        Me.ElementHost3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.ElementHost3.BackColor = System.Drawing.Color.Black
+        Me.ElementHost3.Location = New System.Drawing.Point(61, 24)
+        Me.ElementHost3.Name = "ElementHost3"
+        Me.ElementHost3.Size = New System.Drawing.Size(426, 240)
+        Me.ElementHost3.TabIndex = 56
+        Me.ElementHost3.Text = "ElementHost3"
+        Me.ElementHost3.Child = Me.MonitorPGM
+        '
+        'ElementHost2
+        '
+        Me.ElementHost2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ElementHost2.BackColor = System.Drawing.Color.Black
+        Me.ElementHost2.Location = New System.Drawing.Point(282, 270)
+        Me.ElementHost2.Name = "ElementHost2"
+        Me.ElementHost2.Size = New System.Drawing.Size(205, 360)
+        Me.ElementHost2.TabIndex = 55
+        Me.ElementHost2.Text = "ElementHost2"
+        Me.ElementHost2.Child = Me.MonitorVer2
         '
         'Label6
         '
@@ -1327,18 +1404,20 @@ Partial Class Main
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(548, 20)
         Me.Label6.TabIndex = 54
-        Me.Label6.Text = "Monitor"
+        Me.Label6.Text = "Monitores"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'ElementHost1
         '
+        Me.ElementHost1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ElementHost1.BackColor = System.Drawing.Color.Black
-        Me.ElementHost1.Location = New System.Drawing.Point(20, 35)
+        Me.ElementHost1.Location = New System.Drawing.Point(61, 270)
         Me.ElementHost1.Name = "ElementHost1"
-        Me.ElementHost1.Size = New System.Drawing.Size(510, 521)
+        Me.ElementHost1.Size = New System.Drawing.Size(205, 360)
         Me.ElementHost1.TabIndex = 3
         Me.ElementHost1.Text = "ElementHost1"
-        Me.ElementHost1.Child = Me.UserControl11
+        Me.ElementHost1.Child = Me.MonitorVer1
         '
         'Panel5
         '
@@ -1674,8 +1753,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 161)
@@ -1728,56 +1807,12 @@ Partial Class Main
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(555, 20)
         Me.Label7.TabIndex = 55
-        Me.Label7.Text = "Separadores"
+        Me.Label7.Text = "Templates General"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'TimerCasparConnect
         '
         Me.TimerCasparConnect.Interval = 2000
-        '
-        'NumPad_Pick3
-        '
-        Me.NumPad_Pick3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumPad_Pick3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.NumPad_Pick3.Enabled = False
-        Me.NumPad_Pick3.Location = New System.Drawing.Point(0, 0)
-        Me.NumPad_Pick3.Name = "NumPad_Pick3"
-        Me.NumPad_Pick3.Size = New System.Drawing.Size(434, 279)
-        Me.NumPad_Pick3.TabIndex = 126
-        '
-        'NumPad_Pick4
-        '
-        Me.NumPad_Pick4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumPad_Pick4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.NumPad_Pick4.Enabled = False
-        Me.NumPad_Pick4.Location = New System.Drawing.Point(0, 0)
-        Me.NumPad_Pick4.Name = "NumPad_Pick4"
-        Me.NumPad_Pick4.Size = New System.Drawing.Size(434, 279)
-        Me.NumPad_Pick4.TabIndex = 127
-        '
-        'MultiNumberPadPhillipsburg
-        '
-        Me.MultiNumberPadPhillipsburg.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.MultiNumberPadPhillipsburg.Location = New System.Drawing.Point(0, 0)
-        Me.MultiNumberPadPhillipsburg.Name = "MultiNumberPadPhillipsburg"
-        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 280)
-        Me.MultiNumberPadPhillipsburg.TabIndex = 0
-        '
-        'ButtonListPadLotoPool
-        '
-        Me.ButtonListPadLotoPool.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonListPadLotoPool.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ButtonListPadLotoPool.Enabled = False
-        Me.ButtonListPadLotoPool.Location = New System.Drawing.Point(0, 0)
-        Me.ButtonListPadLotoPool.Name = "ButtonListPadLotoPool"
-        Me.ButtonListPadLotoPool.Size = New System.Drawing.Size(434, 279)
-        Me.ButtonListPadLotoPool.TabIndex = 132
         '
         'Main
         '
@@ -1898,7 +1933,6 @@ Partial Class Main
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Panel12 As Panel
     Friend WithEvents ElementHost1 As Integration.ElementHost
-    Friend UserControl11 As NDIMonitorControlLibrary.UserControl1
     Friend WithEvents Label6 As Label
     Friend WithEvents PictureBoxPick3 As PictureBox
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
@@ -1964,4 +1998,9 @@ Partial Class Main
     Friend WithEvents Label_PHI4_6 As Label
     Friend WithEvents Label_PHI4_5 As Label
     Friend WithEvents Label_PHI4_4 As Label
+    Friend WithEvents ElementHost3 As Integration.ElementHost
+    Friend MonitorPGM As NDIMonitorControlLibrary.UserControl1
+    Friend WithEvents ElementHost2 As Integration.ElementHost
+    Friend MonitorVer2 As NDIMonitorControlLibrary.UserControl1
+    Friend MonitorVer1 As NDIMonitorControlLibrary.UserControl1
 End Class

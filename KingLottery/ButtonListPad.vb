@@ -38,8 +38,8 @@
         Select Case tipoSorteo
             Case Sorteos.Tipo.LotoPool
                 format = "00"
-                min = 0
-                top = 99
+                min = 1
+                top = 100
                 LabelDescription.Text = $"{bolo}"
                 '  ButtonNumero.Image = My.Resources.BolaVerde
         End Select
@@ -53,6 +53,7 @@
                 .BackColor = SystemColors.Control,
                 .Margin = New Padding(1, 1, 1, 1)
             }
+            If index = 100 Then boton.Font = New Font("Microsoft Sans Serif", 8.0F, FontStyle.Bold)
             If numeroDeBoloUnico And bolosAnteriores IsNot Nothing Then
                 For Each bola In bolosAnteriores
                     If bola IsNot Nothing Then

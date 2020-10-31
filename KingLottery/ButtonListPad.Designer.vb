@@ -35,12 +35,11 @@ Partial Class ButtonListPad
         Me.ButtonNumero.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonNumero.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ButtonNumero.Image = Global.KingLottery.My.Resources.Resources.bolo81
-        Me.ButtonNumero.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ButtonNumero.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.ButtonNumero.Location = New System.Drawing.Point(311, 19)
         Me.ButtonNumero.Name = "ButtonNumero"
-        Me.ButtonNumero.Size = New System.Drawing.Size(87, 124)
+        Me.ButtonNumero.Size = New System.Drawing.Size(92, 142)
         Me.ButtonNumero.TabIndex = 142
-        Me.ButtonNumero.Text = "  "
         Me.ButtonNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonOk
@@ -61,7 +60,7 @@ Partial Class ButtonListPad
         Me.TextBoxNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxNumero.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxNumero.Location = New System.Drawing.Point(323, 145)
-        Me.TextBoxNumero.MaxLength = 2
+        Me.TextBoxNumero.MaxLength = 3
         Me.TextBoxNumero.Name = "TextBoxNumero"
         Me.TextBoxNumero.Size = New System.Drawing.Size(65, 60)
         Me.TextBoxNumero.TabIndex = 140

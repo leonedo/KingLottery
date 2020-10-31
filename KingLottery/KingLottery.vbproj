@@ -243,5 +243,8 @@
   <ItemGroup>
     <None Include="Resources\MultiBolo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MultiBolo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

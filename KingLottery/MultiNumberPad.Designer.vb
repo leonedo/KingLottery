@@ -197,6 +197,7 @@ Partial Class MultiNumberPad
         Me.LabelNumero.Size = New System.Drawing.Size(39, 13)
         Me.LabelNumero.TabIndex = 148
         Me.LabelNumero.Text = "Label1"
+        Me.LabelNumero.Visible = False
         '
         'LabelGrupo
         '
@@ -211,7 +212,8 @@ Partial Class MultiNumberPad
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.KingLottery.My.Resources.Resources.MultiBolo
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox1.Image = Global.KingLottery.My.Resources.Resources.MultiBolo1
         Me.PictureBox1.Location = New System.Drawing.Point(200, 27)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(160, 107)
@@ -220,51 +222,51 @@ Partial Class MultiNumberPad
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Location = New System.Drawing.Point(218, 91)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(27, 41)
+        Me.Label1.Size = New System.Drawing.Size(0, 41)
         Me.Label1.TabIndex = 151
-        Me.Label1.Text = "1"
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(251, 91)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(27, 41)
+        Me.Label2.Size = New System.Drawing.Size(0, 41)
         Me.Label2.TabIndex = 152
-        Me.Label2.Text = "1"
         '
         'Label3
         '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label3.Location = New System.Drawing.Point(284, 91)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(27, 41)
+        Me.Label3.Size = New System.Drawing.Size(0, 41)
         Me.Label3.TabIndex = 153
-        Me.Label3.Text = "1"
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Location = New System.Drawing.Point(317, 91)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(27, 41)
+        Me.Label4.Size = New System.Drawing.Size(0, 41)
         Me.Label4.TabIndex = 154
-        Me.Label4.Text = "1"
         '
         'MultiNumberPad
         '

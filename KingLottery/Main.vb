@@ -21,7 +21,7 @@ Public Class Main
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
-    Public Canal_PVW As ChannelManager
+    ' Public Canal_PVW As ChannelManager
     Public Canal_Ver_1 As ChannelManager
     Public Canal_Ver_2 As ChannelManager
     'Public Canal_Ver_3 As ChannelManager
@@ -38,9 +38,9 @@ Public Class Main
 
 #Region "Channal and leyer configuration"
     Const PGM = 1
-    Const PVW = 2
-    Const VER1 = 3
-    Const VER2 = 4
+    ' Const PVW = 2
+    Const VER1 = 2
+    Const VER2 = 3
     'Const VER3 = 5
     Const LayerVideoVertical = 10
     Const LayerTemplates = 20
@@ -283,7 +283,7 @@ Public Class Main
     Private Sub ConfiguraCanales()
         Try
             Canal_PGM = CasparDevice.Channels.First(Function(x) x.ID = PGM)
-            Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
+            '   Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
             Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
             Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
             ' Canal_Ver_3 = CasparDevice.Channels.First(Function(x) x.ID = VER3)
@@ -562,7 +562,7 @@ Public Class Main
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
-        UserControl11.UpdateSourceWithComponents(Environment.MachineName, "PGM", True, 90)
+        MonitorVer1.UpdateSourceWithComponents(Environment.MachineName, "PGM", True, 90)
     End Sub
 
 #End Region
@@ -637,22 +637,8 @@ Public Class Main
     End Sub
 
     Private Sub SetMultiview()
-        Canal_PVW.Clear()
-        CasparDevice.Connection.SendString($"PLAY {PVW}-10 route://{VER1}")
-        CasparDevice.Connection.SendString($"PLAY {PVW}-11 route://{VER2}")
-        ''CasparDevice.Connection.SendString($"PLAY {PVW}-12 route://{VER3}")
-
-        'CasparDevice.Connection.SendString($"Mixer {PVW}-10 ROTATION 90 1 Linear")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-10 MIPMAP 0")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-10 FILL 0.325 0.0138889 0.546875 0.546296 1 Linear")
-
-        'CasparDevice.Connection.SendString($"Mixer {PVW}-11 ROTATION 90 1 Linear")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-11 MIPMAP 0")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-11 FILL 0.654167 0.0138889 0.546875 0.546296 1 Linear")
-
-        'CasparDevice.Connection.SendString($"Mixer {PVW}-12 ROTATION 90 1 Linear")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-12 MIPMAP 0")
-        'CasparDevice.Connection.SendString($"MIXER {PVW}-12 FILL 0.98125 0.0138889 0.546875 0.546296 1 Linear")
+        MonitorVer1.UpdateSourceWithComponents(Environment.MachineName, "VER1", True, 90)
+        MonitorVer2.UpdateSourceWithComponents(Environment.MachineName, "VER2", True, 90)
     End Sub
 
 

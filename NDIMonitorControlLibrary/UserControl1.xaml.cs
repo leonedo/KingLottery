@@ -24,7 +24,7 @@ namespace NDIMonitorControlLibrary
         {
             InitializeComponent();
             String computerName = Environment.MachineName;
-            String sourceName = System.Net.WebUtility.UrlEncode("PVW");
+            String sourceName = System.Net.WebUtility.UrlEncode("PGM");
             String sourceUriString = String.Format("ndi://{0}/{1}", computerName, sourceName);
 
             // If you want options passed to the uri, add them on now.
