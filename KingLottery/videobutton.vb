@@ -29,4 +29,8 @@ Public Class videobutton
 
 
     End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Button1.Enabled = True
+    End Sub
 End Class

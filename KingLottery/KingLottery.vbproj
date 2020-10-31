@@ -254,6 +254,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono.ico" />
+    <None Include="Resources\VerdeSmall.png" />
+    <None Include="Resources\MameiSmall.png" />
+    <None Include="Resources\Mamei.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

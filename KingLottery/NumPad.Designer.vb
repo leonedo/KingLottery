@@ -199,7 +199,7 @@ Partial Class NumPad
         Me.ButtonNumero.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.ButtonNumero.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonNumero.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ButtonNumero.Image = Global.KingLottery.My.Resources.Resources.bolo81
+        Me.ButtonNumero.Image = Global.KingLottery.My.Resources.Resources.VerdeSmall
         Me.ButtonNumero.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.ButtonNumero.Location = New System.Drawing.Point(199, 75)
         Me.ButtonNumero.Name = "ButtonNumero"

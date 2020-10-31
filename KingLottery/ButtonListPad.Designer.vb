@@ -22,25 +22,12 @@ Partial Class ButtonListPad
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ButtonNumero = New System.Windows.Forms.Label()
         Me.ButtonOk = New System.Windows.Forms.Button()
         Me.TextBoxNumero = New System.Windows.Forms.TextBox()
         Me.LabelDescription = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.ButtonNumero = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'ButtonNumero
-        '
-        Me.ButtonNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonNumero.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonNumero.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ButtonNumero.Image = Global.KingLottery.My.Resources.Resources.bolo81
-        Me.ButtonNumero.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.ButtonNumero.Location = New System.Drawing.Point(311, 19)
-        Me.ButtonNumero.Name = "ButtonNumero"
-        Me.ButtonNumero.Size = New System.Drawing.Size(92, 142)
-        Me.ButtonNumero.TabIndex = 142
-        Me.ButtonNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonOk
         '
@@ -48,7 +35,7 @@ Partial Class ButtonListPad
         Me.ButtonOk.BackColor = System.Drawing.SystemColors.Control
         Me.ButtonOk.Enabled = False
         Me.ButtonOk.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonOk.Location = New System.Drawing.Point(313, 211)
+        Me.ButtonOk.Location = New System.Drawing.Point(311, 205)
         Me.ButtonOk.Name = "ButtonOk"
         Me.ButtonOk.Size = New System.Drawing.Size(87, 43)
         Me.ButtonOk.TabIndex = 141
@@ -59,10 +46,10 @@ Partial Class ButtonListPad
         '
         Me.TextBoxNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxNumero.Font = New System.Drawing.Font("Kanit", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxNumero.Location = New System.Drawing.Point(323, 145)
+        Me.TextBoxNumero.Location = New System.Drawing.Point(311, 139)
         Me.TextBoxNumero.MaxLength = 3
         Me.TextBoxNumero.Name = "TextBoxNumero"
-        Me.TextBoxNumero.Size = New System.Drawing.Size(65, 60)
+        Me.TextBoxNumero.Size = New System.Drawing.Size(87, 60)
         Me.TextBoxNumero.TabIndex = 140
         Me.TextBoxNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -87,11 +74,24 @@ Partial Class ButtonListPad
         Me.FlowLayoutPanel1.AutoScroll = True
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.FlowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(2, 19)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(307, 257)
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(5)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(303, 235)
         Me.FlowLayoutPanel1.TabIndex = 144
+        '
+        'ButtonNumero
+        '
+        Me.ButtonNumero.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonNumero.Font = New System.Drawing.Font("Kanit SemiBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonNumero.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.ButtonNumero.Image = Global.KingLottery.My.Resources.Resources.MameiSmall
+        Me.ButtonNumero.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.ButtonNumero.Location = New System.Drawing.Point(311, 19)
+        Me.ButtonNumero.Name = "ButtonNumero"
+        Me.ButtonNumero.Size = New System.Drawing.Size(89, 142)
+        Me.ButtonNumero.TabIndex = 142
+        Me.ButtonNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ButtonListPad
         '

@@ -61,6 +61,9 @@ Public Class Main
             Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
             'LoadDataSource()
             'SetupComboxes()
+            If TimeOfDay > #4:00:00 PM# Then
+                RadioButtonPM.Checked = True
+            End If
         Else
             Me.Close()
         End If
@@ -948,7 +951,55 @@ Public Class Main
 
     End Sub
 
+    Private Sub RadioButtonAM_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAM.CheckedChanged, RadioButtonPM.CheckedChanged
+        If RadioButtonPM.Checked Then
+            PictureBoxLotoPool.Enabled = True
+            ButtonEntradaLotoPool.Enabled = True
+            ButtonResultadoLotoPool.Enabled = True
+        Else
+            PictureBoxLotoPool.Enabled = False
+            ButtonEntradaLotoPool.Enabled = False
+            ButtonResultadoLotoPool.Enabled = False
+        End If
+    End Sub
+
 #End Region
+    Private Sub ButtonResultados_Click(sender As Object, e As EventArgs) Handles ButtonResultados.Click
+        Dim CGdata As New CasparCGDataCollection From {
+                {"f1", Label_SXM3_1.Text},
+                {"f2", Label_SXM3_2.Text},
+                {"f3", Label_SXM3_3.Text},
+                {"f4", Label_SXM4_1.Text},
+                {"f5", Label_SXM4_2.Text},
+                {"f6", Label_SXM4_3.Text},
+                {"f7", Label_SXM4_4.Text},
+                {"f8", $"{Phillipsburg(0)?.Resultado} {Phillipsburg(1)?.Resultado} {Phillipsburg(2)?.Resultado} {Phillipsburg(3)?.Resultado}"},
+                {"f9", $"{Phillipsburg(4)?.Resultado} {Phillipsburg(5)?.Resultado} {Phillipsburg(6)?.Resultado} {Phillipsburg(7)?.Resultado}"},
+                {"f10", $"{Phillipsburg(8)?.Resultado} {Phillipsburg(9)?.Resultado} {Phillipsburg(10)?.Resultado} {Phillipsburg(11)?.Resultado}"},
+                {"f11", Label_Pool1.Text},
+                {"f12", Label_Pool2.Text},
+                {"f13", Label_Pool3.Text},
+                {"f14", Label_Pool4.Text}
+            }
+
+
+        If RadioButtonAM.Checked Then
+            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_AM", True, CGdata)
+        Else
+            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_PM", True, CGdata)
+        End If
+    End Sub
+
+    Private Sub ButtonGeneral_Click(sender As Object, e As EventArgs) Handles ButtonGeneral.Click
+        Dim CGdata As New CasparCGDataCollection From {
+               {"f0", TextBox1.Text},
+               {"f1", TextBox2.Text}
+               }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/General", True, CGdata)
+
+    End Sub
+
+
 
 #End Region
 End Class
