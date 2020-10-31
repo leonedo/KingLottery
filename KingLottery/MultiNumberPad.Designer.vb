@@ -36,12 +36,11 @@ Partial Class MultiNumberPad
         Me.TextBoxNumero = New System.Windows.Forms.TextBox()
         Me.LabelNumero = New System.Windows.Forms.Label()
         Me.LabelGrupo = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BotonNumero = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -202,23 +201,14 @@ Partial Class MultiNumberPad
         'LabelGrupo
         '
         Me.LabelGrupo.AutoSize = True
+        Me.LabelGrupo.BackColor = System.Drawing.Color.Transparent
         Me.LabelGrupo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelGrupo.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LabelGrupo.Location = New System.Drawing.Point(383, 27)
+        Me.LabelGrupo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.LabelGrupo.Location = New System.Drawing.Point(286, 68)
         Me.LabelGrupo.Name = "LabelGrupo"
-        Me.LabelGrupo.Size = New System.Drawing.Size(17, 24)
+        Me.LabelGrupo.Size = New System.Drawing.Size(21, 24)
         Me.LabelGrupo.TabIndex = 149
-        Me.LabelGrupo.Text = "-"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox1.Image = Global.KingLottery.My.Resources.Resources.MultiBolo1
-        Me.PictureBox1.Location = New System.Drawing.Point(200, 27)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(160, 107)
-        Me.PictureBox1.TabIndex = 150
-        Me.PictureBox1.TabStop = False
+        Me.LabelGrupo.Text = "1"
         '
         'Label1
         '
@@ -268,17 +258,28 @@ Partial Class MultiNumberPad
         Me.Label4.Size = New System.Drawing.Size(0, 41)
         Me.Label4.TabIndex = 154
         '
+        'BotonNumero
+        '
+        Me.BotonNumero.FlatAppearance.BorderSize = 0
+        Me.BotonNumero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BotonNumero.Image = Global.KingLottery.My.Resources.Resources.MultiBolo1
+        Me.BotonNumero.Location = New System.Drawing.Point(212, 28)
+        Me.BotonNumero.Name = "BotonNumero"
+        Me.BotonNumero.Size = New System.Drawing.Size(165, 118)
+        Me.BotonNumero.TabIndex = 155
+        Me.BotonNumero.UseVisualStyleBackColor = True
+        '
         'MultiNumberPad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Controls.Add(Me.LabelGrupo)
+        Me.Controls.Add(Me.BotonNumero)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.LabelGrupo)
         Me.Controls.Add(Me.LabelNumero)
         Me.Controls.Add(Me.ButtonOk)
         Me.Controls.Add(Me.TextBoxNumero)
@@ -294,7 +295,6 @@ Partial Class MultiNumberPad
         Me.Controls.Add(Me.Button2)
         Me.Name = "MultiNumberPad"
         Me.Size = New System.Drawing.Size(434, 280)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -314,9 +314,9 @@ Partial Class MultiNumberPad
     Friend WithEvents TextBoxNumero As TextBox
     Friend WithEvents LabelNumero As Label
     Friend WithEvents LabelGrupo As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents BotonNumero As Button
 End Class

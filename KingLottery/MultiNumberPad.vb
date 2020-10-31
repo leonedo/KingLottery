@@ -1,13 +1,15 @@
 ﻿Public Class MultiNumberPad
     Private Sub MultiNumberPad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Location = New Point(18, 64)
-        Label2.Location = New Point(51, 64)
-        Label3.Location = New Point(84, 64)
-        Label4.Location = New Point(117, 64)
-        Label1.Parent = PictureBox1
-        Label2.Parent = PictureBox1
-        Label3.Parent = PictureBox1
-        Label4.Parent = PictureBox1
+        Label1.Location = New Point(18, 70)
+        Label2.Location = New Point(51, 70)
+        Label3.Location = New Point(84, 70)
+        Label4.Location = New Point(117, 70)
+        LabelGrupo.Location = New Point(75, 40)
+        Label1.Parent = BotonNumero
+        Label2.Parent = BotonNumero
+        Label3.Parent = BotonNumero
+        Label4.Parent = BotonNumero
+        LabelGrupo.Parent = BotonNumero
     End Sub
 
     Public Event Bolo_OK(bolo As Bola)
