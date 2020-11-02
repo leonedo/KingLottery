@@ -105,7 +105,10 @@ Partial Class login
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "login"
         Me.Text = "login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

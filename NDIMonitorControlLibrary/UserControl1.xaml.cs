@@ -30,8 +30,9 @@ namespace NDIMonitorControlLibrary
             // If you want options passed to the uri, add them on now.
             // Uncomment the next line for low quality/bandwidth and no audio
             // All options are listed in the documentation.
-            sourceUriString += "?low_quality=true";
-
+             sourceUriString += "?low_quality=true";
+           //  sourceUriString += "?audio=false";
+            
             // now create a Uri object and assign it to the MediaElement
             Uri sourceUri;
             if (Uri.TryCreate(sourceUriString, UriKind.Absolute, out sourceUri))

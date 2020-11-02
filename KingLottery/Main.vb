@@ -17,7 +17,7 @@ Imports System.Timers
 Imports System.Threading
 
 Public Class Main
-    Const Version = "0.0.2" '
+    Const Version = "0.0.5" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
@@ -97,13 +97,17 @@ Public Class Main
             Case e.KeyCode = Keys.F2
                ' RadioButton_Verticales.Checked = True
             Case e.KeyCode = Keys.F4
-              '  Button_Play_General_Click(Button_Separador_1, Nothing)
+                Button_Play_Separadores_Click(Button_Separador_1, Nothing)
             Case e.KeyCode = Keys.F5
-               ' Button_Play_General_Click(Button_Separador_2, Nothing)
+                Button_Play_Separadores_Click(Button_Separador_2, Nothing)
             Case e.KeyCode = Keys.F6
-               ' Button_Play_General_Click(Button_Separador_3, Nothing)
+                Button_Play_Separadores_Click(Button_Separador_3, Nothing)
             Case e.KeyCode = Keys.F7
-               ' Button_Play_General_Click(Button_Separador_4, Nothing)
+                Button_Play_Separadores_Click(Button_Separador_4, Nothing)
+            Case e.KeyCode = Keys.F8
+                Button_Play_Separadores_Click(Button_Separador_5, Nothing)
+            Case e.KeyCode = Keys.F9
+                Button_Play_Separadores_Click(Button_Separador_6, Nothing)
             Case e.KeyCode = Keys.F10
               '  CheckBoxMosca.Checked = Not CheckBoxMosca.Checked
             Case e.KeyCode = Keys.Enter
@@ -564,9 +568,9 @@ Public Class Main
         Canal_PGM.MixerManager.Volume(LayerAudioPlayer, vol, 10, StarDust.CasparCG.net.Models.Easing.Linear)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        MonitorVer1.UpdateSourceWithComponents(Environment.MachineName, "PGM", True, 90)
-    End Sub
+    'Private Sub Button1_Click(sender As Object, e As EventArgs)
+    '    MonitorVer1.UpdateSourceWithComponents(Environment.MachineName, "PGM", True, 90)
+    'End Sub
 
 #End Region
 
@@ -964,6 +968,8 @@ Public Class Main
     End Sub
 
 #End Region
+
+#End Region
     Private Sub ButtonResultados_Click(sender As Object, e As EventArgs) Handles ButtonResultados.Click
         Dim CGdata As New CasparCGDataCollection From {
                 {"f1", Label_SXM3_1.Text},
@@ -982,7 +988,6 @@ Public Class Main
                 {"f14", Label_Pool4.Text}
             }
 
-
         If RadioButtonAM.Checked Then
             Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_AM", True, CGdata)
         Else
@@ -1000,8 +1005,20 @@ Public Class Main
     End Sub
 
 
+    Private Sub CheckBoxMosca_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxMosca.CheckedChanged
+        Dim bug = "bug1"
+        If RadioButtonBug2.Checked Then
+            bug = "bug2"
+        End If
 
-#End Region
+        If sender.Checked Then
+            Canal_PGM.CG.Add(99, 1, $"King/{bug}", True)
+            sender.Text = "Ocultar Bug"
+        Else
+            Canal_PGM.CG.Stop(99, 1)
+            sender.Text = "Mostrar Bug"
+        End If
+    End Sub
 End Class
 
 #Region "Clases de soporte"
