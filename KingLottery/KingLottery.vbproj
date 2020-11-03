@@ -127,6 +127,12 @@
     <Compile Include="ButtonListPad.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Consola.Designer.vb">
+      <DependentUpon>Consola.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consola.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,12 @@
     <Compile Include="NumPad.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="PersonasForm.Designer.vb">
+      <DependentUpon>PersonasForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PersonasForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="videobutton.Designer.vb">
       <DependentUpon>videobutton.vb</DependentUpon>
     </Compile>
@@ -177,6 +189,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ButtonListPad.resx">
       <DependentUpon>ButtonListPad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consola.resx">
+      <DependentUpon>Consola.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
@@ -196,6 +211,9 @@
     <EmbeddedResource Include="NumPad.resx">
       <DependentUpon>NumPad.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PersonasForm.resx">
+      <DependentUpon>PersonasForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="videobutton.resx">
       <DependentUpon>videobutton.vb</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +223,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Personas.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -254,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono.ico" />
+    <None Include="Resources\icon-ios7-gear-512.png" />
     <None Include="Resources\VerdeSmall.png" />
     <None Include="Resources\MameiSmall.png" />
     <None Include="Resources\Mamei.png" />

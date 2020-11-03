@@ -59,8 +59,8 @@ Public Class Main
             ConfigureIOC()
             CasparDevice = _container.Resolve(Of ICasparDevice)()
             Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
-            'LoadDataSource()
-            'SetupComboxes()
+            LoadDataSource()
+            SetupComboxes()
             If TimeOfDay > #4:00:00 PM# Then
                 RadioButtonPM.Checked = True
             End If
@@ -74,6 +74,7 @@ Public Class Main
 
         If user = 1 Then
             LabelUser.Text = "Administrador"
+            MenuStrip1.Visible = True
             StartCasparcgServer()
         ElseIf user = 2 Then
             LabelUser.Text = "Debug"
@@ -589,11 +590,13 @@ Public Class Main
         If sender.SelectedIndex > 0 Then
             canal.Stop(LayerTemplates)
             canal.LoadBG(New CasparPlayingInfoItem With {
-                         .Clipname = sender.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .Clipname = $"""{sender.SelectedValue.FullName.ToString.Replace("\", "/")}""",
                          .VideoLayer = LayerVideoVertical,
                          .[Loop] = True
                          })
             canal.Play(LayerVideoVertical)
+        Else
+            canal.Clear()
         End If
 
     End Sub
@@ -997,8 +1000,8 @@ Public Class Main
 
     Private Sub ButtonGeneral_Click(sender As Object, e As EventArgs) Handles ButtonGeneral.Click
         Dim CGdata As New CasparCGDataCollection From {
-               {"f0", TextBox1.Text},
-               {"f1", TextBox2.Text}
+               {"f0", TextBoxGenerico1.Text},
+               {"f1", TextBoxGenerico2.Text}
                }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/General", True, CGdata)
 
@@ -1076,6 +1079,138 @@ Public Class Main
             LabelRecTimer.Text = $"{min} {sec}"
         End If
         puntos += 1
+    End Sub
+
+    Private Sub PresentadoresYJuecesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PresentadoresYJuecesToolStripMenuItem.Click
+        Dim configAutoridades As New PersonasForm
+        If configAutoridades.ShowDialog = DialogResult.OK Then
+            LoadDataSource()
+            SetupComboxes()
+        End If
+    End Sub
+    Private Sub LoadDataSource()
+        If File.Exists("JuecesYpresentadores.json") Then
+            Dim json = File.ReadAllText("JuecesYpresentadores.json")
+            Talentos = JsonConvert.DeserializeObject(Of Talentos)(json)
+        End If
+        BindingSourceJueces.DataSource = Talentos.Jueces
+        BindingSourcePresentadores.DataSource = Talentos.Presentadores
+
+    End Sub
+
+    Private Sub SetupComboxes()
+        ComboBoxPresentador.DataSource = New BindingSource(Talentos, "Presentadores")
+        ComboBoxPresentador.DisplayMember = "Nombre"
+        ComboBoxPresentador.ValueMember = "Titulo"
+
+        ComboBoxJurado1.DataSource = New BindingSource(Talentos, "Jueces")
+        ComboBoxJurado1.DisplayMember = "Nombre"
+        ComboBoxJurado1.ValueMember = "Titulo"
+
+        ComboBoxJurado2.DataSource = New BindingSource(Talentos, "Jueces")
+        ComboBoxJurado2.DisplayMember = "Nombre"
+        ComboBoxJurado2.ValueMember = "Titulo"
+
+        ComboBoxJurado3.DataSource = New BindingSource(Talentos, "Jueces")
+        ComboBoxJurado3.DisplayMember = "Nombre"
+        ComboBoxJurado3.ValueMember = "Titulo"
+
+        ComboBoxJurado4.DataSource = New BindingSource(Talentos, "Jueces")
+        ComboBoxJurado4.DisplayMember = "Nombre"
+        ComboBoxJurado4.ValueMember = "Titulo"
+    End Sub
+
+    Private Sub ComboBoxJurado1_SelectedIndexChanged(sender As ComboBox, e As EventArgs) Handles _
+       ComboBoxJurado1.SelectedIndexChanged,
+       ComboBoxJurado2.SelectedIndexChanged,
+       ComboBoxJurado3.SelectedIndexChanged,
+       ComboBoxPresentador.SelectedIndexChanged,
+       ComboBoxJurado4.SelectedIndexChanged
+        Dim item As Personas = sender.SelectedItem
+        Dim listaTextbox = sender.Parent.Controls.OfType(Of TextBox)
+        For Each tbox As TextBox In listaTextbox
+            If tbox.Tag = "Nombre" Then tbox.Text = item?.Nombre
+            If tbox.Tag = "Titulo" Then tbox.Text = item?.Titulo
+        Next
+
+    End Sub
+
+    Private Sub ButtonJuez1_Click(sender As Object, e As EventArgs) Handles ButtonJuez1.Click
+        Dim graficoJueces = "King/General"
+        Dim CGdata As New CasparCGDataCollection From {
+            {"f0", TextBoxJf0.Text},
+            {"f1", TextBoxjf1.Text}
+        }
+        Canal_PGM.CG.Add(LayerTemplates, 1, graficoJueces, True, CGdata)
+
+    End Sub
+    Private Sub Button_update_jurado_1_Click(sender As Object, e As EventArgs) Handles Button_update_jurado_1.Click
+        Dim CGdata As New CasparCGDataCollection From {
+           {"f0", TextBoxJf0.Text},
+           {"f1", TextBoxjf1.Text}
+       }
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+    End Sub
+
+    Private Sub Button_Juez2_Click(sender As Object, e As EventArgs) Handles Button_Juez2.Click
+        Dim graficoJueces = "King/General"
+        Dim CGdata As New CasparCGDataCollection From {
+            {"f0", TextBoxJf2.Text},
+            {"f1", TextBoxJf3.Text}
+        }
+        Canal_PGM.CG.Add(LayerTemplates, 1, graficoJueces, True, CGdata)
+    End Sub
+
+    Private Sub Button_update_jurado_2_Click(sender As Object, e As EventArgs) Handles Button_update_jurado_2.Click
+        Dim CGdata As New CasparCGDataCollection From {
+           {"f0", TextBoxJf2.Text},
+           {"f1", TextBoxJf3.Text}
+       }
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+    End Sub
+
+    Private Sub Button_Juez3_Click(sender As Object, e As EventArgs) Handles Button_Juez3.Click
+        Dim graficoJueces = "King/General"
+        Dim CGdata As New CasparCGDataCollection From {
+            {"f0", TextBoxJf4.Text},
+            {"f1", TextBoxJf5.Text}
+        }
+        Canal_PGM.CG.Add(LayerTemplates, 1, graficoJueces, True, CGdata)
+    End Sub
+    Private Sub Button_update_jurado_3_Click(sender As Object, e As EventArgs) Handles Button_update_jurado_3.Click
+        Dim CGdata As New CasparCGDataCollection From {
+           {"f0", TextBoxJf4.Text},
+           {"f1", TextBoxJf5.Text}
+       }
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+    End Sub
+    Private Sub Button_Juez4_Click(sender As Object, e As EventArgs) Handles Button_Juez4.Click
+        Dim graficoJueces = "King/General"
+        Dim CGdata As New CasparCGDataCollection From {
+            {"f0", TextBoxJf6.Text},
+            {"f1", TextBoxJf7.Text}
+        }
+        Canal_PGM.CG.Add(LayerTemplates, 1, graficoJueces, True, CGdata)
+    End Sub
+    Private Sub Button_update_jurado_4_Click(sender As Object, e As EventArgs) Handles Button_update_jurado_4.Click
+        Dim CGdata As New CasparCGDataCollection From {
+           {"f0", TextBoxJf6.Text},
+           {"f1", TextBoxJf7.Text}
+       }
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+    End Sub
+
+    Private Sub ConsolaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsolaToolStripMenuItem.Click
+        Dim consola As New Consola
+        consola.Show()
+    End Sub
+
+    Private Sub templates_salida_Click(sender As Object, e As EventArgs) Handles templates_salida.Click
+        Canal_PGM.CG.Stop(LayerTemplates, 1)
+    End Sub
+
+    Private Sub ButtonClearAll_Click(sender As Object, e As EventArgs) Handles ButtonClearAll.Click
+        Canal_PGM.Clear()
     End Sub
 End Class
 
