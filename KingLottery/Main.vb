@@ -109,7 +109,7 @@ Public Class Main
             Case e.KeyCode = Keys.F9
                 Button_Play_Separadores_Click(Button_Separador_6, Nothing)
             Case e.KeyCode = Keys.F10
-              '  CheckBoxMosca.Checked = Not CheckBoxMosca.Checked
+                CheckBoxMosca.Checked = Not CheckBoxMosca.Checked
             Case e.KeyCode = Keys.Enter
                 Select Case True
                     Case RB_Pick3.Checked
@@ -1018,6 +1018,64 @@ Public Class Main
             Canal_PGM.CG.Stop(99, 1)
             sender.Text = "Mostrar Bug"
         End If
+    End Sub
+
+    Private Sub Button_Capturas_Click(sender As Object, e As EventArgs) Handles Button_Capturas.Click
+        If CasparDevice.IsConnected Then
+            CasparDevice.Connection.SendString($"ADD 1 IMAGE Capturas/Sorteo_{SorteoDeHoy.ToString("0000")}_{Date.Now.ToString("dd-MM-yy_hh-mm")}")
+        End If
+    End Sub
+
+    Private Sub CheckBoxRec_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxRec.CheckedChanged
+        If CasparDevice.IsConnected Then
+            If CheckBoxRec.Checked Then
+                If TimerGrabacion.Enabled = False Then
+                    min = "00"
+                    sec = "00"
+                    TimerGrabacion.Enabled = True
+                    aa = Val(Now.Second.ToString) 'new code
+                End If
+                Dim resolution = ""
+                '  If My.Settings.RecIn720P Then resolution = " -s 1280x720"                                                                                                               'libx264 -codec:v h264_nvenc
+                Dim result = CasparDevice.Connection.SendStringWithResult($"ADD 1-1 FILE  Grabaciones/Sorteo_{SorteoDeHoy.ToString("0000")}_{Date.Now.ToString("dd-MM-yy_hh-mm")}.mp4 -codec:v libx264 -profile:v high444p -pixel_format:v yuv444p {resolution} -preset:v default", New TimeSpan(0, 0, 2))
+                CheckBoxRec.Text = "Grabando..."
+                LabelRecTimer.BackColor = Color.IndianRed
+
+            Else
+                TimerGrabacion.Enabled = False
+                LabelRecTimer.Text = $"{min}:{sec}"
+                CasparDevice.AMCProtocolParser.AmcpTcpParser.SendCommand("REMOVE 1-100")
+                CheckBoxRec.Text = "Iniciar Grabacion"
+                LabelRecTimer.BackColor = SystemColors.ControlDarkDark
+            End If
+        Else
+            CheckBoxRec.Checked = False
+        End If
+    End Sub
+
+    Dim aa As Integer
+    Dim sec As String
+    Dim min As String = "00"
+    Dim puntos = 0
+    Private Sub TimerGrabacion_Tick(sender As Object, e As EventArgs) Handles TimerGrabacion.Tick
+        On Error Resume Next
+        Dim bb = Val(Now.Second.ToString)
+        Dim dif As Integer = (bb - aa)
+        aa = bb
+        If dif < 0 Then dif = dif + 60
+        sec = Format(Val(sec + dif), "00")
+        If sec > 59 Then
+            sec = "00"
+            min = Format(Val(min + 1), "0")
+        End If
+
+        If puntos > 1 Then
+            LabelRecTimer.Text = $"{min}:{sec}"
+            puntos = 0
+        Else
+            LabelRecTimer.Text = $"{min} {sec}"
+        End If
+        puntos += 1
     End Sub
 End Class
 

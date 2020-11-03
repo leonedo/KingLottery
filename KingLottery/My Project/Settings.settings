@@ -26,5 +26,41 @@
     <Setting Name="AdSa" Type="System.String" Scope="User">
       <Value Profile="(Default)">YGXGsEAPL[KK69PDbofk})&lt;vStqLb}Bj4)6)QV1N=hKf2xMuy5D#Ht#0H]w*0*bN=$s^DXv34Ip195+&amp;r%UU=bbKHF#U+#VEF[k*</Value>
     </Setting>
+    <Setting Name="Bumper1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Opening</Value>
+    </Setting>
+    <Setting Name="Bumper2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Intermedio largo</Value>
+    </Setting>
+    <Setting Name="Bumper3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Loop</Value>
+    </Setting>
+    <Setting Name="Bumper4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bumper corto</Value>
+    </Setting>
+    <Setting Name="Bumper5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bumper corto</Value>
+    </Setting>
+    <Setting Name="Bumper6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bumper corto</Value>
+    </Setting>
+    <Setting Name="Separador1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_1</Value>
+    </Setting>
+    <Setting Name="Separador2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_2</Value>
+    </Setting>
+    <Setting Name="Separador3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_3</Value>
+    </Setting>
+    <Setting Name="Separador4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_4</Value>
+    </Setting>
+    <Setting Name="Separador5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_5</Value>
+    </Setting>
+    <Setting Name="Separador6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Separador_6</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

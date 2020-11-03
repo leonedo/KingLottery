@@ -153,6 +153,150 @@ Namespace My
                 Me("AdSa") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Opening")>  _
+        Public Property Bumper1() As String
+            Get
+                Return CType(Me("Bumper1"),String)
+            End Get
+            Set
+                Me("Bumper1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Intermedio largo")>  _
+        Public Property Bumper2() As String
+            Get
+                Return CType(Me("Bumper2"),String)
+            End Get
+            Set
+                Me("Bumper2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Loop")>  _
+        Public Property Bumper3() As String
+            Get
+                Return CType(Me("Bumper3"),String)
+            End Get
+            Set
+                Me("Bumper3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Bumper corto")>  _
+        Public Property Bumper4() As String
+            Get
+                Return CType(Me("Bumper4"),String)
+            End Get
+            Set
+                Me("Bumper4") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Bumper corto")>  _
+        Public Property Bumper5() As String
+            Get
+                Return CType(Me("Bumper5"),String)
+            End Get
+            Set
+                Me("Bumper5") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Bumper corto")>  _
+        Public Property Bumper6() As String
+            Get
+                Return CType(Me("Bumper6"),String)
+            End Get
+            Set
+                Me("Bumper6") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_1")>  _
+        Public Property Separador1() As String
+            Get
+                Return CType(Me("Separador1"),String)
+            End Get
+            Set
+                Me("Separador1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_2")>  _
+        Public Property Separador2() As String
+            Get
+                Return CType(Me("Separador2"),String)
+            End Get
+            Set
+                Me("Separador2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_3")>  _
+        Public Property Separador3() As String
+            Get
+                Return CType(Me("Separador3"),String)
+            End Get
+            Set
+                Me("Separador3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_4")>  _
+        Public Property Separador4() As String
+            Get
+                Return CType(Me("Separador4"),String)
+            End Get
+            Set
+                Me("Separador4") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_5")>  _
+        Public Property Separador5() As String
+            Get
+                Return CType(Me("Separador5"),String)
+            End Get
+            Set
+                Me("Separador5") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Separador_6")>  _
+        Public Property Separador6() As String
+            Get
+                Return CType(Me("Separador6"),String)
+            End Get
+            Set
+                Me("Separador6") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

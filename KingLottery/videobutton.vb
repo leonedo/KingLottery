@@ -1,4 +1,5 @@
-﻿Imports StarDust.CasparCG.net.Models.Media
+﻿Imports System.Globalization
+Imports StarDust.CasparCG.net.Models.Media
 
 Public Class videobutton
 
@@ -10,19 +11,20 @@ Public Class videobutton
         MyBase.New()
         'This call is required by the Windows Form Designer.
         InitializeComponent()
+        Dim info As TextInfo = CultureInfo.InvariantCulture.TextInfo
         boton = sender
         mediaList = media
         For Each file In mediaList
-            If file.FullName.Contains(tipo) Then ComboBox1.Items.Add(file.Name)
+            If file.FullName.Contains(tipo) Then ComboBox1.Items.Add(info.ToTitleCase(file.Name.ToString.ToLower))
         Next
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        For Each file In mediaList
-            If file.FullName.Contains(ComboBox1.SelectedItem.ToString) Then
-                boton.Text = file.Name
 
+        For Each file In mediaList
+            If file.FullName.Contains(ComboBox1.SelectedItem.ToString.ToUpper) Then
+                boton.Text = ComboBox1.SelectedItem
                 Me.Close()
             End If
         Next
