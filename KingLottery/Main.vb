@@ -17,11 +17,11 @@ Imports System.Timers
 Imports System.Threading
 
 Public Class Main
-    Const Version = "0.0.5" '
+    Const Version = "0.2.0" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
-    ' Public Canal_PVW As ChannelManager
+    Public Canal_PVW As ChannelManager
     Public Canal_Ver_1 As ChannelManager
     Public Canal_Ver_2 As ChannelManager
     'Public Canal_Ver_3 As ChannelManager
@@ -38,10 +38,13 @@ Public Class Main
 
 #Region "Channal and leyer configuration"
     Const PGM = 1
-    ' Const PVW = 2
-    Const VER1 = 2
-    Const VER2 = 3
-    'Const VER3 = 5
+    Const PVW = 2
+    Const VER1 = 3
+    Const VER2 = 4
+    Const HOR1 = 5
+    Const HOR2 = 6
+    Const HOR3 = 7
+
     Const LayerVideoVertical = 10
     Const LayerTemplates = 20
     Const LayerBumpers = 50
@@ -575,7 +578,6 @@ Public Class Main
 
 #End Region
 
-
 #Region "Clips Verticales"
     Private Sub ComboBoxVertical1_SelectedIndexChanged(sender As ComboBox, e As EventArgs) Handles ComboBoxVertical1.SelectedIndexChanged, ComboBoxVertical2.SelectedIndexChanged
         Dim canal As ChannelManager
@@ -647,8 +649,13 @@ Public Class Main
     End Sub
 
     Private Sub SetMultiview()
-        MonitorVer1.UpdateSourceWithComponents(Environment.MachineName, "VER1", True, 90)
-        MonitorVer2.UpdateSourceWithComponents(Environment.MachineName, "VER2", True, 90)
+        CasparDevice.Connection.SendString($"MIXER {PVW} MASTERVOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PGM} MASTERVOLUME 0.75")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-1 route://{PGM}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-2 route://{VER1}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-3 route://{VER2}")
+        CasparDevice.Connection.SendString($"MIXER {PVW} GRID 2")
+
     End Sub
 
 
@@ -667,7 +674,6 @@ Public Class Main
     '    End If
     'End Sub
 #End Region
-
 
 #Region "sorteos"
     Private Function EntradaBolo(bolo As Bola) As Boolean
@@ -1212,6 +1218,94 @@ Public Class Main
     Private Sub ButtonClearAll_Click(sender As Object, e As EventArgs) Handles ButtonClearAll.Click
         Canal_PGM.Clear()
     End Sub
+
+    Private Sub Button_ModoSorteo_Click(sender As Object, e As EventArgs) Handles Button_ModoSorteo.Click
+        If MessageBox.Show($"Inicio del Sorteo de hoy: {Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO"))} {vbCrLf}Una vez iniciado el sorteo, Se guarda el número del sorteo y no se puede regresar al modo ensayo", "Iniciar Sorteo de Hoy?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK Then
+            My.Settings.NumeroSorteo = SorteoDeHoy
+            LabelModo.Text = $"Modo Sorteo: {SorteoDeHoy.ToString("0000")}"
+            '  Button_ensayo.Enabled = False
+            Button_ModoSorteo.Enabled = False
+        Else
+            ' CheckBoxSorteo.Checked = False
+        End If
+    End Sub
+
+    Private Sub ButtonGuardar_Click(sender As Object, e As EventArgs) Handles ButtonGuardar.Click
+        SaveFileDialog1.Filter = "Json Files (*.Json*)|*.Json"
+        SaveFileDialog1.FileName = $"LotoKing_{Date.Now.Year}_{Date.Now.Month.ToString("00")}_{Date.Today.Day.ToString("00")}_{SorteoDeHoy.ToString("0000")}"
+        If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim jurados As New List(Of Personas) From {
+                New Personas With {.Nombre = TextBoxJf0.Text, .Titulo = TextBoxjf1.Text},
+                New Personas With {.Nombre = TextBoxJf2.Text, .Titulo = TextBoxJf3.Text},
+                New Personas With {.Nombre = TextBoxJf4.Text, .Titulo = TextBoxJf5.Text},
+                New Personas With {.Nombre = TextBoxJf6.Text, .Titulo = TextBoxJf7.Text}
+            }
+
+            Dim presentador = New Personas With {.Nombre = TextBoxGenerico1.Text, .Titulo = TextBoxGenerico2.Text}
+
+            Dim Resultados = New Resultados With {.Fecha = Today, .SorteoId = SorteoDeHoy.ToString("0000"), .Jueces = jurados, .Presentador = presentador,
+                                                  .LotoPool = LotoPool, .Phillipsburg = Phillipsburg, .Pick3_SXM = Pick3_SXM, .Pick4_SXM = Pick4_SXM}
+            Dim json = JsonConvert.SerializeObject(Resultados, New JsonSerializerSettings With {.Formatting = Newtonsoft.Json.Formatting.Indented, .NullValueHandling = NullValueHandling.Ignore})
+            My.Computer.FileSystem.WriteAllText(SaveFileDialog1.FileName, json, False)
+        End If
+    End Sub
+
+    Private Sub ButtonCargar_Click(sender As Object, e As EventArgs) Handles ButtonCargar.Click
+        Try
+            If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+                Dim json = File.ReadAllText(OpenFileDialog1.FileName)
+                Dim Resultados = JsonConvert.DeserializeObject(Of Resultados)(json)
+                Pick3_SXM = Resultados.Pick3_SXM
+                Pick4_SXM = Resultados.Pick4_SXM
+                Phillipsburg = Resultados.Phillipsburg
+                LotoPool = Resultados.LotoPool
+                '' Aca creamos un array con los tres panales de sorteos y luego obtenemos todos lso botones dentro de cada panel, 
+                '' asiganmemos  resultados que tenemos para ese boton/bolo al text del boton correspondiente. 
+                Dim paneles = {PictureBoxPick3, PictureBoxPick4, PictureBoxPhillip, PictureBoxLotoPool}
+                Dim result As Integer
+                For Each panel In paneles
+                    For Each control In panel.Controls.OfType(Of Label)
+                        If Not control.Tag = "" Then
+                            Select Case panel.Name
+                                Case PictureBoxPick3.Name
+                                    If Integer.TryParse(control.Tag, result) Then control.Text = Pick3_SXM(result - 1)?.Resultado
+                                Case PictureBoxPick4.Name
+                                    If Integer.TryParse(control.Tag, result) Then control.Text = Pick4_SXM(result - 1)?.Resultado
+                                Case PictureBoxPhillip.Name
+                                    If Integer.TryParse(control.Tag, result) Then control.Text = Phillipsburg(result - 1)?.Resultado
+                                Case PictureBoxLotoPool.Name
+                                    If Integer.TryParse(control.Tag, result) Then control.Text = LotoPool(result - 1)?.Resultado
+                            End Select
+                        End If
+                    Next
+                Next
+                ComboBoxPresentador.SelectedIndex = ComboBoxPresentador.FindStringExact(Resultados.Presentador.Nombre)
+                ComboBoxJurado1.SelectedIndex = ComboBoxJurado1.FindStringExact(Resultados.Jueces(0).Nombre)
+                ComboBoxJurado2.SelectedIndex = ComboBoxJurado1.FindStringExact(Resultados.Jueces(1).Nombre)
+                ComboBoxJurado3.SelectedIndex = ComboBoxJurado1.FindStringExact(Resultados.Jueces(2).Nombre)
+                ComboBoxJurado4.SelectedIndex = ComboBoxJurado1.FindStringExact(Resultados.Jueces(3).Nombre)
+
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error Cargando datos:{vbCrLf}{ex.Message}")
+        End Try
+    End Sub
+
+    Private Sub ButtonLimpiar_Click(sender As Object, e As EventArgs) Handles ButtonLimpiar.Click
+        Array.Clear(Pick3_SXM, 0, Pick3_SXM.Length)
+        Array.Clear(Pick4_SXM, 0, Pick4_SXM.Length)
+        Array.Clear(Phillipsburg, 0, Phillipsburg.Length)
+        Array.Clear(LotoPool, 0, LotoPool.Length)
+        Dim paneles = {PictureBoxPick3, PictureBoxPick4, PictureBoxPhillip, PictureBoxLotoPool}
+        For Each panel In paneles
+            For Each control In panel.Controls.OfType(Of Label)
+                If Not control.Tag = "" Then
+                    control.Text = ""
+                    control.Enabled = False
+                End If
+            Next
+        Next
+    End Sub
 End Class
 
 #Region "Clases de soporte"
@@ -1239,7 +1333,6 @@ Public Class Resultados
     Public Property LotoPool As Bola()
     Public Property Presentador As Personas
     Public Property Jueces As List(Of Personas)
-    Public Property Invidentes As List(Of Personas)
 End Class
 
 Public Class Sorteos

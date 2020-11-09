@@ -47,7 +47,7 @@ Partial Class login
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Operador", "Administrador", "Debug - NoServer"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Operador", "Administrador"})
         Me.ComboBox1.Location = New System.Drawing.Point(134, 41)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(187, 24)

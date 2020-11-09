@@ -112,26 +112,33 @@ Partial Class Main
         Me.LabelVersion = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button_ModoSorteo = New System.Windows.Forms.Button()
+        Me.LabelModo = New System.Windows.Forms.Label()
+        Me.ButtonClearAll = New System.Windows.Forms.Button()
+        Me.templates_salida = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.ButtonPlaySyncVertical = New System.Windows.Forms.Button()
-        Me.ComboBoxVertical2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBoxVertical1 = New System.Windows.Forms.ComboBox()
         Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.CheckBoxRec = New System.Windows.Forms.CheckBox()
-        Me.LabelRecTimer = New System.Windows.Forms.Label()
-        Me.Button_Capturas = New System.Windows.Forms.Button()
-        Me.RadioButtonBug2 = New System.Windows.Forms.RadioButton()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ButtonLimpiar = New System.Windows.Forms.Button()
+        Me.ButtonCargar = New System.Windows.Forms.Button()
+        Me.ButtonGuardar = New System.Windows.Forms.Button()
+        Me.Panel11 = New System.Windows.Forms.Panel()
         Me.CheckBoxMosca = New System.Windows.Forms.CheckBox()
         Me.RadioButtonBug1 = New System.Windows.Forms.RadioButton()
+        Me.ButtonPlaySyncVertical = New System.Windows.Forms.Button()
+        Me.RadioButtonBug2 = New System.Windows.Forms.RadioButton()
+        Me.ComboBoxVertical2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxVertical1 = New System.Windows.Forms.ComboBox()
         Me.ElementHost3 = New System.Windows.Forms.Integration.ElementHost()
         Me.MonitorPGM = New NDIMonitorControlLibrary.UserControl1()
-        Me.ElementHost2 = New System.Windows.Forms.Integration.ElementHost()
-        Me.MonitorVer2 = New NDIMonitorControlLibrary.UserControl1()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
-        Me.MonitorVer1 = New NDIMonitorControlLibrary.UserControl1()
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button_Capturas = New System.Windows.Forms.Button()
+        Me.CheckBoxRec = New System.Windows.Forms.CheckBox()
+        Me.LabelRecTimer = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Button_Bumper_6 = New System.Windows.Forms.Button()
         Me.Button_Bumper_3 = New System.Windows.Forms.Button()
@@ -198,8 +205,8 @@ Partial Class Main
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
         Me.TimerGrabacion = New System.Windows.Forms.Timer(Me.components)
         Me.BindingSourcePresentadores = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ButtonClearAll = New System.Windows.Forms.Button()
-        Me.templates_salida = New System.Windows.Forms.Button()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -230,8 +237,9 @@ Partial Class Main
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.Panel11.SuspendLayout()
         Me.Panel12.SuspendLayout()
+        Me.Panel11.SuspendLayout()
+        Me.Panel17.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
@@ -501,7 +509,7 @@ Partial Class Main
         Me.TabPagePick4.Location = New System.Drawing.Point(4, 22)
         Me.TabPagePick4.Name = "TabPagePick4"
         Me.TabPagePick4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPagePick4.Size = New System.Drawing.Size(549, 285)
+        Me.TabPagePick4.Size = New System.Drawing.Size(549, 309)
         Me.TabPagePick4.TabIndex = 2
         Me.TabPagePick4.Text = "Pick4"
         '
@@ -513,7 +521,7 @@ Partial Class Main
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel9.Location = New System.Drawing.Point(3, 3)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(543, 279)
+        Me.Panel9.Size = New System.Drawing.Size(543, 303)
         Me.Panel9.TabIndex = 0
         '
         'ButtonResultadoPick4
@@ -551,7 +559,7 @@ Partial Class Main
         Me.NumPad_Pick4.Enabled = False
         Me.NumPad_Pick4.Location = New System.Drawing.Point(0, 0)
         Me.NumPad_Pick4.Name = "NumPad_Pick4"
-        Me.NumPad_Pick4.Size = New System.Drawing.Size(434, 279)
+        Me.NumPad_Pick4.Size = New System.Drawing.Size(434, 303)
         Me.NumPad_Pick4.TabIndex = 127
         '
         'TabPagePhill
@@ -561,7 +569,7 @@ Partial Class Main
         Me.TabPagePhill.Location = New System.Drawing.Point(4, 22)
         Me.TabPagePhill.Name = "TabPagePhill"
         Me.TabPagePhill.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPagePhill.Size = New System.Drawing.Size(549, 285)
+        Me.TabPagePhill.Size = New System.Drawing.Size(549, 309)
         Me.TabPagePhill.TabIndex = 3
         Me.TabPagePhill.Text = "Phillipsburg"
         '
@@ -573,7 +581,7 @@ Partial Class Main
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel13.Location = New System.Drawing.Point(3, 3)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(543, 279)
+        Me.Panel13.Size = New System.Drawing.Size(543, 303)
         Me.Panel13.TabIndex = 0
         '
         'ButtonResultadosPhillips
@@ -611,7 +619,7 @@ Partial Class Main
         Me.MultiNumberPadPhillipsburg.Enabled = False
         Me.MultiNumberPadPhillipsburg.Location = New System.Drawing.Point(0, 0)
         Me.MultiNumberPadPhillipsburg.Name = "MultiNumberPadPhillipsburg"
-        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 280)
+        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 304)
         Me.MultiNumberPadPhillipsburg.TabIndex = 0
         '
         'TabPageLotoPool
@@ -621,7 +629,7 @@ Partial Class Main
         Me.TabPageLotoPool.Location = New System.Drawing.Point(4, 22)
         Me.TabPageLotoPool.Name = "TabPageLotoPool"
         Me.TabPageLotoPool.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageLotoPool.Size = New System.Drawing.Size(549, 285)
+        Me.TabPageLotoPool.Size = New System.Drawing.Size(549, 309)
         Me.TabPageLotoPool.TabIndex = 1
         Me.TabPageLotoPool.Text = "LotoPool"
         '
@@ -633,7 +641,7 @@ Partial Class Main
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel10.Location = New System.Drawing.Point(3, 3)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(543, 279)
+        Me.Panel10.Size = New System.Drawing.Size(543, 303)
         Me.Panel10.TabIndex = 0
         '
         'ButtonListPadLotoPool
@@ -645,7 +653,7 @@ Partial Class Main
         Me.ButtonListPadLotoPool.Enabled = False
         Me.ButtonListPadLotoPool.Location = New System.Drawing.Point(0, 0)
         Me.ButtonListPadLotoPool.Name = "ButtonListPadLotoPool"
-        Me.ButtonListPadLotoPool.Size = New System.Drawing.Size(434, 279)
+        Me.ButtonListPadLotoPool.Size = New System.Drawing.Size(434, 303)
         Me.ButtonListPadLotoPool.TabIndex = 132
         '
         'ButtonResultadoLotoPool
@@ -680,7 +688,7 @@ Partial Class Main
         Me.TabPageResultados.Location = New System.Drawing.Point(4, 22)
         Me.TabPageResultados.Name = "TabPageResultados"
         Me.TabPageResultados.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageResultados.Size = New System.Drawing.Size(549, 285)
+        Me.TabPageResultados.Size = New System.Drawing.Size(549, 309)
         Me.TabPageResultados.TabIndex = 4
         Me.TabPageResultados.Text = "TabPageResultados"
         '
@@ -1359,6 +1367,8 @@ Partial Class Main
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Button_ModoSorteo)
+        Me.Panel3.Controls.Add(Me.LabelModo)
         Me.Panel3.Controls.Add(Me.ButtonClearAll)
         Me.Panel3.Controls.Add(Me.templates_salida)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1366,6 +1376,58 @@ Partial Class Main
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(556, 44)
         Me.Panel3.TabIndex = 2
+        '
+        'Button_ModoSorteo
+        '
+        Me.Button_ModoSorteo.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button_ModoSorteo.Location = New System.Drawing.Point(6, 8)
+        Me.Button_ModoSorteo.Name = "Button_ModoSorteo"
+        Me.Button_ModoSorteo.Size = New System.Drawing.Size(104, 28)
+        Me.Button_ModoSorteo.TabIndex = 67
+        Me.Button_ModoSorteo.Text = "Iniciar Sorteo"
+        Me.Button_ModoSorteo.UseVisualStyleBackColor = True
+        '
+        'LabelModo
+        '
+        Me.LabelModo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabelModo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelModo.ForeColor = System.Drawing.Color.White
+        Me.LabelModo.Location = New System.Drawing.Point(111, 2)
+        Me.LabelModo.Name = "LabelModo"
+        Me.LabelModo.Size = New System.Drawing.Size(172, 38)
+        Me.LabelModo.TabIndex = 65
+        Me.LabelModo.Text = "Modo: Ensayo"
+        Me.LabelModo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonClearAll
+        '
+        Me.ButtonClearAll.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ButtonClearAll.BackColor = System.Drawing.Color.DarkRed
+        Me.ButtonClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClearAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonClearAll.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.ButtonClearAll.Location = New System.Drawing.Point(304, 6)
+        Me.ButtonClearAll.Margin = New System.Windows.Forms.Padding(0)
+        Me.ButtonClearAll.Name = "ButtonClearAll"
+        Me.ButtonClearAll.Size = New System.Drawing.Size(110, 30)
+        Me.ButtonClearAll.TabIndex = 52
+        Me.ButtonClearAll.Text = "Clear All"
+        Me.ButtonClearAll.UseVisualStyleBackColor = False
+        '
+        'templates_salida
+        '
+        Me.templates_salida.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.templates_salida.BackColor = System.Drawing.Color.IndianRed
+        Me.templates_salida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.templates_salida.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.templates_salida.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.templates_salida.Location = New System.Drawing.Point(429, 6)
+        Me.templates_salida.Margin = New System.Windows.Forms.Padding(0)
+        Me.templates_salida.Name = "templates_salida"
+        Me.templates_salida.Size = New System.Drawing.Size(110, 30)
+        Me.templates_salida.TabIndex = 51
+        Me.templates_salida.Text = "Salida"
+        Me.templates_salida.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -1382,45 +1444,144 @@ Partial Class Main
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel11, 0, 1)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Panel12, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel11, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel17, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.40176!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.59824!))
+        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 653)
         Me.TableLayoutPanel2.TabIndex = 0
         '
+        'Panel12
+        '
+        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel12.Controls.Add(Me.Label8)
+        Me.Panel12.Controls.Add(Me.ButtonLimpiar)
+        Me.Panel12.Controls.Add(Me.ButtonCargar)
+        Me.Panel12.Controls.Add(Me.ButtonGuardar)
+        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel12.Location = New System.Drawing.Point(3, 3)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(548, 74)
+        Me.Panel12.TabIndex = 1
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(0, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(548, 20)
+        Me.Label8.TabIndex = 66
+        Me.Label8.Text = "Datos"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'ButtonLimpiar
+        '
+        Me.ButtonLimpiar.Location = New System.Drawing.Point(163, 32)
+        Me.ButtonLimpiar.Name = "ButtonLimpiar"
+        Me.ButtonLimpiar.Size = New System.Drawing.Size(70, 30)
+        Me.ButtonLimpiar.TabIndex = 65
+        Me.ButtonLimpiar.Text = "Limpiar"
+        Me.ButtonLimpiar.UseVisualStyleBackColor = True
+        '
+        'ButtonCargar
+        '
+        Me.ButtonCargar.Location = New System.Drawing.Point(83, 32)
+        Me.ButtonCargar.Name = "ButtonCargar"
+        Me.ButtonCargar.Size = New System.Drawing.Size(70, 30)
+        Me.ButtonCargar.TabIndex = 64
+        Me.ButtonCargar.Text = "Cargar"
+        Me.ButtonCargar.UseVisualStyleBackColor = True
+        '
+        'ButtonGuardar
+        '
+        Me.ButtonGuardar.Location = New System.Drawing.Point(7, 32)
+        Me.ButtonGuardar.Name = "ButtonGuardar"
+        Me.ButtonGuardar.Size = New System.Drawing.Size(70, 30)
+        Me.ButtonGuardar.TabIndex = 63
+        Me.ButtonGuardar.Text = "Guardar"
+        Me.ButtonGuardar.UseVisualStyleBackColor = True
+        '
         'Panel11
         '
+        Me.Panel11.Controls.Add(Me.CheckBoxMosca)
+        Me.Panel11.Controls.Add(Me.RadioButtonBug1)
         Me.Panel11.Controls.Add(Me.ButtonPlaySyncVertical)
+        Me.Panel11.Controls.Add(Me.RadioButtonBug2)
         Me.Panel11.Controls.Add(Me.ComboBoxVertical2)
         Me.Panel11.Controls.Add(Me.ComboBoxVertical1)
+        Me.Panel11.Controls.Add(Me.ElementHost3)
+        Me.Panel11.Controls.Add(Me.Label6)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel11.Location = New System.Drawing.Point(3, 612)
+        Me.Panel11.Location = New System.Drawing.Point(3, 163)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(548, 38)
+        Me.Panel11.Size = New System.Drawing.Size(548, 487)
         Me.Panel11.TabIndex = 0
+        '
+        'CheckBoxMosca
+        '
+        Me.CheckBoxMosca.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.CheckBoxMosca.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBoxMosca.BackColor = System.Drawing.Color.DarkOrange
+        Me.CheckBoxMosca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBoxMosca.Location = New System.Drawing.Point(90, 31)
+        Me.CheckBoxMosca.Name = "CheckBoxMosca"
+        Me.CheckBoxMosca.Size = New System.Drawing.Size(89, 34)
+        Me.CheckBoxMosca.TabIndex = 57
+        Me.CheckBoxMosca.Text = "Mostrar Bug"
+        Me.CheckBoxMosca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CheckBoxMosca.UseVisualStyleBackColor = False
+        '
+        'RadioButtonBug1
+        '
+        Me.RadioButtonBug1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.RadioButtonBug1.AutoSize = True
+        Me.RadioButtonBug1.Checked = True
+        Me.RadioButtonBug1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButtonBug1.Location = New System.Drawing.Point(17, 29)
+        Me.RadioButtonBug1.Name = "RadioButtonBug1"
+        Me.RadioButtonBug1.Size = New System.Drawing.Size(58, 17)
+        Me.RadioButtonBug1.TabIndex = 0
+        Me.RadioButtonBug1.TabStop = True
+        Me.RadioButtonBug1.Text = "Logo 1"
+        Me.RadioButtonBug1.UseVisualStyleBackColor = True
         '
         'ButtonPlaySyncVertical
         '
         Me.ButtonPlaySyncVertical.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(6, 4)
+        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(16, 408)
         Me.ButtonPlaySyncVertical.Name = "ButtonPlaySyncVertical"
         Me.ButtonPlaySyncVertical.Size = New System.Drawing.Size(101, 28)
         Me.ButtonPlaySyncVertical.TabIndex = 63
         Me.ButtonPlaySyncVertical.Text = "Sync Play >"
         Me.ButtonPlaySyncVertical.UseVisualStyleBackColor = True
         '
+        'RadioButtonBug2
+        '
+        Me.RadioButtonBug2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.RadioButtonBug2.AutoSize = True
+        Me.RadioButtonBug2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButtonBug2.Location = New System.Drawing.Point(17, 49)
+        Me.RadioButtonBug2.Name = "RadioButtonBug2"
+        Me.RadioButtonBug2.Size = New System.Drawing.Size(58, 17)
+        Me.RadioButtonBug2.TabIndex = 1
+        Me.RadioButtonBug2.Text = "Logo 2"
+        Me.RadioButtonBug2.UseVisualStyleBackColor = True
+        '
         'ComboBoxVertical2
         '
         Me.ComboBoxVertical2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical2.FormattingEnabled = True
-        Me.ComboBoxVertical2.Location = New System.Drawing.Point(373, 9)
+        Me.ComboBoxVertical2.Location = New System.Drawing.Point(387, 415)
         Me.ComboBoxVertical2.Name = "ComboBoxVertical2"
         Me.ComboBoxVertical2.Size = New System.Drawing.Size(127, 21)
         Me.ComboBoxVertical2.TabIndex = 6
@@ -1431,37 +1592,89 @@ Partial Class Main
         Me.ComboBoxVertical1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical1.FormattingEnabled = True
-        Me.ComboBoxVertical1.Location = New System.Drawing.Point(145, 9)
+        Me.ComboBoxVertical1.Location = New System.Drawing.Point(216, 415)
         Me.ComboBoxVertical1.Name = "ComboBoxVertical1"
         Me.ComboBoxVertical1.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxVertical1.TabIndex = 5
         Me.ComboBoxVertical1.Tag = "1"
         '
-        'Panel12
+        'ElementHost3
         '
-        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Panel12.Controls.Add(Me.CheckBoxRec)
-        Me.Panel12.Controls.Add(Me.LabelRecTimer)
-        Me.Panel12.Controls.Add(Me.Button_Capturas)
-        Me.Panel12.Controls.Add(Me.RadioButtonBug2)
-        Me.Panel12.Controls.Add(Me.CheckBoxMosca)
-        Me.Panel12.Controls.Add(Me.RadioButtonBug1)
-        Me.Panel12.Controls.Add(Me.ElementHost3)
-        Me.Panel12.Controls.Add(Me.ElementHost2)
-        Me.Panel12.Controls.Add(Me.Label6)
-        Me.Panel12.Controls.Add(Me.ElementHost1)
-        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel12.Location = New System.Drawing.Point(3, 3)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(548, 603)
-        Me.Panel12.TabIndex = 1
+        Me.ElementHost3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ElementHost3.BackColor = System.Drawing.Color.Black
+        Me.ElementHost3.Location = New System.Drawing.Point(16, 112)
+        Me.ElementHost3.Name = "ElementHost3"
+        Me.ElementHost3.Size = New System.Drawing.Size(520, 290)
+        Me.ElementHost3.TabIndex = 56
+        Me.ElementHost3.Text = "ElementHost3"
+        Me.ElementHost3.Child = Me.MonitorPGM
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(548, 20)
+        Me.Label6.TabIndex = 54
+        Me.Label6.Text = "Monitores"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Panel17
+        '
+        Me.Panel17.Controls.Add(Me.Label9)
+        Me.Panel17.Controls.Add(Me.CheckBox1)
+        Me.Panel17.Controls.Add(Me.Button_Capturas)
+        Me.Panel17.Controls.Add(Me.CheckBoxRec)
+        Me.Panel17.Controls.Add(Me.LabelRecTimer)
+        Me.Panel17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel17.Location = New System.Drawing.Point(3, 83)
+        Me.Panel17.Name = "Panel17"
+        Me.Panel17.Size = New System.Drawing.Size(548, 74)
+        Me.Panel17.TabIndex = 2
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(0, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(548, 20)
+        Me.Label9.TabIndex = 70
+        Me.Label9.Text = "Streams y Grabaciones"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CheckBox1.Location = New System.Drawing.Point(18, 32)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(89, 36)
+        Me.CheckBox1.TabIndex = 69
+        Me.CheckBox1.Text = "Iniciar Stream"
+        Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CheckBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button_Capturas
+        '
+        Me.Button_Capturas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button_Capturas.Location = New System.Drawing.Point(447, 32)
+        Me.Button_Capturas.Name = "Button_Capturas"
+        Me.Button_Capturas.Size = New System.Drawing.Size(89, 35)
+        Me.Button_Capturas.TabIndex = 62
+        Me.Button_Capturas.Text = "Captura"
+        Me.Button_Capturas.UseVisualStyleBackColor = True
         '
         'CheckBoxRec
         '
         Me.CheckBoxRec.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.CheckBoxRec.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxRec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CheckBoxRec.Location = New System.Drawing.Point(12, 173)
+        Me.CheckBoxRec.Location = New System.Drawing.Point(277, 31)
         Me.CheckBoxRec.Name = "CheckBoxRec"
         Me.CheckBoxRec.Size = New System.Drawing.Size(89, 36)
         Me.CheckBoxRec.TabIndex = 67
@@ -1477,107 +1690,12 @@ Partial Class Main
         Me.LabelRecTimer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelRecTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.LabelRecTimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LabelRecTimer.Location = New System.Drawing.Point(12, 132)
+        Me.LabelRecTimer.Location = New System.Drawing.Point(182, 32)
         Me.LabelRecTimer.Name = "LabelRecTimer"
         Me.LabelRecTimer.Size = New System.Drawing.Size(89, 34)
         Me.LabelRecTimer.TabIndex = 68
         Me.LabelRecTimer.Text = "00:00"
         Me.LabelRecTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button_Capturas
-        '
-        Me.Button_Capturas.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button_Capturas.Location = New System.Drawing.Point(12, 234)
-        Me.Button_Capturas.Name = "Button_Capturas"
-        Me.Button_Capturas.Size = New System.Drawing.Size(89, 28)
-        Me.Button_Capturas.TabIndex = 62
-        Me.Button_Capturas.Text = "Captura"
-        Me.Button_Capturas.UseVisualStyleBackColor = True
-        '
-        'RadioButtonBug2
-        '
-        Me.RadioButtonBug2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.RadioButtonBug2.AutoSize = True
-        Me.RadioButtonBug2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug2.Location = New System.Drawing.Point(25, 56)
-        Me.RadioButtonBug2.Name = "RadioButtonBug2"
-        Me.RadioButtonBug2.Size = New System.Drawing.Size(58, 17)
-        Me.RadioButtonBug2.TabIndex = 1
-        Me.RadioButtonBug2.Text = "Logo 2"
-        Me.RadioButtonBug2.UseVisualStyleBackColor = True
-        '
-        'CheckBoxMosca
-        '
-        Me.CheckBoxMosca.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.CheckBoxMosca.Appearance = System.Windows.Forms.Appearance.Button
-        Me.CheckBoxMosca.BackColor = System.Drawing.Color.DarkOrange
-        Me.CheckBoxMosca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBoxMosca.Location = New System.Drawing.Point(12, 79)
-        Me.CheckBoxMosca.Name = "CheckBoxMosca"
-        Me.CheckBoxMosca.Size = New System.Drawing.Size(89, 28)
-        Me.CheckBoxMosca.TabIndex = 57
-        Me.CheckBoxMosca.Text = "Mostrar Bug"
-        Me.CheckBoxMosca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.CheckBoxMosca.UseVisualStyleBackColor = False
-        '
-        'RadioButtonBug1
-        '
-        Me.RadioButtonBug1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.RadioButtonBug1.AutoSize = True
-        Me.RadioButtonBug1.Checked = True
-        Me.RadioButtonBug1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug1.Location = New System.Drawing.Point(25, 33)
-        Me.RadioButtonBug1.Name = "RadioButtonBug1"
-        Me.RadioButtonBug1.Size = New System.Drawing.Size(58, 17)
-        Me.RadioButtonBug1.TabIndex = 0
-        Me.RadioButtonBug1.TabStop = True
-        Me.RadioButtonBug1.Text = "Logo 1"
-        Me.RadioButtonBug1.UseVisualStyleBackColor = True
-        '
-        'ElementHost3
-        '
-        Me.ElementHost3.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ElementHost3.BackColor = System.Drawing.Color.Black
-        Me.ElementHost3.Location = New System.Drawing.Point(126, 33)
-        Me.ElementHost3.Name = "ElementHost3"
-        Me.ElementHost3.Size = New System.Drawing.Size(410, 217)
-        Me.ElementHost3.TabIndex = 56
-        Me.ElementHost3.Text = "ElementHost3"
-        Me.ElementHost3.Child = Me.MonitorPGM
-        '
-        'ElementHost2
-        '
-        Me.ElementHost2.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ElementHost2.BackColor = System.Drawing.Color.Black
-        Me.ElementHost2.Location = New System.Drawing.Point(336, 256)
-        Me.ElementHost2.Name = "ElementHost2"
-        Me.ElementHost2.Size = New System.Drawing.Size(200, 341)
-        Me.ElementHost2.TabIndex = 55
-        Me.ElementHost2.Text = "ElementHost2"
-        Me.ElementHost2.Child = Me.MonitorVer2
-        '
-        'Label6
-        '
-        Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(0, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(548, 20)
-        Me.Label6.TabIndex = 54
-        Me.Label6.Text = "Monitores"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'ElementHost1
-        '
-        Me.ElementHost1.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ElementHost1.BackColor = System.Drawing.Color.Black
-        Me.ElementHost1.Location = New System.Drawing.Point(126, 256)
-        Me.ElementHost1.Name = "ElementHost1"
-        Me.ElementHost1.Size = New System.Drawing.Size(189, 341)
-        Me.ElementHost1.TabIndex = 3
-        Me.ElementHost1.Text = "ElementHost1"
-        Me.ElementHost1.Child = Me.MonitorVer1
         '
         'Panel5
         '
@@ -2403,35 +2521,9 @@ Partial Class Main
         'TimerGrabacion
         '
         '
-        'ButtonClearAll
+        'OpenFileDialog1
         '
-        Me.ButtonClearAll.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ButtonClearAll.BackColor = System.Drawing.Color.DarkRed
-        Me.ButtonClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonClearAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonClearAll.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ButtonClearAll.Location = New System.Drawing.Point(304, 6)
-        Me.ButtonClearAll.Margin = New System.Windows.Forms.Padding(0)
-        Me.ButtonClearAll.Name = "ButtonClearAll"
-        Me.ButtonClearAll.Size = New System.Drawing.Size(110, 30)
-        Me.ButtonClearAll.TabIndex = 52
-        Me.ButtonClearAll.Text = "Clear All"
-        Me.ButtonClearAll.UseVisualStyleBackColor = False
-        '
-        'templates_salida
-        '
-        Me.templates_salida.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.templates_salida.BackColor = System.Drawing.Color.IndianRed
-        Me.templates_salida.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.templates_salida.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.templates_salida.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.templates_salida.Location = New System.Drawing.Point(429, 6)
-        Me.templates_salida.Margin = New System.Windows.Forms.Padding(0)
-        Me.templates_salida.Name = "templates_salida"
-        Me.templates_salida.Size = New System.Drawing.Size(110, 30)
-        Me.templates_salida.TabIndex = 51
-        Me.templates_salida.Text = "Salida"
-        Me.templates_salida.UseVisualStyleBackColor = False
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'Main
         '
@@ -2479,9 +2571,10 @@ Partial Class Main
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.Panel11.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
-        Me.Panel12.PerformLayout()
+        Me.Panel11.ResumeLayout(False)
+        Me.Panel11.PerformLayout()
+        Me.Panel17.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
@@ -2566,7 +2659,6 @@ Partial Class Main
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents Panel12 As Panel
-    Friend WithEvents ElementHost1 As Integration.ElementHost
     Friend WithEvents Label6 As Label
     Friend WithEvents PictureBoxPick3 As PictureBox
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
@@ -2634,9 +2726,6 @@ Partial Class Main
     Friend WithEvents Label_PHI4_4 As Label
     Friend WithEvents ElementHost3 As Integration.ElementHost
     Friend MonitorPGM As NDIMonitorControlLibrary.UserControl1
-    Friend WithEvents ElementHost2 As Integration.ElementHost
-    Friend MonitorVer2 As NDIMonitorControlLibrary.UserControl1
-    Friend MonitorVer1 As NDIMonitorControlLibrary.UserControl1
     Friend WithEvents ButtonResultados As Button
     Friend WithEvents ButtonGeneral As Button
     Friend WithEvents CheckBoxMosca As CheckBox
@@ -2680,4 +2769,15 @@ Partial Class Main
     Friend WithEvents ConsolaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ButtonClearAll As Button
     Friend WithEvents templates_salida As Button
+    Friend WithEvents Button_ModoSorteo As Button
+    Friend WithEvents LabelModo As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Panel17 As Panel
+    Friend WithEvents Label8 As Label
+    Friend WithEvents ButtonLimpiar As Button
+    Friend WithEvents ButtonCargar As Button
+    Friend WithEvents ButtonGuardar As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class
