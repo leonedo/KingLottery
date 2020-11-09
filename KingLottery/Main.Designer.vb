@@ -207,6 +207,14 @@ Partial Class Main
         Me.BindingSourcePresentadores = New System.Windows.Forms.BindingSource(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Panel19 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel20 = New System.Windows.Forms.Panel()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ComboBoxHor1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxHor2 = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBoxHor3 = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -253,6 +261,8 @@ Partial Class Main
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.BindingSourcePresentadores, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel19.SuspendLayout()
+        Me.Panel20.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -1445,22 +1455,27 @@ Partial Class Main
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TableLayoutPanel2.ColumnCount = 1
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel20, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel12, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel11, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel17, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel19, 0, 3)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel2.RowCount = 5
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 653)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel12.Controls.Add(Me.Label8)
         Me.Panel12.Controls.Add(Me.ButtonLimpiar)
         Me.Panel12.Controls.Add(Me.ButtonCargar)
@@ -1478,7 +1493,7 @@ Partial Class Main
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(0, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(548, 20)
+        Me.Label8.Size = New System.Drawing.Size(546, 20)
         Me.Label8.TabIndex = 66
         Me.Label8.Text = "Datos"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1512,18 +1527,16 @@ Partial Class Main
         '
         'Panel11
         '
+        Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel11.Controls.Add(Me.CheckBoxMosca)
         Me.Panel11.Controls.Add(Me.RadioButtonBug1)
-        Me.Panel11.Controls.Add(Me.ButtonPlaySyncVertical)
         Me.Panel11.Controls.Add(Me.RadioButtonBug2)
-        Me.Panel11.Controls.Add(Me.ComboBoxVertical2)
-        Me.Panel11.Controls.Add(Me.ComboBoxVertical1)
         Me.Panel11.Controls.Add(Me.ElementHost3)
         Me.Panel11.Controls.Add(Me.Label6)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel11.Location = New System.Drawing.Point(3, 163)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(548, 487)
+        Me.Panel11.Size = New System.Drawing.Size(548, 327)
         Me.Panel11.TabIndex = 0
         '
         'CheckBoxMosca
@@ -1532,7 +1545,7 @@ Partial Class Main
         Me.CheckBoxMosca.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxMosca.BackColor = System.Drawing.Color.DarkOrange
         Me.CheckBoxMosca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBoxMosca.Location = New System.Drawing.Point(90, 31)
+        Me.CheckBoxMosca.Location = New System.Drawing.Point(93, 37)
         Me.CheckBoxMosca.Name = "CheckBoxMosca"
         Me.CheckBoxMosca.Size = New System.Drawing.Size(89, 34)
         Me.CheckBoxMosca.TabIndex = 57
@@ -1546,7 +1559,7 @@ Partial Class Main
         Me.RadioButtonBug1.AutoSize = True
         Me.RadioButtonBug1.Checked = True
         Me.RadioButtonBug1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug1.Location = New System.Drawing.Point(17, 29)
+        Me.RadioButtonBug1.Location = New System.Drawing.Point(20, 35)
         Me.RadioButtonBug1.Name = "RadioButtonBug1"
         Me.RadioButtonBug1.Size = New System.Drawing.Size(58, 17)
         Me.RadioButtonBug1.TabIndex = 0
@@ -1556,8 +1569,8 @@ Partial Class Main
         '
         'ButtonPlaySyncVertical
         '
-        Me.ButtonPlaySyncVertical.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(16, 408)
+        Me.ButtonPlaySyncVertical.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(16, 30)
         Me.ButtonPlaySyncVertical.Name = "ButtonPlaySyncVertical"
         Me.ButtonPlaySyncVertical.Size = New System.Drawing.Size(101, 28)
         Me.ButtonPlaySyncVertical.TabIndex = 63
@@ -1569,7 +1582,7 @@ Partial Class Main
         Me.RadioButtonBug2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.RadioButtonBug2.AutoSize = True
         Me.RadioButtonBug2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug2.Location = New System.Drawing.Point(17, 49)
+        Me.RadioButtonBug2.Location = New System.Drawing.Point(20, 55)
         Me.RadioButtonBug2.Name = "RadioButtonBug2"
         Me.RadioButtonBug2.Size = New System.Drawing.Size(58, 17)
         Me.RadioButtonBug2.TabIndex = 1
@@ -1581,9 +1594,9 @@ Partial Class Main
         Me.ComboBoxVertical2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical2.FormattingEnabled = True
-        Me.ComboBoxVertical2.Location = New System.Drawing.Point(387, 415)
+        Me.ComboBoxVertical2.Location = New System.Drawing.Point(414, 37)
         Me.ComboBoxVertical2.Name = "ComboBoxVertical2"
-        Me.ComboBoxVertical2.Size = New System.Drawing.Size(127, 21)
+        Me.ComboBoxVertical2.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxVertical2.TabIndex = 6
         Me.ComboBoxVertical2.Tag = "2"
         '
@@ -1592,19 +1605,21 @@ Partial Class Main
         Me.ComboBoxVertical1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical1.FormattingEnabled = True
-        Me.ComboBoxVertical1.Location = New System.Drawing.Point(216, 415)
+        Me.ComboBoxVertical1.Location = New System.Drawing.Point(283, 37)
         Me.ComboBoxVertical1.Name = "ComboBoxVertical1"
-        Me.ComboBoxVertical1.Size = New System.Drawing.Size(150, 21)
+        Me.ComboBoxVertical1.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxVertical1.TabIndex = 5
         Me.ComboBoxVertical1.Tag = "1"
         '
         'ElementHost3
         '
-        Me.ElementHost3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ElementHost3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ElementHost3.BackColor = System.Drawing.Color.Black
-        Me.ElementHost3.Location = New System.Drawing.Point(16, 112)
+        Me.ElementHost3.Location = New System.Drawing.Point(14, 82)
         Me.ElementHost3.Name = "ElementHost3"
-        Me.ElementHost3.Size = New System.Drawing.Size(520, 290)
+        Me.ElementHost3.Size = New System.Drawing.Size(518, 225)
         Me.ElementHost3.TabIndex = 56
         Me.ElementHost3.Text = "ElementHost3"
         Me.ElementHost3.Child = Me.MonitorPGM
@@ -1616,13 +1631,14 @@ Partial Class Main
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(0, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(548, 20)
+        Me.Label6.Size = New System.Drawing.Size(546, 20)
         Me.Label6.TabIndex = 54
         Me.Label6.Text = "Monitores"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Panel17
         '
+        Me.Panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel17.Controls.Add(Me.Label9)
         Me.Panel17.Controls.Add(Me.CheckBox1)
         Me.Panel17.Controls.Add(Me.Button_Capturas)
@@ -1641,7 +1657,7 @@ Partial Class Main
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(0, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(548, 20)
+        Me.Label9.Size = New System.Drawing.Size(546, 20)
         Me.Label9.TabIndex = 70
         Me.Label9.Text = "Streams y Grabaciones"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -1662,7 +1678,7 @@ Partial Class Main
         'Button_Capturas
         '
         Me.Button_Capturas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button_Capturas.Location = New System.Drawing.Point(447, 32)
+        Me.Button_Capturas.Location = New System.Drawing.Point(445, 32)
         Me.Button_Capturas.Name = "Button_Capturas"
         Me.Button_Capturas.Size = New System.Drawing.Size(89, 35)
         Me.Button_Capturas.TabIndex = 62
@@ -1674,7 +1690,7 @@ Partial Class Main
         Me.CheckBoxRec.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.CheckBoxRec.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxRec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CheckBoxRec.Location = New System.Drawing.Point(277, 31)
+        Me.CheckBoxRec.Location = New System.Drawing.Point(276, 31)
         Me.CheckBoxRec.Name = "CheckBoxRec"
         Me.CheckBoxRec.Size = New System.Drawing.Size(89, 36)
         Me.CheckBoxRec.TabIndex = 67
@@ -1690,7 +1706,7 @@ Partial Class Main
         Me.LabelRecTimer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelRecTimer.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.LabelRecTimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.LabelRecTimer.Location = New System.Drawing.Point(182, 32)
+        Me.LabelRecTimer.Location = New System.Drawing.Point(181, 32)
         Me.LabelRecTimer.Name = "LabelRecTimer"
         Me.LabelRecTimer.Size = New System.Drawing.Size(89, 34)
         Me.LabelRecTimer.TabIndex = 68
@@ -2525,6 +2541,100 @@ Partial Class Main
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Panel19
+        '
+        Me.Panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel19.Controls.Add(Me.Label10)
+        Me.Panel19.Controls.Add(Me.ComboBoxVertical2)
+        Me.Panel19.Controls.Add(Me.ComboBoxVertical1)
+        Me.Panel19.Controls.Add(Me.ButtonPlaySyncVertical)
+        Me.Panel19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel19.Location = New System.Drawing.Point(3, 496)
+        Me.Panel19.Name = "Panel19"
+        Me.Panel19.Size = New System.Drawing.Size(548, 74)
+        Me.Panel19.TabIndex = 3
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(0, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(546, 20)
+        Me.Label10.TabIndex = 64
+        Me.Label10.Text = "Monitores Verticales"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Panel20
+        '
+        Me.Panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel20.Controls.Add(Me.ComboBoxHor3)
+        Me.Panel20.Controls.Add(Me.Label11)
+        Me.Panel20.Controls.Add(Me.ComboBoxHor1)
+        Me.Panel20.Controls.Add(Me.ComboBoxHor2)
+        Me.Panel20.Controls.Add(Me.Button1)
+        Me.Panel20.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel20.Location = New System.Drawing.Point(3, 576)
+        Me.Panel20.Name = "Panel20"
+        Me.Panel20.Size = New System.Drawing.Size(548, 74)
+        Me.Panel20.TabIndex = 4
+        '
+        'Label11
+        '
+        Me.Label11.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(0, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(546, 20)
+        Me.Label11.TabIndex = 64
+        Me.Label11.Text = "Monitores Horizontales"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'ComboBoxHor1
+        '
+        Me.ComboBoxHor1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ComboBoxHor1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxHor1.FormattingEnabled = True
+        Me.ComboBoxHor1.Location = New System.Drawing.Point(150, 37)
+        Me.ComboBoxHor1.Name = "ComboBoxHor1"
+        Me.ComboBoxHor1.Size = New System.Drawing.Size(120, 21)
+        Me.ComboBoxHor1.TabIndex = 6
+        Me.ComboBoxHor1.Tag = "2"
+        '
+        'ComboBoxHor2
+        '
+        Me.ComboBoxHor2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ComboBoxHor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxHor2.FormattingEnabled = True
+        Me.ComboBoxHor2.Location = New System.Drawing.Point(283, 37)
+        Me.ComboBoxHor2.Name = "ComboBoxHor2"
+        Me.ComboBoxHor2.Size = New System.Drawing.Size(120, 21)
+        Me.ComboBoxHor2.TabIndex = 5
+        Me.ComboBoxHor2.Tag = "1"
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button1.Location = New System.Drawing.Point(16, 32)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(101, 28)
+        Me.Button1.TabIndex = 63
+        Me.Button1.Text = "Sync Play >"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ComboBoxHor3
+        '
+        Me.ComboBoxHor3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ComboBoxHor3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxHor3.FormattingEnabled = True
+        Me.ComboBoxHor3.Location = New System.Drawing.Point(415, 37)
+        Me.ComboBoxHor3.Name = "ComboBoxHor3"
+        Me.ComboBoxHor3.Size = New System.Drawing.Size(120, 21)
+        Me.ComboBoxHor3.TabIndex = 65
+        Me.ComboBoxHor3.Tag = "1"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2594,6 +2704,8 @@ Partial Class Main
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.BindingSourcePresentadores, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel19.ResumeLayout(False)
+        Me.Panel20.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2780,4 +2892,12 @@ Partial Class Main
     Friend WithEvents Label9 As Label
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Panel20 As Panel
+    Friend WithEvents ComboBoxHor3 As ComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents ComboBoxHor1 As ComboBox
+    Friend WithEvents ComboBoxHor2 As ComboBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Panel19 As Panel
+    Friend WithEvents Label10 As Label
 End Class

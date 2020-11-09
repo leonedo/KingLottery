@@ -24,6 +24,9 @@ Public Class Main
     Public Canal_PVW As ChannelManager
     Public Canal_Ver_1 As ChannelManager
     Public Canal_Ver_2 As ChannelManager
+    Public Canal_Hor_1 As ChannelManager
+    Public Canal_Hor_2 As ChannelManager
+    Public Canal_Hor_3 As ChannelManager
     'Public Canal_Ver_3 As ChannelManager
     Private WithEvents Oscserver As OscServer
     Public Process As Process
@@ -294,14 +297,16 @@ Public Class Main
     Private Sub ConfiguraCanales()
         Try
             Canal_PGM = CasparDevice.Channels.First(Function(x) x.ID = PGM)
-            '   Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
+            Canal_PVW = CasparDevice.Channels.First(Function(x) x.ID = PVW)
             Canal_Ver_1 = CasparDevice.Channels.First(Function(x) x.ID = VER1)
             Canal_Ver_2 = CasparDevice.Channels.First(Function(x) x.ID = VER2)
-            ' Canal_Ver_3 = CasparDevice.Channels.First(Function(x) x.ID = VER3)
+            Canal_Hor_1 = CasparDevice.Channels.First(Function(x) x.ID = HOR1)
+            Canal_Hor_2 = CasparDevice.Channels.First(Function(x) x.ID = HOR2)
+            Canal_Hor_3 = CasparDevice.Channels.First(Function(x) x.ID = HOR3)
             LabelVersion.Text = $"{Version} / {CasparDevice.GetVersion.Substring(0, 5)}"
             TableLayoutPanel1.Enabled = True
         Catch ex As Exception
-            MessageBox.Show($"{ex.Message} | El Server tiene :{CasparDevice.Channels.Count} canales configurados de los 5 que espera el cliente.")
+            MessageBox.Show($"{ex.Message} | El Server tiene :{CasparDevice.Channels.Count} canales configurados de los que espera el cliente.")
         End Try
     End Sub
 
@@ -584,8 +589,6 @@ Public Class Main
         Select Case sender.Tag
             Case "2"
                 canal = Canal_Ver_2
-                '  Case "3"
-                '  canal = Canal_Ver_3
             Case Else
                 canal = Canal_Ver_1
         End Select
@@ -607,43 +610,51 @@ Public Class Main
 
         If ComboBoxVertical1.SelectedIndex > 0 Then
             Canal_Ver_1.LoadBG(New CasparPlayingInfoItem With {
-                         .Clipname = ComboBoxVertical1.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .Clipname = $"""{ComboBoxVertical1.SelectedValue.FullName.ToString.Replace("\", "/")}""",
                          .VideoLayer = LayerVideoVertical,
                          .[Loop] = True
                          })
         End If
         If ComboBoxVertical2.SelectedIndex > 0 Then
             Canal_Ver_2.LoadBG(New CasparPlayingInfoItem With {
-                         .Clipname = ComboBoxVertical2.SelectedValue.FullName.ToString.Replace("\", "/"),
+                         .Clipname = $"""{ComboBoxVertical2.SelectedValue.FullName.ToString.Replace("\", "/")}""",
                          .VideoLayer = LayerVideoVertical,
                          .[Loop] = True
                          })
         End If
-        'If ComboBoxVertical3.SelectedIndex > 0 Then
-        '    Canal_Ver_3.LoadBG(New CasparPlayingInfoItem With {
-        '                 .Clipname = ComboBoxVertical3.SelectedValue.FullName.ToString.Replace("\", "/"),
-        '                 .VideoLayer = LayerVideoVertical,
-        '                 .[Loop] = True
-        '                 })
-        'End If
+
         Canal_Ver_1.Play(LayerVideoVertical)
         Canal_Ver_2.Play(LayerVideoVertical)
-        ' Canal_Ver_3.Play(LayerVideoVertical)
     End Sub
 
     Private Sub LoadMediaDataSource()
-        Dim media As New List(Of MediaInfo) From {
+        Dim mediaVertical As New List(Of MediaInfo) From {
             New MediaInfo With {.Name = "-", .FullName = "STOP"} ' Fake Item to Stop the player
             }
         For Each item As MediaInfo In CasparDevice.Mediafiles
             If item.FullName.Contains("VERTICALES") Then
-                media.Add(item)
+                mediaVertical.Add(item)
             End If
         Next
-        ComboBoxVertical1.DataSource = New BindingSource(media, "")
+        ComboBoxVertical1.DataSource = New BindingSource(mediaVertical, "")
         ComboBoxVertical1.DisplayMember = "Name"
-        ComboBoxVertical2.DataSource = New BindingSource(media, "")
+        ComboBoxVertical2.DataSource = New BindingSource(mediaVertical, "")
         ComboBoxVertical2.DisplayMember = "Name"
+
+        Dim mediaHorizontal As New List(Of MediaInfo) From {
+           New MediaInfo With {.Name = "-", .FullName = "STOP"} ' Fake Item to Stop the player
+           }
+        For Each item As MediaInfo In CasparDevice.Mediafiles
+            If item.FullName.Contains("HORIZONTALES") Then
+                mediaHorizontal.Add(item)
+            End If
+        Next
+        ComboBoxHor1.DataSource = New BindingSource(mediaHorizontal, "")
+        ComboBoxHor1.DisplayMember = "Name"
+        ComboBoxHor2.DataSource = New BindingSource(mediaHorizontal, "")
+        ComboBoxHor2.DisplayMember = "Name"
+        ComboBoxHor3.DataSource = New BindingSource(mediaHorizontal, "")
+        ComboBoxHor3.DisplayMember = "Name"
 
 
     End Sub
@@ -651,11 +662,21 @@ Public Class Main
     Private Sub SetMultiview()
         CasparDevice.Connection.SendString($"MIXER {PVW} MASTERVOLUME 0")
         CasparDevice.Connection.SendString($"MIXER {PGM} MASTERVOLUME 0.75")
-        CasparDevice.Connection.SendString($"PLAY {PVW}-1 route://{PGM}")
-        CasparDevice.Connection.SendString($"PLAY {PVW}-2 route://{VER1}")
-        CasparDevice.Connection.SendString($"PLAY {PVW}-3 route://{VER2}")
-        CasparDevice.Connection.SendString($"MIXER {PVW} GRID 2")
-
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{PGM} route://{PGM}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{VER1} route://{VER1}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{VER2} route://{VER2}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{HOR1} route://{HOR1}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{HOR2} route://{HOR2}")
+        CasparDevice.Connection.SendString($"PLAY {PVW}-{HOR3} route://{HOR3}")
+        'CasparDevice.Connection.SendString($"MIXER {PVW} GRID 2")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{PGM} FILL 0.0078125 0.0152778 0.596875 0.598611 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{VER1} FILL 0.610937 0.6125 0.335938 0.333333 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{VER1} ROTATION -90 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{VER2} FILL 0.80625 0.6125 0.335938 0.333333 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{VER2} ROTATION -90 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR1} FILL 0.0078125 0.643056 0.325 0.327778 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR2} FILL 0.3375 0.643056 0.325 0.327778 0 Linear")
+        CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR3} FILL 0.667969 0.643056 0.325 0.327778 0 Linear")
     End Sub
 
 
@@ -683,20 +704,6 @@ Public Class Main
             }
             Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
             Canal_PGM.CG.Invoke(LayerTemplates, 1, $"bolo{bolo.Bolo}")
-
-            ''Para grafico de Sorteo vertical
-            'Dim CGdata1 As New CasparCGDataCollection From {{$"f0", bolo.Resultado}}
-            'Select Case bolo.Bolo
-            '    Case 1
-            '        Canal_Ver_1.CG.Update(LayerTemplates, 1, CGdata1)
-            '        Canal_Ver_1.CG.Next(LayerTemplates, 1)
-            '    Case 2
-            '        Canal_Ver_2.CG.Update(LayerTemplates, 1, CGdata1)
-            '        Canal_Ver_2.CG.Next(LayerTemplates, 1)
-            '    Case 3
-            '        Canal_Ver_3.CG.Update(LayerTemplates, 1, CGdata1)
-            '        Canal_Ver_3.CG.Next(LayerTemplates, 1)
-            'End Select
 
             Return True
         Else
@@ -1306,6 +1313,8 @@ Public Class Main
             Next
         Next
     End Sub
+
+
 End Class
 
 #Region "Clases de soporte"
