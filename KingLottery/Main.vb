@@ -48,7 +48,7 @@ Public Class Main
     Const HOR2 = 6
     Const HOR3 = 7
 
-    Const LayerVideoVertical = 10
+    Const LayerVideoLoops = 10
     Const LayerTemplates = 20
     Const LayerBumpers = 50
     Const LayerSeparadores = 60
@@ -583,7 +583,7 @@ Public Class Main
 
 #End Region
 
-#Region "Clips Verticales"
+#Region "Loops Verticales/Horizontaltes y Multiview"
     Private Sub ComboBoxVertical1_SelectedIndexChanged(sender As ComboBox, e As EventArgs) Handles ComboBoxVertical1.SelectedIndexChanged, ComboBoxVertical2.SelectedIndexChanged
         Dim canal As ChannelManager
         Select Case sender.Tag
@@ -596,10 +596,10 @@ Public Class Main
             canal.Stop(LayerTemplates)
             canal.LoadBG(New CasparPlayingInfoItem With {
                          .Clipname = $"""{sender.SelectedValue.FullName.ToString.Replace("\", "/")}""",
-                         .VideoLayer = LayerVideoVertical,
+                         .VideoLayer = LayerVideoLoops,
                          .[Loop] = True
                          })
-            canal.Play(LayerVideoVertical)
+            canal.Play(LayerVideoLoops)
         Else
             canal.Clear()
         End If
@@ -611,20 +611,72 @@ Public Class Main
         If ComboBoxVertical1.SelectedIndex > 0 Then
             Canal_Ver_1.LoadBG(New CasparPlayingInfoItem With {
                          .Clipname = $"""{ComboBoxVertical1.SelectedValue.FullName.ToString.Replace("\", "/")}""",
-                         .VideoLayer = LayerVideoVertical,
+                         .VideoLayer = LayerVideoLoops,
                          .[Loop] = True
                          })
         End If
         If ComboBoxVertical2.SelectedIndex > 0 Then
             Canal_Ver_2.LoadBG(New CasparPlayingInfoItem With {
                          .Clipname = $"""{ComboBoxVertical2.SelectedValue.FullName.ToString.Replace("\", "/")}""",
-                         .VideoLayer = LayerVideoVertical,
+                         .VideoLayer = LayerVideoLoops,
                          .[Loop] = True
                          })
         End If
 
-        Canal_Ver_1.Play(LayerVideoVertical)
-        Canal_Ver_2.Play(LayerVideoVertical)
+        Canal_Ver_1.Play(LayerVideoLoops)
+        Canal_Ver_2.Play(LayerVideoLoops)
+    End Sub
+
+    Private Sub ButtonPlaySyncHorizontal_Click(sender As Object, e As EventArgs) Handles ButtonPlaySyncHorizontal.Click
+
+        If ComboBoxHor1.SelectedIndex > 0 Then
+            Canal_Hor_1.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = $"""{ComboBoxHor1.SelectedValue.FullName.ToString.Replace("\", "/")}""",
+                         .VideoLayer = LayerVideoLoops,
+                         .[Loop] = True
+                         })
+        End If
+        If ComboBoxHor2.SelectedIndex > 0 Then
+            Canal_Hor_2.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = $"""{ComboBoxHor2.SelectedValue.FullName.ToString.Replace("\", "/")}""",
+                         .VideoLayer = LayerVideoLoops,
+                         .[Loop] = True
+                         })
+        End If
+        If ComboBoxHor3.SelectedIndex > 0 Then
+            Canal_Hor_3.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = $"""{ComboBoxHor3.SelectedValue.FullName.ToString.Replace("\", "/")}""",
+                         .VideoLayer = LayerVideoLoops,
+                         .[Loop] = True
+                         })
+        End If
+
+        Canal_Hor_1.Play(LayerVideoLoops)
+        Canal_Hor_2.Play(LayerVideoLoops)
+        Canal_Hor_3.Play(LayerVideoLoops)
+    End Sub
+
+    Private Sub ComboBoxHor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxHor3.SelectedIndexChanged, ComboBoxHor2.SelectedIndexChanged, ComboBoxHor1.SelectedIndexChanged
+        Dim canal As ChannelManager
+        Select Case sender.Tag
+            Case "2"
+                canal = Canal_Hor_2
+            Case "3"
+                canal = Canal_Hor_3
+            Case Else
+                canal = Canal_Hor_1
+        End Select
+        If sender.SelectedIndex > 0 Then
+            canal.Stop(LayerTemplates)
+            canal.LoadBG(New CasparPlayingInfoItem With {
+                         .Clipname = $"""{sender.SelectedValue.FullName.ToString.Replace("\", "/")}""",
+                         .VideoLayer = LayerVideoLoops,
+                         .[Loop] = True
+                         })
+            canal.Play(LayerVideoLoops)
+        Else
+            canal.Clear()
+        End If
     End Sub
 
     Private Sub LoadMediaDataSource()
@@ -1314,7 +1366,27 @@ Public Class Main
         Next
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            Dim url = My.Settings.RTMP_URL
+            Dim vBitrate = My.Settings.StreamVideoBitrate
+            Dim pic_size = My.Settings.StreamPictureSize
+            Dim stream = $"ADD {PGM} STREAM {url}-500 -codec:a aac -strict -2  -b:a 128k -ar:a 48000 -b:v {vBitrate} -filter:v format=pix_fmts=yuv422p,scale={pic_size},fps=30 -filter:a pan=stereo|c0=c0|c1=c1 -format flv"
+            CasparDevice.Connection.SendString(stream)
+        Else
+            CasparDevice.Connection.SendString($"REMOVE {PGM}-500")
+        End If
+    End Sub
 
+    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
+
+    End Sub
+
+    Private Sub StreamToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreamToolStripMenuItem.Click
+        Dim stream As New StreamForm
+        stream.ShowDialog()
+
+    End Sub
 End Class
 
 #Region "Clases de soporte"

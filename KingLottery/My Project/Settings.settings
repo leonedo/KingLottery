@@ -62,5 +62,14 @@
     <Setting Name="Separador6" Type="System.String" Scope="User">
       <Value Profile="(Default)">Separador_6</Value>
     </Setting>
+    <Setting Name="RTMP_URL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtmp://a.rtmp.youtube.com/live2/Steam_Key_here</Value>
+    </Setting>
+    <Setting Name="StreamPictureSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1280x720</Value>
+    </Setting>
+    <Setting Name="StreamVideoBitrate" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">2750</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

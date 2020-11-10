@@ -297,6 +297,42 @@ Namespace My
                 Me("Separador6") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("rtmp://a.rtmp.youtube.com/live2/Steam_Key_here")>  _
+        Public Property RTMP_URL() As String
+            Get
+                Return CType(Me("RTMP_URL"),String)
+            End Get
+            Set
+                Me("RTMP_URL") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1280x720")>  _
+        Public Property StreamPictureSize() As String
+            Get
+                Return CType(Me("StreamPictureSize"),String)
+            End Get
+            Set
+                Me("StreamPictureSize") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2750")>  _
+        Public Property StreamVideoBitrate() As Decimal
+            Get
+                Return CType(Me("StreamVideoBitrate"),Decimal)
+            End Get
+            Set
+                Me("StreamVideoBitrate") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
