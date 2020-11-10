@@ -732,7 +732,41 @@ Public Class Main
     End Sub
 
 
+    Private Sub Reproducir_loops(sorteo As Sorteos.Tipo)
 
+
+        Dim LoopVertical = "KingLottery"
+        Dim LoopHorizontal = "KingLottery"
+
+        Select Case sorteo
+            Case Sorteos.Tipo.Pick3_SXM
+                LoopVertical = "pick3"
+                LoopHorizontal = "pick3"
+            Case Sorteos.Tipo.Pick4_SXM
+                LoopVertical = "pick4"
+                LoopHorizontal = "pick4"
+            Case Sorteos.Tipo.Phillipsburg
+                LoopVertical = "Phillipsburg"
+                LoopHorizontal = "Phillipsburg"
+            Case Sorteos.Tipo.LotoPool
+                LoopVertical = "LotoPool"
+                LoopHorizontal = "LotoPool"
+        End Select
+
+
+
+        Canal_Ver_1.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Loops_Verticales/{LoopVertical}""", .VideoLayer = LayerVideoLoops, .[Loop] = True})
+        Canal_Ver_2.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Loops_Verticales/{LoopVertical}""", .VideoLayer = LayerVideoLoops, .[Loop] = True})
+        Canal_Hor_1.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Loops_Horizontales/{LoopHorizontal}""", .VideoLayer = LayerVideoLoops, .[Loop] = True})
+        Canal_Hor_2.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Loops_Horizontales/{LoopHorizontal}""", .VideoLayer = LayerVideoLoops, .[Loop] = True})
+        Canal_Hor_3.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Loops_Horizontales/{LoopHorizontal}""", .VideoLayer = LayerVideoLoops, .[Loop] = True})
+
+        Canal_Ver_1.Play(LayerVideoLoops)
+        Canal_Ver_2.Play(LayerVideoLoops)
+        Canal_Hor_1.Play(LayerVideoLoops)
+        Canal_Hor_2.Play(LayerVideoLoops)
+        Canal_Hor_3.Play(LayerVideoLoops)
+    End Sub
 
 
     'Private Sub RadioButton_PGM_CheckedChanged(sender As RadioButton, e As EventArgs) Handles RadioButton_Verticales.CheckedChanged, RadioButton_PGM.CheckedChanged
@@ -831,6 +865,7 @@ Public Class Main
         NumPad_Pick3.ConfiguraNumeros(Sorteos.Tipo.Pick3_SXM, "1")
         NumPad_Pick3.Enabled = True
         PanelPick3.Enabled = True
+        Reproducir_loops(Sorteos.Tipo.Pick3_SXM)
     End Sub
 
     Private Sub ButtonResultadoPick3_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPick3.Click
@@ -882,6 +917,7 @@ Public Class Main
         NumPad_Pick4.ConfiguraNumeros(Sorteos.Tipo.Pick4_SXM, "1")
         NumPad_Pick4.Enabled = True
         PanelPick4.Enabled = True
+        Reproducir_loops(Sorteos.Tipo.Pick4_SXM)
     End Sub
 
     Private Sub ButtonResultadoPick4_Click(sender As Object, e As EventArgs) Handles ButtonResultadoPick4.Click
@@ -937,6 +973,7 @@ Public Class Main
         ButtonListPadLotoPool.ConfiguraNumeros(Sorteos.Tipo.LotoPool, "1")
         ButtonListPadLotoPool.Enabled = True
         PanelLotoPool.Enabled = True
+        Reproducir_loops(Sorteos.Tipo.LotoPool)
     End Sub
 
     Private Sub ButtonResultadoLotoPool_Click(sender As Object, e As EventArgs) Handles ButtonResultadoLotoPool.Click
@@ -995,6 +1032,7 @@ Public Class Main
         MultiNumberPadPhillipsburg.ConfiguraNumeros(Sorteos.Tipo.Phillipsburg, "1", Phillipsburg)
         MultiNumberPadPhillipsburg.Enabled = True
         PanelPhill.Enabled = True
+        Reproducir_loops(Sorteos.Tipo.Phillipsburg)
     End Sub
 
     Private Sub ButtonResultadosPhillips_Click(sender As Object, e As EventArgs) Handles ButtonResultadosPhillips.Click
@@ -1373,14 +1411,14 @@ Public Class Main
             Dim pic_size = My.Settings.StreamPictureSize
             Dim stream = $"ADD {PGM} STREAM {url}-500 -codec:a aac -strict -2  -b:a 128k -ar:a 48000 -b:v {vBitrate} -filter:v format=pix_fmts=yuv422p,scale={pic_size},fps=30 -filter:a pan=stereo|c0=c0|c1=c1 -format flv"
             CasparDevice.Connection.SendString(stream)
+            CheckBox1.Text = "Streaming..."
         Else
             CasparDevice.Connection.SendString($"REMOVE {PGM}-500")
+            CheckBox1.Text = "Iniciar Stream..."
         End If
     End Sub
 
-    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
 
-    End Sub
 
     Private Sub StreamToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreamToolStripMenuItem.Click
         Dim stream As New StreamForm
