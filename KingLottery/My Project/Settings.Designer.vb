@@ -288,7 +288,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Separador_6")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg1")>  _
         Public Property Separador6() As String
             Get
                 Return CType(Me("Separador6"),String)
@@ -331,6 +331,42 @@ Namespace My
             End Get
             Set
                 Me("StreamVideoBitrate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property LotoPoolAM() As Boolean
+            Get
+                Return CType(Me("LotoPoolAM"),Boolean)
+            End Get
+            Set
+                Me("LotoPoolAM") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg2")>  _
+        Public Property Separador7() As String
+            Get
+                Return CType(Me("Separador7"),String)
+            End Get
+            Set
+                Me("Separador7") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg3")>  _
+        Public Property Separador8() As String
+            Get
+                Return CType(Me("Separador8"),String)
+            End Get
+            Set
+                Me("Separador8") = value
             End Set
         End Property
     End Class

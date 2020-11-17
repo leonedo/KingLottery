@@ -60,7 +60,7 @@
       <Value Profile="(Default)">Separador_5</Value>
     </Setting>
     <Setting Name="Separador6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Separador_6</Value>
+      <Value Profile="(Default)">Phillipsburg1</Value>
     </Setting>
     <Setting Name="RTMP_URL" Type="System.String" Scope="User">
       <Value Profile="(Default)">rtmp://a.rtmp.youtube.com/live2/Steam_Key_here</Value>
@@ -70,6 +70,15 @@
     </Setting>
     <Setting Name="StreamVideoBitrate" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2750</Value>
+    </Setting>
+    <Setting Name="LotoPoolAM" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Separador7" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Phillipsburg2</Value>
+    </Setting>
+    <Setting Name="Separador8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Phillipsburg3</Value>
     </Setting>
   </Settings>
 </SettingsFile>

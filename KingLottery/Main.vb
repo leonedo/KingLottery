@@ -17,7 +17,7 @@ Imports System.Timers
 Imports System.Threading
 
 Public Class Main
-    Const Version = "0.2.0" '
+    Const Version = "0.9.1" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
@@ -38,7 +38,7 @@ Public Class Main
     Private LotoPool(4) As Bola
     Private Talentos As New Talentos
     Private SorteoDeHoy As Integer = My.Settings.NumeroSorteo + 1
-
+    Private SorteoActivo As Sorteos.Tipo = Sorteos.Tipo.Pick3_SXM
 #Region "Channal and leyer configuration"
     Const PGM = 1
     Const PVW = 2
@@ -51,6 +51,7 @@ Public Class Main
     Const LayerVideoLoops = 10
     Const LayerTemplates = 20
     Const LayerBumpers = 50
+    Const LayerBumpersSorteos = 51
     Const LayerSeparadores = 60
     Const LayerVideoPlayer = 40
     Const LayerAudioPlayer = 70
@@ -87,6 +88,7 @@ Public Class Main
             TableLayoutPanel1.Enabled = True
         Else
             LabelUser.Text = "Operador"
+            MenuStrip1.Visible = False
             StartCasparcgServer()
         End If
     End Sub
@@ -439,6 +441,8 @@ Public Class Main
         Select Case layer
             Case LayerBumpers
                 pb = ProgressBarBumpers
+            Case LayerBumpersSorteos
+                pb = ProgressBarBumpers
             Case LayerSeparadores
                 pb = ProgressBarSeparadores
             Case LayerVideoPlayer
@@ -462,7 +466,7 @@ Public Class Main
             progressBar.Value = CInt(mensaje.Data(1) * 100)
             '  progressBar.Tag = "NO"
             StopPlayGeneral(layer)
-            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(progressBar))
+            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(progressBar, layer))
             thread.Start()
 
         Else 'If progressBar.Tag Is "READY" Then
@@ -473,13 +477,33 @@ Public Class Main
 #End Region
 
 #Region "MenuBar"
-    Private Sub ReloadMediaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadMediaToolStripMenuItem.Click
+    Private Sub ReloadMediaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ButtonReloadMedia.Click
         If CasparDevice.IsConnected Then
             CasparDevice.GetMediafilesAsync()
         Else
             MessageBox.Show("No Conectado al server")
         End If
     End Sub
+
+    Private Sub RadioButtonAM_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAM.CheckedChanged, RadioButtonPM.CheckedChanged
+        If RadioButtonPM.Checked Then
+            PictureBoxLotoPool.Enabled = True
+            ButtonEntradaLotoPool.Enabled = True
+            ButtonResultadoLotoPool.Enabled = True
+            RB_LotoPool.Enabled = True
+        Else
+            PictureBoxLotoPool.Enabled = My.Settings.LotoPoolAM
+            ButtonEntradaLotoPool.Enabled = My.Settings.LotoPoolAM
+            ButtonResultadoLotoPool.Enabled = My.Settings.LotoPoolAM
+            RB_LotoPool.Enabled = My.Settings.LotoPoolAM
+        End If
+    End Sub
+
+    Private Sub LotoPoolEnAMToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles LotoPoolEnAMToolStripMenuItem.CheckedChanged
+        My.Settings.LotoPoolAM = LotoPoolEnAMToolStripMenuItem.Checked
+        RadioButtonAM_CheckedChanged(Nothing, Nothing)
+    End Sub
+
 #End Region
 
 #Region "Bumpers generales y players"
@@ -519,22 +543,23 @@ Public Class Main
     End Sub
 
     Private Sub Button_Stop_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Stop_Separadores.Click
-        Canal_PGM.Stop(LayerSeparadores)
-        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarSeparadores))
+        CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerSeparadores} EMPTY MIX 5")
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarSeparadores, LayerSeparadores))
         thread.Start()
     End Sub
 
     Private Sub Button_Stop_Bumpers_Click(sender As Object, e As EventArgs) Handles Button_Stop_Bumpers.Click
-        Canal_PGM.Stop(LayerBumpers)
-        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarBumpers))
+        CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerBumpers} EMPTY MIX 5")
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarBumpers, LayerBumpers))
         thread.Start()
     End Sub
 
-    Sub MyStopclearProgressThread(pb As ProgressBar)
+    Sub MyStopclearProgressThread(pb As ProgressBar, layer As Integer)
         Threading.Thread.Sleep(500)
         Try
             pb.Invoke(Sub()
                           pb.Value = 0
+                          If layer = LayerBumpersSorteos Then EntradaSorteo(SorteoActivo)
                       End Sub)
         Catch ex As Exception
 
@@ -553,7 +578,7 @@ Public Class Main
     Private Sub ButtonPlayoutStop_Click(sender As Object, e As EventArgs) Handles ButtonPlayoutStop.Click
         If CasparDevice.IsConnected Then
             CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerVideoPlayer} EMPTY MIX 5")
-            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarVideo))
+            Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarVideo, LayerVideoPlayer))
             thread.Start()
         End If
     End Sub
@@ -568,7 +593,7 @@ Public Class Main
 
     Private Sub ButtonStopAudio_Click(sender As Object, e As EventArgs) Handles ButtonStopAudio.Click
         CasparDevice.Connection.SendString($"PLAY {Canal_PGM.ID}-{LayerAudioPlayer} EMPTY MIX 5")
-        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarAudio))
+        Dim thread = New Thread(Sub() Me.MyStopclearProgressThread(ProgressBarAudio, LayerAudioPlayer))
         thread.Start()
     End Sub
 
@@ -734,7 +759,6 @@ Public Class Main
 
     Private Sub Reproducir_loops(sorteo As Sorteos.Tipo)
 
-
         Dim LoopVertical = "KingLottery"
         Dim LoopHorizontal = "KingLottery"
 
@@ -766,6 +790,24 @@ Public Class Main
         Canal_Hor_1.Play(LayerVideoLoops)
         Canal_Hor_2.Play(LayerVideoLoops)
         Canal_Hor_3.Play(LayerVideoLoops)
+    End Sub
+
+    Private Sub Reproducir_Loto_bumpers(sorteo As Sorteos.Tipo)
+
+        Dim Bumper = "KingLottery"
+        Select Case sorteo
+            Case Sorteos.Tipo.Pick3_SXM
+                Bumper = "pick3"
+            Case Sorteos.Tipo.Pick4_SXM
+                Bumper = "pick4"
+            Case Sorteos.Tipo.Phillipsburg
+                Bumper = "Phillipsburg"
+            Case Sorteos.Tipo.LotoPool
+                Bumper = "LotoPool"
+        End Select
+        Canal_PGM.LoadBG(New CasparPlayingInfoItem With {.Clipname = $"""Bumpers/{Bumper}""", .VideoLayer = LayerBumpersSorteos, .[Loop] = False})
+        Canal_PGM.Play(LayerBumpersSorteos)
+
     End Sub
 
 
@@ -853,18 +895,44 @@ Public Class Main
         End Select
 
     End Sub
+
+    Private Sub EntradaSorteo(sorteo As Sorteos.Tipo)
+        Select Case sorteo
+            Case Sorteos.Tipo.Pick3_SXM
+                MyBackgroundThreadPick3()
+            Case Sorteos.Tipo.Pick4_SXM
+                MyBackgroundThreadPick4()
+            Case Sorteos.Tipo.LotoPool
+                MyBackgroundThreadLotoPool()
+            Case Sorteos.Tipo.Phillipsburg
+                MyBackgroundThreadPhillipsburg()
+        End Select
+        SorteoActivo = Sorteos.Tipo.Done
+    End Sub
+
 #Region "Pick3"
 
     Private Sub ButtonEntradaPick3_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPick3.Click
+
+        SorteoActivo = Sorteos.Tipo.Pick3_SXM
+        Reproducir_Loto_bumpers(Sorteos.Tipo.Pick3_SXM)
+
+        ''  Dim thread As New Thread(AddressOf MyBackgroundThreadPick3)
+        ''  Thread.Start()
+    End Sub
+
+    Sub MyBackgroundThreadPick3()
         Dim CGdata As New CasparCGDataCollection From {
-            {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
-        }
+           {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+       }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick3_SXM", True, CGdata)
 
         Label_SXM3_1.Enabled = True
         NumPad_Pick3.ConfiguraNumeros(Sorteos.Tipo.Pick3_SXM, "1")
         NumPad_Pick3.Enabled = True
         PanelPick3.Enabled = True
+
+        Threading.Thread.Sleep(1000)
         Reproducir_loops(Sorteos.Tipo.Pick3_SXM)
     End Sub
 
@@ -909,14 +977,20 @@ Public Class Main
 
 #Region "Pick 4"
     Private Sub ButtonEntradaPick4_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPick4.Click
+        SorteoActivo = Sorteos.Tipo.Pick4_SXM
+        Reproducir_Loto_bumpers(Sorteos.Tipo.Pick4_SXM)
+    End Sub
+
+    Private Sub MyBackgroundThreadPick4()
         Dim CGdata As New CasparCGDataCollection From {
-           {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
-       }
+         {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+     }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/Pick4_SXM", True, CGdata)
         Label_SXM4_1.Enabled = True
         NumPad_Pick4.ConfiguraNumeros(Sorteos.Tipo.Pick4_SXM, "1")
         NumPad_Pick4.Enabled = True
         PanelPick4.Enabled = True
+        Threading.Thread.Sleep(1000)
         Reproducir_loops(Sorteos.Tipo.Pick4_SXM)
     End Sub
 
@@ -965,17 +1039,23 @@ Public Class Main
 
 #Region "LotoPool"
     Private Sub ButtonEntradaLotoPool_Click(sender As Object, e As EventArgs) Handles ButtonEntradaLotoPool.Click
+        SorteoActivo = Sorteos.Tipo.LotoPool
+        Reproducir_Loto_bumpers(Sorteos.Tipo.LotoPool)
+
+    End Sub
+
+    Private Sub MyBackgroundThreadLotoPool()
         Dim CGdata As New CasparCGDataCollection From {
-        {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
-    }
+       {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+   }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/LotoPool", True, CGdata)
         Label_Pool1.Enabled = True
         ButtonListPadLotoPool.ConfiguraNumeros(Sorteos.Tipo.LotoPool, "1")
         ButtonListPadLotoPool.Enabled = True
         PanelLotoPool.Enabled = True
+        Threading.Thread.Sleep(1000)
         Reproducir_loops(Sorteos.Tipo.LotoPool)
     End Sub
-
     Private Sub ButtonResultadoLotoPool_Click(sender As Object, e As EventArgs) Handles ButtonResultadoLotoPool.Click
         Dim CGdata As New CasparCGDataCollection From {
                {"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"},
@@ -1024,14 +1104,22 @@ Public Class Main
 
 #Region "Phillipsburg"
     Private Sub ButtonEntradaPhillip_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPhillip.Click
+        SorteoActivo = Sorteos.Tipo.Phillipsburg
+        Reproducir_Loto_bumpers(Sorteos.Tipo.Phillipsburg)
+
+
+    End Sub
+
+    Private Sub MyBackgroundThreadPhillipsburg()
         Dim CGdata As New CasparCGDataCollection From {
-      {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
-  }
+     {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
+ }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/PHIL", True, CGdata)
         Label_PHI4_1.Enabled = True
         MultiNumberPadPhillipsburg.ConfiguraNumeros(Sorteos.Tipo.Phillipsburg, "1", Phillipsburg)
         MultiNumberPadPhillipsburg.Enabled = True
         PanelPhill.Enabled = True
+        Threading.Thread.Sleep(1000)
         Reproducir_loops(Sorteos.Tipo.Phillipsburg)
     End Sub
 
@@ -1061,17 +1149,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub RadioButtonAM_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonAM.CheckedChanged, RadioButtonPM.CheckedChanged
-        If RadioButtonPM.Checked Then
-            PictureBoxLotoPool.Enabled = True
-            ButtonEntradaLotoPool.Enabled = True
-            ButtonResultadoLotoPool.Enabled = True
-        Else
-            PictureBoxLotoPool.Enabled = False
-            ButtonEntradaLotoPool.Enabled = False
-            ButtonResultadoLotoPool.Enabled = False
-        End If
-    End Sub
 
 #End Region
 
@@ -1128,7 +1205,7 @@ Public Class Main
 
     Private Sub Button_Capturas_Click(sender As Object, e As EventArgs) Handles Button_Capturas.Click
         If CasparDevice.IsConnected Then
-            CasparDevice.Connection.SendString($"ADD 1 IMAGE Capturas/Sorteo_{SorteoDeHoy.ToString("0000")}_{Date.Now.ToString("dd-MM-yy_hh-mm")}")
+            CasparDevice.Connection.SendString($"ADD 1 IMAGE Capturas/Sorteo_{SorteoDeHoy:0000}_{Date.Now:dd-MM-yy_hh-mm}")
         End If
     End Sub
 
@@ -1141,16 +1218,27 @@ Public Class Main
                     TimerGrabacion.Enabled = True
                     aa = Val(Now.Second.ToString) 'new code
                 End If
-                Dim resolution = ""
-                '  If My.Settings.RecIn720P Then resolution = " -s 1280x720"                                                                                                               'libx264 -codec:v h264_nvenc
-                Dim result = CasparDevice.Connection.SendStringWithResult($"ADD 1-1 FILE  Grabaciones/Sorteo_{SorteoDeHoy.ToString("0000")}_{Date.Now.ToString("dd-MM-yy_hh-mm")}.mp4 -codec:v libx264 -profile:v high444p -pixel_format:v yuv444p {resolution} -preset:v default", New TimeSpan(0, 0, 2))
+
+                Dim params = ".mp4 -codec:v libx264 -profile:v high444p -pixel_format:v yuv444p-s 1280x720 -preset:v default"
+                If CasparDevice.Version.StartsWith("2.3") Then
+                    ''  params = ".mp4 -codec:v libx264 -crf:v 23 -preset:v veryfast -filter:v format=pix_fmts=yuv422p -flags:v +ildct+ilme -codec:a aac -b:a 128k -ar:a 48k -filter:a pan=stereo|c0=c0|c1=c2"
+
+                    '' If True Then
+                    params = ".mxf -b:v 20000000 -codec:a pcm_s16le -codec:v mpeg2video -filter:v format=yuv422p  -minrate:v 20000k -maxrate:v 20000k -color_primaries:v bt709 -color_trc:v 1 -colorspace:v 1 -filter:a pan=stereo|c0=c0|c1=c1"
+                    ''  End If
+                End If
+
+
+
+                Dim result = CasparDevice.Connection.SendStringWithResult($"ADD 1-100 FILE  Grabaciones/Sorteo_{SorteoDeHoy:0000}_{Date.Now:dd-MM-yy_hh-mm}{params}", New TimeSpan(0, 0, 2))
                 CheckBoxRec.Text = "Grabando..."
                 LabelRecTimer.BackColor = Color.IndianRed
-
+                MessageBox.Show(result)
             Else
                 TimerGrabacion.Enabled = False
                 LabelRecTimer.Text = $"{min}:{sec}"
-                CasparDevice.AMCProtocolParser.AmcpTcpParser.SendCommand("REMOVE 1-100")
+                Dim result = CasparDevice.Connection.SendStringWithResult("REMOVE 1-100", New TimeSpan(0, 0, 5))
+                MessageBox.Show(result)
                 CheckBoxRec.Text = "Iniciar Grabacion"
                 LabelRecTimer.BackColor = SystemColors.ControlDarkDark
             End If
@@ -1308,7 +1396,7 @@ Public Class Main
         consola.Show()
     End Sub
 
-    Private Sub templates_salida_Click(sender As Object, e As EventArgs) Handles templates_salida.Click
+    Private Sub Templates_salida_Click(sender As Object, e As EventArgs) Handles templates_salida.Click
         Canal_PGM.CG.Stop(LayerTemplates, 1)
     End Sub
 
@@ -1319,7 +1407,7 @@ Public Class Main
     Private Sub Button_ModoSorteo_Click(sender As Object, e As EventArgs) Handles Button_ModoSorteo.Click
         If MessageBox.Show($"Inicio del Sorteo de hoy: {Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO"))} {vbCrLf}Una vez iniciado el sorteo, Se guarda el número del sorteo y no se puede regresar al modo ensayo", "Iniciar Sorteo de Hoy?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK Then
             My.Settings.NumeroSorteo = SorteoDeHoy
-            LabelModo.Text = $"Modo Sorteo: {SorteoDeHoy.ToString("0000")}"
+            LabelModo.Text = $"Modo Sorteo: {SorteoDeHoy:0000}"
             '  Button_ensayo.Enabled = False
             Button_ModoSorteo.Enabled = False
         Else
@@ -1423,6 +1511,27 @@ Public Class Main
     Private Sub StreamToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StreamToolStripMenuItem.Click
         Dim stream As New StreamForm
         stream.ShowDialog()
+    End Sub
+
+    Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem1.Click
+        Dim Ventana As New UsersForm
+        Ventana.ShowDialog()
+        Ventana.Dispose()
+    End Sub
+
+    Private Sub LabelVersion_DoubleClick(sender As Object, e As EventArgs) Handles LabelVersion.DoubleClick
+        If MessageBox.Show("Reiniciar el Servidor Grafico", "Seguro desea reiniciar el servidor grafico??", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) = DialogResult.OK Then
+            Try
+                Oscserver.Stop()
+            Catch ex As Exception
+
+            End Try
+            StartCasparcgServer()
+        End If
+
+    End Sub
+
+    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
 
     End Sub
 End Class
@@ -1460,6 +1569,7 @@ Public Class Sorteos
         Pick4_SXM
         Phillipsburg
         LotoPool
+        Done
     End Enum
 End Class
 

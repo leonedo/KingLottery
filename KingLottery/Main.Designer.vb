@@ -27,11 +27,12 @@ Partial Class Main
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.DataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReloadMediaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PresentadoresYJuecesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StreamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionAMPMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LotoPoolEnAMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelPick3 = New System.Windows.Forms.Panel()
@@ -89,7 +90,6 @@ Partial Class Main
         Me.Label_Pool1 = New System.Windows.Forms.Label()
         Me.PictureBoxLotoPool = New System.Windows.Forms.PictureBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
-        Me.RB_Resultados = New System.Windows.Forms.RadioButton()
         Me.RB_LotoPool = New System.Windows.Forms.RadioButton()
         Me.RB_Phillps = New System.Windows.Forms.RadioButton()
         Me.RB_pick4 = New System.Windows.Forms.RadioButton()
@@ -126,14 +126,15 @@ Partial Class Main
         Me.ComboBoxHor2 = New System.Windows.Forms.ComboBox()
         Me.ButtonPlaySyncHorizontal = New System.Windows.Forms.Button()
         Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.CheckBoxMosca = New System.Windows.Forms.CheckBox()
+        Me.RadioButtonBug1 = New System.Windows.Forms.RadioButton()
+        Me.ButtonReloadMedia = New System.Windows.Forms.Button()
+        Me.RadioButtonBug2 = New System.Windows.Forms.RadioButton()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonLimpiar = New System.Windows.Forms.Button()
         Me.ButtonCargar = New System.Windows.Forms.Button()
         Me.ButtonGuardar = New System.Windows.Forms.Button()
         Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.CheckBoxMosca = New System.Windows.Forms.CheckBox()
-        Me.RadioButtonBug1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButtonBug2 = New System.Windows.Forms.RadioButton()
         Me.ElementHost3 = New System.Windows.Forms.Integration.ElementHost()
         Me.MonitorPGM = New NDIMonitorControlLibrary.UserControl1()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -159,6 +160,8 @@ Partial Class Main
         Me.Button_Bumper_1 = New System.Windows.Forms.Button()
         Me.ProgressBarBumpers = New System.Windows.Forms.ProgressBar()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Button_Separador_8 = New System.Windows.Forms.Button()
+        Me.Button_Separador_7 = New System.Windows.Forms.Button()
         Me.Button_Stop_Separadores = New System.Windows.Forms.Button()
         Me.Button_Separador_6 = New System.Windows.Forms.Button()
         Me.Button_Separador_5 = New System.Windows.Forms.Button()
@@ -179,6 +182,7 @@ Partial Class Main
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ButtonPlayAudio = New System.Windows.Forms.Button()
         Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.RB_Resultados = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBoxGenerico2 = New System.Windows.Forms.TextBox()
         Me.TextBoxGenerico1 = New System.Windows.Forms.TextBox()
@@ -270,26 +274,18 @@ Partial Class Main
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DataToolStripMenuItem, Me.PresentadoresYJuecesToolStripMenuItem, Me.ConsolaToolStripMenuItem, Me.StreamToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem1, Me.PresentadoresYJuecesToolStripMenuItem, Me.StreamToolStripMenuItem, Me.ConfiguracionAMPMToolStripMenuItem, Me.ConsolaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1684, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
-        Me.MenuStrip1.Visible = False
         '
-        'DataToolStripMenuItem
+        'UsuariosToolStripMenuItem1
         '
-        Me.DataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadMediaToolStripMenuItem})
-        Me.DataToolStripMenuItem.Name = "DataToolStripMenuItem"
-        Me.DataToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
-        Me.DataToolStripMenuItem.Text = "Datos"
-        '
-        'ReloadMediaToolStripMenuItem
-        '
-        Me.ReloadMediaToolStripMenuItem.Name = "ReloadMediaToolStripMenuItem"
-        Me.ReloadMediaToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.ReloadMediaToolStripMenuItem.Text = "Reload Media"
+        Me.UsuariosToolStripMenuItem1.Name = "UsuariosToolStripMenuItem1"
+        Me.UsuariosToolStripMenuItem1.Size = New System.Drawing.Size(64, 20)
+        Me.UsuariosToolStripMenuItem1.Text = "Usuarios"
         '
         'PresentadoresYJuecesToolStripMenuItem
         '
@@ -297,17 +293,34 @@ Partial Class Main
         Me.PresentadoresYJuecesToolStripMenuItem.Size = New System.Drawing.Size(139, 20)
         Me.PresentadoresYJuecesToolStripMenuItem.Text = "Presentadores y Jueces"
         '
-        'ConsolaToolStripMenuItem
-        '
-        Me.ConsolaToolStripMenuItem.Name = "ConsolaToolStripMenuItem"
-        Me.ConsolaToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.ConsolaToolStripMenuItem.Text = "Consola"
-        '
         'StreamToolStripMenuItem
         '
         Me.StreamToolStripMenuItem.Name = "StreamToolStripMenuItem"
         Me.StreamToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.StreamToolStripMenuItem.Text = "Stream"
+        '
+        'ConfiguracionAMPMToolStripMenuItem
+        '
+        Me.ConfiguracionAMPMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LotoPoolEnAMToolStripMenuItem})
+        Me.ConfiguracionAMPMToolStripMenuItem.Name = "ConfiguracionAMPMToolStripMenuItem"
+        Me.ConfiguracionAMPMToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.ConfiguracionAMPMToolStripMenuItem.Text = "AM/PM"
+        '
+        'LotoPoolEnAMToolStripMenuItem
+        '
+        Me.LotoPoolEnAMToolStripMenuItem.Checked = Global.KingLottery.My.MySettings.Default.LotoPoolAM
+        Me.LotoPoolEnAMToolStripMenuItem.CheckOnClick = True
+        Me.LotoPoolEnAMToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.LotoPoolEnAMToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.LotoPoolEnAMToolStripMenuItem.Name = "LotoPoolEnAMToolStripMenuItem"
+        Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.LotoPoolEnAMToolStripMenuItem.Text = "LotoPool en AM"
+        '
+        'ConsolaToolStripMenuItem
+        '
+        Me.ConsolaToolStripMenuItem.Name = "ConsolaToolStripMenuItem"
+        Me.ConsolaToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.ConsolaToolStripMenuItem.Text = "Consola"
         '
         'TableLayoutPanel1
         '
@@ -1082,7 +1095,6 @@ Partial Class Main
         '
         'Panel18
         '
-        Me.Panel18.Controls.Add(Me.RB_Resultados)
         Me.Panel18.Controls.Add(Me.RB_LotoPool)
         Me.Panel18.Controls.Add(Me.RB_Phillps)
         Me.Panel18.Controls.Add(Me.RB_pick4)
@@ -1093,24 +1105,11 @@ Partial Class Main
         Me.Panel18.Size = New System.Drawing.Size(549, 32)
         Me.Panel18.TabIndex = 57
         '
-        'RB_Resultados
-        '
-        Me.RB_Resultados.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RB_Resultados.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_Resultados.Location = New System.Drawing.Point(429, 1)
-        Me.RB_Resultados.Name = "RB_Resultados"
-        Me.RB_Resultados.Size = New System.Drawing.Size(90, 30)
-        Me.RB_Resultados.TabIndex = 111
-        Me.RB_Resultados.Text = "Resultados"
-        Me.RB_Resultados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RB_Resultados.UseVisualStyleBackColor = True
-        Me.RB_Resultados.Visible = False
-        '
         'RB_LotoPool
         '
         Me.RB_LotoPool.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_LotoPool.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_LotoPool.Location = New System.Drawing.Point(329, 1)
+        Me.RB_LotoPool.Location = New System.Drawing.Point(379, 1)
         Me.RB_LotoPool.Name = "RB_LotoPool"
         Me.RB_LotoPool.Size = New System.Drawing.Size(90, 30)
         Me.RB_LotoPool.TabIndex = 110
@@ -1122,7 +1121,7 @@ Partial Class Main
         '
         Me.RB_Phillps.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_Phillps.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_Phillps.Location = New System.Drawing.Point(229, 1)
+        Me.RB_Phillps.Location = New System.Drawing.Point(279, 1)
         Me.RB_Phillps.Name = "RB_Phillps"
         Me.RB_Phillps.Size = New System.Drawing.Size(90, 30)
         Me.RB_Phillps.TabIndex = 109
@@ -1134,7 +1133,7 @@ Partial Class Main
         '
         Me.RB_pick4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_pick4.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_pick4.Location = New System.Drawing.Point(129, 1)
+        Me.RB_pick4.Location = New System.Drawing.Point(179, 1)
         Me.RB_pick4.Name = "RB_pick4"
         Me.RB_pick4.Size = New System.Drawing.Size(90, 30)
         Me.RB_pick4.TabIndex = 108
@@ -1147,7 +1146,7 @@ Partial Class Main
         Me.RB_Pick3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_Pick3.Appearance = System.Windows.Forms.Appearance.Button
         Me.RB_Pick3.Checked = True
-        Me.RB_Pick3.Location = New System.Drawing.Point(29, 1)
+        Me.RB_Pick3.Location = New System.Drawing.Point(79, 1)
         Me.RB_Pick3.Name = "RB_Pick3"
         Me.RB_Pick3.Size = New System.Drawing.Size(90, 30)
         Me.RB_Pick3.TabIndex = 107
@@ -1292,21 +1291,29 @@ Partial Class Main
         '
         Me.RadioButtonPM.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RadioButtonPM.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButtonPM.BackColor = System.Drawing.Color.OrangeRed
+        Me.RadioButtonPM.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.RadioButtonPM.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.RadioButtonPM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButtonPM.ForeColor = System.Drawing.Color.White
         Me.RadioButtonPM.Location = New System.Drawing.Point(408, 6)
         Me.RadioButtonPM.Name = "RadioButtonPM"
         Me.RadioButtonPM.Size = New System.Drawing.Size(82, 31)
         Me.RadioButtonPM.TabIndex = 109
         Me.RadioButtonPM.Text = "PM"
         Me.RadioButtonPM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButtonPM.UseVisualStyleBackColor = True
+        Me.RadioButtonPM.UseVisualStyleBackColor = False
         '
         'RadioButtonAM
         '
         Me.RadioButtonAM.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RadioButtonAM.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RadioButtonAM.BackColor = System.Drawing.Color.OrangeRed
         Me.RadioButtonAM.Checked = True
+        Me.RadioButtonAM.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.RadioButtonAM.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.RadioButtonAM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButtonAM.ForeColor = System.Drawing.Color.White
         Me.RadioButtonAM.Location = New System.Drawing.Point(305, 6)
         Me.RadioButtonAM.Name = "RadioButtonAM"
         Me.RadioButtonAM.Size = New System.Drawing.Size(82, 31)
@@ -1314,7 +1321,7 @@ Partial Class Main
         Me.RadioButtonAM.TabStop = True
         Me.RadioButtonAM.Text = "AM"
         Me.RadioButtonAM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RadioButtonAM.UseVisualStyleBackColor = True
+        Me.RadioButtonAM.UseVisualStyleBackColor = False
         '
         'PictureBoxStatus
         '
@@ -1474,8 +1481,8 @@ Partial Class Main
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 636)
         Me.TableLayoutPanel2.TabIndex = 0
         '
@@ -1488,9 +1495,9 @@ Partial Class Main
         Me.Panel20.Controls.Add(Me.ComboBoxHor2)
         Me.Panel20.Controls.Add(Me.ButtonPlaySyncHorizontal)
         Me.Panel20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel20.Location = New System.Drawing.Point(3, 559)
+        Me.Panel20.Location = New System.Drawing.Point(3, 569)
         Me.Panel20.Name = "Panel20"
-        Me.Panel20.Size = New System.Drawing.Size(548, 74)
+        Me.Panel20.Size = New System.Drawing.Size(548, 64)
         Me.Panel20.TabIndex = 4
         '
         'ComboBoxHor3
@@ -1498,7 +1505,7 @@ Partial Class Main
         Me.ComboBoxHor3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxHor3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxHor3.FormattingEnabled = True
-        Me.ComboBoxHor3.Location = New System.Drawing.Point(415, 37)
+        Me.ComboBoxHor3.Location = New System.Drawing.Point(415, 32)
         Me.ComboBoxHor3.Name = "ComboBoxHor3"
         Me.ComboBoxHor3.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxHor3.TabIndex = 65
@@ -1521,7 +1528,7 @@ Partial Class Main
         Me.ComboBoxHor1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxHor1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxHor1.FormattingEnabled = True
-        Me.ComboBoxHor1.Location = New System.Drawing.Point(150, 37)
+        Me.ComboBoxHor1.Location = New System.Drawing.Point(150, 32)
         Me.ComboBoxHor1.Name = "ComboBoxHor1"
         Me.ComboBoxHor1.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxHor1.TabIndex = 6
@@ -1532,7 +1539,7 @@ Partial Class Main
         Me.ComboBoxHor2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxHor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxHor2.FormattingEnabled = True
-        Me.ComboBoxHor2.Location = New System.Drawing.Point(283, 37)
+        Me.ComboBoxHor2.Location = New System.Drawing.Point(283, 32)
         Me.ComboBoxHor2.Name = "ComboBoxHor2"
         Me.ComboBoxHor2.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxHor2.TabIndex = 5
@@ -1541,7 +1548,7 @@ Partial Class Main
         'ButtonPlaySyncHorizontal
         '
         Me.ButtonPlaySyncHorizontal.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.ButtonPlaySyncHorizontal.Location = New System.Drawing.Point(16, 32)
+        Me.ButtonPlaySyncHorizontal.Location = New System.Drawing.Point(16, 27)
         Me.ButtonPlaySyncHorizontal.Name = "ButtonPlaySyncHorizontal"
         Me.ButtonPlaySyncHorizontal.Size = New System.Drawing.Size(101, 28)
         Me.ButtonPlaySyncHorizontal.TabIndex = 63
@@ -1552,6 +1559,10 @@ Partial Class Main
         '
         Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel12.Controls.Add(Me.CheckBoxMosca)
+        Me.Panel12.Controls.Add(Me.RadioButtonBug1)
+        Me.Panel12.Controls.Add(Me.ButtonReloadMedia)
+        Me.Panel12.Controls.Add(Me.RadioButtonBug2)
         Me.Panel12.Controls.Add(Me.Label8)
         Me.Panel12.Controls.Add(Me.ButtonLimpiar)
         Me.Panel12.Controls.Add(Me.ButtonCargar)
@@ -1561,6 +1572,56 @@ Partial Class Main
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(548, 74)
         Me.Panel12.TabIndex = 1
+        '
+        'CheckBoxMosca
+        '
+        Me.CheckBoxMosca.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CheckBoxMosca.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBoxMosca.BackColor = System.Drawing.Color.OrangeRed
+        Me.CheckBoxMosca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBoxMosca.ForeColor = System.Drawing.Color.White
+        Me.CheckBoxMosca.Location = New System.Drawing.Point(445, 28)
+        Me.CheckBoxMosca.Name = "CheckBoxMosca"
+        Me.CheckBoxMosca.Size = New System.Drawing.Size(89, 34)
+        Me.CheckBoxMosca.TabIndex = 57
+        Me.CheckBoxMosca.Text = "Mostrar Bug"
+        Me.CheckBoxMosca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CheckBoxMosca.UseVisualStyleBackColor = False
+        '
+        'RadioButtonBug1
+        '
+        Me.RadioButtonBug1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButtonBug1.AutoSize = True
+        Me.RadioButtonBug1.Checked = True
+        Me.RadioButtonBug1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButtonBug1.Location = New System.Drawing.Point(372, 26)
+        Me.RadioButtonBug1.Name = "RadioButtonBug1"
+        Me.RadioButtonBug1.Size = New System.Drawing.Size(58, 17)
+        Me.RadioButtonBug1.TabIndex = 0
+        Me.RadioButtonBug1.TabStop = True
+        Me.RadioButtonBug1.Text = "Logo 1"
+        Me.RadioButtonBug1.UseVisualStyleBackColor = True
+        '
+        'ButtonReloadMedia
+        '
+        Me.ButtonReloadMedia.Location = New System.Drawing.Point(261, 33)
+        Me.ButtonReloadMedia.Name = "ButtonReloadMedia"
+        Me.ButtonReloadMedia.Size = New System.Drawing.Size(90, 30)
+        Me.ButtonReloadMedia.TabIndex = 67
+        Me.ButtonReloadMedia.Text = "Reload Media"
+        Me.ButtonReloadMedia.UseVisualStyleBackColor = True
+        '
+        'RadioButtonBug2
+        '
+        Me.RadioButtonBug2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButtonBug2.AutoSize = True
+        Me.RadioButtonBug2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.RadioButtonBug2.Location = New System.Drawing.Point(372, 46)
+        Me.RadioButtonBug2.Name = "RadioButtonBug2"
+        Me.RadioButtonBug2.Size = New System.Drawing.Size(58, 17)
+        Me.RadioButtonBug2.TabIndex = 1
+        Me.RadioButtonBug2.Text = "Logo 2"
+        Me.RadioButtonBug2.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -1604,66 +1665,21 @@ Partial Class Main
         'Panel11
         '
         Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel11.Controls.Add(Me.CheckBoxMosca)
-        Me.Panel11.Controls.Add(Me.RadioButtonBug1)
-        Me.Panel11.Controls.Add(Me.RadioButtonBug2)
         Me.Panel11.Controls.Add(Me.ElementHost3)
         Me.Panel11.Controls.Add(Me.Label6)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel11.Location = New System.Drawing.Point(3, 163)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(548, 310)
+        Me.Panel11.Size = New System.Drawing.Size(548, 330)
         Me.Panel11.TabIndex = 0
-        '
-        'CheckBoxMosca
-        '
-        Me.CheckBoxMosca.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.CheckBoxMosca.Appearance = System.Windows.Forms.Appearance.Button
-        Me.CheckBoxMosca.BackColor = System.Drawing.Color.DarkOrange
-        Me.CheckBoxMosca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBoxMosca.Location = New System.Drawing.Point(93, 37)
-        Me.CheckBoxMosca.Name = "CheckBoxMosca"
-        Me.CheckBoxMosca.Size = New System.Drawing.Size(89, 34)
-        Me.CheckBoxMosca.TabIndex = 57
-        Me.CheckBoxMosca.Text = "Mostrar Bug"
-        Me.CheckBoxMosca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.CheckBoxMosca.UseVisualStyleBackColor = False
-        '
-        'RadioButtonBug1
-        '
-        Me.RadioButtonBug1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.RadioButtonBug1.AutoSize = True
-        Me.RadioButtonBug1.Checked = True
-        Me.RadioButtonBug1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug1.Location = New System.Drawing.Point(20, 35)
-        Me.RadioButtonBug1.Name = "RadioButtonBug1"
-        Me.RadioButtonBug1.Size = New System.Drawing.Size(58, 17)
-        Me.RadioButtonBug1.TabIndex = 0
-        Me.RadioButtonBug1.TabStop = True
-        Me.RadioButtonBug1.Text = "Logo 1"
-        Me.RadioButtonBug1.UseVisualStyleBackColor = True
-        '
-        'RadioButtonBug2
-        '
-        Me.RadioButtonBug2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.RadioButtonBug2.AutoSize = True
-        Me.RadioButtonBug2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButtonBug2.Location = New System.Drawing.Point(20, 55)
-        Me.RadioButtonBug2.Name = "RadioButtonBug2"
-        Me.RadioButtonBug2.Size = New System.Drawing.Size(58, 17)
-        Me.RadioButtonBug2.TabIndex = 1
-        Me.RadioButtonBug2.Text = "Logo 2"
-        Me.RadioButtonBug2.UseVisualStyleBackColor = True
         '
         'ElementHost3
         '
-        Me.ElementHost3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ElementHost3.BackColor = System.Drawing.Color.Black
-        Me.ElementHost3.Location = New System.Drawing.Point(14, 82)
+        Me.ElementHost3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ElementHost3.Location = New System.Drawing.Point(0, 20)
         Me.ElementHost3.Name = "ElementHost3"
-        Me.ElementHost3.Size = New System.Drawing.Size(518, 208)
+        Me.ElementHost3.Size = New System.Drawing.Size(546, 308)
         Me.ElementHost3.TabIndex = 56
         Me.ElementHost3.Text = "ElementHost3"
         Me.ElementHost3.Child = Me.MonitorPGM
@@ -1709,15 +1725,19 @@ Partial Class Main
         'CheckBox1
         '
         Me.CheckBox1.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox1.BackColor = System.Drawing.Color.DarkRed
+        Me.CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.CheckBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CheckBox1.Location = New System.Drawing.Point(18, 32)
+        Me.CheckBox1.Location = New System.Drawing.Point(18, 30)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(89, 36)
+        Me.CheckBox1.Size = New System.Drawing.Size(89, 38)
         Me.CheckBox1.TabIndex = 69
         Me.CheckBox1.Text = "Iniciar Stream"
         Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.CheckBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBox1.UseVisualStyleBackColor = False
         '
         'Button_Capturas
         '
@@ -1765,9 +1785,9 @@ Partial Class Main
         Me.Panel19.Controls.Add(Me.ComboBoxVertical1)
         Me.Panel19.Controls.Add(Me.ButtonPlaySyncVertical)
         Me.Panel19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel19.Location = New System.Drawing.Point(3, 479)
+        Me.Panel19.Location = New System.Drawing.Point(3, 499)
         Me.Panel19.Name = "Panel19"
-        Me.Panel19.Size = New System.Drawing.Size(548, 74)
+        Me.Panel19.Size = New System.Drawing.Size(548, 64)
         Me.Panel19.TabIndex = 3
         '
         'Label10
@@ -1787,7 +1807,7 @@ Partial Class Main
         Me.ComboBoxVertical2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical2.FormattingEnabled = True
-        Me.ComboBoxVertical2.Location = New System.Drawing.Point(414, 37)
+        Me.ComboBoxVertical2.Location = New System.Drawing.Point(414, 32)
         Me.ComboBoxVertical2.Name = "ComboBoxVertical2"
         Me.ComboBoxVertical2.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxVertical2.TabIndex = 6
@@ -1798,7 +1818,7 @@ Partial Class Main
         Me.ComboBoxVertical1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ComboBoxVertical1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxVertical1.FormattingEnabled = True
-        Me.ComboBoxVertical1.Location = New System.Drawing.Point(283, 37)
+        Me.ComboBoxVertical1.Location = New System.Drawing.Point(283, 32)
         Me.ComboBoxVertical1.Name = "ComboBoxVertical1"
         Me.ComboBoxVertical1.Size = New System.Drawing.Size(120, 21)
         Me.ComboBoxVertical1.TabIndex = 5
@@ -1807,7 +1827,7 @@ Partial Class Main
         'ButtonPlaySyncVertical
         '
         Me.ButtonPlaySyncVertical.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(16, 30)
+        Me.ButtonPlaySyncVertical.Location = New System.Drawing.Point(16, 27)
         Me.ButtonPlaySyncVertical.Name = "ButtonPlaySyncVertical"
         Me.ButtonPlaySyncVertical.Size = New System.Drawing.Size(101, 28)
         Me.ButtonPlaySyncVertical.TabIndex = 63
@@ -1945,6 +1965,8 @@ Partial Class Main
         '
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel6.Controls.Add(Me.Button_Separador_8)
+        Me.Panel6.Controls.Add(Me.Button_Separador_7)
         Me.Panel6.Controls.Add(Me.Button_Stop_Separadores)
         Me.Panel6.Controls.Add(Me.Button_Separador_6)
         Me.Panel6.Controls.Add(Me.Button_Separador_5)
@@ -1959,6 +1981,34 @@ Partial Class Main
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(555, 178)
         Me.Panel6.TabIndex = 5
+        '
+        'Button_Separador_8
+        '
+        Me.Button_Separador_8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button_Separador_8.BackColor = System.Drawing.Color.OrangeRed
+        Me.Button_Separador_8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador8", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Button_Separador_8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_8.Location = New System.Drawing.Point(405, 85)
+        Me.Button_Separador_8.Name = "Button_Separador_8"
+        Me.Button_Separador_8.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Separador_8.TabIndex = 63
+        Me.Button_Separador_8.Tag = "53"
+        Me.Button_Separador_8.Text = Global.KingLottery.My.MySettings.Default.Separador8
+        Me.Button_Separador_8.UseVisualStyleBackColor = False
+        '
+        'Button_Separador_7
+        '
+        Me.Button_Separador_7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button_Separador_7.BackColor = System.Drawing.Color.OrangeRed
+        Me.Button_Separador_7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador7", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Button_Separador_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_7.Location = New System.Drawing.Point(279, 85)
+        Me.Button_Separador_7.Name = "Button_Separador_7"
+        Me.Button_Separador_7.Size = New System.Drawing.Size(120, 40)
+        Me.Button_Separador_7.TabIndex = 62
+        Me.Button_Separador_7.Tag = "53"
+        Me.Button_Separador_7.Text = Global.KingLottery.My.MySettings.Default.Separador7
+        Me.Button_Separador_7.UseVisualStyleBackColor = False
         '
         'Button_Stop_Separadores
         '
@@ -1978,20 +2028,22 @@ Partial Class Main
         'Button_Separador_6
         '
         Me.Button_Separador_6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button_Separador_6.BackColor = System.Drawing.Color.OrangeRed
         Me.Button_Separador_6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador6", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_6.Location = New System.Drawing.Point(391, 88)
+        Me.Button_Separador_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_6.Location = New System.Drawing.Point(153, 85)
         Me.Button_Separador_6.Name = "Button_Separador_6"
         Me.Button_Separador_6.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_6.TabIndex = 60
         Me.Button_Separador_6.Tag = "53"
         Me.Button_Separador_6.Text = Global.KingLottery.My.MySettings.Default.Separador6
-        Me.Button_Separador_6.UseVisualStyleBackColor = True
+        Me.Button_Separador_6.UseVisualStyleBackColor = False
         '
         'Button_Separador_5
         '
         Me.Button_Separador_5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Button_Separador_5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador5", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_5.Location = New System.Drawing.Point(217, 88)
+        Me.Button_Separador_5.Location = New System.Drawing.Point(27, 85)
         Me.Button_Separador_5.Name = "Button_Separador_5"
         Me.Button_Separador_5.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_5.TabIndex = 59
@@ -2003,7 +2055,7 @@ Partial Class Main
         '
         Me.Button_Separador_4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Button_Separador_4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador4", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_4.Location = New System.Drawing.Point(39, 88)
+        Me.Button_Separador_4.Location = New System.Drawing.Point(405, 35)
         Me.Button_Separador_4.Name = "Button_Separador_4"
         Me.Button_Separador_4.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_4.TabIndex = 58
@@ -2015,7 +2067,7 @@ Partial Class Main
         '
         Me.Button_Separador_3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Button_Separador_3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador3", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_3.Location = New System.Drawing.Point(391, 35)
+        Me.Button_Separador_3.Location = New System.Drawing.Point(279, 35)
         Me.Button_Separador_3.Name = "Button_Separador_3"
         Me.Button_Separador_3.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_3.TabIndex = 57
@@ -2027,7 +2079,7 @@ Partial Class Main
         '
         Me.Button_Separador_2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Button_Separador_2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_2.Location = New System.Drawing.Point(217, 35)
+        Me.Button_Separador_2.Location = New System.Drawing.Point(153, 35)
         Me.Button_Separador_2.Name = "Button_Separador_2"
         Me.Button_Separador_2.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_2.TabIndex = 56
@@ -2039,7 +2091,7 @@ Partial Class Main
         '
         Me.Button_Separador_1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Button_Separador_1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Button_Separador_1.Location = New System.Drawing.Point(39, 35)
+        Me.Button_Separador_1.Location = New System.Drawing.Point(27, 35)
         Me.Button_Separador_1.Name = "Button_Separador_1"
         Me.Button_Separador_1.Size = New System.Drawing.Size(120, 40)
         Me.Button_Separador_1.TabIndex = 55
@@ -2203,6 +2255,7 @@ Partial Class Main
         'Panel15
         '
         Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel15.Controls.Add(Me.RB_Resultados)
         Me.Panel15.Controls.Add(Me.GroupBox2)
         Me.Panel15.Controls.Add(Me.GroupBox1)
         Me.Panel15.Controls.Add(Me.GroupBoxJuez3)
@@ -2215,6 +2268,19 @@ Partial Class Main
         Me.Panel15.Name = "Panel15"
         Me.Panel15.Size = New System.Drawing.Size(555, 270)
         Me.Panel15.TabIndex = 53
+        '
+        'RB_Resultados
+        '
+        Me.RB_Resultados.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RB_Resultados.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RB_Resultados.Location = New System.Drawing.Point(67, 176)
+        Me.RB_Resultados.Name = "RB_Resultados"
+        Me.RB_Resultados.Size = New System.Drawing.Size(90, 30)
+        Me.RB_Resultados.TabIndex = 111
+        Me.RB_Resultados.Text = "Resultados"
+        Me.RB_Resultados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RB_Resultados.UseVisualStyleBackColor = True
+        Me.RB_Resultados.Visible = False
         '
         'GroupBox2
         '
@@ -2610,13 +2676,15 @@ Partial Class Main
         '
         Me.ButtonResultados.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonResultados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonResultados.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonResultados.BackColor = System.Drawing.Color.OrangeRed
         Me.ButtonResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonResultados.ForeColor = System.Drawing.Color.White
         Me.ButtonResultados.Location = New System.Drawing.Point(43, 206)
         Me.ButtonResultados.Name = "ButtonResultados"
         Me.ButtonResultados.Size = New System.Drawing.Size(121, 31)
         Me.ButtonResultados.TabIndex = 57
-        Me.ButtonResultados.Text = "Resultado"
+        Me.ButtonResultados.Text = "Resultados"
         Me.ButtonResultados.UseVisualStyleBackColor = False
         '
         'Label7
@@ -2690,8 +2758,8 @@ Partial Class Main
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel20.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
+        Me.Panel12.PerformLayout()
         Me.Panel11.ResumeLayout(False)
-        Me.Panel11.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel19.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
@@ -2719,7 +2787,6 @@ Partial Class Main
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents DataToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
@@ -2772,7 +2839,6 @@ Partial Class Main
     Friend WithEvents Button_Bumper_3 As Button
     Friend WithEvents Button_Bumper_5 As Button
     Friend WithEvents Button_Bumper_2 As Button
-    Friend WithEvents ReloadMediaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MovieClip As DataGridViewTextBoxColumn
     Friend WithEvents Duracion As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -2908,4 +2974,10 @@ Partial Class Main
     Friend WithEvents Panel19 As Panel
     Friend WithEvents Label10 As Label
     Friend WithEvents StreamToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionAMPMToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LotoPoolEnAMToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UsuariosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ButtonReloadMedia As Button
+    Friend WithEvents Button_Separador_8 As Button
+    Friend WithEvents Button_Separador_7 As Button
 End Class
