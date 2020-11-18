@@ -369,6 +369,30 @@ Namespace My
                 Me("Separador8") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property KeyerInternal() As Boolean
+            Get
+                Return CType(Me("KeyerInternal"),Boolean)
+            End Get
+            Set
+                Me("KeyerInternal") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("720p2997")>  _
+        Public Property videoMode() As String
+            Get
+                Return CType(Me("videoMode"),String)
+            End Get
+            Set
+                Me("videoMode") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

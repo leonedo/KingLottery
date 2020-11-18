@@ -80,5 +80,11 @@
     <Setting Name="Separador8" Type="System.String" Scope="User">
       <Value Profile="(Default)">Phillipsburg3</Value>
     </Setting>
+    <Setting Name="KeyerInternal" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="videoMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">720p2997</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

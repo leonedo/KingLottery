@@ -33,6 +33,11 @@ Partial Class Main
         Me.ConfiguracionAMPMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotoPoolEnAMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsolaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ServerConfigToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InternalKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaPGMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.P2997ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.P5994ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelPick3 = New System.Windows.Forms.Panel()
@@ -274,7 +279,7 @@ Partial Class Main
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem1, Me.PresentadoresYJuecesToolStripMenuItem, Me.StreamToolStripMenuItem, Me.ConfiguracionAMPMToolStripMenuItem, Me.ConsolaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem1, Me.PresentadoresYJuecesToolStripMenuItem, Me.StreamToolStripMenuItem, Me.ConfiguracionAMPMToolStripMenuItem, Me.ConsolaToolStripMenuItem, Me.ServerConfigToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1684, 24)
@@ -312,6 +317,7 @@ Partial Class Main
         Me.LotoPoolEnAMToolStripMenuItem.CheckOnClick = True
         Me.LotoPoolEnAMToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.LotoPoolEnAMToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.LotoPoolEnAMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LotoPoolEnAMToolStripMenuItem.Name = "LotoPoolEnAMToolStripMenuItem"
         Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.LotoPoolEnAMToolStripMenuItem.Text = "LotoPool en AM"
@@ -321,6 +327,45 @@ Partial Class Main
         Me.ConsolaToolStripMenuItem.Name = "ConsolaToolStripMenuItem"
         Me.ConsolaToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.ConsolaToolStripMenuItem.Text = "Consola"
+        '
+        'ServerConfigToolStripMenuItem
+        '
+        Me.ServerConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InternalKeyToolStripMenuItem, Me.SalidaPGMToolStripMenuItem})
+        Me.ServerConfigToolStripMenuItem.Name = "ServerConfigToolStripMenuItem"
+        Me.ServerConfigToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
+        Me.ServerConfigToolStripMenuItem.Text = "Server Config"
+        '
+        'InternalKeyToolStripMenuItem
+        '
+        Me.InternalKeyToolStripMenuItem.Checked = Global.KingLottery.My.MySettings.Default.KeyerInternal
+        Me.InternalKeyToolStripMenuItem.CheckOnClick = True
+        Me.InternalKeyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.InternalKeyToolStripMenuItem.Name = "InternalKeyToolStripMenuItem"
+        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InternalKeyToolStripMenuItem.Text = "Internal Key"
+        '
+        'SalidaPGMToolStripMenuItem
+        '
+        Me.SalidaPGMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.P2997ToolStripMenuItem, Me.P5994ToolStripMenuItem})
+        Me.SalidaPGMToolStripMenuItem.Name = "SalidaPGMToolStripMenuItem"
+        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalidaPGMToolStripMenuItem.Text = "Salida PGM"
+        '
+        'P2997ToolStripMenuItem
+        '
+        Me.P2997ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.P2997ToolStripMenuItem.Name = "P2997ToolStripMenuItem"
+        Me.P2997ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.P2997ToolStripMenuItem.Tag = "720p2997"
+        Me.P2997ToolStripMenuItem.Text = "720p2997"
+        '
+        'P5994ToolStripMenuItem
+        '
+        Me.P5994ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.P5994ToolStripMenuItem.Name = "P5994ToolStripMenuItem"
+        Me.P5994ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.P5994ToolStripMenuItem.Tag = "720p5994"
+        Me.P5994ToolStripMenuItem.Text = "720p5994"
         '
         'TableLayoutPanel1
         '
@@ -2980,4 +3025,9 @@ Partial Class Main
     Friend WithEvents ButtonReloadMedia As Button
     Friend WithEvents Button_Separador_8 As Button
     Friend WithEvents Button_Separador_7 As Button
+    Friend WithEvents ServerConfigToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InternalKeyToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalidaPGMToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents P2997ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents P5994ToolStripMenuItem As ToolStripMenuItem
 End Class

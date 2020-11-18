@@ -15,6 +15,7 @@ Imports Newtonsoft.Json
 Imports System.Globalization
 Imports System.Timers
 Imports System.Threading
+Imports System.Xml
 
 Public Class Main
     Const Version = "0.9.1" '
@@ -68,6 +69,7 @@ Public Class Main
             Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
             LoadDataSource()
             SetupComboxes()
+            CheckSavedConfig()
             If TimeOfDay > #4:00:00 PM# Then
                 RadioButtonPM.Checked = True
             End If
@@ -1531,9 +1533,79 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
+    Private Sub P5994ToolStripMenuItem_Click(sender As ToolStripMenuItem, e As EventArgs) Handles P5994ToolStripMenuItem.Click, P2997ToolStripMenuItem.Click
+        CheckMenuItem(SalidaPGMToolStripMenuItem, sender)
+    End Sub
+    Private Sub CheckMenuItem(ByVal mnu As ToolStripMenuItem,
+    ByVal checked_item As ToolStripMenuItem)
+        ' Uncheck the menu items except checked_item.
+        For Each item As ToolStripItem In mnu.DropDownItems
+            If (TypeOf item Is ToolStripMenuItem) Then
+                Dim menu_item As ToolStripMenuItem =
+                DirectCast(item, ToolStripMenuItem)
+                menu_item.Checked = (menu_item Is checked_item)
+            End If
+        Next item
+        UpdateVideoMode(checked_item.Tag)
 
     End Sub
+
+    Private Sub CheckSavedConfig()
+        For Each item As ToolStripMenuItem In SalidaPGMToolStripMenuItem.DropDownItems
+            If (TypeOf item Is ToolStripMenuItem) Then
+                item.Checked = String.Equals(item.Tag, My.Settings.videoMode)
+            End If
+        Next item
+    End Sub
+
+    Private Sub UpdateVideoMode(mode)
+        Try
+
+            Dim xmlDoc As New XmlDocument
+            xmlDoc.Load("server\casparcg.config")
+            Dim node_Canales As XmlNode = xmlDoc.SelectSingleNode("/configuration/channels") '/channel/consumers/decklink
+            ' Dim node_PGM As XmlNode = node_Canales.FirstChild()
+
+            For Each node In node_Canales
+                node.SelectSingleNode("video-mode").InnerText = mode
+            Next
+            xmlDoc.Save("server\casparcg.config")
+
+            My.Settings.videoMode = mode
+            If MessageBox.Show($"Server Configurado con Video mode: {mode}, Reiniciar el server para implementar los cambios?") = DialogResult.OK Then
+                LabelVersion_DoubleClick(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
+    Private Sub InternalKeyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InternalKeyToolStripMenuItem.CheckedChanged
+        Try
+            My.Settings.KeyerInternal = InternalKeyToolStripMenuItem.Checked
+            Dim keyer = "external_separate_device"
+            If InternalKeyToolStripMenuItem.Checked Then keyer = "internal"
+            Dim xmlDoc As New XmlDocument
+            xmlDoc.Load("server\casparcg.config")
+            Dim node_Canales As XmlNode = xmlDoc.SelectSingleNode("/configuration/channels") '/channel/consumers/decklink
+            Dim node_PGM As XmlNode = node_Canales.FirstChild()
+
+
+            node_PGM.SelectSingleNode("consumers/decklink/keyer").InnerText = keyer
+            xmlDoc.Save("server\casparcg.config")
+            If MessageBox.Show($"Server Configurado con keyer: {keyer}, Reiniciar el server para implementar los cambios?") = DialogResult.OK Then
+                LabelVersion_DoubleClick(Nothing, Nothing)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
 End Class
 
 #Region "Clases de soporte"
