@@ -18,7 +18,7 @@ Imports System.Threading
 Imports System.Xml
 
 Public Class Main
-    Const Version = "0.9.1" '
+    Const Version = "0.9.2" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
@@ -69,7 +69,9 @@ Public Class Main
             Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
             LoadDataSource()
             SetupComboxes()
-            CheckSavedConfig()
+            CheckSavedConfig(SalidaPGMToolStripMenuItem, My.Settings.videoMode)
+            CheckSavedConfig(LoglevelToolStripMenuItem, My.Settings.log)
+
             If TimeOfDay > #4:00:00 PM# Then
                 RadioButtonPM.Checked = True
             End If
@@ -739,7 +741,12 @@ Public Class Main
     End Sub
 
     Private Sub SetMultiview()
-        CasparDevice.Connection.SendString($"MIXER {PVW} MASTERVOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{VER1} VOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{VER2} VOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{HOR1} VOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{HOR2} VOLUME 0")
+        CasparDevice.Connection.SendString($"MIXER {PVW}-{HOR3} VOLUME 0")
+
         CasparDevice.Connection.SendString($"MIXER {PGM} MASTERVOLUME 0.75")
         CasparDevice.Connection.SendString($"PLAY {PVW}-{PGM} route://{PGM}")
         CasparDevice.Connection.SendString($"PLAY {PVW}-{VER1} route://{VER1}")
@@ -756,6 +763,7 @@ Public Class Main
         CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR1} FILL 0.0078125 0.643056 0.325 0.327778 0 Linear")
         CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR2} FILL 0.3375 0.643056 0.325 0.327778 0 Linear")
         CasparDevice.Connection.SendString($"Mixer {PVW}-{HOR3} FILL 0.667969 0.643056 0.325 0.327778 0 Linear")
+
     End Sub
 
 
@@ -1173,7 +1181,7 @@ Public Class Main
                 {"f14", Label_Pool4.Text}
             }
 
-        If RadioButtonAM.Checked Then
+        If RadioButtonAM.Checked And My.Settings.LotoPoolAM = False Then
             Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_AM", True, CGdata)
         Else
             Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_PM", True, CGdata)
@@ -1235,12 +1243,12 @@ Public Class Main
                 Dim result = CasparDevice.Connection.SendStringWithResult($"ADD 1-100 FILE  Grabaciones/Sorteo_{SorteoDeHoy:0000}_{Date.Now:dd-MM-yy_hh-mm}{params}", New TimeSpan(0, 0, 2))
                 CheckBoxRec.Text = "Grabando..."
                 LabelRecTimer.BackColor = Color.IndianRed
-                MessageBox.Show(result)
+                '  MessageBox.Show(result)
             Else
                 TimerGrabacion.Enabled = False
                 LabelRecTimer.Text = $"{min}:{sec}"
                 Dim result = CasparDevice.Connection.SendStringWithResult("REMOVE 1-100", New TimeSpan(0, 0, 5))
-                MessageBox.Show(result)
+                '  MessageBox.Show(result)
                 CheckBoxRec.Text = "Iniciar Grabacion"
                 LabelRecTimer.BackColor = SystemColors.ControlDarkDark
             End If
@@ -1535,6 +1543,12 @@ Public Class Main
 
     Private Sub P5994ToolStripMenuItem_Click(sender As ToolStripMenuItem, e As EventArgs) Handles P5994ToolStripMenuItem.Click, P2997ToolStripMenuItem.Click
         CheckMenuItem(SalidaPGMToolStripMenuItem, sender)
+        UpdateVideoMode(sender.Tag)
+    End Sub
+
+    Private Sub DebugToolStripMenuItem_Click(sender As ToolStripMenuItem, e As EventArgs) Handles WarningToolStripMenuItem.Click, InfoToolStripMenuItem.Click, FatalToolStripMenuItem.Click, ErrorToolStripMenuItem.Click, DebugToolStripMenuItem.Click
+        CheckMenuItem(LoglevelToolStripMenuItem, sender)
+        UpdateLogLevel(sender.Tag)
     End Sub
     Private Sub CheckMenuItem(ByVal mnu As ToolStripMenuItem,
     ByVal checked_item As ToolStripMenuItem)
@@ -1546,14 +1560,12 @@ Public Class Main
                 menu_item.Checked = (menu_item Is checked_item)
             End If
         Next item
-        UpdateVideoMode(checked_item.Tag)
-
     End Sub
 
-    Private Sub CheckSavedConfig()
-        For Each item As ToolStripMenuItem In SalidaPGMToolStripMenuItem.DropDownItems
+    Private Sub CheckSavedConfig(menu As ToolStripMenuItem, saved_setting As String)
+        For Each item As ToolStripMenuItem In menu.DropDownItems
             If (TypeOf item Is ToolStripMenuItem) Then
-                item.Checked = String.Equals(item.Tag, My.Settings.videoMode)
+                item.Checked = String.Equals(item.Tag, saved_setting)
             End If
         Next item
     End Sub
@@ -1573,6 +1585,24 @@ Public Class Main
 
             My.Settings.videoMode = mode
             If MessageBox.Show($"Server Configurado con Video mode: {mode}, Reiniciar el server para implementar los cambios?") = DialogResult.OK Then
+                LabelVersion_DoubleClick(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub UpdateLogLevel(level)
+        Try
+            Dim xmlDoc As New XmlDocument
+            xmlDoc.Load("server\casparcg.config")
+            Dim logLevel As XmlNode = xmlDoc.SelectSingleNode("/configuration/log-level") '/channel/consumers/decklink
+            logLevel.InnerText = level
+            xmlDoc.Save("server\casparcg.config")
+
+            My.Settings.log = level
+            If MessageBox.Show($"Server Configurado con Video mode: {level}, Reiniciar el server para implementar los cambios?") = DialogResult.OK Then
                 LabelVersion_DoubleClick(Nothing, Nothing)
             End If
         Catch ex As Exception

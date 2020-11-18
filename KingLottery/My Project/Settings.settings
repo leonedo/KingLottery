@@ -86,5 +86,8 @@
     <Setting Name="videoMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">720p2997</Value>
     </Setting>
+    <Setting Name="log" Type="System.String" Scope="User">
+      <Value Profile="(Default)">error</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

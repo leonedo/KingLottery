@@ -38,6 +38,12 @@ Partial Class Main
         Me.SalidaPGMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.P2997ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.P5994ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoglevelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WarningToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FatalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelPick3 = New System.Windows.Forms.Panel()
@@ -330,7 +336,7 @@ Partial Class Main
         '
         'ServerConfigToolStripMenuItem
         '
-        Me.ServerConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InternalKeyToolStripMenuItem, Me.SalidaPGMToolStripMenuItem})
+        Me.ServerConfigToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InternalKeyToolStripMenuItem, Me.SalidaPGMToolStripMenuItem, Me.LoglevelToolStripMenuItem})
         Me.ServerConfigToolStripMenuItem.Name = "ServerConfigToolStripMenuItem"
         Me.ServerConfigToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
         Me.ServerConfigToolStripMenuItem.Text = "Server Config"
@@ -355,7 +361,7 @@ Partial Class Main
         '
         Me.P2997ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.P2997ToolStripMenuItem.Name = "P2997ToolStripMenuItem"
-        Me.P2997ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.P2997ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.P2997ToolStripMenuItem.Tag = "720p2997"
         Me.P2997ToolStripMenuItem.Text = "720p2997"
         '
@@ -363,9 +369,56 @@ Partial Class Main
         '
         Me.P5994ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.P5994ToolStripMenuItem.Name = "P5994ToolStripMenuItem"
-        Me.P5994ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.P5994ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.P5994ToolStripMenuItem.Tag = "720p5994"
         Me.P5994ToolStripMenuItem.Text = "720p5994"
+        '
+        'LoglevelToolStripMenuItem
+        '
+        Me.LoglevelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DebugToolStripMenuItem, Me.InfoToolStripMenuItem, Me.WarningToolStripMenuItem, Me.ErrorToolStripMenuItem, Me.FatalToolStripMenuItem})
+        Me.LoglevelToolStripMenuItem.Name = "LoglevelToolStripMenuItem"
+        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoglevelToolStripMenuItem.Text = "Log-level"
+        '
+        'DebugToolStripMenuItem
+        '
+        Me.DebugToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DebugToolStripMenuItem.Tag = "debug"
+        Me.DebugToolStripMenuItem.Text = "debug"
+        '
+        'InfoToolStripMenuItem
+        '
+        Me.InfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InfoToolStripMenuItem.Tag = "info"
+        Me.InfoToolStripMenuItem.Text = "info"
+        '
+        'WarningToolStripMenuItem
+        '
+        Me.WarningToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.WarningToolStripMenuItem.Name = "WarningToolStripMenuItem"
+        Me.WarningToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.WarningToolStripMenuItem.Tag = "warning"
+        Me.WarningToolStripMenuItem.Text = "warning"
+        '
+        'ErrorToolStripMenuItem
+        '
+        Me.ErrorToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.ErrorToolStripMenuItem.Name = "ErrorToolStripMenuItem"
+        Me.ErrorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ErrorToolStripMenuItem.Tag = "error"
+        Me.ErrorToolStripMenuItem.Text = "error"
+        '
+        'FatalToolStripMenuItem
+        '
+        Me.FatalToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.FatalToolStripMenuItem.Name = "FatalToolStripMenuItem"
+        Me.FatalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FatalToolStripMenuItem.Tag = "fatal"
+        Me.FatalToolStripMenuItem.Text = "fatal"
         '
         'TableLayoutPanel1
         '
@@ -392,8 +445,8 @@ Partial Class Main
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1684, 972)
         Me.TableLayoutPanel1.TabIndex = 1
         '
@@ -1211,9 +1264,9 @@ Partial Class Main
         Me.Panel8.Controls.Add(Me.ButtonPlayoutPlay)
         Me.Panel8.Controls.Add(Me.DataGridViewPlayout)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel8.Location = New System.Drawing.Point(564, 697)
+        Me.Panel8.Location = New System.Drawing.Point(564, 743)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(555, 272)
+        Me.Panel8.Size = New System.Drawing.Size(555, 226)
         Me.Panel8.TabIndex = 46
         '
         'Label4
@@ -1232,7 +1285,7 @@ Partial Class Main
         '
         Me.ProgressBarVideo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBarVideo.Location = New System.Drawing.Point(129, 244)
+        Me.ProgressBarVideo.Location = New System.Drawing.Point(129, 198)
         Me.ProgressBarVideo.Name = "ProgressBarVideo"
         Me.ProgressBarVideo.Size = New System.Drawing.Size(342, 21)
         Me.ProgressBarVideo.TabIndex = 22
@@ -1243,7 +1296,7 @@ Partial Class Main
         Me.CheckBoxPlayoutLoop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBoxPlayoutLoop.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxPlayoutLoop.AutoSize = True
-        Me.CheckBoxPlayoutLoop.Location = New System.Drawing.Point(67, 245)
+        Me.CheckBoxPlayoutLoop.Location = New System.Drawing.Point(67, 199)
         Me.CheckBoxPlayoutLoop.Name = "CheckBoxPlayoutLoop"
         Me.CheckBoxPlayoutLoop.Size = New System.Drawing.Size(41, 23)
         Me.CheckBoxPlayoutLoop.TabIndex = 44
@@ -1257,7 +1310,7 @@ Partial Class Main
         Me.ButtonPlayoutStop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonPlayoutStop.BackColor = System.Drawing.Color.LightCoral
         Me.ButtonPlayoutStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonPlayoutStop.Location = New System.Drawing.Point(490, 242)
+        Me.ButtonPlayoutStop.Location = New System.Drawing.Point(490, 196)
         Me.ButtonPlayoutStop.Name = "ButtonPlayoutStop"
         Me.ButtonPlayoutStop.Size = New System.Drawing.Size(60, 25)
         Me.ButtonPlayoutStop.TabIndex = 43
@@ -1270,7 +1323,7 @@ Partial Class Main
         Me.ButtonPlayoutPlay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonPlayoutPlay.BackColor = System.Drawing.Color.GreenYellow
         Me.ButtonPlayoutPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonPlayoutPlay.Location = New System.Drawing.Point(4, 242)
+        Me.ButtonPlayoutPlay.Location = New System.Drawing.Point(4, 196)
         Me.ButtonPlayoutPlay.Name = "ButtonPlayoutPlay"
         Me.ButtonPlayoutPlay.Size = New System.Drawing.Size(60, 25)
         Me.ButtonPlayoutPlay.TabIndex = 42
@@ -1298,7 +1351,7 @@ Partial Class Main
         Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 207)
+        Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 161)
         Me.DataGridViewPlayout.TabIndex = 37
         '
         'MovieClip
@@ -1506,7 +1559,7 @@ Partial Class Main
         Me.Panel4.Location = New System.Drawing.Point(1125, 53)
         Me.Panel4.Name = "Panel4"
         Me.TableLayoutPanel1.SetRowSpan(Me.Panel4, 3)
-        Me.Panel4.Size = New System.Drawing.Size(556, 638)
+        Me.Panel4.Size = New System.Drawing.Size(556, 684)
         Me.Panel4.TabIndex = 3
         '
         'TableLayoutPanel2
@@ -1528,7 +1581,7 @@ Partial Class Main
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 636)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(554, 682)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'Panel20
@@ -1540,7 +1593,7 @@ Partial Class Main
         Me.Panel20.Controls.Add(Me.ComboBoxHor2)
         Me.Panel20.Controls.Add(Me.ButtonPlaySyncHorizontal)
         Me.Panel20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel20.Location = New System.Drawing.Point(3, 569)
+        Me.Panel20.Location = New System.Drawing.Point(3, 615)
         Me.Panel20.Name = "Panel20"
         Me.Panel20.Size = New System.Drawing.Size(548, 64)
         Me.Panel20.TabIndex = 4
@@ -1715,7 +1768,7 @@ Partial Class Main
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel11.Location = New System.Drawing.Point(3, 163)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(548, 330)
+        Me.Panel11.Size = New System.Drawing.Size(548, 376)
         Me.Panel11.TabIndex = 0
         '
         'ElementHost3
@@ -1724,7 +1777,7 @@ Partial Class Main
         Me.ElementHost3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ElementHost3.Location = New System.Drawing.Point(0, 20)
         Me.ElementHost3.Name = "ElementHost3"
-        Me.ElementHost3.Size = New System.Drawing.Size(546, 308)
+        Me.ElementHost3.Size = New System.Drawing.Size(546, 354)
         Me.ElementHost3.TabIndex = 56
         Me.ElementHost3.Text = "ElementHost3"
         Me.ElementHost3.Child = Me.MonitorPGM
@@ -1830,7 +1883,7 @@ Partial Class Main
         Me.Panel19.Controls.Add(Me.ComboBoxVertical1)
         Me.Panel19.Controls.Add(Me.ButtonPlaySyncVertical)
         Me.Panel19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel19.Location = New System.Drawing.Point(3, 499)
+        Me.Panel19.Location = New System.Drawing.Point(3, 545)
         Me.Panel19.Name = "Panel19"
         Me.Panel19.Size = New System.Drawing.Size(548, 64)
         Me.Panel19.TabIndex = 3
@@ -2177,9 +2230,9 @@ Partial Class Main
         Me.Panel7.Controls.Add(Me.DataGridViewAudio)
         Me.Panel7.Controls.Add(Me.ButtonPlayAudio)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(1125, 697)
+        Me.Panel7.Location = New System.Drawing.Point(1125, 743)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(556, 272)
+        Me.Panel7.Size = New System.Drawing.Size(556, 226)
         Me.Panel7.TabIndex = 47
         '
         'Label5
@@ -2198,7 +2251,7 @@ Partial Class Main
         '
         Me.TrackBar1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.TrackBar1.LargeChange = 2
-        Me.TrackBar1.Location = New System.Drawing.Point(500, 65)
+        Me.TrackBar1.Location = New System.Drawing.Point(500, 42)
         Me.TrackBar1.Maximum = 12
         Me.TrackBar1.Name = "TrackBar1"
         Me.TrackBar1.Orientation = System.Windows.Forms.Orientation.Vertical
@@ -2212,7 +2265,7 @@ Partial Class Main
         '
         Me.ProgressBarAudio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBarAudio.Location = New System.Drawing.Point(129, 244)
+        Me.ProgressBarAudio.Location = New System.Drawing.Point(129, 198)
         Me.ProgressBarAudio.Name = "ProgressBarAudio"
         Me.ProgressBarAudio.Size = New System.Drawing.Size(343, 21)
         Me.ProgressBarAudio.TabIndex = 45
@@ -2224,7 +2277,7 @@ Partial Class Main
         Me.ButtonStopAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonStopAudio.BackColor = System.Drawing.Color.LightCoral
         Me.ButtonStopAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonStopAudio.Location = New System.Drawing.Point(490, 242)
+        Me.ButtonStopAudio.Location = New System.Drawing.Point(490, 196)
         Me.ButtonStopAudio.Name = "ButtonStopAudio"
         Me.ButtonStopAudio.Size = New System.Drawing.Size(60, 25)
         Me.ButtonStopAudio.TabIndex = 48
@@ -2236,7 +2289,7 @@ Partial Class Main
         Me.CheckBoxLoopAudio.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBoxLoopAudio.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBoxLoopAudio.AutoSize = True
-        Me.CheckBoxLoopAudio.Location = New System.Drawing.Point(67, 245)
+        Me.CheckBoxLoopAudio.Location = New System.Drawing.Point(67, 199)
         Me.CheckBoxLoopAudio.Name = "CheckBoxLoopAudio"
         Me.CheckBoxLoopAudio.Size = New System.Drawing.Size(41, 23)
         Me.CheckBoxLoopAudio.TabIndex = 49
@@ -2265,7 +2318,7 @@ Partial Class Main
         Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 207)
+        Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 161)
         Me.DataGridViewAudio.TabIndex = 44
         '
         'DataGridViewTextBoxColumn3
@@ -2290,7 +2343,7 @@ Partial Class Main
         Me.ButtonPlayAudio.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonPlayAudio.BackColor = System.Drawing.Color.GreenYellow
         Me.ButtonPlayAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonPlayAudio.Location = New System.Drawing.Point(4, 242)
+        Me.ButtonPlayAudio.Location = New System.Drawing.Point(4, 196)
         Me.ButtonPlayAudio.Name = "ButtonPlayAudio"
         Me.ButtonPlayAudio.Size = New System.Drawing.Size(60, 25)
         Me.ButtonPlayAudio.TabIndex = 47
@@ -2311,14 +2364,14 @@ Partial Class Main
         Me.Panel15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel15.Location = New System.Drawing.Point(564, 421)
         Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(555, 270)
+        Me.Panel15.Size = New System.Drawing.Size(555, 316)
         Me.Panel15.TabIndex = 53
         '
         'RB_Resultados
         '
         Me.RB_Resultados.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_Resultados.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_Resultados.Location = New System.Drawing.Point(67, 176)
+        Me.RB_Resultados.Location = New System.Drawing.Point(67, 199)
         Me.RB_Resultados.Name = "RB_Resultados"
         Me.RB_Resultados.Size = New System.Drawing.Size(90, 30)
         Me.RB_Resultados.TabIndex = 111
@@ -2400,7 +2453,7 @@ Partial Class Main
         Me.GroupBox1.Controls.Add(Me.TextBoxJf7)
         Me.GroupBox1.Controls.Add(Me.TextBoxJf6)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(382, 156)
+        Me.GroupBox1.Location = New System.Drawing.Point(382, 202)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(150, 100)
         Me.GroupBox1.TabIndex = 90
@@ -2483,7 +2536,7 @@ Partial Class Main
         Me.GroupBoxJuez3.Controls.Add(Me.TextBoxJf5)
         Me.GroupBoxJuez3.Controls.Add(Me.TextBoxJf4)
         Me.GroupBoxJuez3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBoxJuez3.Location = New System.Drawing.Point(224, 156)
+        Me.GroupBoxJuez3.Location = New System.Drawing.Point(224, 202)
         Me.GroupBoxJuez3.Name = "GroupBoxJuez3"
         Me.GroupBoxJuez3.Size = New System.Drawing.Size(150, 100)
         Me.GroupBoxJuez3.TabIndex = 89
@@ -2725,7 +2778,7 @@ Partial Class Main
         Me.ButtonResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonResultados.ForeColor = System.Drawing.Color.White
-        Me.ButtonResultados.Location = New System.Drawing.Point(43, 206)
+        Me.ButtonResultados.Location = New System.Drawing.Point(44, 237)
         Me.ButtonResultados.Name = "ButtonResultados"
         Me.ButtonResultados.Size = New System.Drawing.Size(121, 31)
         Me.ButtonResultados.TabIndex = 57
@@ -3030,4 +3083,10 @@ Partial Class Main
     Friend WithEvents SalidaPGMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents P2997ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents P5994ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoglevelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DebugToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InfoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents WarningToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ErrorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FatalToolStripMenuItem As ToolStripMenuItem
 End Class
