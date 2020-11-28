@@ -4,7 +4,7 @@
     Private TipoSorteo As Sorteos.Tipo
 
     Private Sub NumbersControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LabelDescription.Location = New Point(36, 16)
+        LabelDescription.Location = New Point(36, 12)
         LabelDescription.Parent = ButtonNumero
     End Sub
     Private Sub TextBoxNumero_TextChanged(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBoxNumero.KeyPress
@@ -29,6 +29,9 @@
         Me.Bolo = bolo
         Me.TipoSorteo = tipoSorteo
         Dim size = New Size(38, 27)
+        If Main.MenuStrip1.Visible Then
+            size = New Size(38, 25)
+        End If
         Dim min As Integer
         Dim top As Integer
         Dim format = "00"

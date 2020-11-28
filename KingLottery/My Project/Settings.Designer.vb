@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -288,7 +288,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Philipsburg1")>  _
         Public Property Separador6() As String
             Get
                 Return CType(Me("Separador6"),String)
@@ -348,7 +348,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Philipsburg2")>  _
         Public Property Separador7() As String
             Get
                 Return CType(Me("Separador7"),String)
@@ -360,7 +360,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Phillipsburg3")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Philipsburg3")>  _
         Public Property Separador8() As String
             Get
                 Return CType(Me("Separador8"),String)

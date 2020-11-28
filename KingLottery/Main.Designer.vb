@@ -67,7 +67,7 @@ Partial Class Main
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.ButtonResultadosPhillips = New System.Windows.Forms.Button()
         Me.ButtonEntradaPhillip = New System.Windows.Forms.Button()
-        Me.MultiNumberPadPhillipsburg = New KingLottery.MultiNumberPad()
+        Me.MultiNumberPadPhilipsburg = New KingLottery.MultiNumberPad()
         Me.TabPageLotoPool = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.ButtonListPadLotoPool = New KingLottery.ButtonListPad()
@@ -347,14 +347,14 @@ Partial Class Main
         Me.InternalKeyToolStripMenuItem.CheckOnClick = True
         Me.InternalKeyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InternalKeyToolStripMenuItem.Name = "InternalKeyToolStripMenuItem"
-        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.InternalKeyToolStripMenuItem.Text = "Internal Key"
         '
         'SalidaPGMToolStripMenuItem
         '
         Me.SalidaPGMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.P2997ToolStripMenuItem, Me.P5994ToolStripMenuItem})
         Me.SalidaPGMToolStripMenuItem.Name = "SalidaPGMToolStripMenuItem"
-        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.SalidaPGMToolStripMenuItem.Text = "Salida PGM"
         '
         'P2997ToolStripMenuItem
@@ -377,14 +377,14 @@ Partial Class Main
         '
         Me.LoglevelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DebugToolStripMenuItem, Me.InfoToolStripMenuItem, Me.WarningToolStripMenuItem, Me.ErrorToolStripMenuItem, Me.FatalToolStripMenuItem})
         Me.LoglevelToolStripMenuItem.Name = "LoglevelToolStripMenuItem"
-        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.LoglevelToolStripMenuItem.Text = "Log-level"
         '
         'DebugToolStripMenuItem
         '
         Me.DebugToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
-        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.DebugToolStripMenuItem.Tag = "debug"
         Me.DebugToolStripMenuItem.Text = "debug"
         '
@@ -392,7 +392,7 @@ Partial Class Main
         '
         Me.InfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.InfoToolStripMenuItem.Tag = "info"
         Me.InfoToolStripMenuItem.Text = "info"
         '
@@ -400,7 +400,7 @@ Partial Class Main
         '
         Me.WarningToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.WarningToolStripMenuItem.Name = "WarningToolStripMenuItem"
-        Me.WarningToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.WarningToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.WarningToolStripMenuItem.Tag = "warning"
         Me.WarningToolStripMenuItem.Text = "warning"
         '
@@ -408,7 +408,7 @@ Partial Class Main
         '
         Me.ErrorToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ErrorToolStripMenuItem.Name = "ErrorToolStripMenuItem"
-        Me.ErrorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ErrorToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.ErrorToolStripMenuItem.Tag = "error"
         Me.ErrorToolStripMenuItem.Text = "error"
         '
@@ -416,7 +416,7 @@ Partial Class Main
         '
         Me.FatalToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.FatalToolStripMenuItem.Name = "FatalToolStripMenuItem"
-        Me.FatalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FatalToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.FatalToolStripMenuItem.Tag = "fatal"
         Me.FatalToolStripMenuItem.Text = "fatal"
         '
@@ -705,7 +705,7 @@ Partial Class Main
         '
         Me.Panel13.Controls.Add(Me.ButtonResultadosPhillips)
         Me.Panel13.Controls.Add(Me.ButtonEntradaPhillip)
-        Me.Panel13.Controls.Add(Me.MultiNumberPadPhillipsburg)
+        Me.Panel13.Controls.Add(Me.MultiNumberPadPhilipsburg)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel13.Location = New System.Drawing.Point(3, 3)
         Me.Panel13.Name = "Panel13"
@@ -738,17 +738,17 @@ Partial Class Main
         Me.ButtonEntradaPhillip.Text = "Entrada Phillipsburg"
         Me.ButtonEntradaPhillip.UseVisualStyleBackColor = False
         '
-        'MultiNumberPadPhillipsburg
+        'MultiNumberPadPhilipsburg
         '
-        Me.MultiNumberPadPhillipsburg.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.MultiNumberPadPhilipsburg.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MultiNumberPadPhillipsburg.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.MultiNumberPadPhillipsburg.Enabled = False
-        Me.MultiNumberPadPhillipsburg.Location = New System.Drawing.Point(0, 0)
-        Me.MultiNumberPadPhillipsburg.Name = "MultiNumberPadPhillipsburg"
-        Me.MultiNumberPadPhillipsburg.Size = New System.Drawing.Size(434, 280)
-        Me.MultiNumberPadPhillipsburg.TabIndex = 0
+        Me.MultiNumberPadPhilipsburg.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.MultiNumberPadPhilipsburg.Enabled = False
+        Me.MultiNumberPadPhilipsburg.Location = New System.Drawing.Point(0, 0)
+        Me.MultiNumberPadPhilipsburg.Name = "MultiNumberPadPhilipsburg"
+        Me.MultiNumberPadPhilipsburg.Size = New System.Drawing.Size(434, 280)
+        Me.MultiNumberPadPhilipsburg.TabIndex = 0
         '
         'TabPageLotoPool
         '
@@ -1223,7 +1223,7 @@ Partial Class Main
         Me.RB_Phillps.Name = "RB_Phillps"
         Me.RB_Phillps.Size = New System.Drawing.Size(90, 30)
         Me.RB_Phillps.TabIndex = 109
-        Me.RB_Phillps.Text = "Phillipsburg"
+        Me.RB_Phillps.Text = "Philipsburg"
         Me.RB_Phillps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.RB_Phillps.UseVisualStyleBackColor = True
         '
@@ -2086,6 +2086,7 @@ Partial Class Main
         Me.Button_Separador_8.BackColor = System.Drawing.Color.OrangeRed
         Me.Button_Separador_8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador8", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Button_Separador_8.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_8.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Button_Separador_8.Location = New System.Drawing.Point(405, 85)
         Me.Button_Separador_8.Name = "Button_Separador_8"
         Me.Button_Separador_8.Size = New System.Drawing.Size(120, 40)
@@ -2100,6 +2101,7 @@ Partial Class Main
         Me.Button_Separador_7.BackColor = System.Drawing.Color.OrangeRed
         Me.Button_Separador_7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador7", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Button_Separador_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_7.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Button_Separador_7.Location = New System.Drawing.Point(279, 85)
         Me.Button_Separador_7.Name = "Button_Separador_7"
         Me.Button_Separador_7.Size = New System.Drawing.Size(120, 40)
@@ -2129,6 +2131,7 @@ Partial Class Main
         Me.Button_Separador_6.BackColor = System.Drawing.Color.OrangeRed
         Me.Button_Separador_6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "Separador6", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Button_Separador_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button_Separador_6.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Button_Separador_6.Location = New System.Drawing.Point(153, 85)
         Me.Button_Separador_6.Name = "Button_Separador_6"
         Me.Button_Separador_6.Size = New System.Drawing.Size(120, 40)
@@ -2995,7 +2998,7 @@ Partial Class Main
     Friend WithEvents ButtonEntradaLotoPool As Button
     Friend WithEvents ButtonListPadLotoPool As ButtonListPad
     Friend WithEvents Panel13 As Panel
-    Friend WithEvents MultiNumberPadPhillipsburg As MultiNumberPad
+    Friend WithEvents MultiNumberPadPhilipsburg As MultiNumberPad
     Friend WithEvents ButtonResultadosPhillips As Button
     Friend WithEvents ButtonEntradaPhillip As Button
     Friend WithEvents Label_PHI4_12 As Label

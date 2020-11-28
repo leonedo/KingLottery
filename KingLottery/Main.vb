@@ -18,7 +18,7 @@ Imports System.Threading
 Imports System.Xml
 
 Public Class Main
-    Const Version = "0.9.2" '
+    Const Version = "0.9.6" '
 
     Public WithEvents CasparDevice As CasparDevice
     Public Canal_PGM As ChannelManager
@@ -35,7 +35,7 @@ Public Class Main
     Private Delegate Sub ProcessOutputDataCallback(sender As Object, e As DataReceivedEventArgs)
     Private Pick3_SXM(3) As Bola
     Private Pick4_SXM(4) As Bola
-    Private Phillipsburg(12) As Bola
+    Private Philipsburg(12) As Bola
     Private LotoPool(4) As Bola
     Private Talentos As New Talentos
     Private SorteoDeHoy As Integer = My.Settings.NumeroSorteo + 1
@@ -132,7 +132,7 @@ Public Class Main
                     Case RB_LotoPool.Checked
                         ButtonListPadLotoPool.ButtonOk_Click(NumPad_Pick3.ButtonOk, Nothing)
                     Case RB_Phillps.Checked
-                        MultiNumberPadPhillipsburg.ButtonOk_Click(MultiNumberPadPhillipsburg.ButtonOk, Nothing)
+                        MultiNumberPadPhilipsburg.ButtonOk_Click(MultiNumberPadPhilipsburg.ButtonOk, Nothing)
                 End Select
 
         End Select
@@ -535,7 +535,7 @@ Public Class Main
     End Sub
 
     Private Sub Button_Separador_1_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_Separador_1.MouseDown, Button_Separador_2.MouseDown,
-                                                                                   Button_Separador_3.MouseDown, Button_Separador_4.MouseDown, Button_Separador_5.MouseDown, Button_Separador_6.MouseDown
+                                                                                   Button_Separador_3.MouseDown, Button_Separador_4.MouseDown, Button_Separador_5.MouseDown, Button_Separador_6.MouseDown, Button_Separador_8.MouseDown, Button_Separador_7.MouseDown
         If e.Button = MouseButtons.Right Then
             Dim configura As New videobutton(CasparDevice.Mediafiles, sender, "SEPARADORES")
             configura.ShowDialog()
@@ -779,9 +779,9 @@ Public Class Main
             Case Sorteos.Tipo.Pick4_SXM
                 LoopVertical = "pick4"
                 LoopHorizontal = "pick4"
-            Case Sorteos.Tipo.Phillipsburg
-                LoopVertical = "Phillipsburg"
-                LoopHorizontal = "Phillipsburg"
+            Case Sorteos.Tipo.Philipsburg
+                LoopVertical = "Philipsburg"
+                LoopHorizontal = "Philipsburg"
             Case Sorteos.Tipo.LotoPool
                 LoopVertical = "LotoPool"
                 LoopHorizontal = "LotoPool"
@@ -810,8 +810,8 @@ Public Class Main
                 Bumper = "pick3"
             Case Sorteos.Tipo.Pick4_SXM
                 Bumper = "pick4"
-            Case Sorteos.Tipo.Phillipsburg
-                Bumper = "Phillipsburg"
+            Case Sorteos.Tipo.Philipsburg
+                Bumper = "Philipsburg"
             Case Sorteos.Tipo.LotoPool
                 Bumper = "LotoPool"
         End Select
@@ -863,9 +863,9 @@ Public Class Main
                 Case Sorteos.Tipo.LotoPool
                     PanelSorteo = PictureBoxLotoPool
                     Sorteo = LotoPool
-                Case Sorteos.Tipo.Phillipsburg
+                Case Sorteos.Tipo.Philipsburg
                     PanelSorteo = PictureBoxPhillip
-                    Sorteo = Phillipsburg
+                    Sorteo = Philipsburg
                 Case Else
                     PanelSorteo = PictureBoxPick3
                     Sorteo = Pick3_SXM
@@ -914,8 +914,8 @@ Public Class Main
                 MyBackgroundThreadPick4()
             Case Sorteos.Tipo.LotoPool
                 MyBackgroundThreadLotoPool()
-            Case Sorteos.Tipo.Phillipsburg
-                MyBackgroundThreadPhillipsburg()
+            Case Sorteos.Tipo.Philipsburg
+                MyBackgroundThreadPhilipsburg()
         End Select
         SorteoActivo = Sorteos.Tipo.Done
     End Sub
@@ -1112,36 +1112,36 @@ Public Class Main
 
 #End Region
 
-#Region "Phillipsburg"
+#Region "Philipsburg"
     Private Sub ButtonEntradaPhillip_Click(sender As Object, e As EventArgs) Handles ButtonEntradaPhillip.Click
-        SorteoActivo = Sorteos.Tipo.Phillipsburg
-        Reproducir_Loto_bumpers(Sorteos.Tipo.Phillipsburg)
+        SorteoActivo = Sorteos.Tipo.Philipsburg
+        Reproducir_Loto_bumpers(Sorteos.Tipo.Philipsburg)
 
 
     End Sub
 
-    Private Sub MyBackgroundThreadPhillipsburg()
+    Private Sub MyBackgroundThreadPhilipsburg()
         Dim CGdata As New CasparCGDataCollection From {
      {$"f0", $"{Date.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-DO")).ToUpper}"}
  }
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/PHIL", True, CGdata)
         Label_PHI4_1.Enabled = True
-        MultiNumberPadPhillipsburg.ConfiguraNumeros(Sorteos.Tipo.Phillipsburg, "1", Phillipsburg)
-        MultiNumberPadPhillipsburg.Enabled = True
+        MultiNumberPadPhilipsburg.ConfiguraNumeros(Sorteos.Tipo.Philipsburg, "1", Philipsburg)
+        MultiNumberPadPhilipsburg.Enabled = True
         PanelPhill.Enabled = True
         Threading.Thread.Sleep(1000)
-        Reproducir_loops(Sorteos.Tipo.Phillipsburg)
+        Reproducir_loops(Sorteos.Tipo.Philipsburg)
     End Sub
 
     Private Sub ButtonResultadosPhillips_Click(sender As Object, e As EventArgs) Handles ButtonResultadosPhillips.Click
         Dim CGdata As New CasparCGDataCollection
-        For Each bolo In Phillipsburg
+        For Each bolo In Philipsburg
             CGdata.Add($"f{bolo?.Bolo}", bolo?.Resultado)
         Next
         Canal_PGM.CG.Add(LayerTemplates, 1, "King/PHIL_final", True, CGdata)
     End Sub
 
-    Private Sub BoloEventPhillipsburg(Bolo As Bola) Handles MultiNumberPadPhillipsburg.Bolo_OK
+    Private Sub BoloEventPhillipsburg(Bolo As Bola) Handles MultiNumberPadPhilipsburg.Bolo_OK
         If Bolo.Bolo < 12 And Bolo.OK Then
             EntradaBolo(Bolo)
             SaveResultado(Bolo)
@@ -1149,12 +1149,12 @@ Public Class Main
             For Each control In PictureBoxPhillip.Controls.OfType(Of Label)
                 If control.Tag = nextBolo Then control.Enabled = True
             Next
-            MultiNumberPadPhillipsburg.ConfiguraNumeros(Bolo.Sorteo, nextBolo.ToString, Phillipsburg)
+            MultiNumberPadPhilipsburg.ConfiguraNumeros(Bolo.Sorteo, nextBolo.ToString, Philipsburg)
         ElseIf Bolo.Bolo = 12 And Bolo.OK Then
             EntradaBolo(Bolo)
             SaveResultado(Bolo)
-            MultiNumberPadPhillipsburg.Clear()
-            MultiNumberPadPhillipsburg.Enabled = False
+            MultiNumberPadPhilipsburg.Clear()
+            MultiNumberPadPhilipsburg.Enabled = False
         End If
 
     End Sub
@@ -1172,9 +1172,9 @@ Public Class Main
                 {"f5", Label_SXM4_2.Text},
                 {"f6", Label_SXM4_3.Text},
                 {"f7", Label_SXM4_4.Text},
-                {"f8", $"{Phillipsburg(0)?.Resultado} {Phillipsburg(1)?.Resultado} {Phillipsburg(2)?.Resultado} {Phillipsburg(3)?.Resultado}"},
-                {"f9", $"{Phillipsburg(4)?.Resultado} {Phillipsburg(5)?.Resultado} {Phillipsburg(6)?.Resultado} {Phillipsburg(7)?.Resultado}"},
-                {"f10", $"{Phillipsburg(8)?.Resultado} {Phillipsburg(9)?.Resultado} {Phillipsburg(10)?.Resultado} {Phillipsburg(11)?.Resultado}"},
+                {"f8", $"{Philipsburg(0)?.Resultado} {Philipsburg(1)?.Resultado} {Philipsburg(2)?.Resultado} {Philipsburg(3)?.Resultado}"},
+                {"f9", $"{Philipsburg(4)?.Resultado} {Philipsburg(5)?.Resultado} {Philipsburg(6)?.Resultado} {Philipsburg(7)?.Resultado}"},
+                {"f10", $"{Philipsburg(8)?.Resultado} {Philipsburg(9)?.Resultado} {Philipsburg(10)?.Resultado} {Philipsburg(11)?.Resultado}"},
                 {"f11", Label_Pool1.Text},
                 {"f12", Label_Pool2.Text},
                 {"f13", Label_Pool3.Text},
@@ -1439,7 +1439,7 @@ Public Class Main
             Dim presentador = New Personas With {.Nombre = TextBoxGenerico1.Text, .Titulo = TextBoxGenerico2.Text}
 
             Dim Resultados = New Resultados With {.Fecha = Today, .SorteoId = SorteoDeHoy.ToString("0000"), .Jueces = jurados, .Presentador = presentador,
-                                                  .LotoPool = LotoPool, .Phillipsburg = Phillipsburg, .Pick3_SXM = Pick3_SXM, .Pick4_SXM = Pick4_SXM}
+                                                  .LotoPool = LotoPool, .Philipsburg = Philipsburg, .Pick3_SXM = Pick3_SXM, .Pick4_SXM = Pick4_SXM}
             Dim json = JsonConvert.SerializeObject(Resultados, New JsonSerializerSettings With {.Formatting = Newtonsoft.Json.Formatting.Indented, .NullValueHandling = NullValueHandling.Ignore})
             My.Computer.FileSystem.WriteAllText(SaveFileDialog1.FileName, json, False)
         End If
@@ -1452,7 +1452,7 @@ Public Class Main
                 Dim Resultados = JsonConvert.DeserializeObject(Of Resultados)(json)
                 Pick3_SXM = Resultados.Pick3_SXM
                 Pick4_SXM = Resultados.Pick4_SXM
-                Phillipsburg = Resultados.Phillipsburg
+                Philipsburg = Resultados.Philipsburg
                 LotoPool = Resultados.LotoPool
                 '' Aca creamos un array con los tres panales de sorteos y luego obtenemos todos lso botones dentro de cada panel, 
                 '' asiganmemos  resultados que tenemos para ese boton/bolo al text del boton correspondiente. 
@@ -1467,7 +1467,7 @@ Public Class Main
                                 Case PictureBoxPick4.Name
                                     If Integer.TryParse(control.Tag, result) Then control.Text = Pick4_SXM(result - 1)?.Resultado
                                 Case PictureBoxPhillip.Name
-                                    If Integer.TryParse(control.Tag, result) Then control.Text = Phillipsburg(result - 1)?.Resultado
+                                    If Integer.TryParse(control.Tag, result) Then control.Text = Philipsburg(result - 1)?.Resultado
                                 Case PictureBoxLotoPool.Name
                                     If Integer.TryParse(control.Tag, result) Then control.Text = LotoPool(result - 1)?.Resultado
                             End Select
@@ -1489,7 +1489,7 @@ Public Class Main
     Private Sub ButtonLimpiar_Click(sender As Object, e As EventArgs) Handles ButtonLimpiar.Click
         Array.Clear(Pick3_SXM, 0, Pick3_SXM.Length)
         Array.Clear(Pick4_SXM, 0, Pick4_SXM.Length)
-        Array.Clear(Phillipsburg, 0, Phillipsburg.Length)
+        Array.Clear(Philipsburg, 0, Philipsburg.Length)
         Array.Clear(LotoPool, 0, LotoPool.Length)
         Dim paneles = {PictureBoxPick3, PictureBoxPick4, PictureBoxPhillip, PictureBoxLotoPool}
         For Each panel In paneles
@@ -1635,7 +1635,9 @@ Public Class Main
 
     End Sub
 
+    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click, Button_Separador_8.Click, Button_Separador_7.Click
 
+    End Sub
 End Class
 
 #Region "Clases de soporte"
@@ -1659,7 +1661,7 @@ Public Class Resultados
     Public Property Fecha As Date
     Public Property Pick3_SXM As Bola()
     Public Property Pick4_SXM As Bola()
-    Public Property Phillipsburg As Bola()
+    Public Property Philipsburg As Bola()
     Public Property LotoPool As Bola()
     Public Property Presentador As Personas
     Public Property Jueces As List(Of Personas)
@@ -1669,7 +1671,7 @@ Public Class Sorteos
     Enum Tipo
         Pick3_SXM
         Pick4_SXM
-        Phillipsburg
+        Philipsburg
         LotoPool
         Done
     End Enum

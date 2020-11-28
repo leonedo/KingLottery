@@ -39,7 +39,7 @@
         Me.Bolo = bolo
         Me.BolosAnteriores = bolosAnteriores
         Me.TipoSorteo = tipoSorteo
-        If tipoSorteo = Sorteos.Tipo.Phillipsburg Then
+        If tipoSorteo = Sorteos.Tipo.Philipsburg Then
             FillLabel()
         End If
     End Sub

@@ -60,7 +60,7 @@
       <Value Profile="(Default)">Separador_5</Value>
     </Setting>
     <Setting Name="Separador6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Phillipsburg1</Value>
+      <Value Profile="(Default)">Philipsburg1</Value>
     </Setting>
     <Setting Name="RTMP_URL" Type="System.String" Scope="User">
       <Value Profile="(Default)">rtmp://a.rtmp.youtube.com/live2/Steam_Key_here</Value>
@@ -75,10 +75,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Separador7" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Phillipsburg2</Value>
+      <Value Profile="(Default)">Philipsburg2</Value>
     </Setting>
     <Setting Name="Separador8" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Phillipsburg3</Value>
+      <Value Profile="(Default)">Philipsburg3</Value>
     </Setting>
     <Setting Name="KeyerInternal" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

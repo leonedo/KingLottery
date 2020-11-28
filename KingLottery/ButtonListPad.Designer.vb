@@ -55,12 +55,12 @@ Partial Class ButtonListPad
         '
         'LabelDescription
         '
-        Me.LabelDescription.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.LabelDescription.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelDescription.AutoSize = True
         Me.LabelDescription.BackColor = System.Drawing.Color.Transparent
         Me.LabelDescription.Font = New System.Drawing.Font("Kanit", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelDescription.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LabelDescription.Location = New System.Drawing.Point(347, 32)
+        Me.LabelDescription.Location = New System.Drawing.Point(347, 27)
         Me.LabelDescription.Name = "LabelDescription"
         Me.LabelDescription.Size = New System.Drawing.Size(16, 24)
         Me.LabelDescription.TabIndex = 143
