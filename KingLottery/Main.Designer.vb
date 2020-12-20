@@ -2679,6 +2679,7 @@ Partial Class Main
         Me.ButtonClaquetaLotoPool.Name = "ButtonClaquetaLotoPool"
         Me.ButtonClaquetaLotoPool.Size = New System.Drawing.Size(70, 27)
         Me.ButtonClaquetaLotoPool.TabIndex = 77
+        Me.ButtonClaquetaLotoPool.Tag = "LotoPool"
         Me.ButtonClaquetaLotoPool.Text = "LotoPool"
         Me.ButtonClaquetaLotoPool.UseVisualStyleBackColor = False
         '
@@ -2693,6 +2694,7 @@ Partial Class Main
         Me.ButtonClaquetaPhil.Name = "ButtonClaquetaPhil"
         Me.ButtonClaquetaPhil.Size = New System.Drawing.Size(70, 27)
         Me.ButtonClaquetaPhil.TabIndex = 76
+        Me.ButtonClaquetaPhil.Tag = "Philipsburg"
         Me.ButtonClaquetaPhil.Text = "Philipsburg"
         Me.ButtonClaquetaPhil.UseVisualStyleBackColor = False
         '
@@ -2707,6 +2709,7 @@ Partial Class Main
         Me.ButtonClaquetaPick4.Name = "ButtonClaquetaPick4"
         Me.ButtonClaquetaPick4.Size = New System.Drawing.Size(70, 27)
         Me.ButtonClaquetaPick4.TabIndex = 75
+        Me.ButtonClaquetaPick4.Tag = "Pick4_SXM"
         Me.ButtonClaquetaPick4.Text = "Pick4"
         Me.ButtonClaquetaPick4.UseVisualStyleBackColor = False
         '
@@ -2721,6 +2724,7 @@ Partial Class Main
         Me.ButtonClaquetaPick3.Name = "ButtonClaquetaPick3"
         Me.ButtonClaquetaPick3.Size = New System.Drawing.Size(70, 27)
         Me.ButtonClaquetaPick3.TabIndex = 74
+        Me.ButtonClaquetaPick3.Tag = "Pick3_SXM"
         Me.ButtonClaquetaPick3.Text = "Pick3"
         Me.ButtonClaquetaPick3.UseVisualStyleBackColor = False
         '

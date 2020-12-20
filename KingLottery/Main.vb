@@ -1779,7 +1779,16 @@ Public Class Main
     End Sub
 
     Private Sub ButtonClaquetaPick3_Click(sender As Object, e As EventArgs) Handles ButtonClaquetaPick4.Click, ButtonClaquetaPick3.Click, ButtonClaquetaPhil.Click, ButtonClaquetaLotoPool.Click
-
+        Select Case sender.tag
+            Case "Pick3_SXM"
+                MuestraClaqueta(Sorteos.Tipo.Pick3_SXM)
+            Case "Pick4_SXM"
+                MuestraClaqueta(Sorteos.Tipo.Pick4_SXM)
+            Case "Philipsburg"
+                MuestraClaqueta(Sorteos.Tipo.Philipsburg)
+            Case "LotoPool"
+                MuestraClaqueta(Sorteos.Tipo.LotoPool)
+        End Select
     End Sub
     Private Sub MuestraClaqueta(sorteo As Sorteos.Tipo)
         If CasparDevice.IsConnected Then
@@ -1795,7 +1804,7 @@ Public Class Main
                     titulo = "PICK 4 SXM"
                     sorteoSlate = My.Settings.SlatePick4
                 Case Sorteos.Tipo.Philipsburg
-                    titulo = "Philipsburg"
+                    titulo = "PHILIPSBURG"
                     sorteoSlate = My.Settings.SlatePhilipsburg
                 Case Sorteos.Tipo.LotoPool
                     titulo = "LOTO POOL"
@@ -1806,7 +1815,7 @@ Public Class Main
            {"f0", $"{titulo}"},
            {"f1", $"Sorteo: {sorteoSlate}"}
        }
-            Canal_PGM.CG.Add(LayerTemplates, 1, "KingLottery/Slate", True, CGdata)
+            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Slate", True, CGdata)
         End If
     End Sub
 
