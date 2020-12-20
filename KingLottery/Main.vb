@@ -16,11 +16,12 @@ Imports System.Globalization
 Imports System.Timers
 Imports System.Threading
 Imports System.Xml
+Imports Svt
 
 Public Class Main
-    Const Version = "0.9.6" '
+    Const Version = "1.0.0" '
 
-    Public WithEvents CasparDevice As CasparDevice
+    Public WithEvents CasparDevice As StarDust.CasparCG.net.Device.CasparDevice
     Public Canal_PGM As ChannelManager
     Public Canal_PVW As ChannelManager
     Public Canal_Ver_1 As ChannelManager
@@ -900,7 +901,7 @@ Public Class Main
                 TabControl_Sorteo.SelectedTab = TabPageLotoPool
                 PanelLotoPool.BackColor = Color.Red
             Case RB_Resultados.Checked
-                TabControl_Sorteo.SelectedTab = TabPageResultados
+                TabControl_Sorteo.SelectedTab = TabPageCrawlSlates
 
         End Select
 
@@ -1635,9 +1636,149 @@ Public Class Main
 
     End Sub
 
-    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click, Button_Separador_8.Click, Button_Separador_7.Click
+
+#Region "Crawl"
+    Private Sub ButtonEliminarItem_Click(sender As Object, e As EventArgs) Handles ButtonEliminarItem.Click
 
     End Sub
+
+
+
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
+        Try
+            SaveFileDialog1.FileName = "Crawl"
+            SaveFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*"
+            If (SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+
+                Dim xmlsetting As New XmlWriterSettings With {.Indent = True}
+                Using writer As XmlWriter = XmlWriter.Create(SaveFileDialog1.FileName, xmlsetting)
+                    writer.WriteStartDocument()
+                    writer.WriteStartElement("Crawl") ' Root.
+                    For Each row As DataGridViewRow In DataGridView_Crawl.Rows
+                        If row.Cells("CR_Texto").Value IsNot Nothing Then
+                            writer.WriteStartElement("Item")
+                            writer.WriteStartAttribute("Texto")
+                            writer.WriteValue(row.Cells("CR_Texto").Value)
+                            writer.WriteEndAttribute()
+                            writer.WriteStartAttribute("Active")
+                            If row.Cells("CR_active").Value IsNot Nothing Then
+                                writer.WriteValue(row.Cells("CR_active").Value)
+                            Else
+                                writer.WriteValue("false")
+                            End If
+                            writer.WriteEndAttribute()
+                            writer.WriteEndElement()
+                        End If
+                    Next
+                    writer.WriteEndElement()
+                    writer.WriteEndDocument()
+                End Using
+            End If
+        Catch ex As Exception
+            MsgBox("Error generando el archivo XML " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
+        Try
+            OpenFileDialog1.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*"
+            If (OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+                Dim response As New Xml.XmlDocument
+                response.Load(OpenFileDialog1.FileName)
+                DataGridView_Crawl.Rows.Clear()
+                For Each instance As Xml.XmlElement In response.GetElementsByTagName("Item")
+                    '  AgregarItemAlRundownTool(StringToType(instance.GetAttribute("Tipo")), instance.GetAttribute("Nombre"), instance.GetAttribute("Auto"))
+                    DataGridView_Crawl.Rows.Add({instance.GetAttribute("Texto"), instance.GetAttribute("Active")})
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Error cargando el archivo XML de guardado " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button_Crawl_Entrada_Click(sender As Object, e As EventArgs) Handles Button_Crawl_Entrada.Click
+        Dim file = "LotoReal/Graficos/Separador.PNG"
+        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{file}"">"
+        Dim texto As String = ""
+        For Each row As DataGridViewRow In DataGridView_Crawl.Rows
+            If row.Cells("CR_active").Value = True Then
+                texto = $"{texto} {separador} {row.Cells("CR_texto").Value.ToString.Replace(vbCr, "").Replace(vbLf, "")}"
+            End If
+        Next
+        texto = $"{texto} {separador}"
+        ticker(texto)
+        ' activeTemplate = Templates.crawl
+    End Sub
+
+    Public Sub ticker(text As String)
+        Dim CGdata As New Svt.Caspar.CasparCGDataCollection
+        CGdata.SetData("scrolldata", text)
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Crawl", True, CGdata.ToAMCPEscapedXml)
+
+    End Sub
+
+    Private Sub Button_crawl_update_Click(sender As Object, e As EventArgs) Handles Button_crawl_update.Click
+        '   Dim file = "King/Separador.PNG"
+        '   Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{file}"">"
+        Dim separador = "¦"
+        Dim texto As String = ""
+        For Each row As DataGridViewRow In DataGridView_Crawl.Rows
+            If row.Cells("CR_active").Value = True Then
+                texto = $"{texto} {separador} {row.Cells("CR_texto").Value.ToString.Replace(vbCr, "").Replace(vbLf, "")}"
+            End If
+        Next
+        texto = $"{texto} {separador}"
+        Dim CGdata As New Svt.Caspar.CasparCGDataCollection
+        CGdata.SetData("scrolldata", texto)
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata.ToAMCPEscapedXml)
+    End Sub
+    Private Sub ButtonActivar_Click(sender As Object, e As EventArgs) Handles ButtonActivar.Click
+        Try
+            Dim xmlsetting As New XmlWriterSettings With {.Indent = True}
+            Using writer As XmlWriter = XmlWriter.Create("Crawl.XML", xmlsetting)
+                writer.WriteStartDocument()
+                writer.WriteStartElement("Crawl") ' Root.
+                For Each row As DataGridViewRow In DataGridView_Crawl.Rows
+                    If row.Cells("CR_Texto").Value IsNot Nothing Then
+                        writer.WriteStartElement("Item")
+                        writer.WriteStartAttribute("Texto")
+                        writer.WriteValue(row.Cells("CR_Texto").Value)
+                        writer.WriteEndAttribute()
+                        writer.WriteStartAttribute("Active")
+                        If row.Cells("CR_active").Value IsNot Nothing Then
+                            writer.WriteValue(row.Cells("CR_active").Value)
+                        Else
+                            writer.WriteValue("false")
+                        End If
+                        writer.WriteEndAttribute()
+                        writer.WriteEndElement()
+                    End If
+                Next
+                writer.WriteEndElement()
+                writer.WriteEndDocument()
+            End Using
+        Catch ex As Exception
+            MsgBox("Error generando el archivo XML " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub LoadCrawl()
+        Try
+            If File.Exists("Crawl.XML") Then
+                Dim response As New Xml.XmlDocument
+                response.Load("Crawl.XML")
+                DataGridView_Crawl.Rows.Clear()
+                For Each instance As Xml.XmlElement In response.GetElementsByTagName("Item")
+                    '  AgregarItemAlRundownTool(StringToType(instance.GetAttribute("Tipo")), instance.GetAttribute("Nombre"), instance.GetAttribute("Auto"))
+                    DataGridView_Crawl.Rows.Add({instance.GetAttribute("Texto"), instance.GetAttribute("Active")})
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox("Error cargando el archivo XML de guardado " & ex.Message)
+        End Try
+    End Sub
+
+#End Region
 End Class
 
 #Region "Clases de soporte"

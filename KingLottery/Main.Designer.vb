@@ -25,6 +25,8 @@ Partial Class Main
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.UsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -73,7 +75,18 @@ Partial Class Main
         Me.ButtonListPadLotoPool = New KingLottery.ButtonListPad()
         Me.ButtonResultadoLotoPool = New System.Windows.Forms.Button()
         Me.ButtonEntradaLotoPool = New System.Windows.Forms.Button()
-        Me.TabPageResultados = New System.Windows.Forms.TabPage()
+        Me.TabPageCrawlSlates = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TBSlate_FechaReal = New System.Windows.Forms.TextBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ButtonImport = New System.Windows.Forms.Button()
+        Me.ButtonExport = New System.Windows.Forms.Button()
+        Me.ButtonActivar = New System.Windows.Forms.Button()
+        Me.ButtonEliminarItem = New System.Windows.Forms.Button()
+        Me.DataGridView_Crawl = New System.Windows.Forms.DataGridView()
+        Me.CR_Texto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CR_active = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.PanelPhill = New System.Windows.Forms.Panel()
         Me.Label_PHI4_12 = New System.Windows.Forms.Label()
         Me.Label_PHI4_11 = New System.Windows.Forms.Label()
@@ -102,6 +115,7 @@ Partial Class Main
         Me.PictureBoxLotoPool = New System.Windows.Forms.PictureBox()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.RB_LotoPool = New System.Windows.Forms.RadioButton()
+        Me.RB_Resultados = New System.Windows.Forms.RadioButton()
         Me.RB_Phillps = New System.Windows.Forms.RadioButton()
         Me.RB_pick4 = New System.Windows.Forms.RadioButton()
         Me.RB_Pick3 = New System.Windows.Forms.RadioButton()
@@ -193,7 +207,15 @@ Partial Class Main
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ButtonPlayAudio = New System.Windows.Forms.Button()
         Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.RB_Resultados = New System.Windows.Forms.RadioButton()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Button_Crawl_Entrada = New System.Windows.Forms.Button()
+        Me.Button_crawl_update = New System.Windows.Forms.Button()
+        Me.ButtonResultados = New System.Windows.Forms.Button()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBoxGenerico2 = New System.Windows.Forms.TextBox()
         Me.TextBoxGenerico1 = New System.Windows.Forms.TextBox()
@@ -224,7 +246,6 @@ Partial Class Main
         Me.ComboBoxJurado1 = New System.Windows.Forms.ComboBox()
         Me.TextBoxjf1 = New System.Windows.Forms.TextBox()
         Me.TextBoxJf0 = New System.Windows.Forms.TextBox()
-        Me.ButtonResultados = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TimerCasparConnect = New System.Windows.Forms.Timer(Me.components)
         Me.TimerGrabacion = New System.Windows.Forms.Timer(Me.components)
@@ -246,6 +267,10 @@ Partial Class Main
         Me.Panel13.SuspendLayout()
         Me.TabPageLotoPool.SuspendLayout()
         Me.Panel10.SuspendLayout()
+        Me.TabPageCrawlSlates.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DataGridView_Crawl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPhill.SuspendLayout()
         CType(Me.PictureBoxPhillip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPick4.SuspendLayout()
@@ -272,6 +297,8 @@ Partial Class Main
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewAudio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel15.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.BindingSourceJueces, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -562,7 +589,7 @@ Partial Class Main
         Me.TabControl_Sorteo.Controls.Add(Me.TabPagePick4)
         Me.TabControl_Sorteo.Controls.Add(Me.TabPagePhill)
         Me.TabControl_Sorteo.Controls.Add(Me.TabPageLotoPool)
-        Me.TabControl_Sorteo.Controls.Add(Me.TabPageResultados)
+        Me.TabControl_Sorteo.Controls.Add(Me.TabPageCrawlSlates)
         Me.TabControl_Sorteo.Location = New System.Drawing.Point(-4, -26)
         Me.TabControl_Sorteo.Name = "TabControl_Sorteo"
         Me.TabControl_Sorteo.Padding = New System.Drawing.Point(20, 3)
@@ -810,15 +837,147 @@ Partial Class Main
         Me.ButtonEntradaLotoPool.Text = "Entrada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "LotoPool"
         Me.ButtonEntradaLotoPool.UseVisualStyleBackColor = False
         '
-        'TabPageResultados
+        'TabPageCrawlSlates
         '
-        Me.TabPageResultados.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TabPageResultados.Location = New System.Drawing.Point(4, 22)
-        Me.TabPageResultados.Name = "TabPageResultados"
-        Me.TabPageResultados.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageResultados.Size = New System.Drawing.Size(549, 285)
-        Me.TabPageResultados.TabIndex = 4
-        Me.TabPageResultados.Text = "TabPageResultados"
+        Me.TabPageCrawlSlates.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TabPageCrawlSlates.Controls.Add(Me.GroupBox5)
+        Me.TabPageCrawlSlates.Controls.Add(Me.GroupBox3)
+        Me.TabPageCrawlSlates.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageCrawlSlates.Name = "TabPageCrawlSlates"
+        Me.TabPageCrawlSlates.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageCrawlSlates.Size = New System.Drawing.Size(549, 285)
+        Me.TabPageCrawlSlates.TabIndex = 4
+        Me.TabPageCrawlSlates.Text = "TabPageResultados"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.Label28)
+        Me.GroupBox5.Controls.Add(Me.TBSlate_FechaReal)
+        Me.GroupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox5.Location = New System.Drawing.Point(359, 4)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(184, 277)
+        Me.GroupBox5.TabIndex = 93
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Slates"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(8, 24)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(78, 13)
+        Me.Label28.TabIndex = 73
+        Me.Label28.Text = "# Sorteo Pick3"
+        '
+        'TBSlate_FechaReal
+        '
+        Me.TBSlate_FechaReal.Location = New System.Drawing.Point(116, 21)
+        Me.TBSlate_FechaReal.Name = "TBSlate_FechaReal"
+        Me.TBSlate_FechaReal.Size = New System.Drawing.Size(53, 20)
+        Me.TBSlate_FechaReal.TabIndex = 72
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.ButtonImport)
+        Me.GroupBox3.Controls.Add(Me.ButtonExport)
+        Me.GroupBox3.Controls.Add(Me.ButtonActivar)
+        Me.GroupBox3.Controls.Add(Me.ButtonEliminarItem)
+        Me.GroupBox3.Controls.Add(Me.DataGridView_Crawl)
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox3.Location = New System.Drawing.Point(11, 4)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(342, 277)
+        Me.GroupBox3.TabIndex = 92
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Crawl config"
+        '
+        'ButtonImport
+        '
+        Me.ButtonImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ButtonImport.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonImport.Location = New System.Drawing.Point(283, 241)
+        Me.ButtonImport.Name = "ButtonImport"
+        Me.ButtonImport.Size = New System.Drawing.Size(53, 30)
+        Me.ButtonImport.TabIndex = 17
+        Me.ButtonImport.Text = "Importar"
+        Me.ButtonImport.UseVisualStyleBackColor = True
+        '
+        'ButtonExport
+        '
+        Me.ButtonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ButtonExport.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonExport.Location = New System.Drawing.Point(216, 241)
+        Me.ButtonExport.Name = "ButtonExport"
+        Me.ButtonExport.Size = New System.Drawing.Size(61, 30)
+        Me.ButtonExport.TabIndex = 16
+        Me.ButtonExport.Text = "Exportar"
+        Me.ButtonExport.UseVisualStyleBackColor = True
+        '
+        'ButtonActivar
+        '
+        Me.ButtonActivar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonActivar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonActivar.Location = New System.Drawing.Point(80, 241)
+        Me.ButtonActivar.Name = "ButtonActivar"
+        Me.ButtonActivar.Size = New System.Drawing.Size(62, 30)
+        Me.ButtonActivar.TabIndex = 15
+        Me.ButtonActivar.Text = "Guardar"
+        Me.ButtonActivar.UseVisualStyleBackColor = True
+        '
+        'ButtonEliminarItem
+        '
+        Me.ButtonEliminarItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ButtonEliminarItem.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonEliminarItem.Location = New System.Drawing.Point(6, 241)
+        Me.ButtonEliminarItem.Name = "ButtonEliminarItem"
+        Me.ButtonEliminarItem.Size = New System.Drawing.Size(67, 30)
+        Me.ButtonEliminarItem.TabIndex = 14
+        Me.ButtonEliminarItem.Text = "Eliminar"
+        Me.ButtonEliminarItem.UseVisualStyleBackColor = True
+        '
+        'DataGridView_Crawl
+        '
+        Me.DataGridView_Crawl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView_Crawl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView_Crawl.ColumnHeadersHeight = 25
+        Me.DataGridView_Crawl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridView_Crawl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CR_Texto, Me.CR_active})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView_Crawl.Location = New System.Drawing.Point(6, 21)
+        Me.DataGridView_Crawl.MultiSelect = False
+        Me.DataGridView_Crawl.Name = "DataGridView_Crawl"
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView_Crawl.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.Size = New System.Drawing.Size(330, 214)
+        Me.DataGridView_Crawl.TabIndex = 1
+        '
+        'CR_Texto
+        '
+        Me.CR_Texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CR_Texto.HeaderText = "Texto"
+        Me.CR_Texto.Name = "CR_Texto"
+        '
+        'CR_active
+        '
+        Me.CR_active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.CR_active.FalseValue = "false"
+        Me.CR_active.HeaderText = "active"
+        Me.CR_active.IndeterminateValue = "false"
+        Me.CR_active.MinimumWidth = 50
+        Me.CR_active.Name = "CR_active"
+        Me.CR_active.TrueValue = "true"
+        Me.CR_active.Width = 50
         '
         'PanelPhill
         '
@@ -1194,6 +1353,7 @@ Partial Class Main
         'Panel18
         '
         Me.Panel18.Controls.Add(Me.RB_LotoPool)
+        Me.Panel18.Controls.Add(Me.RB_Resultados)
         Me.Panel18.Controls.Add(Me.RB_Phillps)
         Me.Panel18.Controls.Add(Me.RB_pick4)
         Me.Panel18.Controls.Add(Me.RB_Pick3)
@@ -1207,7 +1367,7 @@ Partial Class Main
         '
         Me.RB_LotoPool.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_LotoPool.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_LotoPool.Location = New System.Drawing.Point(379, 1)
+        Me.RB_LotoPool.Location = New System.Drawing.Point(330, 1)
         Me.RB_LotoPool.Name = "RB_LotoPool"
         Me.RB_LotoPool.Size = New System.Drawing.Size(90, 30)
         Me.RB_LotoPool.TabIndex = 110
@@ -1215,11 +1375,23 @@ Partial Class Main
         Me.RB_LotoPool.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.RB_LotoPool.UseVisualStyleBackColor = True
         '
+        'RB_Resultados
+        '
+        Me.RB_Resultados.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RB_Resultados.Appearance = System.Windows.Forms.Appearance.Button
+        Me.RB_Resultados.Location = New System.Drawing.Point(431, 2)
+        Me.RB_Resultados.Name = "RB_Resultados"
+        Me.RB_Resultados.Size = New System.Drawing.Size(90, 30)
+        Me.RB_Resultados.TabIndex = 111
+        Me.RB_Resultados.Text = "Crawl y slates"
+        Me.RB_Resultados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.RB_Resultados.UseVisualStyleBackColor = True
+        '
         'RB_Phillps
         '
         Me.RB_Phillps.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_Phillps.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_Phillps.Location = New System.Drawing.Point(279, 1)
+        Me.RB_Phillps.Location = New System.Drawing.Point(229, 1)
         Me.RB_Phillps.Name = "RB_Phillps"
         Me.RB_Phillps.Size = New System.Drawing.Size(90, 30)
         Me.RB_Phillps.TabIndex = 109
@@ -1231,7 +1403,7 @@ Partial Class Main
         '
         Me.RB_pick4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_pick4.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_pick4.Location = New System.Drawing.Point(179, 1)
+        Me.RB_pick4.Location = New System.Drawing.Point(128, 1)
         Me.RB_pick4.Name = "RB_pick4"
         Me.RB_pick4.Size = New System.Drawing.Size(90, 30)
         Me.RB_pick4.TabIndex = 108
@@ -1244,7 +1416,7 @@ Partial Class Main
         Me.RB_Pick3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.RB_Pick3.Appearance = System.Windows.Forms.Appearance.Button
         Me.RB_Pick3.Checked = True
-        Me.RB_Pick3.Location = New System.Drawing.Point(79, 1)
+        Me.RB_Pick3.Location = New System.Drawing.Point(27, 1)
         Me.RB_Pick3.Name = "RB_Pick3"
         Me.RB_Pick3.Size = New System.Drawing.Size(90, 30)
         Me.RB_Pick3.TabIndex = 107
@@ -1347,8 +1519,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 161)
@@ -2317,8 +2489,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 161)
@@ -2356,13 +2528,14 @@ Partial Class Main
         'Panel15
         '
         Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel15.Controls.Add(Me.RB_Resultados)
+        Me.Panel15.Controls.Add(Me.GroupBox8)
+        Me.Panel15.Controls.Add(Me.ButtonResultados)
+        Me.Panel15.Controls.Add(Me.GroupBox7)
         Me.Panel15.Controls.Add(Me.GroupBox2)
         Me.Panel15.Controls.Add(Me.GroupBox1)
         Me.Panel15.Controls.Add(Me.GroupBoxJuez3)
         Me.Panel15.Controls.Add(Me.GroupBox6)
         Me.Panel15.Controls.Add(Me.GroupBox4)
-        Me.Panel15.Controls.Add(Me.ButtonResultados)
         Me.Panel15.Controls.Add(Me.Label7)
         Me.Panel15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel15.Location = New System.Drawing.Point(564, 421)
@@ -2370,18 +2543,126 @@ Partial Class Main
         Me.Panel15.Size = New System.Drawing.Size(555, 316)
         Me.Panel15.TabIndex = 53
         '
-        'RB_Resultados
+        'GroupBox8
         '
-        Me.RB_Resultados.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RB_Resultados.Appearance = System.Windows.Forms.Appearance.Button
-        Me.RB_Resultados.Location = New System.Drawing.Point(67, 199)
-        Me.RB_Resultados.Name = "RB_Resultados"
-        Me.RB_Resultados.Size = New System.Drawing.Size(90, 30)
-        Me.RB_Resultados.TabIndex = 111
-        Me.RB_Resultados.Text = "Resultados"
-        Me.RB_Resultados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.RB_Resultados.UseVisualStyleBackColor = True
-        Me.RB_Resultados.Visible = False
+        Me.GroupBox8.Controls.Add(Me.Button_Crawl_Entrada)
+        Me.GroupBox8.Controls.Add(Me.Button_crawl_update)
+        Me.GroupBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox8.Location = New System.Drawing.Point(9, 143)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(177, 90)
+        Me.GroupBox8.TabIndex = 94
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Crawl"
+        '
+        'Button_Crawl_Entrada
+        '
+        Me.Button_Crawl_Entrada.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button_Crawl_Entrada.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button_Crawl_Entrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Crawl_Entrada.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button_Crawl_Entrada.Location = New System.Drawing.Point(28, 16)
+        Me.Button_Crawl_Entrada.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button_Crawl_Entrada.Name = "Button_Crawl_Entrada"
+        Me.Button_Crawl_Entrada.Size = New System.Drawing.Size(121, 27)
+        Me.Button_Crawl_Entrada.TabIndex = 57
+        Me.Button_Crawl_Entrada.Text = "Entrada Crawl"
+        Me.Button_Crawl_Entrada.UseVisualStyleBackColor = False
+        '
+        'Button_crawl_update
+        '
+        Me.Button_crawl_update.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Button_crawl_update.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button_crawl_update.Location = New System.Drawing.Point(28, 51)
+        Me.Button_crawl_update.Name = "Button_crawl_update"
+        Me.Button_crawl_update.Size = New System.Drawing.Size(121, 27)
+        Me.Button_crawl_update.TabIndex = 92
+        Me.Button_crawl_update.Text = "Update Datos"
+        Me.Button_crawl_update.UseVisualStyleBackColor = True
+        '
+        'ButtonResultados
+        '
+        Me.ButtonResultados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonResultados.BackColor = System.Drawing.Color.OrangeRed
+        Me.ButtonResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonResultados.ForeColor = System.Drawing.Color.White
+        Me.ButtonResultados.Location = New System.Drawing.Point(40, 259)
+        Me.ButtonResultados.Name = "ButtonResultados"
+        Me.ButtonResultados.Size = New System.Drawing.Size(121, 31)
+        Me.ButtonResultados.TabIndex = 57
+        Me.ButtonResultados.Text = "Resultados"
+        Me.ButtonResultados.UseVisualStyleBackColor = False
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.Button4)
+        Me.GroupBox7.Controls.Add(Me.Button3)
+        Me.GroupBox7.Controls.Add(Me.Button2)
+        Me.GroupBox7.Controls.Add(Me.Button1)
+        Me.GroupBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox7.Location = New System.Drawing.Point(203, 238)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(347, 73)
+        Me.GroupBox7.TabIndex = 93
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Slates Ensayos"
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button4.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button4.Location = New System.Drawing.Point(252, 29)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(70, 27)
+        Me.Button4.TabIndex = 77
+        Me.Button4.Text = "LotoPool"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button3.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button3.Location = New System.Drawing.Point(176, 29)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(70, 27)
+        Me.Button3.TabIndex = 76
+        Me.Button3.Text = "Philipsburg"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button2.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button2.Location = New System.Drawing.Point(100, 29)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(70, 27)
+        Me.Button2.TabIndex = 75
+        Me.Button2.Text = "Pick4"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button1.Location = New System.Drawing.Point(24, 29)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(70, 27)
+        Me.Button1.TabIndex = 74
+        Me.Button1.Text = "Pick3"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -2390,9 +2671,9 @@ Partial Class Main
         Me.GroupBox2.Controls.Add(Me.ComboBoxPresentador)
         Me.GroupBox2.Controls.Add(Me.ButtonGeneral)
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(24, 34)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 27)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(159, 143)
+        Me.GroupBox2.Size = New System.Drawing.Size(177, 114)
         Me.GroupBox2.TabIndex = 91
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Presentador"
@@ -2404,7 +2685,7 @@ Partial Class Main
         Me.TextBoxGenerico2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBoxGenerico2.Enabled = False
         Me.TextBoxGenerico2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TextBoxGenerico2.Location = New System.Drawing.Point(20, 72)
+        Me.TextBoxGenerico2.Location = New System.Drawing.Point(29, 60)
         Me.TextBoxGenerico2.Name = "TextBoxGenerico2"
         Me.TextBoxGenerico2.Size = New System.Drawing.Size(121, 13)
         Me.TextBoxGenerico2.TabIndex = 66
@@ -2417,7 +2698,7 @@ Partial Class Main
         Me.TextBoxGenerico1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBoxGenerico1.Enabled = False
         Me.TextBoxGenerico1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TextBoxGenerico1.Location = New System.Drawing.Point(20, 46)
+        Me.TextBoxGenerico1.Location = New System.Drawing.Point(29, 41)
         Me.TextBoxGenerico1.Name = "TextBoxGenerico1"
         Me.TextBoxGenerico1.Size = New System.Drawing.Size(121, 13)
         Me.TextBoxGenerico1.TabIndex = 65
@@ -2428,7 +2709,7 @@ Partial Class Main
         Me.ComboBoxPresentador.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ComboBoxPresentador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxPresentador.FormattingEnabled = True
-        Me.ComboBoxPresentador.Location = New System.Drawing.Point(20, 17)
+        Me.ComboBoxPresentador.Location = New System.Drawing.Point(29, 16)
         Me.ComboBoxPresentador.Name = "ComboBoxPresentador"
         Me.ComboBoxPresentador.Size = New System.Drawing.Size(121, 21)
         Me.ComboBoxPresentador.TabIndex = 64
@@ -2440,25 +2721,25 @@ Partial Class Main
         Me.ButtonGeneral.BackColor = System.Drawing.Color.GreenYellow
         Me.ButtonGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonGeneral.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonGeneral.Location = New System.Drawing.Point(20, 96)
+        Me.ButtonGeneral.Location = New System.Drawing.Point(29, 79)
         Me.ButtonGeneral.Name = "ButtonGeneral"
-        Me.ButtonGeneral.Size = New System.Drawing.Size(121, 27)
+        Me.ButtonGeneral.Size = New System.Drawing.Size(120, 27)
         Me.ButtonGeneral.TabIndex = 60
         Me.ButtonGeneral.Text = "Entrada Presentador"
         Me.ButtonGeneral.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button_update_jurado_4)
         Me.GroupBox1.Controls.Add(Me.Button_Juez4)
         Me.GroupBox1.Controls.Add(Me.ComboBoxJurado4)
         Me.GroupBox1.Controls.Add(Me.TextBoxJf7)
         Me.GroupBox1.Controls.Add(Me.TextBoxJf6)
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(382, 202)
+        Me.GroupBox1.Location = New System.Drawing.Point(382, 132)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(150, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(168, 100)
         Me.GroupBox1.TabIndex = 90
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Jurado #4"
@@ -2467,7 +2748,7 @@ Partial Class Main
         '
         Me.Button_update_jurado_4.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Button_update_jurado_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_update_jurado_4.Location = New System.Drawing.Point(79, 69)
+        Me.Button_update_jurado_4.Location = New System.Drawing.Point(88, 69)
         Me.Button_update_jurado_4.Name = "Button_update_jurado_4"
         Me.Button_update_jurado_4.Size = New System.Drawing.Size(62, 24)
         Me.Button_update_jurado_4.TabIndex = 71
@@ -2481,7 +2762,7 @@ Partial Class Main
         Me.Button_Juez4.BackColor = System.Drawing.Color.GreenYellow
         Me.Button_Juez4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Juez4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button_Juez4.Location = New System.Drawing.Point(9, 69)
+        Me.Button_Juez4.Location = New System.Drawing.Point(18, 69)
         Me.Button_Juez4.Margin = New System.Windows.Forms.Padding(0)
         Me.Button_Juez4.Name = "Button_Juez4"
         Me.Button_Juez4.Size = New System.Drawing.Size(62, 24)
@@ -2500,7 +2781,7 @@ Partial Class Main
         Me.ComboBoxJurado4.FormattingEnabled = True
         Me.ComboBoxJurado4.Location = New System.Drawing.Point(9, 17)
         Me.ComboBoxJurado4.Name = "ComboBoxJurado4"
-        Me.ComboBoxJurado4.Size = New System.Drawing.Size(132, 21)
+        Me.ComboBoxJurado4.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxJurado4.TabIndex = 68
         Me.ComboBoxJurado4.ValueMember = "Titulo"
         '
@@ -2515,7 +2796,7 @@ Partial Class Main
         Me.TextBoxJf7.Location = New System.Drawing.Point(9, 46)
         Me.TextBoxJf7.MaxLength = 20
         Me.TextBoxJf7.Name = "TextBoxJf7"
-        Me.TextBoxJf7.Size = New System.Drawing.Size(132, 13)
+        Me.TextBoxJf7.Size = New System.Drawing.Size(150, 13)
         Me.TextBoxJf7.TabIndex = 65
         Me.TextBoxJf7.Tag = "Titulo"
         '
@@ -2532,16 +2813,16 @@ Partial Class Main
         '
         'GroupBoxJuez3
         '
-        Me.GroupBoxJuez3.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.GroupBoxJuez3.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.GroupBoxJuez3.Controls.Add(Me.Button_update_jurado_3)
         Me.GroupBoxJuez3.Controls.Add(Me.Button_Juez3)
         Me.GroupBoxJuez3.Controls.Add(Me.ComboBoxJurado3)
         Me.GroupBoxJuez3.Controls.Add(Me.TextBoxJf5)
         Me.GroupBoxJuez3.Controls.Add(Me.TextBoxJf4)
         Me.GroupBoxJuez3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBoxJuez3.Location = New System.Drawing.Point(224, 202)
+        Me.GroupBoxJuez3.Location = New System.Drawing.Point(203, 132)
         Me.GroupBoxJuez3.Name = "GroupBoxJuez3"
-        Me.GroupBoxJuez3.Size = New System.Drawing.Size(150, 100)
+        Me.GroupBoxJuez3.Size = New System.Drawing.Size(171, 100)
         Me.GroupBoxJuez3.TabIndex = 89
         Me.GroupBoxJuez3.TabStop = False
         Me.GroupBoxJuez3.Text = "Jurado #3"
@@ -2550,7 +2831,7 @@ Partial Class Main
         '
         Me.Button_update_jurado_3.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Button_update_jurado_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_update_jurado_3.Location = New System.Drawing.Point(79, 69)
+        Me.Button_update_jurado_3.Location = New System.Drawing.Point(89, 69)
         Me.Button_update_jurado_3.Name = "Button_update_jurado_3"
         Me.Button_update_jurado_3.Size = New System.Drawing.Size(62, 24)
         Me.Button_update_jurado_3.TabIndex = 71
@@ -2564,7 +2845,7 @@ Partial Class Main
         Me.Button_Juez3.BackColor = System.Drawing.Color.GreenYellow
         Me.Button_Juez3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Juez3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button_Juez3.Location = New System.Drawing.Point(9, 69)
+        Me.Button_Juez3.Location = New System.Drawing.Point(19, 69)
         Me.Button_Juez3.Margin = New System.Windows.Forms.Padding(0)
         Me.Button_Juez3.Name = "Button_Juez3"
         Me.Button_Juez3.Size = New System.Drawing.Size(62, 24)
@@ -2583,7 +2864,7 @@ Partial Class Main
         Me.ComboBoxJurado3.FormattingEnabled = True
         Me.ComboBoxJurado3.Location = New System.Drawing.Point(9, 17)
         Me.ComboBoxJurado3.Name = "ComboBoxJurado3"
-        Me.ComboBoxJurado3.Size = New System.Drawing.Size(132, 21)
+        Me.ComboBoxJurado3.Size = New System.Drawing.Size(153, 21)
         Me.ComboBoxJurado3.TabIndex = 68
         Me.ComboBoxJurado3.ValueMember = "Titulo"
         '
@@ -2598,7 +2879,7 @@ Partial Class Main
         Me.TextBoxJf5.Location = New System.Drawing.Point(9, 46)
         Me.TextBoxJf5.MaxLength = 20
         Me.TextBoxJf5.Name = "TextBoxJf5"
-        Me.TextBoxJf5.Size = New System.Drawing.Size(132, 13)
+        Me.TextBoxJf5.Size = New System.Drawing.Size(153, 13)
         Me.TextBoxJf5.TabIndex = 65
         Me.TextBoxJf5.Tag = "Titulo"
         '
@@ -2622,9 +2903,9 @@ Partial Class Main
         Me.GroupBox6.Controls.Add(Me.TextBoxJf3)
         Me.GroupBox6.Controls.Add(Me.TextBoxJf2)
         Me.GroupBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox6.Location = New System.Drawing.Point(382, 34)
+        Me.GroupBox6.Location = New System.Drawing.Point(382, 27)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(150, 100)
+        Me.GroupBox6.Size = New System.Drawing.Size(168, 100)
         Me.GroupBox6.TabIndex = 88
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Jurado #2"
@@ -2633,7 +2914,7 @@ Partial Class Main
         '
         Me.Button_update_jurado_2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Button_update_jurado_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_update_jurado_2.Location = New System.Drawing.Point(79, 69)
+        Me.Button_update_jurado_2.Location = New System.Drawing.Point(88, 69)
         Me.Button_update_jurado_2.Name = "Button_update_jurado_2"
         Me.Button_update_jurado_2.Size = New System.Drawing.Size(62, 24)
         Me.Button_update_jurado_2.TabIndex = 65
@@ -2647,7 +2928,7 @@ Partial Class Main
         Me.Button_Juez2.BackColor = System.Drawing.Color.GreenYellow
         Me.Button_Juez2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Juez2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button_Juez2.Location = New System.Drawing.Point(9, 69)
+        Me.Button_Juez2.Location = New System.Drawing.Point(18, 69)
         Me.Button_Juez2.Margin = New System.Windows.Forms.Padding(0)
         Me.Button_Juez2.Name = "Button_Juez2"
         Me.Button_Juez2.Size = New System.Drawing.Size(62, 24)
@@ -2664,7 +2945,7 @@ Partial Class Main
         Me.ComboBoxJurado2.FormattingEnabled = True
         Me.ComboBoxJurado2.Location = New System.Drawing.Point(9, 17)
         Me.ComboBoxJurado2.Name = "ComboBoxJurado2"
-        Me.ComboBoxJurado2.Size = New System.Drawing.Size(132, 21)
+        Me.ComboBoxJurado2.Size = New System.Drawing.Size(150, 21)
         Me.ComboBoxJurado2.TabIndex = 64
         '
         'TextBoxJf3
@@ -2678,7 +2959,7 @@ Partial Class Main
         Me.TextBoxJf3.Location = New System.Drawing.Point(9, 46)
         Me.TextBoxJf3.MaxLength = 20
         Me.TextBoxJf3.Name = "TextBoxJf3"
-        Me.TextBoxJf3.Size = New System.Drawing.Size(132, 13)
+        Me.TextBoxJf3.Size = New System.Drawing.Size(150, 13)
         Me.TextBoxJf3.TabIndex = 61
         Me.TextBoxJf3.Tag = "Titulo"
         '
@@ -2702,9 +2983,9 @@ Partial Class Main
         Me.GroupBox4.Controls.Add(Me.TextBoxjf1)
         Me.GroupBox4.Controls.Add(Me.TextBoxJf0)
         Me.GroupBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox4.Location = New System.Drawing.Point(224, 34)
+        Me.GroupBox4.Location = New System.Drawing.Point(203, 27)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(150, 100)
+        Me.GroupBox4.Size = New System.Drawing.Size(171, 100)
         Me.GroupBox4.TabIndex = 87
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Jurado #1"
@@ -2713,7 +2994,7 @@ Partial Class Main
         '
         Me.Button_update_jurado_1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.Button_update_jurado_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_update_jurado_1.Location = New System.Drawing.Point(79, 69)
+        Me.Button_update_jurado_1.Location = New System.Drawing.Point(89, 69)
         Me.Button_update_jurado_1.Name = "Button_update_jurado_1"
         Me.Button_update_jurado_1.Size = New System.Drawing.Size(62, 24)
         Me.Button_update_jurado_1.TabIndex = 62
@@ -2727,7 +3008,7 @@ Partial Class Main
         Me.ButtonJuez1.BackColor = System.Drawing.Color.GreenYellow
         Me.ButtonJuez1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonJuez1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonJuez1.Location = New System.Drawing.Point(9, 69)
+        Me.ButtonJuez1.Location = New System.Drawing.Point(19, 69)
         Me.ButtonJuez1.Margin = New System.Windows.Forms.Padding(0)
         Me.ButtonJuez1.Name = "ButtonJuez1"
         Me.ButtonJuez1.Size = New System.Drawing.Size(62, 24)
@@ -2744,7 +3025,7 @@ Partial Class Main
         Me.ComboBoxJurado1.FormattingEnabled = True
         Me.ComboBoxJurado1.Location = New System.Drawing.Point(9, 17)
         Me.ComboBoxJurado1.Name = "ComboBoxJurado1"
-        Me.ComboBoxJurado1.Size = New System.Drawing.Size(132, 21)
+        Me.ComboBoxJurado1.Size = New System.Drawing.Size(153, 21)
         Me.ComboBoxJurado1.TabIndex = 60
         '
         'TextBoxjf1
@@ -2758,7 +3039,7 @@ Partial Class Main
         Me.TextBoxjf1.Location = New System.Drawing.Point(9, 46)
         Me.TextBoxjf1.MaxLength = 20
         Me.TextBoxjf1.Name = "TextBoxjf1"
-        Me.TextBoxjf1.Size = New System.Drawing.Size(132, 13)
+        Me.TextBoxjf1.Size = New System.Drawing.Size(153, 13)
         Me.TextBoxjf1.TabIndex = 57
         Me.TextBoxjf1.Tag = "Titulo"
         '
@@ -2772,21 +3053,6 @@ Partial Class Main
         Me.TextBoxJf0.TabIndex = 56
         Me.TextBoxJf0.Tag = "Nombre"
         Me.TextBoxJf0.Visible = False
-        '
-        'ButtonResultados
-        '
-        Me.ButtonResultados.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ButtonResultados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ButtonResultados.BackColor = System.Drawing.Color.OrangeRed
-        Me.ButtonResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonResultados.ForeColor = System.Drawing.Color.White
-        Me.ButtonResultados.Location = New System.Drawing.Point(44, 237)
-        Me.ButtonResultados.Name = "ButtonResultados"
-        Me.ButtonResultados.Size = New System.Drawing.Size(121, 31)
-        Me.ButtonResultados.TabIndex = 57
-        Me.ButtonResultados.Text = "Resultados"
-        Me.ButtonResultados.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -2840,6 +3106,11 @@ Partial Class Main
         Me.Panel13.ResumeLayout(False)
         Me.TabPageLotoPool.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
+        Me.TabPageCrawlSlates.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.DataGridView_Crawl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPhill.ResumeLayout(False)
         CType(Me.PictureBoxPhillip, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPick4.ResumeLayout(False)
@@ -2870,6 +3141,8 @@ Partial Class Main
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewAudio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel15.ResumeLayout(False)
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -2985,7 +3258,7 @@ Partial Class Main
     Friend WithEvents TabPagePick4 As TabPage
     Friend WithEvents TabPagePhill As TabPage
     Friend WithEvents RB_Resultados As RadioButton
-    Friend WithEvents TabPageResultados As TabPage
+    Friend WithEvents TabPageCrawlSlates As TabPage
     Friend WithEvents ButtonResultadoPick3 As Button
     Friend WithEvents ButtonEntradaPick3 As Button
     Friend WithEvents NumPad_Pick3 As NumPad
@@ -3092,4 +3365,23 @@ Partial Class Main
     Friend WithEvents WarningToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ErrorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FatalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents DataGridView_Crawl As DataGridView
+    Friend WithEvents CR_Texto As DataGridViewTextBoxColumn
+    Friend WithEvents CR_active As DataGridViewCheckBoxColumn
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents TBSlate_FechaReal As TextBox
+    Friend WithEvents ButtonImport As Button
+    Friend WithEvents ButtonExport As Button
+    Friend WithEvents ButtonActivar As Button
+    Friend WithEvents ButtonEliminarItem As Button
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents Button_Crawl_Entrada As Button
+    Friend WithEvents Button_crawl_update As Button
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
 End Class

@@ -78,6 +78,9 @@
     <Reference Include="StarDust.CasparCg.net.Models, Version=2020.9.19.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StarDust.CasparCg.net.Models.2020.9.19.2-alpha\lib\net461\StarDust.CasparCg.net.Models.dll</HintPath>
     </Reference>
+    <Reference Include="Svt.Caspar">
+      <HintPath>..\..\LVBP-Stats\packages\Others\Svt.Caspar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
