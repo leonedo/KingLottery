@@ -77,13 +77,18 @@ Partial Class Main
         Me.ButtonEntradaLotoPool = New System.Windows.Forms.Button()
         Me.TabPageCrawlSlates = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TBSlate_LotoPool = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.TBSlate_Philpsburg = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TBSlate_Pick4 = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.TBSlate_FechaReal = New System.Windows.Forms.TextBox()
+        Me.TBSlate_Pick3 = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ButtonImport = New System.Windows.Forms.Button()
         Me.ButtonExport = New System.Windows.Forms.Button()
         Me.ButtonActivar = New System.Windows.Forms.Button()
-        Me.ButtonEliminarItem = New System.Windows.Forms.Button()
         Me.DataGridView_Crawl = New System.Windows.Forms.DataGridView()
         Me.CR_Texto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CR_active = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -212,10 +217,10 @@ Partial Class Main
         Me.Button_crawl_update = New System.Windows.Forms.Button()
         Me.ButtonResultados = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonClaquetaLotoPool = New System.Windows.Forms.Button()
+        Me.ButtonClaquetaPhil = New System.Windows.Forms.Button()
+        Me.ButtonClaquetaPick4 = New System.Windows.Forms.Button()
+        Me.ButtonClaquetaPick3 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBoxGenerico2 = New System.Windows.Forms.TextBox()
         Me.TextBoxGenerico1 = New System.Windows.Forms.TextBox()
@@ -352,7 +357,7 @@ Partial Class Main
         Me.LotoPoolEnAMToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.LotoPoolEnAMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LotoPoolEnAMToolStripMenuItem.Name = "LotoPoolEnAMToolStripMenuItem"
-        Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LotoPoolEnAMToolStripMenuItem.Text = "LotoPool en AM"
         '
         'ConsolaToolStripMenuItem
@@ -374,14 +379,14 @@ Partial Class Main
         Me.InternalKeyToolStripMenuItem.CheckOnClick = True
         Me.InternalKeyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InternalKeyToolStripMenuItem.Name = "InternalKeyToolStripMenuItem"
-        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.InternalKeyToolStripMenuItem.Text = "Internal Key"
         '
         'SalidaPGMToolStripMenuItem
         '
         Me.SalidaPGMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.P2997ToolStripMenuItem, Me.P5994ToolStripMenuItem})
         Me.SalidaPGMToolStripMenuItem.Name = "SalidaPGMToolStripMenuItem"
-        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SalidaPGMToolStripMenuItem.Text = "Salida PGM"
         '
         'P2997ToolStripMenuItem
@@ -404,7 +409,7 @@ Partial Class Main
         '
         Me.LoglevelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DebugToolStripMenuItem, Me.InfoToolStripMenuItem, Me.WarningToolStripMenuItem, Me.ErrorToolStripMenuItem, Me.FatalToolStripMenuItem})
         Me.LoglevelToolStripMenuItem.Name = "LoglevelToolStripMenuItem"
-        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LoglevelToolStripMenuItem.Text = "Log-level"
         '
         'DebugToolStripMenuItem
@@ -851,8 +856,16 @@ Partial Class Main
         '
         'GroupBox5
         '
+        Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Controls.Add(Me.Label14)
+        Me.GroupBox5.Controls.Add(Me.TBSlate_LotoPool)
+        Me.GroupBox5.Controls.Add(Me.Label13)
+        Me.GroupBox5.Controls.Add(Me.TBSlate_Philpsburg)
+        Me.GroupBox5.Controls.Add(Me.Label12)
+        Me.GroupBox5.Controls.Add(Me.TBSlate_Pick4)
         Me.GroupBox5.Controls.Add(Me.Label28)
-        Me.GroupBox5.Controls.Add(Me.TBSlate_FechaReal)
+        Me.GroupBox5.Controls.Add(Me.TBSlate_Pick3)
         Me.GroupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox5.Location = New System.Drawing.Point(359, 4)
         Me.GroupBox5.Name = "GroupBox5"
@@ -861,28 +874,86 @@ Partial Class Main
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Slates"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(7, 151)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(93, 13)
+        Me.Label14.TabIndex = 79
+        Me.Label14.Text = "# Sorteo LotoPool"
+        '
+        'TBSlate_LotoPool
+        '
+        Me.TBSlate_LotoPool.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "SlateLotoPool", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TBSlate_LotoPool.Location = New System.Drawing.Point(115, 148)
+        Me.TBSlate_LotoPool.Name = "TBSlate_LotoPool"
+        Me.TBSlate_LotoPool.Size = New System.Drawing.Size(53, 20)
+        Me.TBSlate_LotoPool.TabIndex = 78
+        Me.TBSlate_LotoPool.Text = Global.KingLottery.My.MySettings.Default.SlateLotoPool
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(7, 113)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(102, 13)
+        Me.Label13.TabIndex = 77
+        Me.Label13.Text = "# Sorteo Philipsburg"
+        '
+        'TBSlate_Philpsburg
+        '
+        Me.TBSlate_Philpsburg.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "SlatePhilipsburg", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TBSlate_Philpsburg.Location = New System.Drawing.Point(115, 110)
+        Me.TBSlate_Philpsburg.Name = "TBSlate_Philpsburg"
+        Me.TBSlate_Philpsburg.Size = New System.Drawing.Size(53, 20)
+        Me.TBSlate_Philpsburg.TabIndex = 76
+        Me.TBSlate_Philpsburg.Text = Global.KingLottery.My.MySettings.Default.SlatePhilipsburg
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 75)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(78, 13)
+        Me.Label12.TabIndex = 75
+        Me.Label12.Text = "# Sorteo Pick4"
+        '
+        'TBSlate_Pick4
+        '
+        Me.TBSlate_Pick4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "SlatePick4", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TBSlate_Pick4.Location = New System.Drawing.Point(115, 72)
+        Me.TBSlate_Pick4.Name = "TBSlate_Pick4"
+        Me.TBSlate_Pick4.Size = New System.Drawing.Size(53, 20)
+        Me.TBSlate_Pick4.TabIndex = 74
+        Me.TBSlate_Pick4.Text = Global.KingLottery.My.MySettings.Default.SlatePick4
+        '
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(8, 24)
+        Me.Label28.Location = New System.Drawing.Point(7, 37)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(78, 13)
         Me.Label28.TabIndex = 73
         Me.Label28.Text = "# Sorteo Pick3"
         '
-        'TBSlate_FechaReal
+        'TBSlate_Pick3
         '
-        Me.TBSlate_FechaReal.Location = New System.Drawing.Point(116, 21)
-        Me.TBSlate_FechaReal.Name = "TBSlate_FechaReal"
-        Me.TBSlate_FechaReal.Size = New System.Drawing.Size(53, 20)
-        Me.TBSlate_FechaReal.TabIndex = 72
+        Me.TBSlate_Pick3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.KingLottery.My.MySettings.Default, "SlatePick3", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TBSlate_Pick3.Location = New System.Drawing.Point(115, 34)
+        Me.TBSlate_Pick3.Name = "TBSlate_Pick3"
+        Me.TBSlate_Pick3.Size = New System.Drawing.Size(53, 20)
+        Me.TBSlate_Pick3.TabIndex = 72
+        Me.TBSlate_Pick3.Text = Global.KingLottery.My.MySettings.Default.SlatePick3
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.ButtonImport)
         Me.GroupBox3.Controls.Add(Me.ButtonExport)
         Me.GroupBox3.Controls.Add(Me.ButtonActivar)
-        Me.GroupBox3.Controls.Add(Me.ButtonEliminarItem)
         Me.GroupBox3.Controls.Add(Me.DataGridView_Crawl)
         Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox3.Location = New System.Drawing.Point(11, 4)
@@ -896,9 +967,9 @@ Partial Class Main
         '
         Me.ButtonImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonImport.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonImport.Location = New System.Drawing.Point(283, 241)
+        Me.ButtonImport.Location = New System.Drawing.Point(270, 241)
         Me.ButtonImport.Name = "ButtonImport"
-        Me.ButtonImport.Size = New System.Drawing.Size(53, 30)
+        Me.ButtonImport.Size = New System.Drawing.Size(66, 30)
         Me.ButtonImport.TabIndex = 17
         Me.ButtonImport.Text = "Importar"
         Me.ButtonImport.UseVisualStyleBackColor = True
@@ -907,7 +978,7 @@ Partial Class Main
         '
         Me.ButtonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonExport.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonExport.Location = New System.Drawing.Point(216, 241)
+        Me.ButtonExport.Location = New System.Drawing.Point(203, 241)
         Me.ButtonExport.Name = "ButtonExport"
         Me.ButtonExport.Size = New System.Drawing.Size(61, 30)
         Me.ButtonExport.TabIndex = 16
@@ -916,25 +987,14 @@ Partial Class Main
         '
         'ButtonActivar
         '
-        Me.ButtonActivar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonActivar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ButtonActivar.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonActivar.Location = New System.Drawing.Point(80, 241)
+        Me.ButtonActivar.Location = New System.Drawing.Point(6, 241)
         Me.ButtonActivar.Name = "ButtonActivar"
         Me.ButtonActivar.Size = New System.Drawing.Size(62, 30)
         Me.ButtonActivar.TabIndex = 15
         Me.ButtonActivar.Text = "Guardar"
         Me.ButtonActivar.UseVisualStyleBackColor = True
-        '
-        'ButtonEliminarItem
-        '
-        Me.ButtonEliminarItem.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ButtonEliminarItem.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonEliminarItem.Location = New System.Drawing.Point(6, 241)
-        Me.ButtonEliminarItem.Name = "ButtonEliminarItem"
-        Me.ButtonEliminarItem.Size = New System.Drawing.Size(67, 30)
-        Me.ButtonEliminarItem.TabIndex = 14
-        Me.ButtonEliminarItem.Text = "Eliminar"
-        Me.ButtonEliminarItem.UseVisualStyleBackColor = True
         '
         'DataGridView_Crawl
         '
@@ -2596,10 +2656,10 @@ Partial Class Main
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.Button4)
-        Me.GroupBox7.Controls.Add(Me.Button3)
-        Me.GroupBox7.Controls.Add(Me.Button2)
-        Me.GroupBox7.Controls.Add(Me.Button1)
+        Me.GroupBox7.Controls.Add(Me.ButtonClaquetaLotoPool)
+        Me.GroupBox7.Controls.Add(Me.ButtonClaquetaPhil)
+        Me.GroupBox7.Controls.Add(Me.ButtonClaquetaPick4)
+        Me.GroupBox7.Controls.Add(Me.ButtonClaquetaPick3)
         Me.GroupBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox7.Location = New System.Drawing.Point(203, 238)
         Me.GroupBox7.Name = "GroupBox7"
@@ -2608,61 +2668,61 @@ Partial Class Main
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Slates Ensayos"
         '
-        'Button4
+        'ButtonClaquetaLotoPool
         '
-        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button4.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Location = New System.Drawing.Point(252, 29)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(70, 27)
-        Me.Button4.TabIndex = 77
-        Me.Button4.Text = "LotoPool"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.ButtonClaquetaLotoPool.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonClaquetaLotoPool.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonClaquetaLotoPool.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonClaquetaLotoPool.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClaquetaLotoPool.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonClaquetaLotoPool.Location = New System.Drawing.Point(252, 29)
+        Me.ButtonClaquetaLotoPool.Name = "ButtonClaquetaLotoPool"
+        Me.ButtonClaquetaLotoPool.Size = New System.Drawing.Size(70, 27)
+        Me.ButtonClaquetaLotoPool.TabIndex = 77
+        Me.ButtonClaquetaLotoPool.Text = "LotoPool"
+        Me.ButtonClaquetaLotoPool.UseVisualStyleBackColor = False
         '
-        'Button3
+        'ButtonClaquetaPhil
         '
-        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button3.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button3.Location = New System.Drawing.Point(176, 29)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(70, 27)
-        Me.Button3.TabIndex = 76
-        Me.Button3.Text = "Philipsburg"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.ButtonClaquetaPhil.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonClaquetaPhil.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonClaquetaPhil.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonClaquetaPhil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClaquetaPhil.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonClaquetaPhil.Location = New System.Drawing.Point(176, 29)
+        Me.ButtonClaquetaPhil.Name = "ButtonClaquetaPhil"
+        Me.ButtonClaquetaPhil.Size = New System.Drawing.Size(70, 27)
+        Me.ButtonClaquetaPhil.TabIndex = 76
+        Me.ButtonClaquetaPhil.Text = "Philipsburg"
+        Me.ButtonClaquetaPhil.UseVisualStyleBackColor = False
         '
-        'Button2
+        'ButtonClaquetaPick4
         '
-        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button2.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button2.Location = New System.Drawing.Point(100, 29)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(70, 27)
-        Me.Button2.TabIndex = 75
-        Me.Button2.Text = "Pick4"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.ButtonClaquetaPick4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonClaquetaPick4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonClaquetaPick4.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonClaquetaPick4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClaquetaPick4.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonClaquetaPick4.Location = New System.Drawing.Point(100, 29)
+        Me.ButtonClaquetaPick4.Name = "ButtonClaquetaPick4"
+        Me.ButtonClaquetaPick4.Size = New System.Drawing.Size(70, 27)
+        Me.ButtonClaquetaPick4.TabIndex = 75
+        Me.ButtonClaquetaPick4.Text = "Pick4"
+        Me.ButtonClaquetaPick4.UseVisualStyleBackColor = False
         '
-        'Button1
+        'ButtonClaquetaPick3
         '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(24, 29)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(70, 27)
-        Me.Button1.TabIndex = 74
-        Me.Button1.Text = "Pick3"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.ButtonClaquetaPick3.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonClaquetaPick3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonClaquetaPick3.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonClaquetaPick3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonClaquetaPick3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonClaquetaPick3.Location = New System.Drawing.Point(24, 29)
+        Me.ButtonClaquetaPick3.Name = "ButtonClaquetaPick3"
+        Me.ButtonClaquetaPick3.Size = New System.Drawing.Size(70, 27)
+        Me.ButtonClaquetaPick3.TabIndex = 74
+        Me.ButtonClaquetaPick3.Text = "Pick3"
+        Me.ButtonClaquetaPick3.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -3371,17 +3431,22 @@ Partial Class Main
     Friend WithEvents CR_active As DataGridViewCheckBoxColumn
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Label28 As Label
-    Friend WithEvents TBSlate_FechaReal As TextBox
+    Friend WithEvents TBSlate_Pick3 As TextBox
     Friend WithEvents ButtonImport As Button
     Friend WithEvents ButtonExport As Button
     Friend WithEvents ButtonActivar As Button
-    Friend WithEvents ButtonEliminarItem As Button
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents Button_Crawl_Entrada As Button
     Friend WithEvents Button_crawl_update As Button
     Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents ButtonClaquetaPick3 As Button
+    Friend WithEvents ButtonClaquetaLotoPool As Button
+    Friend WithEvents ButtonClaquetaPhil As Button
+    Friend WithEvents ButtonClaquetaPick4 As Button
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TBSlate_LotoPool As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents TBSlate_Philpsburg As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TBSlate_Pick4 As TextBox
 End Class

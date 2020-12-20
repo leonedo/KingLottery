@@ -405,6 +405,54 @@ Namespace My
                 Me("log") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property SlatePick3() As String
+            Get
+                Return CType(Me("SlatePick3"),String)
+            End Get
+            Set
+                Me("SlatePick3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property SlatePick4() As String
+            Get
+                Return CType(Me("SlatePick4"),String)
+            End Get
+            Set
+                Me("SlatePick4") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property SlatePhilipsburg() As String
+            Get
+                Return CType(Me("SlatePhilipsburg"),String)
+            End Get
+            Set
+                Me("SlatePhilipsburg") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property SlateLotoPool() As String
+            Get
+                Return CType(Me("SlateLotoPool"),String)
+            End Get
+            Set
+                Me("SlateLotoPool") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

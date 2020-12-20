@@ -1638,7 +1638,7 @@ Public Class Main
 
 
 #Region "Crawl"
-    Private Sub ButtonEliminarItem_Click(sender As Object, e As EventArgs) Handles ButtonEliminarItem.Click
+    Private Sub ButtonEliminarItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -1776,6 +1776,42 @@ Public Class Main
         Catch ex As Exception
             MsgBox("Error cargando el archivo XML de guardado " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub ButtonClaquetaPick3_Click(sender As Object, e As EventArgs) Handles ButtonClaquetaPick4.Click, ButtonClaquetaPick3.Click, ButtonClaquetaPhil.Click, ButtonClaquetaLotoPool.Click
+
+    End Sub
+    Private Sub MuestraClaqueta(sorteo As Sorteos.Tipo)
+        If CasparDevice.IsConnected Then
+
+
+            Dim titulo = ""
+            Dim sorteoSlate = ""
+            Select Case sorteo
+                Case Sorteos.Tipo.Pick3_SXM
+                    titulo = "PICK 3 SXM"
+                    sorteoSlate = My.Settings.SlatePick3
+                Case Sorteos.Tipo.Pick4_SXM
+                    titulo = "PICK 4 SXM"
+                    sorteoSlate = My.Settings.SlatePick4
+                Case Sorteos.Tipo.Philipsburg
+                    titulo = "Philipsburg"
+                    sorteoSlate = My.Settings.SlatePhilipsburg
+                Case Sorteos.Tipo.LotoPool
+                    titulo = "LOTO POOL"
+                    sorteoSlate = My.Settings.SlateLotoPool
+            End Select
+
+            Dim CGdata As New CasparCGDataCollection From {
+           {"f0", $"{titulo}"},
+           {"f1", $"Sorteo: {sorteoSlate}"}
+       }
+            Canal_PGM.CG.Add(LayerTemplates, 1, "KingLottery/Slate", True, CGdata)
+        End If
+    End Sub
+
+    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
+
     End Sub
 
 #End Region
