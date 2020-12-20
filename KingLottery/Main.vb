@@ -1697,7 +1697,7 @@ Public Class Main
     End Sub
 
     Private Sub Button_Crawl_Entrada_Click(sender As Object, e As EventArgs) Handles Button_Crawl_Entrada.Click
-        Dim file = "LotoReal/Graficos/Separador.PNG"
+        Dim file = "King/Separador.PNG"
         Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{file}"">"
         Dim texto As String = ""
         For Each row As DataGridViewRow In DataGridView_Crawl.Rows
@@ -1718,9 +1718,9 @@ Public Class Main
     End Sub
 
     Private Sub Button_crawl_update_Click(sender As Object, e As EventArgs) Handles Button_crawl_update.Click
-        '   Dim file = "King/Separador.PNG"
-        '   Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{file}"">"
-        Dim separador = "¦"
+        Dim file = "King/Separador.PNG"
+        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{File}"">"
+        'Dim separador = "¦"
         Dim texto As String = ""
         For Each row As DataGridViewRow In DataGridView_Crawl.Rows
             If row.Cells("CR_active").Value = True Then
@@ -1778,6 +1778,15 @@ Public Class Main
         End Try
     End Sub
 
+    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles TrackBar_crawlSpeed.Scroll
+        Dim CGdata As New CasparCGDataCollection From {
+              {"speed", TrackBar_crawlSpeed.Value}
+              }
+        Canal_PGM.CG.Update(LayerTemplates, 1, CGdata)
+    End Sub
+
+#End Region
+
     Private Sub ButtonClaquetaPick3_Click(sender As Object, e As EventArgs) Handles ButtonClaquetaPick4.Click, ButtonClaquetaPick3.Click, ButtonClaquetaPhil.Click, ButtonClaquetaLotoPool.Click
         Select Case sender.tag
             Case "Pick3_SXM"
@@ -1823,7 +1832,9 @@ Public Class Main
 
     End Sub
 
-#End Region
+
+
+
 End Class
 
 #Region "Clases de soporte"

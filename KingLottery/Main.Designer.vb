@@ -76,6 +76,15 @@ Partial Class Main
         Me.ButtonResultadoLotoPool = New System.Windows.Forms.Button()
         Me.ButtonEntradaLotoPool = New System.Windows.Forms.Button()
         Me.TabPageCrawlSlates = New System.Windows.Forms.TabPage()
+        Me.Panel21 = New System.Windows.Forms.Panel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView_Crawl = New System.Windows.Forms.DataGridView()
+        Me.CR_Texto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CR_active = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.TrackBar_crawlSpeed = New System.Windows.Forms.TrackBar()
+        Me.ButtonImport = New System.Windows.Forms.Button()
+        Me.ButtonExport = New System.Windows.Forms.Button()
+        Me.ButtonActivar = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TBSlate_LotoPool = New System.Windows.Forms.TextBox()
@@ -85,13 +94,6 @@ Partial Class Main
         Me.TBSlate_Pick4 = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TBSlate_Pick3 = New System.Windows.Forms.TextBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ButtonImport = New System.Windows.Forms.Button()
-        Me.ButtonExport = New System.Windows.Forms.Button()
-        Me.ButtonActivar = New System.Windows.Forms.Button()
-        Me.DataGridView_Crawl = New System.Windows.Forms.DataGridView()
-        Me.CR_Texto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CR_active = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.PanelPhill = New System.Windows.Forms.Panel()
         Me.Label_PHI4_12 = New System.Windows.Forms.Label()
         Me.Label_PHI4_11 = New System.Windows.Forms.Label()
@@ -273,9 +275,11 @@ Partial Class Main
         Me.TabPageLotoPool.SuspendLayout()
         Me.Panel10.SuspendLayout()
         Me.TabPageCrawlSlates.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
+        Me.Panel21.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView_Crawl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar_crawlSpeed, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.PanelPhill.SuspendLayout()
         CType(Me.PictureBoxPhillip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPick4.SuspendLayout()
@@ -357,7 +361,7 @@ Partial Class Main
         Me.LotoPoolEnAMToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.LotoPoolEnAMToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LotoPoolEnAMToolStripMenuItem.Name = "LotoPoolEnAMToolStripMenuItem"
-        Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LotoPoolEnAMToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.LotoPoolEnAMToolStripMenuItem.Text = "LotoPool en AM"
         '
         'ConsolaToolStripMenuItem
@@ -379,14 +383,14 @@ Partial Class Main
         Me.InternalKeyToolStripMenuItem.CheckOnClick = True
         Me.InternalKeyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InternalKeyToolStripMenuItem.Name = "InternalKeyToolStripMenuItem"
-        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InternalKeyToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.InternalKeyToolStripMenuItem.Text = "Internal Key"
         '
         'SalidaPGMToolStripMenuItem
         '
         Me.SalidaPGMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.P2997ToolStripMenuItem, Me.P5994ToolStripMenuItem})
         Me.SalidaPGMToolStripMenuItem.Name = "SalidaPGMToolStripMenuItem"
-        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SalidaPGMToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.SalidaPGMToolStripMenuItem.Text = "Salida PGM"
         '
         'P2997ToolStripMenuItem
@@ -409,7 +413,7 @@ Partial Class Main
         '
         Me.LoglevelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DebugToolStripMenuItem, Me.InfoToolStripMenuItem, Me.WarningToolStripMenuItem, Me.ErrorToolStripMenuItem, Me.FatalToolStripMenuItem})
         Me.LoglevelToolStripMenuItem.Name = "LoglevelToolStripMenuItem"
-        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoglevelToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.LoglevelToolStripMenuItem.Text = "Log-level"
         '
         'DebugToolStripMenuItem
@@ -845,8 +849,7 @@ Partial Class Main
         'TabPageCrawlSlates
         '
         Me.TabPageCrawlSlates.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TabPageCrawlSlates.Controls.Add(Me.GroupBox5)
-        Me.TabPageCrawlSlates.Controls.Add(Me.GroupBox3)
+        Me.TabPageCrawlSlates.Controls.Add(Me.Panel21)
         Me.TabPageCrawlSlates.Location = New System.Drawing.Point(4, 22)
         Me.TabPageCrawlSlates.Name = "TabPageCrawlSlates"
         Me.TabPageCrawlSlates.Padding = New System.Windows.Forms.Padding(3)
@@ -854,10 +857,124 @@ Partial Class Main
         Me.TabPageCrawlSlates.TabIndex = 4
         Me.TabPageCrawlSlates.Text = "TabPageResultados"
         '
+        'Panel21
+        '
+        Me.Panel21.Controls.Add(Me.GroupBox3)
+        Me.Panel21.Controls.Add(Me.GroupBox5)
+        Me.Panel21.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel21.Location = New System.Drawing.Point(3, 3)
+        Me.Panel21.Name = "Panel21"
+        Me.Panel21.Size = New System.Drawing.Size(543, 279)
+        Me.Panel21.TabIndex = 94
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.DataGridView_Crawl)
+        Me.GroupBox3.Controls.Add(Me.TrackBar_crawlSpeed)
+        Me.GroupBox3.Controls.Add(Me.ButtonImport)
+        Me.GroupBox3.Controls.Add(Me.ButtonExport)
+        Me.GroupBox3.Controls.Add(Me.ButtonActivar)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(351, 279)
+        Me.GroupBox3.TabIndex = 92
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Crawl config"
+        '
+        'DataGridView_Crawl
+        '
+        Me.DataGridView_Crawl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView_Crawl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView_Crawl.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.DataGridView_Crawl.ColumnHeadersHeight = 25
+        Me.DataGridView_Crawl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridView_Crawl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CR_Texto, Me.CR_active})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView_Crawl.Location = New System.Drawing.Point(6, 50)
+        Me.DataGridView_Crawl.MultiSelect = False
+        Me.DataGridView_Crawl.Name = "DataGridView_Crawl"
+        Me.DataGridView_Crawl.RowHeadersVisible = False
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.RowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView_Crawl.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.Size = New System.Drawing.Size(339, 223)
+        Me.DataGridView_Crawl.TabIndex = 1
+        '
+        'CR_Texto
+        '
+        Me.CR_Texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CR_Texto.HeaderText = "Texto"
+        Me.CR_Texto.Name = "CR_Texto"
+        '
+        'CR_active
+        '
+        Me.CR_active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.CR_active.FalseValue = "false"
+        Me.CR_active.HeaderText = "active"
+        Me.CR_active.IndeterminateValue = "false"
+        Me.CR_active.MinimumWidth = 50
+        Me.CR_active.Name = "CR_active"
+        Me.CR_active.TrueValue = "true"
+        Me.CR_active.Width = 50
+        '
+        'TrackBar_crawlSpeed
+        '
+        Me.TrackBar_crawlSpeed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TrackBar_crawlSpeed.LargeChange = 3
+        Me.TrackBar_crawlSpeed.Location = New System.Drawing.Point(79, 17)
+        Me.TrackBar_crawlSpeed.Minimum = 1
+        Me.TrackBar_crawlSpeed.Name = "TrackBar_crawlSpeed"
+        Me.TrackBar_crawlSpeed.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TrackBar_crawlSpeed.Size = New System.Drawing.Size(127, 45)
+        Me.TrackBar_crawlSpeed.TabIndex = 18
+        Me.TrackBar_crawlSpeed.Value = 5
+        '
+        'ButtonImport
+        '
+        Me.ButtonImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonImport.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonImport.Location = New System.Drawing.Point(284, 19)
+        Me.ButtonImport.Name = "ButtonImport"
+        Me.ButtonImport.Size = New System.Drawing.Size(60, 25)
+        Me.ButtonImport.TabIndex = 17
+        Me.ButtonImport.Text = "Importar"
+        Me.ButtonImport.UseVisualStyleBackColor = True
+        '
+        'ButtonExport
+        '
+        Me.ButtonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonExport.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonExport.Location = New System.Drawing.Point(217, 19)
+        Me.ButtonExport.Name = "ButtonExport"
+        Me.ButtonExport.Size = New System.Drawing.Size(60, 25)
+        Me.ButtonExport.TabIndex = 16
+        Me.ButtonExport.Text = "Exportar"
+        Me.ButtonExport.UseVisualStyleBackColor = True
+        '
+        'ButtonActivar
+        '
+        Me.ButtonActivar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonActivar.Location = New System.Drawing.Point(5, 19)
+        Me.ButtonActivar.Name = "ButtonActivar"
+        Me.ButtonActivar.Size = New System.Drawing.Size(60, 25)
+        Me.ButtonActivar.TabIndex = 15
+        Me.ButtonActivar.Text = "Guardar"
+        Me.ButtonActivar.UseVisualStyleBackColor = True
+        '
         'GroupBox5
         '
-        Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Controls.Add(Me.TBSlate_LotoPool)
         Me.GroupBox5.Controls.Add(Me.Label13)
@@ -866,10 +983,11 @@ Partial Class Main
         Me.GroupBox5.Controls.Add(Me.TBSlate_Pick4)
         Me.GroupBox5.Controls.Add(Me.Label28)
         Me.GroupBox5.Controls.Add(Me.TBSlate_Pick3)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Right
         Me.GroupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox5.Location = New System.Drawing.Point(359, 4)
+        Me.GroupBox5.Location = New System.Drawing.Point(351, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(184, 277)
+        Me.GroupBox5.Size = New System.Drawing.Size(192, 279)
         Me.GroupBox5.TabIndex = 93
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Slates"
@@ -945,99 +1063,6 @@ Partial Class Main
         Me.TBSlate_Pick3.Size = New System.Drawing.Size(53, 20)
         Me.TBSlate_Pick3.TabIndex = 72
         Me.TBSlate_Pick3.Text = Global.KingLottery.My.MySettings.Default.SlatePick3
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.ButtonImport)
-        Me.GroupBox3.Controls.Add(Me.ButtonExport)
-        Me.GroupBox3.Controls.Add(Me.ButtonActivar)
-        Me.GroupBox3.Controls.Add(Me.DataGridView_Crawl)
-        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox3.Location = New System.Drawing.Point(11, 4)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(342, 277)
-        Me.GroupBox3.TabIndex = 92
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Crawl config"
-        '
-        'ButtonImport
-        '
-        Me.ButtonImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ButtonImport.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonImport.Location = New System.Drawing.Point(270, 241)
-        Me.ButtonImport.Name = "ButtonImport"
-        Me.ButtonImport.Size = New System.Drawing.Size(66, 30)
-        Me.ButtonImport.TabIndex = 17
-        Me.ButtonImport.Text = "Importar"
-        Me.ButtonImport.UseVisualStyleBackColor = True
-        '
-        'ButtonExport
-        '
-        Me.ButtonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ButtonExport.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonExport.Location = New System.Drawing.Point(203, 241)
-        Me.ButtonExport.Name = "ButtonExport"
-        Me.ButtonExport.Size = New System.Drawing.Size(61, 30)
-        Me.ButtonExport.TabIndex = 16
-        Me.ButtonExport.Text = "Exportar"
-        Me.ButtonExport.UseVisualStyleBackColor = True
-        '
-        'ButtonActivar
-        '
-        Me.ButtonActivar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ButtonActivar.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ButtonActivar.Location = New System.Drawing.Point(6, 241)
-        Me.ButtonActivar.Name = "ButtonActivar"
-        Me.ButtonActivar.Size = New System.Drawing.Size(62, 30)
-        Me.ButtonActivar.TabIndex = 15
-        Me.ButtonActivar.Text = "Guardar"
-        Me.ButtonActivar.UseVisualStyleBackColor = True
-        '
-        'DataGridView_Crawl
-        '
-        Me.DataGridView_Crawl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView_Crawl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridView_Crawl.ColumnHeadersHeight = 25
-        Me.DataGridView_Crawl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView_Crawl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CR_Texto, Me.CR_active})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView_Crawl.Location = New System.Drawing.Point(6, 21)
-        Me.DataGridView_Crawl.MultiSelect = False
-        Me.DataGridView_Crawl.Name = "DataGridView_Crawl"
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView_Crawl.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.Size = New System.Drawing.Size(330, 214)
-        Me.DataGridView_Crawl.TabIndex = 1
-        '
-        'CR_Texto
-        '
-        Me.CR_Texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.CR_Texto.HeaderText = "Texto"
-        Me.CR_Texto.Name = "CR_Texto"
-        '
-        'CR_active
-        '
-        Me.CR_active.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.CR_active.FalseValue = "false"
-        Me.CR_active.HeaderText = "active"
-        Me.CR_active.IndeterminateValue = "false"
-        Me.CR_active.MinimumWidth = 50
-        Me.CR_active.Name = "CR_active"
-        Me.CR_active.TrueValue = "true"
-        Me.CR_active.Width = 50
         '
         'PanelPhill
         '
@@ -3171,10 +3196,13 @@ Partial Class Main
         Me.TabPageLotoPool.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
         Me.TabPageCrawlSlates.ResumeLayout(False)
+        Me.Panel21.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.DataGridView_Crawl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar_crawlSpeed, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        CType(Me.DataGridView_Crawl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPhill.ResumeLayout(False)
         CType(Me.PictureBoxPhillip, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPick4.ResumeLayout(False)
@@ -3453,4 +3481,6 @@ Partial Class Main
     Friend WithEvents TBSlate_Philpsburg As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents TBSlate_Pick4 As TextBox
+    Friend WithEvents Panel21 As Panel
+    Friend WithEvents TrackBar_crawlSpeed As TrackBar
 End Class
