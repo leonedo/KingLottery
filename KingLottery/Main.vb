@@ -69,6 +69,7 @@ Public Class Main
             CasparDevice = _container.Resolve(Of ICasparDevice)()
             Auth(login.ComboBox1.SelectedIndex) 'Ejecuta tareas segun Tipo de usuario
             LoadDataSource()
+            LoadCrawl()
             SetupComboxes()
             CheckSavedConfig(SalidaPGMToolStripMenuItem, My.Settings.videoMode)
             CheckSavedConfig(LoglevelToolStripMenuItem, My.Settings.log)
@@ -1698,7 +1699,7 @@ Public Class Main
 
     Private Sub Button_Crawl_Entrada_Click(sender As Object, e As EventArgs) Handles Button_Crawl_Entrada.Click
         Dim file = "King/Separador.PNG"
-        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{file}"">"
+        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""30"" src=""{file}"">"
         Dim texto As String = ""
         For Each row As DataGridViewRow In DataGridView_Crawl.Rows
             If row.Cells("CR_active").Value = True Then
@@ -1719,7 +1720,7 @@ Public Class Main
 
     Private Sub Button_crawl_update_Click(sender As Object, e As EventArgs) Handles Button_crawl_update.Click
         Dim file = "King/Separador.PNG"
-        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""40"" src=""{File}"">"
+        Dim separador = $"<img vspace=""0"" hspace=""0"" height=""40"" width=""30"" src=""{file}"">"
         'Dim separador = "¦"
         Dim texto As String = ""
         For Each row As DataGridViewRow In DataGridView_Crawl.Rows
