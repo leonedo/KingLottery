@@ -530,7 +530,7 @@ Public Class Main
     End Sub
 
     Private Sub Button_Play_Separadores_Click(sender As Object, e As MouseEventArgs) Handles Button_Separador_1.Click, Button_Separador_2.Click,
-                                                                                   Button_Separador_3.Click, Button_Separador_4.Click, Button_Separador_5.Click, Button_Separador_6.Click
+                                                                                   Button_Separador_3.Click, Button_Separador_4.Click, Button_Separador_5.Click, Button_Separador_6.Click, Button_Separador_7.Click, Button_Separador_8.Click
         Dim video = New CasparPlayingInfoItem(LayerSeparadores, $"""Separadores/{sender.text}""")
         Canal_PGM.LoadBG(video, False)
         Canal_PGM.Play(LayerSeparadores)
@@ -1165,6 +1165,15 @@ Public Class Main
 #End Region
 
 #End Region
+
+    Private Sub ButtonQuinielaFullSrceen(sender As Object, e As EventArgs) Handles ButtonQuinielaFullScreen.Click
+        Dim CGdata As New CasparCGDataCollection From {
+                {"f1", $"{Label_SXM3_2.Text}{Label_SXM3_3.Text}"},
+                {"f2", $"{Label_SXM4_1.Text}{Label_SXM4_2.Text}"},
+                {"f3", $"{Label_SXM4_3.Text}{Label_SXM4_4.Text}"}
+            }
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/quiniela", True, CGdata)
+    End Sub
     Private Sub ButtonResultados_Click(sender As Object, e As EventArgs) Handles ButtonResultados.Click
         Dim CGdata As New CasparCGDataCollection From {
                 {"f1", Label_SXM3_1.Text},
@@ -1180,13 +1189,16 @@ Public Class Main
                 {"f11", Label_Pool1.Text},
                 {"f12", Label_Pool2.Text},
                 {"f13", Label_Pool3.Text},
-                {"f14", Label_Pool4.Text}
+                {"f14", Label_Pool4.Text},
+                {"f15", $"{Label_SXM3_2.Text}{Label_SXM3_3.Text}"},
+                {"f16", $"{Label_SXM4_1.Text}{Label_SXM4_2.Text}"},
+                {"f17", $"{Label_SXM4_3.Text}{Label_SXM4_4.Text}"}
             }
 
         If RadioButtonAM.Checked And My.Settings.LotoPoolAM = False Then
             Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_AM", True, CGdata)
         Else
-            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_PM", True, CGdata)
+            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_QN", True, CGdata)
         End If
     End Sub
 
@@ -1828,12 +1840,6 @@ Public Class Main
             Canal_PGM.CG.Add(LayerTemplates, 1, "King/Slate", True, CGdata)
         End If
     End Sub
-
-    Private Sub Button_Play_Separadores_Click(sender As Object, e As EventArgs) Handles Button_Separador_6.Click, Button_Separador_5.Click, Button_Separador_4.Click, Button_Separador_3.Click, Button_Separador_2.Click, Button_Separador_1.Click
-
-    End Sub
-
-
 
 
 End Class

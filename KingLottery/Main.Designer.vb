@@ -27,6 +27,7 @@ Partial Class Main
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.UsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -259,6 +260,7 @@ Partial Class Main
         Me.BindingSourcePresentadores = New System.Windows.Forms.BindingSource(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ButtonQuinielaFullScreen = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -890,25 +892,34 @@ Partial Class Main
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView_Crawl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView_Crawl.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView_Crawl.ColumnHeadersHeight = 25
         Me.DataGridView_Crawl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView_Crawl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CR_Texto, Me.CR_active})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView_Crawl.Location = New System.Drawing.Point(6, 50)
         Me.DataGridView_Crawl.MultiSelect = False
         Me.DataGridView_Crawl.Name = "DataGridView_Crawl"
         Me.DataGridView_Crawl.RowHeadersVisible = False
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_Crawl.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView_Crawl.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView_Crawl.Size = New System.Drawing.Size(339, 223)
+        Me.DataGridView_Crawl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView_Crawl.Size = New System.Drawing.Size(345, 223)
         Me.DataGridView_Crawl.TabIndex = 1
         '
         'CR_Texto
@@ -930,14 +941,12 @@ Partial Class Main
         '
         'TrackBar_crawlSpeed
         '
-        Me.TrackBar_crawlSpeed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TrackBar_crawlSpeed.LargeChange = 3
         Me.TrackBar_crawlSpeed.Location = New System.Drawing.Point(79, 17)
         Me.TrackBar_crawlSpeed.Minimum = 1
         Me.TrackBar_crawlSpeed.Name = "TrackBar_crawlSpeed"
         Me.TrackBar_crawlSpeed.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TrackBar_crawlSpeed.Size = New System.Drawing.Size(127, 45)
+        Me.TrackBar_crawlSpeed.Size = New System.Drawing.Size(132, 45)
         Me.TrackBar_crawlSpeed.TabIndex = 18
         Me.TrackBar_crawlSpeed.Value = 5
         '
@@ -1604,8 +1613,8 @@ Partial Class Main
         Me.DataGridViewPlayout.ReadOnly = True
         Me.DataGridViewPlayout.RowHeadersVisible = False
         Me.DataGridViewPlayout.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPlayout.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewPlayout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewPlayout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewPlayout.Size = New System.Drawing.Size(546, 161)
@@ -2574,8 +2583,8 @@ Partial Class Main
         Me.DataGridViewAudio.ReadOnly = True
         Me.DataGridViewAudio.RowHeadersVisible = False
         Me.DataGridViewAudio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewAudio.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewAudio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridViewAudio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewAudio.Size = New System.Drawing.Size(487, 161)
@@ -2613,6 +2622,7 @@ Partial Class Main
         'Panel15
         '
         Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel15.Controls.Add(Me.ButtonQuinielaFullScreen)
         Me.Panel15.Controls.Add(Me.GroupBox8)
         Me.Panel15.Controls.Add(Me.ButtonResultados)
         Me.Panel15.Controls.Add(Me.GroupBox7)
@@ -2667,20 +2677,22 @@ Partial Class Main
         '
         'ButtonResultados
         '
+        Me.ButtonResultados.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.ButtonResultados.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ButtonResultados.BackColor = System.Drawing.Color.OrangeRed
         Me.ButtonResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ButtonResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonResultados.ForeColor = System.Drawing.Color.White
-        Me.ButtonResultados.Location = New System.Drawing.Point(40, 259)
+        Me.ButtonResultados.Location = New System.Drawing.Point(35, 278)
         Me.ButtonResultados.Name = "ButtonResultados"
-        Me.ButtonResultados.Size = New System.Drawing.Size(121, 31)
+        Me.ButtonResultados.Size = New System.Drawing.Size(130, 27)
         Me.ButtonResultados.TabIndex = 57
         Me.ButtonResultados.Text = "Resultados"
         Me.ButtonResultados.UseVisualStyleBackColor = False
         '
         'GroupBox7
         '
+        Me.GroupBox7.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.GroupBox7.Controls.Add(Me.ButtonClaquetaLotoPool)
         Me.GroupBox7.Controls.Add(Me.ButtonClaquetaPhil)
         Me.GroupBox7.Controls.Add(Me.ButtonClaquetaPick4)
@@ -3166,6 +3178,21 @@ Partial Class Main
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'ButtonQuinielaFullScreen
+        '
+        Me.ButtonQuinielaFullScreen.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ButtonQuinielaFullScreen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ButtonQuinielaFullScreen.BackColor = System.Drawing.Color.GreenYellow
+        Me.ButtonQuinielaFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ButtonQuinielaFullScreen.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonQuinielaFullScreen.Location = New System.Drawing.Point(35, 242)
+        Me.ButtonQuinielaFullScreen.Name = "ButtonQuinielaFullScreen"
+        Me.ButtonQuinielaFullScreen.Size = New System.Drawing.Size(130, 27)
+        Me.ButtonQuinielaFullScreen.TabIndex = 95
+        Me.ButtonQuinielaFullScreen.Tag = "Quiniela"
+        Me.ButtonQuinielaFullScreen.Text = "Quiniela Full"
+        Me.ButtonQuinielaFullScreen.UseVisualStyleBackColor = False
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3483,4 +3510,5 @@ Partial Class Main
     Friend WithEvents TBSlate_Pick4 As TextBox
     Friend WithEvents Panel21 As Panel
     Friend WithEvents TrackBar_crawlSpeed As TrackBar
+    Friend WithEvents ButtonQuinielaFullScreen As Button
 End Class
