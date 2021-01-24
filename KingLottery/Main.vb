@@ -1194,12 +1194,7 @@ Public Class Main
                 {"f16", $"{Label_SXM4_1.Text}{Label_SXM4_2.Text}"},
                 {"f17", $"{Label_SXM4_3.Text}{Label_SXM4_4.Text}"}
             }
-
-        If RadioButtonAM.Checked And My.Settings.LotoPoolAM = False Then
-            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_AM", True, CGdata)
-        Else
-            Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_QN", True, CGdata)
-        End If
+        Canal_PGM.CG.Add(LayerTemplates, 1, "King/Resultados_QN", True, CGdata)
     End Sub
 
     Private Sub ButtonGeneral_Click(sender As Object, e As EventArgs) Handles ButtonGeneral.Click
