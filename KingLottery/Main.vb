@@ -19,7 +19,7 @@ Imports System.Xml
 Imports Svt
 
 Public Class Main
-    Const Version = "1.0.0" '
+    Const Version = "1.0.1" '
 
     Public WithEvents CasparDevice As StarDust.CasparCG.net.Device.CasparDevice
     Public Canal_PGM As ChannelManager
