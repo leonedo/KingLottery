@@ -41,8 +41,8 @@
         Select Case tipoSorteo
             Case Sorteos.Tipo.LotoPool
                 format = "00"
-                min = 1
-                top = 100
+                min = 0
+                top = 99
                 LabelDescription.Text = $"{bolo}"
                 '  ButtonNumero.Image = My.Resources.BolaVerde
         End Select
